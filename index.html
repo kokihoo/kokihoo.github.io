@@ -62,10 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-vector-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/08/06/vector-1/" class="article-date">
-  <time datetime="2019-08-06T03:32:22.000Z" itemprop="datePublished">2019-08-06</time>
+    <a href="/2019/08/06/Tree/" class="article-date">
+  <time datetime="2019-08-06T07:36:01.000Z" itemprop="datePublished">2019-08-06</time>
 </a>
     
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/06/vector-1/">vector</a>
+      <a class="article-title" href="/2019/08/06/Tree/">Tree</a>
     </h1>
   
 
@@ -88,7 +88,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/06/vector-1/" data-id="cjyzfp0300001csg58e1aj9zi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/06/Tree/" data-id="cjyzif7xa0000tog5gu2khm3u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,62 +120,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="向量基本概念和性质"><a href="#向量基本概念和性质" class="headerlink" title="向量基本概念和性质"></a>向量基本概念和性质</h2><hr>
+<blockquote>
+<p>所谓序列(Sequence),就是依次排列的多个对象。比如，每一个计算机程序都可以看作一个序列，它由一系列一次排列的指令组成，正是指令之间的次序决定了程序的具体功能，因此所谓序列就是一组对象之间的后继与前驱关系，在实际问题中，序列可以用来实现很多种数据结构，因此被认为是数据结构设计的基础。栈、队列以及双端队列，都可以看作有附加限制的序列。</p>
+</blockquote>
+<p>###向量<br>    向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container)，跟任意其他类型的容器一样，它可以存放各种类型的对象，可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
+<p>#####1.顺序序列<br>    顺序容器中的元素按照严格的线性顺序排序，可以通过元素在序列中的位置访问对应的元素</p>
+<p>#####2.动态数组<br>    支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算法进行改操作，提供了在序列末尾先对快速地添加/删除元素</p>
+<p>#####3.能够感知内存分配器的（Allocator-aware）<br>    容器使用一个内存分配器对象来动态处理它的存储需求</p>
+<blockquote>
+<p>向量Vector的扩充机制：按照容器现在容量的一倍进行增长。vector容器分配的是一块连续的内存空间，每次容器的增长，并不是在原有连续的内存空间后进行简单的叠加，而是重新申请一块更大的新内存，并把现有容器中的元素逐个复制过去，然后销毁旧的内存，这时原有指向旧内存空间的迭代器已经失效，所以当操作容器时，迭代器要及时更新。</p>
+</blockquote>
+<p>###[向量]抽象数据结构ADT</p>
+<h2 id="向量ADT及其数组、连接实现"><a href="#向量ADT及其数组、连接实现" class="headerlink" title="向量ADT及其数组、连接实现"></a>向量ADT及其数组、连接实现</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/06/vector/" data-id="cjyzfp03k0002csg583ctfd4a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/06/vector/" data-id="cjyzif7xz0001tog58425nf4k" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DATA-STRUCTURE/">DATA STRUCTURE</a></li></ul>
 
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/06/hello-world/" class="article-date">
-  <time datetime="2019-08-06T03:00:53.880Z" itemprop="datePublished">2019-08-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/06/hello-world/" data-id="cjyzfp02s0000csg55c5xswkr" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -193,9 +158,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DATA-STRUCTURE/">DATA STRUCTURE</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -214,15 +193,11 @@
       <ul>
         
           <li>
-            <a href="/2019/08/06/vector-1/">vector</a>
+            <a href="/2019/08/06/Tree/">Tree</a>
           </li>
         
           <li>
             <a href="/2019/08/06/vector/">vector</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/06/hello-world/">Hello World</a>
           </li>
         
       </ul>
