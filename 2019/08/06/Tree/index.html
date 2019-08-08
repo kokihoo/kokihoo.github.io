@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="PEACE&amp;LOVE">
+<meta name="description" content="树 内容：    - 1.树的基本概念和术语    - 2.树的前序、中序、后序、层次序遍历    - 3.二叉树及其性质    - 4.普通树与二叉树的转换    - 5.树的存储结构，标准形式    - 6.完全树(complete tree)的数组形式存储    - 7.树的应用    - 8.Huffman树的定义与应用   1.树的基本概念和术语树是n(n&amp;gt;0)个结点的有限集合T。">
 <meta name="keywords" content="DATA STRUCTURE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tree">
 <meta property="og:url" content="http://yoursite.com/2019/08/06/Tree/index.html">
 <meta property="og:site_name" content="KOKI">
-<meta property="og:description" content="PEACE&amp;LOVE">
+<meta property="og:description" content="树 内容：    - 1.树的基本概念和术语    - 2.树的前序、中序、后序、层次序遍历    - 3.二叉树及其性质    - 4.普通树与二叉树的转换    - 5.树的存储结构，标准形式    - 6.完全树(complete tree)的数组形式存储    - 7.树的应用    - 8.Huffman树的定义与应用   1.树的基本概念和术语树是n(n&amp;gt;0)个结点的有限集合T。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-07T07:47:00.564Z">
+<meta property="og:image" content="http://yoursite.com/images/btree_sxcc.jpg">
+<meta property="og:image" content="http://yoursite.com/images/btree_lscc.jpg">
+<meta property="og:updated_time" content="2019-08-08T10:05:54.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tree">
-<meta name="twitter:description" content="PEACE&amp;LOVE">
+<meta name="twitter:description" content="树 内容：    - 1.树的基本概念和术语    - 2.树的前序、中序、后序、层次序遍历    - 3.二叉树及其性质    - 4.普通树与二叉树的转换    - 5.树的存储结构，标准形式    - 6.完全树(complete tree)的数组形式存储    - 7.树的应用    - 8.Huffman树的定义与应用   1.树的基本概念和术语树是n(n&amp;gt;0)个结点的有限集合T。">
+<meta name="twitter:image" content="http://yoursite.com/images/btree_sxcc.jpg">
 
 
 
@@ -328,8 +331,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-07T15:47:00+08:00">
-                2019-08-07
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-08T18:05:54+08:00">
+                2019-08-08
               </time>
             
           </span>
@@ -389,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1.9k
                 </span>
               
 
@@ -405,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -426,7 +429,43 @@
       
 
       
-        
+        <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><blockquote>
+<p>内容：<br>    - 1.树的基本概念和术语<br>    - 2.树的前序、中序、后序、层次序遍历<br>    - 3.二叉树及其性质<br>    - 4.普通树与二叉树的转换<br>    - 5.树的存储结构，标准形式<br>    - 6.完全树(complete tree)的数组形式存储<br>    - 7.树的应用<br>    - 8.Huffman树的定义与应用</p>
+</blockquote>
+<hr>
+<h3 id="1-树的基本概念和术语"><a href="#1-树的基本概念和术语" class="headerlink" title="1.树的基本概念和术语"></a>1.树的基本概念和术语</h3><pre><code>树是n(n&gt;0)个结点的有限集合T。在一颗树中满足如下两个条件：
+(1) 有且仅有一个称做根的结点
+(2) 其余的结点可分为m(m&gt;=0)棵互不相交的有限集合T1,T2,……, Tm,其中每个集合又都是一个树，并称其为根的子树
+
+因此，树的定义是递归的，树是一种递归数据结构。树的这种定义为树的递归处理带来了很大的方便。</code></pre><p><strong>结点的度</strong>：树中每个结点具有的子树数或者后续结点数称为该结点的度。<br><strong>树的度</strong>：树中所有结点的度的最大值称之为树的度。度为m的树称为m次树。<br><strong>分支结点</strong>：度大于0的结点称为分支结点或非终端结点。<br><strong>叶子结点</strong>：度为0的结点称为叶子结点或终端结点。<br><strong>孩子结点</strong>：一个结点的后续称之为该结点的孩子结点。<br><strong>双亲结点</strong>：一个结点称为其后继结点的双亲结点。<br><strong>子孙结点</strong>：一个结点的所有子树中的结点称之为该结点的子孙结点。<br><strong>祖先结点</strong>：从树根结点到达一个结点的路径上所通过的所有结点称为该结点的祖先结点。<br><strong>兄弟结点</strong>：具有同一父亲的结点互相称之为兄弟结点。<br><strong>结点的层数</strong>：树具有一种层次结构，根结点为第一层，其孩子结点为第二层，如此类推到每个结点的层数。<br><strong>树的深度</strong>：树中结点的最大层数称为树的深度或高度。<br><strong>森林</strong>：0个或多个不相交的树的集合称为森林。</p>
+<h3 id="2-树的前序、中序、后序、层次序遍历"><a href="#2-树的前序、中序、后序、层次序遍历" class="headerlink" title="2.树的前序、中序、后序、层次序遍历"></a>2.树的前序、中序、后序、层次序遍历</h3><h3 id="3-二叉树及其性质"><a href="#3-二叉树及其性质" class="headerlink" title="3.二叉树及其性质"></a>3.二叉树及其性质</h3><pre><code>3.1 二叉树的几个基本术语
+二叉树：二叉树由结点的有限集合构成，这个有限集合或者为空集，或者是由一个根结点及两颗不相交的分别称之为左子树和右子树的二叉树组成。二叉树是一种特殊的树。
+满二叉树：在一颗二叉树中，若第i层的结点数为2&lt;sub&gt;i&lt;/sub&gt;-1时，则称此层的结点树是满的，则此二叉树称之为满二叉树。
+完全二叉树：在一棵二叉树中，除最后一层外，若其余层都是满的，并且最后一层或者是满的，或者是在右边缺少连续若干个结点，则此二叉树称之为完全二叉树。
+
+3.2 二叉树的性质
+    1. 非空二叉树上叶子结点等于双分支结点数加1
+    2. 非空二叉树上第i层上至多有2&lt;sup&gt;i&lt;/sup&gt;-1个结点（i&gt;=1）
+    3. 高度为h的二叉树至多有2&lt;sup&gt;h&lt;/sup&gt;-1个结点（h&gt;=1）
+    4. 对完全二叉树中编号为i的结点（i&lt;=i&lt;=n, n&gt;=1,n为结点数）有：这个结论有点复杂
+        （1）若i&lt;=【n/2】，即2i&lt;=n，则编号为i的结点为分支结点，否则为叶子结点。
+        （2）若n为奇数，则每个分支结点都既有左孩子，也有右孩子；若n为偶数，则编号最大的分支结点（编号为n/2）只有左孩子，没有右孩子，其余分支结点左、右孩子都有
+        （3）若编号为i的结点有左孩子，则左孩子结点的编号为2i；若编号为i的结点有右孩子，则右孩子结点的编号为（2i+1）
+        （4）除树根结点外，若一个结点的编号为i，则它的双亲结点的编号为i/2，也就是说，当i为偶数时，其双亲结点的编号为i/2它是双亲结点的左孩子，当i为奇数时，其双亲结点的编号为（i-1）/2，它是双亲结点的右结点。
+    5. 具有n个（n&gt;0）结点的完全二叉树的高度为【log&lt;sub&gt;2&lt;/sub&gt;(n+1)】或 【log&lt;sub&gt;2&lt;/sub&gt;n】+ 1;</code></pre><h3 id="4-普通树与二叉树的转换"><a href="#4-普通树与二叉树的转换" class="headerlink" title="4.普通树与二叉树的转换"></a>4.普通树与二叉树的转换</h3><h3 id="5-树的存储结构，标准形式"><a href="#5-树的存储结构，标准形式" class="headerlink" title="5.树的存储结构，标准形式"></a>5.树的存储结构，标准形式</h3><blockquote>
+<p>主要为二叉树的存储结构，二叉树有顺序存储、链式存储和线索树存储等几种存储方法。</p>
+</blockquote>
+<pre><code>（1）顺序存储
+    顺序存储一颗二叉树，首先对该树中每个结点进行编号，然后以各结点的编号为下标，把各结点的值对应存储到一维数组中。树中各结点的编号与等深度的完全二叉树中对应位置上结点的的编号相同。
+
+ 编号过程为：首先把树根结点的编号定为1，然后按照层次从上到下，每层从左到右的顺序，对每一个结点进行编号，当它的双亲结点的编号为i时，若它为左孩子，则编号为2i；若为右孩子，则编号为2i+1.</code></pre><p><img src="/images/btree_sxcc.jpg" alt="二叉树顺序存储"><br>    （2）链式存储<br>        在二叉树的链式存储中，通常采用的方法是：每个结点中设置三个域，即值域、左指针域、右指针域。结点的结构如下：<br>        lchild | data |  rchild<br>        其中data为值域，用于存放入结点的数据元素，lchild和rchild分别表示左指针和右指针，用以分别存储左孩子和右孩子结点（即左右子树的跟结点）的存储位置（即指针）</p>
+<p>链式存储的指针类型与结点的定义如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">bnodes</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Elemtype data;</span><br><span class="line">    syruct bnode *lchild,*rchild</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的ElemType可以是任何相应的数据类型如int、float或char等，在算法中，我们规定ElemType默认是int类型。链式存储方法存在大量的空指针，浪费存储空间，但二叉树的运算算法实现比较简单直观。</p>
+<p><img src="/images/btree_lscc.jpg" alt="二叉树链式存储"></p>
+<pre><code>（3）线索树存储
+链式存储中无左子树或右子树的结点的lchild域或rchild域为空，这样浪费了存储空间（当一颗二叉树有n个结点，便有n+1个指针域为NULL，因为n个结点一共有2n个指针域，除根结点外，每个结点有且仅有一个指向它的指针，于是共有n-1个指针，即只有n-1个指针域被有效利用），因此，可以把每个空着的lchild或rchild域用于分别指向某种遍历次序的前驱结点和后继结点，这样在遍历这种二叉树时，可由此信息直接找到遍历次序下的前驱结点或后继结点的指针叫做线索，其中空的左指针域中存放的指向其前驱结点的指针叫做左线索，在空的右指针域中存放的指向其后续结点的指针叫做右线索。对一颗二叉树中的所有结点的空指针域按照某种遍历次序加线索的过程叫做线索化，被线索化了的二叉树称作线索二叉树。</code></pre><h3 id="6-完全树-complete-tree-的数组形式存储"><a href="#6-完全树-complete-tree-的数组形式存储" class="headerlink" title="6.完全树(complete tree)的数组形式存储"></a>6.完全树(complete tree)的数组形式存储</h3><h3 id="7-树的应用"><a href="#7-树的应用" class="headerlink" title="7.树的应用"></a>7.树的应用</h3><h3 id="8-Huffman树的定义与应用"><a href="#8-Huffman树的定义与应用" class="headerlink" title="8.Huffman树的定义与应用"></a>8.Huffman树的定义与应用</h3>
       
     </div>
     
@@ -519,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -583,6 +631,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-树的基本概念和术语"><span class="nav-number">1.1.</span> <span class="nav-text">1.树的基本概念和术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-树的前序、中序、后序、层次序遍历"><span class="nav-number">1.2.</span> <span class="nav-text">2.树的前序、中序、后序、层次序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二叉树及其性质"><span class="nav-number">1.3.</span> <span class="nav-text">3.二叉树及其性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-普通树与二叉树的转换"><span class="nav-number">1.4.</span> <span class="nav-text">4.普通树与二叉树的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-树的存储结构，标准形式"><span class="nav-number">1.5.</span> <span class="nav-text">5.树的存储结构，标准形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-完全树-complete-tree-的数组形式存储"><span class="nav-number">1.6.</span> <span class="nav-text">6.完全树(complete tree)的数组形式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-树的应用"><span class="nav-number">1.7.</span> <span class="nav-text">7.树的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Huffman树的定义与应用"><span class="nav-number">1.8.</span> <span class="nav-text">8.Huffman树的定义与应用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -610,7 +674,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">380</span>
+    <span title="Site words total count">2.3k</span>
   
 </div>
 
