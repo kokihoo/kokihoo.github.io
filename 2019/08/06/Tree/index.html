@@ -87,14 +87,19 @@
 <meta property="og:site_name" content="KOKI">
 <meta property="og:description" content="树 内容：    - 1.树的基本概念和术语    - 2.树的前序、中序、后序、层次序遍历    - 3.二叉树及其性质    - 4.普通树与二叉树的转换    - 5.树的存储结构，标准形式    - 6.完全树(complete tree)的数组形式存储    - 7.树的应用    - 8.Huffman树的定义与应用   1.树的基本概念和术语树是n(n&amp;gt;0)个结点的有限集合T。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/xcbliEX.png">
+<meta property="og:image" content="http://yoursite.com/images/xcbliEX.png">
+<meta property="og:image" content="http://yoursite.com/images/hxblEX.png">
+<meta property="og:image" content="http://yoursite.com/images/ccblEX.png">
 <meta property="og:image" content="http://yoursite.com/images/btree_sxcc.jpg">
 <meta property="og:image" content="http://yoursite.com/images/btree_lscc.jpg">
 <meta property="og:image" content="http://yoursite.com/images/btree_sscc.jpg">
-<meta property="og:updated_time" content="2019-08-09T01:56:19.745Z">
+<meta property="og:image" content="http://yoursite.com/images/Huffman_explain.png">
+<meta property="og:updated_time" content="2019-08-12T03:20:18.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tree">
 <meta name="twitter:description" content="树 内容：    - 1.树的基本概念和术语    - 2.树的前序、中序、后序、层次序遍历    - 3.二叉树及其性质    - 4.普通树与二叉树的转换    - 5.树的存储结构，标准形式    - 6.完全树(complete tree)的数组形式存储    - 7.树的应用    - 8.Huffman树的定义与应用   1.树的基本概念和术语树是n(n&amp;gt;0)个结点的有限集合T。">
-<meta name="twitter:image" content="http://yoursite.com/images/btree_sxcc.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/xcbliEX.png">
 
 
 
@@ -332,8 +337,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-09T09:56:19+08:00">
-                2019-08-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T11:20:18+08:00">
+                2019-08-12
               </time>
             
           </span>
@@ -393,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.2k
+                  3.6k
                 </span>
               
 
@@ -409,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  13
                 </span>
               
             </div>
@@ -447,17 +452,19 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void preorder(BTree *p)</span><br><span class="line">&#123;</span><br><span class="line">    if（p!==NULL）</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%c&quot;, p-&gt;data); // 访问根结点数据</span><br><span class="line">        preorder（p-&gt;lchild); // 访问左子树</span><br><span class="line">        preorder（p-&gt;rchild; // 访问右子树</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>例：</p>
+<p>例：<br><img src="/images/xcbliEX.png" alt="先序遍历示例"></p>
 <h4 id="2-2-中序遍历"><a href="#2-2-中序遍历" class="headerlink" title="2.2 中序遍历"></a>2.2 中序遍历</h4><blockquote>
 <p>按照先访问左子树，再访问跟根节点，最后访问右子树的次序访问二叉树中所有结点，且每个结点仅访问一次，其递归算法如下：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void inorder（BTree *p）</span><br><span class="line">&#123;</span><br><span class="line">    if(p!==NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        inorder(p-&gt;lchild);//访问左子树</span><br><span class="line">        printf(&quot;%c&quot;, p-&gt;data);// 访问根结点</span><br><span class="line">        inorder(p-&gt;rchild); // 访问右子树</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>例：</p>
+<p>例：中序遍历只有对二叉树才有意义<br><img src="/images/xcbliEX.png" alt="中序遍历示例"></p>
 <h4 id="2-3-后序遍历"><a href="#2-3-后序遍历" class="headerlink" title="2.3 后序遍历"></a>2.3 后序遍历</h4><p>按照先访问左子树，再访问右子树，最后访问根结点的次序访问二叉树中所有的结点，且每个结点只访问一次，其递归算法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void postorder(BTree *p)</span><br><span class="line">&#123;</span><br><span class="line">    if(p!==NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        postorder(p-&gt;lchild); // 访问左子树</span><br><span class="line">        postorder(p-&gt;rchild); // 访问右子树</span><br><span class="line">        printf(&quot;%c&quot;, p-&gt;data); // 访问跟结点</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>例：<br><img src="/images/hxblEX.png" alt="后序遍历示例"></p>
 <h4 id="2-4-层次序遍历"><a href="#2-4-层次序遍历" class="headerlink" title="2.4 层次序遍历"></a>2.4 层次序遍历</h4><p>层次遍历需要建立一个循环队列，先将二叉树头结点入队，然后出队列，访问该结点，如果有左子树，则将左子树的根结点入队，如果有右子树，则将右子树的根结点入队，然后出队列，对出队列结点访问，如此反复，一直到队列为空为止。<br>算法如下：容我研究好好看一下先，哈哈哈哈哈</p>
+<p><img src="/images/ccblEX.png" alt="层次序遍历示例"></p>
 <h3 id="3-二叉树及其性质"><a href="#3-二叉树及其性质" class="headerlink" title="3.二叉树及其性质"></a>3.二叉树及其性质</h3><pre><code>3.1 二叉树的几个基本术语
 二叉树：二叉树由结点的有限集合构成，这个有限集合或者为空集，或者是由一个根结点及两颗不相交的分别称之为左子树和右子树的二叉树组成。二叉树是一种特殊的树。
 满二叉树：在一颗二叉树中，若第i层的结点数为2&lt;sub&gt;i&lt;/sub&gt;-1时，则称此层的结点树是满的，则此二叉树称之为满二叉树。
@@ -495,8 +502,11 @@
 <p>对一种二叉树进行中序线索化的算法思想是：一边中序遍历一边建立线索。若访问的结点的左孩子为空，则建立前驱线索，若右孩子为空，则建立后续线索，其函数如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">void inthread(p, pre)</span><br><span class="line">TBtree *p, *pre;</span><br><span class="line">// p为当前结点，pre为p的前驱结点，开始调用时p为根结点指针，pre为NULL</span><br><span class="line">&#123;</span><br><span class="line">    if(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        inthread(p-&gt;lchild, pre); // 左子树线索化</span><br><span class="line">        // 若当前结点的左子树为空，则建立指向其前驱结点的前驱线索</span><br><span class="line">        if（p-&gt;lchild==NULL）</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;ltag=1;</span><br><span class="line">            p-&gt;lchild = pre;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            p-&gt;ltag = 0;</span><br><span class="line">        pre = p; //中序向前遍历一个结点</span><br><span class="line">        inthread(th-&gt;rchild, pre); // 递归调用</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-完全树-complete-tree-的数组形式存储"><a href="#6-完全树-complete-tree-的数组形式存储" class="headerlink" title="6.完全树(complete tree)的数组形式存储"></a>6.完全树(complete tree)的数组形式存储</h3><h3 id="7-树的应用"><a href="#7-树的应用" class="headerlink" title="7.树的应用"></a>7.树的应用</h3><h3 id="8-Huffman树的定义与应用"><a href="#8-Huffman树的定义与应用" class="headerlink" title="8.Huffman树的定义与应用"></a>8.Huffman树的定义与应用</h3><p><strong>哈弗曼树</strong> 哈弗曼树又称最优二叉树，它是n个带权叶子结点构成的所有二叉树中，带权路径长度WPL最小的二叉树<br><strong>路径和路径长度</strong> 若在一棵树中存在着一个结点序列k1，k2，……，kj，使得ki是ki+1的父亲(1&lt;=i&lt;j),则称该结点序列是从k1到kj的路径，从k1到kj所经过的分支数称为这两个之间的路径长度<br><strong>结点的权和带权路径长度</strong> 树中的结点上赋予一定意义的实数称之为该结点的权，从树根结点到该结点之间的路径长度与该结点上权的乘积称为该结点的带权路径长度。<br><strong>树的带权路径长度</strong> 树的带权路径长度定义为树中所有叶子结点的带权路径长度之和，记为：<br>WPL = （n-k=1）∑wklk；<br>其中n表示叶子结点个数，wi和li分别表示叶子结点ki的权值和根到ki之间的路径长度</p>
-<p>构造哈弗曼树</p>
+<h3 id="6-完全树-complete-tree-的数组形式存储"><a href="#6-完全树-complete-tree-的数组形式存储" class="headerlink" title="6.完全树(complete tree)的数组形式存储"></a>6.完全树(complete tree)的数组形式存储</h3><h3 id="7-树的应用"><a href="#7-树的应用" class="headerlink" title="7.树的应用"></a>7.树的应用</h3><h3 id="8-Huffman树的定义与应用"><a href="#8-Huffman树的定义与应用" class="headerlink" title="8 .Huffman树的定义与应用"></a>8 .Huffman树的定义与应用</h3><h4 id="8-1-Huffman树的相关概念"><a href="#8-1-Huffman树的相关概念" class="headerlink" title="8.1 Huffman树的相关概念"></a>8.1 Huffman树的相关概念</h4><p><strong>哈弗曼树</strong> 哈弗曼树又称最优二叉树，它是n个带权叶子结点构成的所有二叉树中，带权路径长度WPL最小的二叉树</p>
+<blockquote>
+<p>给定n权值作为n个叶子结点，构造一颗二叉树，若这棵二叉树的带权路径长度达到最小，则称这样的二叉树为最优二叉树，也称Huffman树。<br><img src="/images/Huffman_explain.png" alt="哈夫曼树实例图解"><br><strong>路径</strong> 在一棵树中，从一个节点到另一个节点之间的分支构成的通路，如从结点8到节点1的路径如上图所示[若在一棵树中存在着一个结点序列k1，k2，……，kj，使得ki是ki+1的父亲(1&lt;=i&lt;j),则称该结点序列是从k1到kj的路径]<br><strong>路径长度</strong> 是指路径上的分支数目，在上图中，路径长度为2。[从k1到kj所经过的分支数称为这两个之间的路径长度]<br><strong>树的路径长度</strong> 是指从根到每个结点的路径长度之和<br><strong>结点的权</strong> 树中的结点上赋予一定意义的实数称之为该结点的权<br><strong>带权路径长度</strong> 结点具有权值，从树根结点到该结点之间的路径长度与该结点上权的乘积称为该结点的带权路径长度。<br><strong>树的带权路径长度</strong> 树的带权路径长度定义为树中所有叶子结点的带权路径长度之和，记为：<br>WPL = （n-k=1）∑wklk；<br>其中n表示叶子结点个数，wi和li分别表示叶子结点ki的权值和根到ki之间的路径长度</p>
+</blockquote>
+<h4 id="8-2-Huffman树的构建"><a href="#8-2-Huffman树的构建" class="headerlink" title="8.2 Huffman树的构建"></a>8.2 Huffman树的构建</h4><p>给定n个权值，用这n个权值来构建Huffman的算法描述如下：<br>(1) 将这n个权值分别看成只有根结点的n棵二叉树，将这些二叉树的集合即为F<br>(2) 从F中选出两颗根结点的权值最小的树，作为左右子树，构建一颗新的二叉树，新的二叉树的根结点的权值为左右子结点的权值之和。<br>(3) 从F中删去a，b，加入新构建的树C<br>(4) 重复2,3步，直到F中只剩下一棵树为止，这棵树就是Huffman树。</p>
 
       
     </div>
@@ -536,6 +546,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/12/redis_memcached/" rel="prev" title="redis memcached">
+                redis memcached <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -617,7 +631,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +653,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -672,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-树的基本概念和术语"><span class="nav-number">1.1.</span> <span class="nav-text">1.树的基本概念和术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-树的前序、中序、后序、层次序遍历"><span class="nav-number">1.2.</span> <span class="nav-text">2.树的前序、中序、后序、层次序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-先序遍历"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 先序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-中序遍历"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-后序遍历"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 后序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-层次序遍历"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 层次序遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二叉树及其性质"><span class="nav-number">1.3.</span> <span class="nav-text">3.二叉树及其性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-普通树与二叉树的转换"><span class="nav-number">1.4.</span> <span class="nav-text">4.普通树与二叉树的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-树的存储结构，标准形式"><span class="nav-number">1.5.</span> <span class="nav-text">5.树的存储结构，标准形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-完全树-complete-tree-的数组形式存储"><span class="nav-number">1.6.</span> <span class="nav-text">6.完全树(complete tree)的数组形式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-树的应用"><span class="nav-number">1.7.</span> <span class="nav-text">7.树的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Huffman树的定义与应用"><span class="nav-number">1.8.</span> <span class="nav-text">8.Huffman树的定义与应用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-树的基本概念和术语"><span class="nav-number">1.1.</span> <span class="nav-text">1.树的基本概念和术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-树的前序、中序、后序、层次序遍历"><span class="nav-number">1.2.</span> <span class="nav-text">2.树的前序、中序、后序、层次序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-先序遍历"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 先序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-中序遍历"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-后序遍历"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 后序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-层次序遍历"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 层次序遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二叉树及其性质"><span class="nav-number">1.3.</span> <span class="nav-text">3.二叉树及其性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-普通树与二叉树的转换"><span class="nav-number">1.4.</span> <span class="nav-text">4.普通树与二叉树的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-树的存储结构，标准形式"><span class="nav-number">1.5.</span> <span class="nav-text">5.树的存储结构，标准形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-完全树-complete-tree-的数组形式存储"><span class="nav-number">1.6.</span> <span class="nav-text">6.完全树(complete tree)的数组形式存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-树的应用"><span class="nav-number">1.7.</span> <span class="nav-text">7.树的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Huffman树的定义与应用"><span class="nav-number">1.8.</span> <span class="nav-text">8 .Huffman树的定义与应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-Huffman树的相关概念"><span class="nav-number">1.8.1.</span> <span class="nav-text">8.1 Huffman树的相关概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-Huffman树的构建"><span class="nav-number">1.8.2.</span> <span class="nav-text">8.2 Huffman树的构建</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -706,7 +720,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.6k</span>
+    <span title="Site words total count">11k</span>
   
 </div>
 
