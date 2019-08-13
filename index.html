@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-13T15:07:41+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-13T15:26:27+08:00">
                 2019-08-13
               </time>
             
@@ -416,11 +416,8 @@
 <p><strong>创建目录 mkdir</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir [选项]... 目录... </span><br><span class="line"> -m, --mode=模式，设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask</span><br><span class="line"> -p, --parents  可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录; </span><br><span class="line"> -v, --verbose  每次创建新目录都显示信息</span><br></pre></td></tr></table></figure>
 
-<p><strong>删除目录 rmdir</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rmdir [选项]... 目录...</span><br><span class="line">-p 递归删除目录dirname，当子目录删除后其父目录为空时，也一同被删除。如果整个路径被删除或者由于某种原因保留部分路径，则系统在标准输出上显示相应的信息。 </span><br><span class="line">-v --verbose  显示指令执行过程</span><br></pre></td></tr></table></figure>
-
 <p><strong>删除命令 rm</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-f ：就是force的意思，忽略不存在的文件，不会出现警告消息</span><br><span class="line">-i ：互动模式，在删除前会询问用户是否操作</span><br><span class="line">-r ：递归删除，最常用于目录删除，它是一个非常危险的参数</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-f ：就是force的意思，忽略不存在的文件，不会出现警告消息</span><br><span class="line">-i ：互动模式，在删除前会询问用户是否操作</span><br><span class="line">-r ：递归删除，最常用于目录删除，它是一个非常危险的参数</span><br><span class="line"></span><br><span class="line">删除文件夹</span><br><span class="line">rm -ir filedir 这个命令需要确认每个文件是否要被删除，文件过多会很繁琐</span><br><span class="line">rm -rf filedir 这个命令会直接删除文件夹，不会给出警告信息和提示</span><br></pre></td></tr></table></figure>
 
 <p><strong>移动命令 mv</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-f ：force强制的意思，如果目标文件已经存在，不会询问而直接覆盖</span><br><span class="line">-i ：若目标文件已经存在，就会询问是否覆盖</span><br><span class="line">-u ：若目标文件已经存在，且比目标文件新，才会更新</span><br></pre></td></tr></table></figure>
@@ -1660,7 +1657,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11k</span>
+    <span title="Site words total count">10.9k</span>
   
 </div>
 
