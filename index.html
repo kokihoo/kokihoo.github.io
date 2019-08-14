@@ -591,8 +591,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T17:00:58+08:00">
-                2019-08-12
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-13T16:07:57+08:00">
+                2019-08-13
               </time>
             
           </span>
@@ -630,7 +630,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  9
+                  94
                 </span>
               
 
@@ -670,6 +670,10 @@
         
           
             <p>pm2 非root用户权限设置</p>
+<p><strong>用户不在sudoers文件中的解决方法</strong><br>1、查看/etc/sudoers文件权限，如果为只读权限，修改为可写权限<br>ls -l /etc/sudoers</p>
+<p>2、修改sudoers文件的权限不只是只读<br>chmod 777 /etc/sudoers</p>
+<p>3、编辑sudoers文件，添加user用户为所有可执行权限</p>
+<p>4、修改回sudoers权限为440<br>chmod 440 sudoers</p>
 
           
         
@@ -1130,8 +1134,8 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T11:20:18+08:00">
-                2019-08-12
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-14T17:57:32+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -1191,7 +1195,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.6k
+                  3.9k
                 </span>
               
 
@@ -1207,7 +1211,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  14
                 </span>
               
             </div>
@@ -1260,6 +1264,8 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
 <p>例：<br><img src="/images/hxblEX.png" alt="后序遍历示例"></p>
 <h4 id="2-4-层次序遍历"><a href="#2-4-层次序遍历" class="headerlink" title="2.4 层次序遍历"></a>2.4 层次序遍历</h4><p>层次遍历需要建立一个循环队列，先将二叉树头结点入队，然后出队列，访问该结点，如果有左子树，则将左子树的根结点入队，如果有右子树，则将右子树的根结点入队，然后出队列，对出队列结点访问，如此反复，一直到队列为空为止。<br>算法如下：容我研究好好看一下先，哈哈哈哈哈</p>
 <p><img src="/images/ccblEX.png" alt="层次序遍历示例"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="3-二叉树及其性质"><a href="#3-二叉树及其性质" class="headerlink" title="3.二叉树及其性质"></a>3.二叉树及其性质</h3><pre><code>3.1 二叉树的几个基本术语
 二叉树：二叉树由结点的有限集合构成，这个有限集合或者为空集，或者是由一个根结点及两颗不相交的分别称之为左子树和右子树的二叉树组成。二叉树是一种特殊的树。
 满二叉树：在一颗二叉树中，若第i层的结点数为2&lt;sub&gt;i&lt;/sub&gt;-1时，则称此层的结点树是满的，则此二叉树称之为满二叉树。
@@ -1274,7 +1280,11 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
         （2）若n为奇数，则每个分支结点都既有左孩子，也有右孩子；若n为偶数，则编号最大的分支结点（编号为n/2）只有左孩子，没有右孩子，其余分支结点左、右孩子都有
         （3）若编号为i的结点有左孩子，则左孩子结点的编号为2i；若编号为i的结点有右孩子，则右孩子结点的编号为（2i+1）
         （4）除树根结点外，若一个结点的编号为i，则它的双亲结点的编号为i/2，也就是说，当i为偶数时，其双亲结点的编号为i/2它是双亲结点的左孩子，当i为奇数时，其双亲结点的编号为（i-1）/2，它是双亲结点的右结点。
-    5. 具有n个（n&gt;0）结点的完全二叉树的高度为【log&lt;sub&gt;2&lt;/sub&gt;(n+1)】或 【log&lt;sub&gt;2&lt;/sub&gt;n】+ 1;</code></pre><h3 id="4-普通树与二叉树的转换"><a href="#4-普通树与二叉树的转换" class="headerlink" title="4.普通树与二叉树的转换"></a>4.普通树与二叉树的转换</h3><h3 id="5-树的存储结构，标准形式"><a href="#5-树的存储结构，标准形式" class="headerlink" title="5.树的存储结构，标准形式"></a>5.树的存储结构，标准形式</h3><blockquote>
+    5. 具有n个（n&gt;0）结点的完全二叉树的高度为【log&lt;sub&gt;2&lt;/sub&gt;(n+1)】或 【log&lt;sub&gt;2&lt;/sub&gt;n】+ 1;</code></pre><h3 id="4-普通树与二叉树的转换"><a href="#4-普通树与二叉树的转换" class="headerlink" title="4.普通树与二叉树的转换"></a>4.普通树与二叉树的转换</h3><h4 id="树转换成二叉树"><a href="#树转换成二叉树" class="headerlink" title="树转换成二叉树"></a>树转换成二叉树</h4><p>树转换成二叉树的过程如下：<br>    1) 将同一结点的各孩子结点用线串起来<br>    2) 将每个结点的分支从左到右除了第一个外，其余都剪掉：<br><img src="/images/treeToBtree.png" alt="树转换成二叉树"></p>
+<h4 id="二叉树转换成树"><a href="#二叉树转换成树" class="headerlink" title="二叉树转换成树"></a>二叉树转换成树</h4><p>二叉树转换为树是树转换为二叉树的逆过程,其步骤为：<br>    1) 若某结点的左孩子结点存在，将左孩子结点的右孩子结点，右孩子结点的右孩子结点……都作为该结点的孩子结点，将该结点与这些右孩子结点用线连接起来；<br>    2) 删除原二叉树中所有结点与其右孩子结点的连线<br>    3) 整理（1）和（2）两步得到的树，使之结构层次分明<br><img src="/images/BNTreeToTree.png" alt="二叉树转换成树"></p>
+<h4 id="森林转换成二叉树"><a href="#森林转换成二叉树" class="headerlink" title="森林转换成二叉树"></a>森林转换成二叉树</h4><p>森林是由若干棵树组成，可以将森林中的每棵树的根结点看做是兄弟，由于每棵树都可以转换为二叉树，所以森林也可以转换成二叉树。</p>
+<p>将森林转换为二叉树的步骤是：<br>    1）先把每颗树转换为二叉树<br>    2）第一棵二叉树的不动，从第二棵二叉树开始，依次把后一颗二叉树的根结点作为前一棵二叉树的根结点的右孩子结点，用线连接起来，当所有的二叉树连接起来后得到的二叉树就是由森林转换得到的二叉树</p>
+<h4 id="二叉树转换成森林"><a href="#二叉树转换成森林" class="headerlink" title="二叉树转换成森林"></a>二叉树转换成森林</h4><h3 id="5-树的存储结构，标准形式"><a href="#5-树的存储结构，标准形式" class="headerlink" title="5.树的存储结构，标准形式"></a>5.树的存储结构，标准形式</h3><blockquote>
 <p>树有顺序存储和链式存储等存储方法：<br>（1）顺序存储<br>    用数组存放所有树中结点，每个元素除包含结点值外，还有一个指向双亲结点下标的为指针<br>（2）链式存储<br>    在链式存储中，每个结点除存储结点值外，还包含若干哥指针域，在孩子链存储结构中，每个孩子结点都对应一个指针域；在孩子兄弟链存储结构中，每个结点含两个指针域，一个指向其最左边的孩子结点，一个指向其兄弟结点。</p>
 </blockquote>
 <blockquote>
@@ -1397,8 +1407,8 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-07T15:24:54+08:00">
-                2019-08-07
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-14T17:29:36+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -1458,7 +1468,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  380
+                  403
                 </span>
               
 
@@ -1497,7 +1507,8 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
       
         
           
-            <h2 id="向量基本概念和性质"><a href="#向量基本概念和性质" class="headerlink" title="向量基本概念和性质"></a>向量基本概念和性质</h2><hr>
+            <p>RF.<br><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html</a><br><a href="https://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019</a></p>
+<h2 id="向量基本概念和性质"><a href="#向量基本概念和性质" class="headerlink" title="向量基本概念和性质"></a>向量基本概念和性质</h2><hr>
 <h3 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h3><pre><code>向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container)，跟任意其他类型的容器一样，它可以存放各种类型的对象，可以简单的认为，向量是一个能够存放任意类型的动态数组。</code></pre><h5 id="1-顺序序列"><a href="#1-顺序序列" class="headerlink" title="1.顺序序列"></a>1.顺序序列</h5><pre><code>顺序容器中的元素按照严格的线性顺序排序，可以通过元素在序列中的位置访问对应的元素</code></pre><h5 id="2-动态数组"><a href="#2-动态数组" class="headerlink" title="2.动态数组"></a>2.动态数组</h5><pre><code>支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算法进行改操作，提供了在序列末尾先对快速地添加/删除元素</code></pre><h5 id="3-能够感知内存分配器的（Allocator-aware）"><a href="#3-能够感知内存分配器的（Allocator-aware）" class="headerlink" title="3.能够感知内存分配器的（Allocator-aware）"></a>3.能够感知内存分配器的（Allocator-aware）</h5><pre><code>容器使用一个内存分配器对象来动态处理它的存储需求</code></pre><blockquote>
 <p>向量Vector的扩充机制：按照容器现在容量的一倍进行增长。vector容器分配的是一块连续的内存空间，每次容器的增长，并不是在原有连续的内存空间后进行简单的叠加，而是重新申请一块更大的新内存，并把现有容器中的元素逐个复制过去，然后销毁旧的内存，这时原有指向旧内存空间的迭代器已经失效，所以当操作容器时，迭代器要及时更新。</p>
 </blockquote>
@@ -1657,7 +1668,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.9k</span>
+    <span title="Site words total count">11.4k</span>
   
 </div>
 

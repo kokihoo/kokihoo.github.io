@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="向量基本概念和性质 向量向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container)，跟任意其他类型的容器一样，它可以存放各种类型的对象，可以简单的认为，向量是一个能够存放任意类型的动态数组。1.顺序序列顺序容器中的元素按照严格的线性顺序排序，可以通过元素在序列中的位置访问对应的元素2.动态数组支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算法进行改操作">
+<meta name="description" content="RF.https://www.runoob.com/w3cnote/cpp-vector-container-analysis.htmlhttps://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019 向量基本概念和性质 向量向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container">
 <meta name="keywords" content="DATA STRUCTURE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vector">
 <meta property="og:url" content="http://yoursite.com/2019/08/06/vector/index.html">
 <meta property="og:site_name" content="KOKI">
-<meta property="og:description" content="向量基本概念和性质 向量向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container)，跟任意其他类型的容器一样，它可以存放各种类型的对象，可以简单的认为，向量是一个能够存放任意类型的动态数组。1.顺序序列顺序容器中的元素按照严格的线性顺序排序，可以通过元素在序列中的位置访问对应的元素2.动态数组支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算法进行改操作">
+<meta property="og:description" content="RF.https://www.runoob.com/w3cnote/cpp-vector-container-analysis.htmlhttps://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019 向量基本概念和性质 向量向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-07T07:24:54.017Z">
+<meta property="og:updated_time" content="2019-08-14T09:29:36.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vector">
-<meta name="twitter:description" content="向量基本概念和性质 向量向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container)，跟任意其他类型的容器一样，它可以存放各种类型的对象，可以简单的认为，向量是一个能够存放任意类型的动态数组。1.顺序序列顺序容器中的元素按照严格的线性顺序排序，可以通过元素在序列中的位置访问对应的元素2.动态数组支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算法进行改操作">
+<meta name="twitter:description" content="RF.https://www.runoob.com/w3cnote/cpp-vector-container-analysis.htmlhttps://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019 向量基本概念和性质 向量向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container">
 
 
 
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-07T15:24:54+08:00">
-                2019-08-07
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-14T17:29:36+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  380
+                  403
                 </span>
               
 
@@ -426,7 +426,8 @@
       
 
       
-        <h2 id="向量基本概念和性质"><a href="#向量基本概念和性质" class="headerlink" title="向量基本概念和性质"></a>向量基本概念和性质</h2><hr>
+        <p>RF.<br><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html</a><br><a href="https://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/cpp/standard-library/vector?view=vs-2019</a></p>
+<h2 id="向量基本概念和性质"><a href="#向量基本概念和性质" class="headerlink" title="向量基本概念和性质"></a>向量基本概念和性质</h2><hr>
 <h3 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h3><pre><code>向量(Vector)是一个封装了动态大小数组的顺序容器(Sequence Container)，跟任意其他类型的容器一样，它可以存放各种类型的对象，可以简单的认为，向量是一个能够存放任意类型的动态数组。</code></pre><h5 id="1-顺序序列"><a href="#1-顺序序列" class="headerlink" title="1.顺序序列"></a>1.顺序序列</h5><pre><code>顺序容器中的元素按照严格的线性顺序排序，可以通过元素在序列中的位置访问对应的元素</code></pre><h5 id="2-动态数组"><a href="#2-动态数组" class="headerlink" title="2.动态数组"></a>2.动态数组</h5><pre><code>支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算法进行改操作，提供了在序列末尾先对快速地添加/删除元素</code></pre><h5 id="3-能够感知内存分配器的（Allocator-aware）"><a href="#3-能够感知内存分配器的（Allocator-aware）" class="headerlink" title="3.能够感知内存分配器的（Allocator-aware）"></a>3.能够感知内存分配器的（Allocator-aware）</h5><pre><code>容器使用一个内存分配器对象来动态处理它的存储需求</code></pre><blockquote>
 <p>向量Vector的扩充机制：按照容器现在容量的一倍进行增长。vector容器分配的是一块连续的内存空间，每次容器的增长，并不是在原有连续的内存空间后进行简单的叠加，而是重新申请一块更大的新内存，并把现有容器中的元素逐个复制过去，然后销毁旧的内存，这时原有指向旧内存空间的迭代器已经失效，所以当操作容器时，迭代器要及时更新。</p>
 </blockquote>
@@ -639,7 +640,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.9k</span>
+    <span title="Site words total count">11.4k</span>
   
 </div>
 
