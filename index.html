@@ -591,8 +591,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-13T16:07:57+08:00">
-                2019-08-13
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-15T14:12:50+08:00">
+                2019-08-15
               </time>
             
           </span>
@@ -630,7 +630,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  94
+                  440
                 </span>
               
 
@@ -669,7 +669,26 @@
       
         
           
-            <p>pm2 非root用户权限设置</p>
+            <blockquote>
+<p>pm2 安装为root用户安装，现切换为普通user用户使用pm2报错，正在解决：<br>解决方案一：SUDO，赋予普通用户临时root权限，并限制监控user操作，实现服务的可控。<br>SUDO（substitude user do）使得系统管理员可以授权特定用户或用户组作为临时root执行命令，同时还能对命令及其参数提供审核跟踪。可以针对单个命令、仅在需要时授予临时权限，减少因为执行错误命令损坏系统，sudo也能以其他用户身份执行命令并且记录用户执行的命令，以及失败的权限申请。<br>手册参考：[ps:全英文]<br><a href="https://gratisoft.us/sudo/man.html" target="_blank" rel="noopener">https://gratisoft.us/sudo/man.html</a><br><a href="https://gratisoft.us/sudo/man/1.8.6/sudoers.man.html" target="_blank" rel="noopener">https://gratisoft.us/sudo/man/1.8.6/sudoers.man.html</a></p>
+</blockquote>
+<p><a href="https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></p>
+<p>pm2 非root用户权限设置</p>
+<h3 id="检查状态-日志-指标"><a href="#检查状态-日志-指标" class="headerlink" title="检查状态 日志 指标"></a>检查状态 日志 指标</h3><p><strong>列出托管应用程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 [list|ls|status]</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示日志</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">显示实时日志：</span><br><span class="line">pm2 logs</span><br><span class="line">显示就日志：</span><br><span class="line">pm2 logs --lines 200</span><br><span class="line">基于终端仪表盘：</span><br><span class="line">pm2 monit</span><br></pre></td></tr></table></figure>
+
+<p><strong>管理应用程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pm2 restart app</span><br><span class="line">pm2 reload app</span><br><span class="line">pm2 stop app</span><br><span class="line">pm2 delete app</span><br></pre></td></tr></table></figure>
+
+<p><strong>集群模式</strong></p>
+<blockquote>
+<p>对于node.js应用程序，PM2包括一个自动负载均衡器，它将共享每个进程这件的所有http[s]/websocket/tcp/udp连接</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">要以集群模式启动应用程序:</span><br><span class="line">pm2 start app.js -i max</span><br></pre></td></tr></table></figure>
+
 <p><strong>用户不在sudoers文件中的解决方法</strong><br>1、查看/etc/sudoers文件权限，如果为只读权限，修改为可写权限<br>ls -l /etc/sudoers</p>
 <p>2、修改sudoers文件的权限不只是只读<br>chmod 777 /etc/sudoers</p>
 <p>3、编辑sudoers文件，添加user用户为所有可执行权限</p>
@@ -1134,8 +1153,8 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-14T17:57:32+08:00">
-                2019-08-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-15T17:50:46+08:00">
+                2019-08-15
               </time>
             
           </span>
@@ -1195,7 +1214,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.9k
+                  5.2k
                 </span>
               
 
@@ -1211,7 +1230,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14
+                  19
                 </span>
               
             </div>
@@ -1307,11 +1326,55 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
 <p>对一种二叉树进行中序线索化的算法思想是：一边中序遍历一边建立线索。若访问的结点的左孩子为空，则建立前驱线索，若右孩子为空，则建立后续线索，其函数如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">void inthread(p, pre)</span><br><span class="line">TBtree *p, *pre;</span><br><span class="line">// p为当前结点，pre为p的前驱结点，开始调用时p为根结点指针，pre为NULL</span><br><span class="line">&#123;</span><br><span class="line">    if(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        inthread(p-&gt;lchild, pre); // 左子树线索化</span><br><span class="line">        // 若当前结点的左子树为空，则建立指向其前驱结点的前驱线索</span><br><span class="line">        if（p-&gt;lchild==NULL）</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;ltag=1;</span><br><span class="line">            p-&gt;lchild = pre;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            p-&gt;ltag = 0;</span><br><span class="line">        pre = p; //中序向前遍历一个结点</span><br><span class="line">        inthread(th-&gt;rchild, pre); // 递归调用</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-完全树-complete-tree-的数组形式存储"><a href="#6-完全树-complete-tree-的数组形式存储" class="headerlink" title="6.完全树(complete tree)的数组形式存储"></a>6.完全树(complete tree)的数组形式存储</h3><h3 id="7-树的应用"><a href="#7-树的应用" class="headerlink" title="7.树的应用"></a>7.树的应用</h3><h3 id="8-Huffman树的定义与应用"><a href="#8-Huffman树的定义与应用" class="headerlink" title="8 .Huffman树的定义与应用"></a>8 .Huffman树的定义与应用</h3><h4 id="8-1-Huffman树的相关概念"><a href="#8-1-Huffman树的相关概念" class="headerlink" title="8.1 Huffman树的相关概念"></a>8.1 Huffman树的相关概念</h4><p><strong>哈弗曼树</strong> 哈弗曼树又称最优二叉树，它是n个带权叶子结点构成的所有二叉树中，带权路径长度WPL最小的二叉树</p>
+<h3 id="6-完全树-complete-tree-的数组形式存储"><a href="#6-完全树-complete-tree-的数组形式存储" class="headerlink" title="6.完全树(complete tree)的数组形式存储"></a>6.完全树(complete tree)的数组形式存储</h3><h3 id="7-树的应用"><a href="#7-树的应用" class="headerlink" title="7.树的应用"></a>7.树的应用</h3><h3 id="8-Huffman树的定义与应用"><a href="#8-Huffman树的定义与应用" class="headerlink" title="8 .Huffman树的定义与应用"></a>8 .Huffman树的定义与应用</h3><h4 id="8-1-Huffman树的相关概念"><a href="#8-1-Huffman树的相关概念" class="headerlink" title="8.1 Huffman树的相关概念"></a>8.1 Huffman树的相关概念</h4><p><strong>哈弗曼树 Huffman Tree</strong> 哈弗曼树又称最优二叉树，它是n个带权叶子结点构成的所有二叉树中，带权路径长度WPL最小的二叉树</p>
 <blockquote>
-<p>给定n权值作为n个叶子结点，构造一颗二叉树，若这棵二叉树的带权路径长度达到最小，则称这样的二叉树为最优二叉树，也称Huffman树。<br><img src="/images/Huffman_explain.png" alt="哈夫曼树实例图解"><br><strong>路径</strong> 在一棵树中，从一个节点到另一个节点之间的分支构成的通路，如从结点8到节点1的路径如上图所示[若在一棵树中存在着一个结点序列k1，k2，……，kj，使得ki是ki+1的父亲(1&lt;=i&lt;j),则称该结点序列是从k1到kj的路径]<br><strong>路径长度</strong> 是指路径上的分支数目，在上图中，路径长度为2。[从k1到kj所经过的分支数称为这两个之间的路径长度]<br><strong>树的路径长度</strong> 是指从根到每个结点的路径长度之和<br><strong>结点的权</strong> 树中的结点上赋予一定意义的实数称之为该结点的权<br><strong>带权路径长度</strong> 结点具有权值，从树根结点到该结点之间的路径长度与该结点上权的乘积称为该结点的带权路径长度。<br><strong>树的带权路径长度</strong> 树的带权路径长度定义为树中所有叶子结点的带权路径长度之和，记为：<br>WPL = （n-k=1）∑wklk；<br>其中n表示叶子结点个数，wi和li分别表示叶子结点ki的权值和根到ki之间的路径长度</p>
+<p>给定n权值作为n个叶子结点，构造一颗二叉树，若这棵二叉树的带权路径长度达到最小，则称这样的二叉树为最优二叉树，也称Huffman树。<br><img src="/images/Huffman_explain.png" alt="哈夫曼树实例图解"><br><strong>路径</strong> 在一棵树中，从一个节点到另一个节点之间的分支构成的通路，如从结点8到节点1的路径如上图所示[若在一棵树中存在着一个结点序列k1，k2，……，kj，使得ki是ki+1的父亲(1&lt;=i&lt;j),则称该结点序列是从k1到kj的路径]<br><strong>路径长度</strong> 是指路径上的分支数目，在上图中，路径长度为2。[从k1到kj所经过的分支数称为这两个之间的路径长度]<br><strong>树的路径长度</strong> 是指从根到每个结点的路径长度之和<br><strong>结点的权</strong> 树中的结点上赋予一定意义的实数称之为该结点的权<br><strong>带权路径长度WPL</strong> 结点具有权值，从树根结点到该结点之间的路径长度与该结点上权的乘积之和称为该结点的带权路径长度。<br><strong>树的带权路径长度</strong> 树的带权路径长度定义为树中所有叶子结点的带权路径长度之和，记为：<br>WPL = （n-k=1）∑wklk；<br>其中n表示叶子结点个数，wi和li分别表示叶子结点ki的权值和根到ki之间的路径长度</p>
 </blockquote>
-<h4 id="8-2-Huffman树的构建"><a href="#8-2-Huffman树的构建" class="headerlink" title="8.2 Huffman树的构建"></a>8.2 Huffman树的构建</h4><p>给定n个权值，用这n个权值来构建Huffman的算法描述如下：<br>(1) 将这n个权值分别看成只有根结点的n棵二叉树，将这些二叉树的集合即为F<br>(2) 从F中选出两颗根结点的权值最小的树，作为左右子树，构建一颗新的二叉树，新的二叉树的根结点的权值为左右子结点的权值之和。<br>(3) 从F中删去a，b，加入新构建的树C<br>(4) 重复2,3步，直到F中只剩下一棵树为止，这棵树就是Huffman树。</p>
+<p>【例】将百分制的考试成绩转换成五分制的成绩<br>if(score &lt; 60) grade = 1;<br>else if(score &lt; 70) grade = 2;<br>else if(score &lt; 80) grade = 3;<br>else if(score &lt; 90) grade = 4;<br>else grade = 5;</p>
+<p>判定树：<br><img src="/images/huffman_ep1.png" alt="哈夫曼树实例判定树"></p>
+<p>如果考虑学生成绩的分布的概率：<br>分数段|0-59|60-69|70-79|80-89|90-100<br>比例|0.05|0.15|0.40|0.30|0.10</p>
+<p> 平均查找效率: 0.05<em>1+0.15</em>2+0.4<em>3+0.3</em>4+0.1*4 = 3.15 【1,2,3,4 为使用该判断树进行判断的判定次数】</p>
+<p> 换一种判别方法：<br> 修改判定树：<br> <img src="/images/huffman_ex2.png" alt="哈夫曼树实例判定树update"><br>if(score&lt;80)<br>{<br>    if(score&lt;70)<br>        if(score&lt;60) grade =1;<br>        else grade = 2;<br>} else if(score &lt; 90) grade = 4;<br>else grade = 5;<br>修改后的平均查找效率：0.05<em>3+0.15</em>3+0.4<em>2+0.3</em>2+0.1*2 = 2.2</p>
+<p>我们可以根据不同的方法构造不同的搜索树，而不同的搜索树的搜索效率是不一样的。<br><strong>如何根据结点不同的查找效率构造更有效的搜索树？</strong></p>
+<blockquote>
+<p>这就是hufman树要解决的问题<br>最优二叉树或哈夫曼树：WPL最小的二叉树<br>【例】有五个叶子结点，它们的权值为{1,2,3,4,5},用此权值序列可以构造出形状不同的多个二叉树<br> <img src="/images/huffman_ex3_1.png" alt="哈夫曼树实例判定树01"><br> <img src="/images/huffman_ex3-2.png" alt="哈夫曼树实例判定树01"><br> <img src="/images/huffman_ex3_3.png" alt="哈夫曼树实例判定树01"></p>
+</blockquote>
+<h4 id="8-2-Huffman树的构建"><a href="#8-2-Huffman树的构建" class="headerlink" title="8.2 Huffman树的构建"></a>8.2 Huffman树的构建</h4><blockquote>
+<p>每次把权值最小的两颗二叉树合并</p>
+</blockquote>
+<p>给定n个权值，用这n个权值来构建Huffman的算法描述如下：<br>(1) 将这n个权值分别看成只有根结点的n棵二叉树，将这些二叉树的集合即为F<br>(2) 从F中选出两颗根结点的权值最小的树，作为左右子树，构建一颗新的二叉树，新的二叉树的根结点的权值为左右子结点的权值之和。<br>(3) 从F中删去a，b，加入新构建的树C<br>(4) 重复2,3步，直到F中只剩下一棵树为止，这棵树就是Huffman树。</p>
+<hr>
+<p>1，7,3,4,9,8<br>=&gt; 从小到大排序: 1,3,4,7,8,9<br>=&gt; 选择最小的两个数字： 1,3<br>=&gt; 用类似树杈的树枝连接两个最小数，在顶点处计算出这两个数字的和，，然后在比较剩下的数字和这个和的大小，再取出最小的数字进行排列</p>
+<h2 id="gt-如果两个数的和正好是下一步的两个最小数的其中一个，那么这个树直接往上生长就可以了。如果这两个数的和比较大不是下一步的两个最小数的其中一个，那么就并列生长"><a href="#gt-如果两个数的和正好是下一步的两个最小数的其中一个，那么这个树直接往上生长就可以了。如果这两个数的和比较大不是下一步的两个最小数的其中一个，那么就并列生长" class="headerlink" title="=&gt; 如果两个数的和正好是下一步的两个最小数的其中一个，那么这个树直接往上生长就可以了。如果这两个数的和比较大不是下一步的两个最小数的其中一个，那么就并列生长"></a>=&gt; 如果两个数的和正好是下一步的两个最小数的其中一个，那么这个树直接往上生长就可以了。如果这两个数的和比较大不是下一步的两个最小数的其中一个，那么就并列生长</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">typedef struct TreeNode *HuffmanTree;</span><br><span class="line">struct TreeNode&#123;</span><br><span class="line">    int Weight;</span><br><span class="line">    HuffmanTree Left, Right;</span><br><span class="line">&#125;</span><br><span class="line">HuffmanTree Huffman(MinHeap H)</span><br><span class="line">&#123;</span><br><span class="line">    // 假设H-&gt;Size个权值已经存在H-&gt;Elements[]-&gt;Weight里</span><br><span class="line">    int i; HuffmanTree T;</span><br><span class="line">    BuildMinHeap(H);//将H-&gt;Elements[]按权值调整为最小堆，根据频率建立一个堆</span><br><span class="line">    for (i=1;i&lt;H-&gt;size;i++)&#123; // 做H-&gt;size-1次合并</span><br><span class="line">        T = malloc(sizeof(struct TreeNode)); // 建立新结点</span><br><span class="line">        T-&gt;left = DeleteMin(H); // 从最小堆中删除一个结点作为新的T的左子结点</span><br><span class="line">        T-&gt;right = DeleteMin(H); // 从最小堆中删除一个结点作为新的T的右子结点</span><br><span class="line">        T-&gt;weight = T-&gt;Left-&gt;Weight + T-&gt;Right-&gt;Weight // 计算新权值</span><br><span class="line">        Insert(H,T); // 将新T插入最小堆</span><br><span class="line">    &#125;</span><br><span class="line">    T = DeleteMin(H);</span><br><span class="line">    return T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">整体复杂度为O（NlogN）</span><br><span class="line"></span><br><span class="line">如何选取两个最小的？ 利用堆，排序方法效率不如堆</span><br></pre></td></tr></table></figure>
+
+<p>哈夫曼树的特点：<br>没有度为1的结点；</p>
+<blockquote>
+<p>n个叶子结点的哈夫曼树共有2n-1个结点：<br>    n0：叶结点总数<br>    n1：只有一个儿子的结点总数<br>    n2：有2个儿子的结点总数<br>    n2 = n0 -1；</p>
+</blockquote>
+<p>哈夫曼树的任意非叶子节点的左右子树交换后仍是哈夫曼树<br>对同一组权值{w1，w2，……，wn}，是否存在不同构的两颗哈夫曼树呢？<br><img src="/images/huffman_ex4_1.png" alt="哈夫曼树实例判定树01"></p>
+<h4 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h4><p>给定一段字符串，如何对字符进行编码，使得该字符串的编码存储空间最少？<br>[例]假设有一段文本，包含58个字符，并由以下7个字符构成：a，e，i，s，t，空格（sp），换行（nl）；这7个字符出现的次数不同，如何对这7个字符进行编码，使得总编码空间最少？</p>
+<p>【分析】</p>
+<ul>
+<li>用等长ASCII编码：58*8 = 464位</li>
+<li>用等长3位编码：58*3 = 174位</li>
+<li>不等长编码：出现频率高的字符用编码短些的，出现频率低的字符可以用编码长些的。</li>
+</ul>
+<p>怎么进行不等长编码？</p>
+<blockquote>
+<p>a：1，e：0，s:10，t：11<br>    1011是什么字符串的编码：aeaa,aet,st<br>    这样的编码是有问题的,存在二义性，<br>如何避免二义性？<br>前缀码prefix code：任何字符的编码都不是另一字符编码的前缀<br>  可以无二义的解码，如何保证编码不会出现二义性？</p>
+</blockquote>
+<p>二叉树用于编码：</p>
+<blockquote>
+<p>用二叉树进行编码：<br>    1）左右分支：0,1<br>    2）字符只在叶结点上。<br>四个字符的频率：a：4，u：1，x：2，z：1<br>等长码编码：<br><img src="/images/dengchangma.png" alt="等长码"><br>当所有结点在二叉树叶结点上时就不可能出现前缀码<br>Cost（aaaxuaxz-&gt; 00 00 00 10 01 00 10 11） = 2<em>4+2</em>1+2<em>2+2</em>1 = 16</p>
+</blockquote>
+<p><img src="/images/feidengchangma.png" alt="非等长码"> 有二义性<br>这种就会出现前缀码</p>
+<p><img src="/images/feidengchangNo.png" alt="非等长码"> 无二义性</p>
+<p>可以用二叉树构造编码，只要对象在叶结点上，编码就不会有二义性</p>
+<p>怎么构造一颗编码代码最小的二叉树？（用哈夫曼树）</p>
+<p>[例]哈夫曼编码：由7个字符构成的58个字符的字符串，怎么进行编码？<br>Cj |a |e |i |s |t |sp |nl<br>fi |10 |15 |12 |3 |4 |13 |1 (出现的频率)</p>
+<p>根据频率构造huffman树：</p>
+<p><img src="/images/huffman_ex5.png" alt="例题答案"> </p>
+<p>Cost = 3<em>10 + 2</em>15 + 2<em>12 + 5</em>3 + 4<em>4 + 2</em>13 + 5*1 = 146</p>
 
           
         
@@ -1668,7 +1731,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11.4k</span>
+    <span title="Site words total count">13.1k</span>
   
 </div>
 

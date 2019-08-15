@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="pm2 非root用户权限设置 用户不在sudoers文件中的解决方法1、查看/etc/sudoers文件权限，如果为只读权限，修改为可写权限ls -l /etc/sudoers 2、修改sudoers文件的权限不只是只读chmod 777 /etc/sudoers 3、编辑sudoers文件，添加user用户为所有可执行权限 4、修改回sudoers权限为440chmod 440 sudoers">
+<meta name="description" content="pm2 安装为root用户安装，现切换为普通user用户使用pm2报错，正在解决：解决方案一：SUDO，赋予普通用户临时root权限，并限制监控user操作，实现服务的可控。SUDO（substitude user do）使得系统管理员可以授权特定用户或用户组作为临时root执行命令，同时还能对命令及其参数提供审核跟踪。可以针对单个命令、仅在需要时授予临时权限，减少因为执行错误命令损坏系统，su">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pm2">
 <meta property="og:url" content="http://yoursite.com/2019/08/12/pm2/index.html">
 <meta property="og:site_name" content="KOKI">
-<meta property="og:description" content="pm2 非root用户权限设置 用户不在sudoers文件中的解决方法1、查看/etc/sudoers文件权限，如果为只读权限，修改为可写权限ls -l /etc/sudoers 2、修改sudoers文件的权限不只是只读chmod 777 /etc/sudoers 3、编辑sudoers文件，添加user用户为所有可执行权限 4、修改回sudoers权限为440chmod 440 sudoers">
+<meta property="og:description" content="pm2 安装为root用户安装，现切换为普通user用户使用pm2报错，正在解决：解决方案一：SUDO，赋予普通用户临时root权限，并限制监控user操作，实现服务的可控。SUDO（substitude user do）使得系统管理员可以授权特定用户或用户组作为临时root执行命令，同时还能对命令及其参数提供审核跟踪。可以针对单个命令、仅在需要时授予临时权限，减少因为执行错误命令损坏系统，su">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-13T08:07:57.086Z">
+<meta property="og:updated_time" content="2019-08-15T06:12:50.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pm2">
-<meta name="twitter:description" content="pm2 非root用户权限设置 用户不在sudoers文件中的解决方法1、查看/etc/sudoers文件权限，如果为只读权限，修改为可写权限ls -l /etc/sudoers 2、修改sudoers文件的权限不只是只读chmod 777 /etc/sudoers 3、编辑sudoers文件，添加user用户为所有可执行权限 4、修改回sudoers权限为440chmod 440 sudoers">
+<meta name="twitter:description" content="pm2 安装为root用户安装，现切换为普通user用户使用pm2报错，正在解决：解决方案一：SUDO，赋予普通用户临时root权限，并限制监控user操作，实现服务的可控。SUDO（substitude user do）使得系统管理员可以授权特定用户或用户组作为临时root执行命令，同时还能对命令及其参数提供审核跟踪。可以针对单个命令、仅在需要时授予临时权限，减少因为执行错误命令损坏系统，su">
 
 
 
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-13T16:07:57+08:00">
-                2019-08-13
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-15T14:12:50+08:00">
+                2019-08-15
               </time>
             
           </span>
@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  94
+                  440
                 </span>
               
 
@@ -403,7 +403,26 @@
       
 
       
-        <p>pm2 非root用户权限设置</p>
+        <blockquote>
+<p>pm2 安装为root用户安装，现切换为普通user用户使用pm2报错，正在解决：<br>解决方案一：SUDO，赋予普通用户临时root权限，并限制监控user操作，实现服务的可控。<br>SUDO（substitude user do）使得系统管理员可以授权特定用户或用户组作为临时root执行命令，同时还能对命令及其参数提供审核跟踪。可以针对单个命令、仅在需要时授予临时权限，减少因为执行错误命令损坏系统，sudo也能以其他用户身份执行命令并且记录用户执行的命令，以及失败的权限申请。<br>手册参考：[ps:全英文]<br><a href="https://gratisoft.us/sudo/man.html" target="_blank" rel="noopener">https://gratisoft.us/sudo/man.html</a><br><a href="https://gratisoft.us/sudo/man/1.8.6/sudoers.man.html" target="_blank" rel="noopener">https://gratisoft.us/sudo/man/1.8.6/sudoers.man.html</a></p>
+</blockquote>
+<p><a href="https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Sudo_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></p>
+<p>pm2 非root用户权限设置</p>
+<h3 id="检查状态-日志-指标"><a href="#检查状态-日志-指标" class="headerlink" title="检查状态 日志 指标"></a>检查状态 日志 指标</h3><p><strong>列出托管应用程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 [list|ls|status]</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示日志</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">显示实时日志：</span><br><span class="line">pm2 logs</span><br><span class="line">显示就日志：</span><br><span class="line">pm2 logs --lines 200</span><br><span class="line">基于终端仪表盘：</span><br><span class="line">pm2 monit</span><br></pre></td></tr></table></figure>
+
+<p><strong>管理应用程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pm2 restart app</span><br><span class="line">pm2 reload app</span><br><span class="line">pm2 stop app</span><br><span class="line">pm2 delete app</span><br></pre></td></tr></table></figure>
+
+<p><strong>集群模式</strong></p>
+<blockquote>
+<p>对于node.js应用程序，PM2包括一个自动负载均衡器，它将共享每个进程这件的所有http[s]/websocket/tcp/udp连接</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">要以集群模式启动应用程序:</span><br><span class="line">pm2 start app.js -i max</span><br></pre></td></tr></table></figure>
+
 <p><strong>用户不在sudoers文件中的解决方法</strong><br>1、查看/etc/sudoers文件权限，如果为只读权限，修改为可写权限<br>ls -l /etc/sudoers</p>
 <p>2、修改sudoers文件的权限不只是只读<br>chmod 777 /etc/sudoers</p>
 <p>3、编辑sudoers文件，添加user用户为所有可执行权限</p>
@@ -499,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -563,6 +591,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查状态-日志-指标"><span class="nav-number">1.</span> <span class="nav-text">检查状态 日志 指标</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -590,7 +634,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11.4k</span>
+    <span title="Site words total count">13.1k</span>
   
 </div>
 
