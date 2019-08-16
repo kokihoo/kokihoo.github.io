@@ -630,7 +630,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/map/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/Graph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KOKI HOO">
@@ -649,7 +649,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/15/map/" itemprop="url">map</a></h1>
+                <a class="post-title-link" href="/2019/08/15/Graph/" itemprop="url">Graph</a></h1>
         
 
         <div class="post-meta">
@@ -677,8 +677,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-15T18:07:33+08:00">
-                2019-08-15
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-16T11:32:53+08:00">
+                2019-08-16
               </time>
             
           </span>
@@ -691,7 +691,7 @@
 
           
           
-             <span id="/2019/08/15/map/" class="leancloud_visitors" data-flag-title="map">
+             <span id="/2019/08/15/Graph/" class="leancloud_visitors" data-flag-title="Graph">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -716,7 +716,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  72
+                  212
                 </span>
               
 
@@ -755,8 +755,10 @@
       
         
           
-            <p>图</p>
-<h3 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h3><h3 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h3><h3 id="邻接矩阵，邻接表"><a href="#邻接矩阵，邻接表" class="headerlink" title="邻接矩阵，邻接表"></a>邻接矩阵，邻接表</h3><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><h3 id="最小生成树基本概念"><a href="#最小生成树基本概念" class="headerlink" title="最小生成树基本概念"></a>最小生成树基本概念</h3><h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><h3 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h3><h3 id="广度优先遍历算法"><a href="#广度优先遍历算法" class="headerlink" title="广度优先遍历算法"></a>广度优先遍历算法</h3><h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><h3 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h3><h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3>
+            <p>图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION)<br><img src="/images/map_01.png" alt="图的引例"></p>
+<p>表示多对多的关系：把线性表 树的关系都包含在内了</p>
+<h3 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h3><p>表示“多对多的关系”<br>包含：<br>    - 一组顶点：通常是V(Vertex)表示顶点集合<br>    - 一组边: 通常用E(Edge)表示边的集合，表示顶点与顶点的某种关系<br>        边是顶点对：(v,w) ∈ E，边是无向边，其中v，w ∈ V              v——w<br>        有向边：&lt;v,w&gt;表示从v指向w的边（单行边）                      v——&gt;w<br>        不考虑重边和自回路</p>
+<h3 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h3><h3 id="邻接矩阵，邻接表"><a href="#邻接矩阵，邻接表" class="headerlink" title="邻接矩阵，邻接表"></a>邻接矩阵，邻接表</h3><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><h3 id="最小生成树基本概念"><a href="#最小生成树基本概念" class="headerlink" title="最小生成树基本概念"></a>最小生成树基本概念</h3><h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><h3 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h3><h3 id="广度优先遍历算法"><a href="#广度优先遍历算法" class="headerlink" title="广度优先遍历算法"></a>广度优先遍历算法</h3><h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><h3 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h3><h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3>
           
         
       
@@ -2253,7 +2255,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.5k</span>
+    <span title="Site words total count">13.6k</span>
   
 </div>
 
