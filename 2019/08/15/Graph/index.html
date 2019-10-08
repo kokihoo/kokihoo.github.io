@@ -79,24 +79,21 @@
 
 
 
-<meta name="description" content="图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION) 表示多对多的关系：把线性表 树的关系都包含在内了 图的基本概念表示“多对多的关系”包含：    - 一组顶点：通常是V(Vertex)表示顶点集合    - 一组边: 通常用E(Edge)表示边的集合，表示顶点与顶点的某种关系        边是顶点对：(v,w) ∈ E，边是无向边，其中v，w ∈ V">
+<meta name="description" content="图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION) 表示多对多的关系：把线性表 树的关系都包含在内了  P24   图的基本概念图的抽象数据类型定义：数据对象 数据关系 操作集 ADT Graph {     数据对象V：V是具有相同特性的数据元素的集合，称为顶点集     数据关系R：         R={VR}         VR={&amp;lt;v,">
 <meta name="keywords" content="DATA STRUCTURE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Graph">
 <meta property="og:url" content="http://yoursite.com/2019/08/15/Graph/index.html">
 <meta property="og:site_name" content="KOKI">
-<meta property="og:description" content="图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION) 表示多对多的关系：把线性表 树的关系都包含在内了 图的基本概念表示“多对多的关系”包含：    - 一组顶点：通常是V(Vertex)表示顶点集合    - 一组边: 通常用E(Edge)表示边的集合，表示顶点与顶点的某种关系        边是顶点对：(v,w) ∈ E，边是无向边，其中v，w ∈ V">
+<meta property="og:description" content="图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION) 表示多对多的关系：把线性表 树的关系都包含在内了  P24   图的基本概念图的抽象数据类型定义：数据对象 数据关系 操作集 ADT Graph {     数据对象V：V是具有相同特性的数据元素的集合，称为顶点集     数据关系R：         R={VR}         VR={&amp;lt;v,">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/map_01.png">
 <meta property="og:image" content="http://yoursite.com/images/linjiebiao.png">
 <meta property="og:image" content="http://yoursite.com/images/shenduyouxian.png">
-<meta property="og:image" content="http://yoursite.com/images/guangdubianli.png">
-<meta property="og:image" content="http://yoursite.com/images/liantongfenliang.png">
-<meta property="og:image" content="http://yoursite.com/images/qiangliantong.png">
-<meta property="og:updated_time" content="2019-08-18T15:48:40.000Z">
+<meta property="og:updated_time" content="2019-10-08T10:02:48.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Graph">
-<meta name="twitter:description" content="图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION) 表示多对多的关系：把线性表 树的关系都包含在内了 图的基本概念表示“多对多的关系”包含：    - 一组顶点：通常是V(Vertex)表示顶点集合    - 一组边: 通常用E(Edge)表示边的集合，表示顶点与顶点的某种关系        边是顶点对：(v,w) ∈ E，边是无向边，其中v，w ∈ V">
+<meta name="twitter:description" content="图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION) 表示多对多的关系：把线性表 树的关系都包含在内了  P24   图的基本概念图的抽象数据类型定义：数据对象 数据关系 操作集 ADT Graph {     数据对象V：V是具有相同特性的数据元素的集合，称为顶点集     数据关系R：         R={VR}         VR={&amp;lt;v,">
 <meta name="twitter:image" content="http://yoursite.com/images/map_01.png">
 
 
@@ -335,8 +332,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-18T23:48:40+08:00">
-                2019-08-18
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-08T18:02:48+08:00">
+                2019-10-08
               </time>
             
           </span>
@@ -374,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  6.4k
                 </span>
               
 
@@ -390,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  24
                 </span>
               
             </div>
@@ -413,14 +410,80 @@
       
         <p>图：社交网络 关系(边) 六度空间理论(SIX DEGREES OF SEPARATION)<br><img src="/images/map_01.png" alt="图的引例"></p>
 <p>表示多对多的关系：把线性表 树的关系都包含在内了</p>
-<h3 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h3><p>表示“多对多的关系”<br>包含：<br>    - 一组顶点：通常是V(Vertex)表示顶点集合<br>    - 一组边: 通常用E(Edge)表示边的集合，表示顶点与顶点的某种关系<br>        边是顶点对：(v,w) ∈ E，边是无向边，其中v，w ∈ V              v——w<br>        有向边：&lt;v,w&gt;表示从v指向w的边（单行边）                      v——&gt;w<br>        *不考虑重边和自回路</p>
+<blockquote>
+<p>P24 </p>
+</blockquote>
+<h3 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h3><pre><code>图的抽象数据类型定义：数据对象 数据关系 操作集
+ADT Graph {
+    数据对象V：V是具有相同特性的数据元素的集合，称为顶点集
+    数据关系R：
+        R={VR}
+        VR={&lt;v, w&gt;| v,w∈V且P(v, w),&lt;v, w&gt;表示从v到w的弧，谓词P(v,w)定义了弧&lt;v, w&gt;的意义或信息}
+}</code></pre><p>表示“多对多的关系”<br>包含：<br>    - 一组顶点：通常是V(Vertex)表示顶点集合<br>    - 一组边: 通常用E(Edge)表示边的集合，表示顶点与顶点的某种关系<br>        边是顶点对：(v,w) ∈ E，边是无向边，其中v，w ∈ V              v——w<br>        有向边：&lt;v,w&gt;表示从v指向w的边（单行边）                      v——&gt;w<br>        *不考虑重边和自回路</p>
 <p>抽象数据类型定义：三要素， </p>
 <ul>
-<li>类型名称：图(Graph)</li>
-<li>数据对象集：G(V,E)由一个非空[在说到一个图的时候可以一条边没有，但是不能连一个顶点也没有，必须至少有一个顶点]的有限顶点集合V和一个有限边集合E组成。</li>
-<li>操作集：对于任意图 G ∈ Graph, 以及 v ∈ V, e ∈ E<br>  Graph Create(); 建立并返回空图;<br>  Graph InsertVertex(Graph G, Vertex v): 将v插入G;<br>  Graph InsertEdge(Graph G, Edge e): 将e插入G;<br>  void DFS(Graph G, Vertex v): 从顶点v出发深度优先遍历图G;<br>  void BFS(Graph G, Vertex v): 从顶点v出发宽度优先遍历图G;<br>  void ShortestPath(Graph G, Vertex v, int Dist[]): 计算图G中顶点v到任意其他顶点的最短距离<br>  void MST(Graph G): 计算图G的最小生产树<br>  ……<h4 id="常见术语"><a href="#常见术语" class="headerlink" title="常见术语"></a>常见术语</h4>无</li>
+<li><p>类型名称：图(Graph)</p>
+</li>
+<li><p>数据对象集：G(V,E)由一个非空[在说到一个图的时候可以一条边没有，但是不能连一个顶点也没有，必须至少有一个顶点]的有限顶点集合V和一个有限边集合E组成。</p>
+</li>
+<li><p>操作集：对于任意图 G ∈ Graph, 以及 v ∈ V, e ∈ E<br>  Graph Create(); 建立并返回空图;<br>  Graph InsertVertex(Graph G, Vertex v): 将v插入G;<br>  Graph InsertEdge(Graph G, Edge e): 将e插入G;<br>  void DFS(Graph G, Vertex v): 从顶点v出发深度优先遍历图G;<br>  void BFS(Graph G, Vertex v): 从顶点v出发宽度优先遍历图G;<br>  void ShortestPath(Graph G, Vertex v, int Dist[]): 计算图G中顶点v到任意其他顶点的最短距离<br>  void MST(Graph G): 计算图G的最小生产树<br>  ……</p>
+<h4 id="常见术语-P24"><a href="#常见术语-P24" class="headerlink" title="常见术语 P24"></a>常见术语 P24</h4><blockquote>
+<p>名词和术语</p>
+</blockquote>
+</li>
+<li><p>弧头、弧尾、弧、有向图<br>  若&lt;v, w&gt;∈ VR，<br>  则&lt;v, w&gt;表示从顶点v到顶点w的一条<strong>弧</strong><br>  称顶点v为<strong>弧尾</strong>，称顶点w为<strong>弧头</strong><br>  由顶点集合弧集构成的图称作<strong>有向图</strong></p>
+</li>
+<li><p>边、无向图<br>  若&lt;v, w&gt;∈ VR，必有&lt;w, v&gt;∈ VR，<br>  则称(v, w)为顶点v和顶点w之间存在一条<strong>边</strong><br>  由顶点集合边集构成的图称作<strong>无向图</strong></p>
+</li>
+<li><p>网、子图<br>  弧或边带权的图分别称作<strong>有向网</strong>或<strong>无向网</strong><br>  设图G={V, {VR}}和图G’={V’, {VR’}}, 且V’∈V, VR’∈ VR, 则称G’为G的<strong>子图</strong></p>
+</li>
+<li><p>完全图、稀疏图、稠密图<br>  假设图中有n个顶点，e条边，则</p>
+<pre><code>含有e = n(n-1) /2条边的无向图称作**完全图**
+含有e = n(n-1)条弧的有向图称为**有向完全图**
+若边或弧的个数 e &lt; nlogn,则称作**稀疏图**，否则称作**稠密图**</code></pre></li>
+<li><p>邻接点、 度、 入度、出度<br>  假若顶点v和顶点w之间存在一条边，则称顶点v和w互为<strong>邻接点</strong>，边(v, w)和顶点v和w相<strong>关联</strong><br>  和顶点v关联的边的数目定义为边的<strong>度</strong></p>
+<p>  对有向图来说：<br>  以顶点v为弧尾的弧的数目定义为顶点的<strong>出度</strong><br>  以顶点V为弧头的弧的数目定义为顶点的<strong>入度</strong></p>
+<pre><code>**度(TD)= 出度(OD) + 入度(ID)**</code></pre></li>
+<li><p>路径、路径长度、简单路径、简单回路<br>  设图G=(V, {VR})中的一个顶点序列{u=vi,0,vi,1,……,vi,m=w}中,(vi,j-1, vi,j)∈ VR  1《j《m,<br>  则称从顶点u到顶点w之间存在一条<strong>路径</strong>，路径上边的数目称作<strong>路径长度</strong><br>  若序列中的顶点不重复出现，则称作<strong>简单路径</strong><br>  若u=w，则称这条路径为<strong>回路</strong>或<strong>简单回路</strong></p>
+</li>
+<li><p>连通图、连通分量，强连通图、强连通分量<br>  若图G中任意两个顶点之间都有路径相通，则此图为<strong>连通图</strong><br>  若无向图为非连通图，则图中各个极大连通子图称作此图的<strong>连通分量</strong></p>
+<p>  对于有向图，<br>  若任意两个顶点之间都存在一条有向路径，则称此有向图为<strong>强连通图</strong><br>  否则，其各个强连通子图称作它的<strong>强连通分量</strong></p>
+</li>
+<li><p>生成树和生成森林<br>  假设一个连通图有n顶点和e条边，其中n-1条边和n个顶点构成一个极小连通子图，称该极小连通子图为此连通图的<strong>生成树</strong></p>
+<p>  对于非连通图，<br>  则称各个连通分量的生成树的集合为此非连通图的<strong>生成森林</strong></p>
+</li>
 </ul>
-<h3 id="图的存储结构：邻接矩阵，邻接表"><a href="#图的存储结构：邻接矩阵，邻接表" class="headerlink" title="图的存储结构：邻接矩阵，邻接表"></a>图的存储结构：邻接矩阵，邻接表</h3><p>怎么在程序中表示一个图？</p>
+<blockquote>
+<p>图的基本操作P25：</p>
+<ul>
+<li>结构的建立和销毁：CreateGraph(&amp;G, V, VR) Destory(&amp;G)</li>
+<li>插入或删除顶点：<br>  InsertVex(&amp;G, v)：在图G中增添新顶点v<br>  Detele(&amp;G, v)：删除G中顶点v及其相关的弧</li>
+<li>对顶点的访问操作：<br>  LocateVex(G, u) :若G中存在顶点u，则返回该顶点在图中的位置，否则返回其他信息<br>  GetVex(G, v)：返回v的值<br>  PutVex(&amp;G, v, value)：对v赋值value</li>
+<li>插入或删除弧：<br>  InsertArc(&amp;G, v, w)：在G中添加弧&lt;v, w&gt;,若G是无向的，则还增添对称弧&lt;w, v&gt;<br>  DeleteArc(&amp;G, v, w): 在G中删除弧&lt;v, w&gt;,若G是无向的，则还删除对称弧&lt;w, v&gt;</li>
+<li>对邻接点的操作：<br>  FirstAdjVex(G, v)：返回v的第一个邻接点。若该顶点在G中没有邻接点，则返回’空’<br>  NextAdjVex(G, v, w)：返回v的相对于w的下一个邻接点，若w是v的最后一个邻接点，则返回空</li>
+<li>遍历：<br>  DFSTraverse(G, v, Visit()): 从顶点v起深度优先遍历图G，并对每个顶点调用函数Visit一次且仅一次<br>  BFS(G, v, Visit())：从顶点v起广度优先遍历图G，并对每个顶点调用函数Visit一次且仅一次</li>
+</ul>
+</blockquote>
+<h3 id="图的存储结构：邻接矩阵，邻接表"><a href="#图的存储结构：邻接矩阵，邻接表" class="headerlink" title="图的存储结构：邻接矩阵，邻接表"></a>图的存储结构：邻接矩阵，邻接表</h3><blockquote>
+<p>图的存储表示</p>
+<ul>
+<li>一、图的数组(邻接矩阵)存储表示<br>怎么在程序中表示一个图？<br>typedef struct AreCell {<br>  VRType adj; // VRtype是顶点关系类型，对无权图，用1或0表示相邻否，对带权图，则为权值类型<br>  InfoType *info;// 该弧相关信息的指针<br>} AreCell</li>
+</ul>
+</blockquote>
+<p>AdjMatrix[MAX_VERTEX_NUM][MAX_VERTEX_NUM];<br>typedef struct{<br>    VertexType vex[MAX_VERTEX_NUM];<br>    AdjMatrix arcs;<br>    int vexnum, arcnum;<br>    GraphKind kind;<br>} MGraph</p>
+<ul>
+<li>二、图的邻接表存储表示<br>typedef struct AreNode{<br>  int adjvex; // 该弧所指向的顶点的位置<br>  struct AreNode *nextarc;// 指向下一条弧的指针<br>  InfoType *info;// 该弧相关信息的指针<br>} AreNode;</li>
+</ul>
+<p>typedef struct VNode {<br>    VertexType data; // 顶点信息<br>    AreNode *firstarc; // 指向第一条依附该顶点的弧<br>} VNode, AdjList[MAX_VERTEX_NUM];</p>
+<p>typedef struct {<br>    AdjList verrices;<br>    Int vexnum, arcnum;<br>    int kind; // 图的种类标志<br>}</p>
+<ul>
+<li>三、有向图的十字链表存储表示 【大纲不考】<br>// 定义弧<br>typedef struct Arebox {<br>  int tailvex, headvex;//该弧的尾和头顶点的位置<br>  struct ArcBox <em>hlink,</em>tlink; // 分别指向下一个弧头相同和弧尾相同弧的指针域<br>  InfoType *info; // 该弧相关信息的指针<br>} AreBox</li>
+</ul>
+<p>typedef struct VexNode {<br>    VertexType data;<br>    ArcBox *firstin, *firstout;<br>} VexNode</p>
+<p>typedef struct {<br>    VexNode xlist[MAX_VERTEX_NUM];<br>    int vexnum, arcnum; // 有向图的当前顶点数和弧数<br>} Graph</p>
+<p>-四、无向图的邻接多重表存储表示<br>typedef struct Ebox{<br>    Visit mark; //访问标记<br>    int ivex, jvex; //该边依附对的两个顶点的位置<br>    struct Ebox *ilink, *jlink; // 该边信息指针<br>}EBox</p>
+<p>typedef struct VexBox {<br>    VertexType data;<br>    EBox *firstedge; // 指向第一条依附该顶点的边<br>} VexBox</p>
+<p>typedef struct{<br>    VexBox adjmulist[MAX_VERTEX_NUM];<br>    int vernum, edgenum;<br>}Graph</p>
 <h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>邻接矩阵G[N][N]-N个顶点从0到N-1编号（二维数组表示图）：<br>  G[i][j] = 1  若<vi vj>是G中边<br>            0  否则<br>  问题，对于无向图的存储，怎样可以省一半的空间？<br>邻接矩阵的好处<br>  直观、简单、好理解<br>  方便检查任意一对顶点间是否存在边<br>  方便找任一顶点的所有邻接点（有边直接相连的顶点）<br>  方便计算任一顶点的“度”（从该点发出的边数为“出度”，指向该点的边数称为入度）<br>  如何计算度？</vi></p>
 <ul>
 <li><p>无向图：对应行（或列）非0元素的个数</p>
@@ -432,29 +495,138 @@
 </ul>
 <p>邻接表<br>    方便找任一顶点的所有邻接点<br>    节约稀疏图的空间<br>        需要N个头指针+2E个结点（每个结点至少2个域）<br>    方便计算任一定点的度？<br>        对无向图：是的<br>        对有向图：只能计算“出度”【正邻接表存的是邻接矩阵的每一行存成一个链表】：需要构造“逆邻接表”【存的是邻接矩阵的每一列存成一个链表】（存指向自己的边）来方便计算入度<br>    方便检查任意一对顶点间是否存在边？<br>        No</p>
 <p>表示图的方法并不只有邻接表和邻接矩阵还有别的方法，至于用什么方法来表示图，取决于你要解决的问题。</p>
-<h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><p>每个顶点访问一遍，不能有重复的访问。为什么要对图做遍历呢？</p>
-<h4 id="深度优先遍历-Depth-Frist-Search，DFS"><a href="#深度优先遍历-Depth-Frist-Search，DFS" class="headerlink" title="深度优先遍历 Depth Frist Search，DFS"></a>深度优先遍历 Depth Frist Search，DFS</h4><p>迷宫：<br>树的先序遍历推广<br><img src="/images/shenduyouxian.png" alt="深度优先遍历"><br>若又N个顶点，E条边，时间复杂度是<br>用邻接表存储图。有O（N+E）<br>用邻接矩阵存储图，有O（N^2）</p>
-<h4 id="广度优先遍历-Breadth-First-Search-BFS-一圈一圈的搜"><a href="#广度优先遍历-Breadth-First-Search-BFS-一圈一圈的搜" class="headerlink" title="广度优先遍历 Breadth First Search,BFS 一圈一圈的搜"></a>广度优先遍历 Breadth First Search,BFS 一圈一圈的搜</h4><p>相当于树里面的层次遍历<br><img src="/images/guangdubianli.png" alt="广度优先遍历"><br>若有N个顶点、E条边，时间复杂度是<br>用邻接表存储图。有O（N+E）<br>用邻接矩阵存储图，有O（N^2）</p>
-<p>为什么要需要两种遍历？<br>图不连通怎么办？</p>
-<ul>
-<li>连通：如果从v到w存在一条（无向）路径，则称v和w是连通的。</li>
-<li>路径：v到w的路径是一系列顶点（V，v1，v2……，vn，w）的集合，其中任一对相邻的顶点间都有图中的边</li>
-<li>路径的长度：是路径中的边数（如果带权，杂事所有边的权重和）。</li>
-<li>简单路径：v到w之间的所有顶点都不同，则称简单路径</li>
-<li>回路：起点等于终点的路径</li>
-<li>连通图： 图中任意两顶点均连通。</li>
-<li>连通分量：无向图的极大连通子图<br>  极大顶点数：再加1个顶点就不连通了。<br>  极大边数：包含子图中所有顶点相连的所有边<br>  <img src="/images/liantongfenliang.png" alt="连通分量"></li>
+<h3 id="图的遍历-P25-44-11"><a href="#图的遍历-P25-44-11" class="headerlink" title="图的遍历 P25:44:11"></a>图的遍历 P25:44:11</h3><blockquote>
+<p>从图中某个顶点出发游历图，访遍图中其余顶点，并且使图中的每个顶点仅被访问一次的过程。</p>
+</blockquote>
+<p>每个顶点访问一遍，不能有重复的访问。为什么要对图做遍历呢？</p>
+<h4 id="深度优先遍历-P26-Depth-Frist-Search，DFS"><a href="#深度优先遍历-P26-Depth-Frist-Search，DFS" class="headerlink" title="深度优先遍历 P26 Depth Frist Search，DFS"></a>深度优先遍历 P26 Depth Frist Search，DFS</h4><blockquote>
+<p>  从图中某个顶点V0出发，访问此顶点，然后依次从V0的各个<strong>未被访问</strong>的邻接点出发深度优先搜索遍历图，直至图中所有和V0有路径相通的顶点都被访问到，若此时图中尚有顶点未被访问，则<br>    另选图中一个未曾被访问的顶点做起始点，重复上述过程，直至图中所有顶点都被访问到为止</p>
+</blockquote>
+<pre><code>非连通图：
+void DFSTraverse(Graph G, Status(*Visit(int v))){
+    // 对图G作深度优先遍历
+    VisitFunc = Visit;
+    for(v=0; v&lt;G.vexnum; ++v)
+        visited[v] = FALSE;//访问标志数组初始化
+    for(v=0; v&lt;G.vexnum; ++v)
+    if(!visited[v]) DFS(G,v); // 对尚未访问的顶点调用DFS
+}
+
+void DFS(Graph G, int v) {
+    visited[v] = TRUE;
+    VisitFunc(v);
+    for(w=FirstAdjVex(G, x); W!=0; w=NextAdjVex(G, v, w))
+        if(!visited[w]) DFS(G, w);// 对v的尚未访问的邻接顶点w递归调用DFS
+}</code></pre><p><img src="/images/shenduyouxian.png" alt="深度优先遍历"><br>若又N个顶点，E条边，时间复杂度是<br>用邻接表存储图。有O（N+E）<br>用邻接矩阵存储图，有O（N^2）</p>
+<h4 id="广度优先遍历-P26：26-00-Breadth-First-Search-BFS-一圈一圈的搜"><a href="#广度优先遍历-P26：26-00-Breadth-First-Search-BFS-一圈一圈的搜" class="headerlink" title="广度优先遍历 P26：26:00 Breadth First Search,BFS 一圈一圈的搜"></a>广度优先遍历 P26：26:00 Breadth First Search,BFS 一圈一圈的搜</h4><blockquote>
+<p>从图中的某个顶点V0出发，并在访问此顶点之后一次访问V0的所有未被访问过的邻接点，之后按这些顶点被访问的先后次序依次访问它们的邻接点，直至图中所有的V0有路径<br>    相通的顶点都被访问到，若此时图中尚有顶点未被访问，则另选图中一个未曾被访问的顶点作为起始点，重读上述过程，直至图中所有的顶点都被访问到为止</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void BFSTraverse(Graph G, Status(*Visit)(int v))&#123;</span><br><span class="line">    for(v=0; v&lt;G, vexnum; ++v)</span><br><span class="line">        visited[v] = FALSE;</span><br><span class="line">        InitQueue(Q); // 置空的辅助队列Q</span><br><span class="line">    for(v=0; v&lt;G.vexnum; v++)</span><br><span class="line">        if(!visited[v])&#123; // 尚未访问</span><br><span class="line">            Enqueue(Q, v);</span><br><span class="line">            visited[u] = TRUE;</span><br><span class="line">            Visit[u]</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        while(!QueueEmpty(Q))&#123;</span><br><span class="line">            DeQueue(Q, u);// 队头元素出队并置为u 访问u</span><br><span class="line">            for(w=FirstAdjVex(G, u); w!=0; w=NextAdjVex(G, u, w))</span><br><span class="line">                if(!visited[w]) &#123;EnQueue(Q, w)&#125;;</span><br><span class="line">                visited[w] = TRUE;</span><br><span class="line">                Visited(w);// u的尚未访问的邻接顶点w入队列Q</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>动画图示一定要看，非常清楚P26:47:00</p>
+<h4 id="遍历应用举例-P27-大纲没有补考可略过"><a href="#遍历应用举例-P27-大纲没有补考可略过" class="headerlink" title="遍历应用举例 P27-大纲没有补考可略过"></a>遍历应用举例 P27-大纲没有补考可略过</h4><ul>
+<li><p>1.求一条从顶点i到顶点s的简单路径[深度优先搜索遍历]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void DFSearch(int v, int s, char *PATH)&#123;</span><br><span class="line">    // 从第v个顶点出发递归深度优先遍历图G</span><br><span class="line">    // 求得一条从v到s的简单路径，并记录在PATH中</span><br><span class="line">    visited[v] = TRUE; // 访问第v个顶点</span><br><span class="line">    Append(PATH, getVertex(v));</span><br><span class="line">    for(w=FirstAdjVex(v); w!=0 &amp;&amp; !found; w=NextAdjVex(v))</span><br><span class="line">        if(w=s)&#123;</span><br><span class="line">            found=TRUE; Append(PATH, w)</span><br><span class="line">        &#125;else if(!visited[w])&#123;</span><br><span class="line">            DFSearch(w, LP);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    if(!found) Delete(PATH)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>求两个顶点之间的一条路径长度最短的路径</p>
+<blockquote>
+<p>基于广度优先搜索遍历，并修改链队列的结点结构及其入队列和出队列的算法</p>
+</blockquote>
+</li>
+<li><p>将链队列的结点改为“双链”结点，即结点中包含next和priou两个指针</p>
+</li>
+<li><p>修改入队列的操作，插入新的对尾结点时，另起priou域的指针，指向刚出队列的结点，即当前的对头指针所指结点</p>
+</li>
+<li><p>修改出队列的操作，出队列时，仅移动对头指针，而不将对头结点从链表中删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">typedef DuLinkList QueuePtr;</span><br><span class="line">void InitQueue(LinkQueue&amp; Q)&#123;</span><br><span class="line">    Q.front = Q.rear = (QueuePtr)malloc(sizeof(QNode));</span><br><span class="line">    Q.front -&gt; next = Q.rear-&gt;next = NULL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void EnQueue(LinkQueue&amp; Q, QelemType e)&#123;</span><br><span class="line">    p = (QueuePtr) malloc (sizeof(QNode));</span><br><span class="line">    p-&gt;data = e;</span><br><span class="line">    p-&gt;next=NUll;</span><br><span class="line">    p-&gt;priou = Q.front</span><br><span class="line">    Q.rear-&gt;next = p;</span><br><span class="line">    Q.rear = p;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">void DeQueue(LinkQueue&amp; Q, QelemType&amp; e)&#123;</span><br><span class="line">    Q.front = Q.front-&gt;next;</span><br><span class="line">    e = Q.front-&gt;data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>有向图：有强连通和弱连通的概念</p>
+<h3 id="最小生成树基本概念-P27：24-16"><a href="#最小生成树基本概念-P27：24-16" class="headerlink" title="最小生成树基本概念 P27：24:16"></a>最小生成树基本概念 P27：24:16</h3><blockquote>
+<p>问题： 假设要在n个城市之间建立通讯联络网，则连通n个城市只需要修建n-1条线路，如何在最节省经费的前提下建立这个通讯网？<br>         该问题等价于：<br>         构造网的一颗最小生成树，即：在e条带权的边中选取n-1条（不构成回路），即“权值之和”为最小</p>
+</blockquote>
+<p>解决最小生成树问题：<br>    算法一：普利姆算法</p>
+<h3 id="Prim算法-P27：30-00-41-49"><a href="#Prim算法-P27：30-00-41-49" class="headerlink" title="Prim算法 P27：30:00-41:49"></a>Prim算法 P27：30:00-41:49</h3><blockquote>
+<p>可取图中任意一个顶点v作为生成树的根，之后若要往生成树上添加顶点w，则在顶点v和顶点w之间必定存在一条边，并且该边的权值在连通顶点v和w之间的边中取值最小<br>    一般情况下，假设n个顶点分成两个集合：U(包含已落成在生产树上的结点)和V-U(尚未落在生成树上的顶点)，则在所有连通图U中顶点和V-U中顶点的边中选取权值最小的边<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//记录从顶点集U到V-U的代价最小的边的辅助数组;</span><br><span class="line">struct &#123;</span><br><span class="line">    VertexType adjvex;</span><br><span class="line">    VRType lowcost:</span><br><span class="line">&#125; closege[MAX_VERTEX_NUM];</span><br><span class="line"></span><br><span class="line">k=LocateVex(G, u);</span><br><span class="line">for(j=0; j&lt;G.vexnum; ++j) // 辅助数组初始化</span><br><span class="line">    if(j!=k) closedge[j] = ()</span><br><span class="line"></span><br><span class="line">for(j=0; j&lt;G.vexnum; ++j)&#123;</span><br><span class="line">    // 在其余顶点中选择</span><br><span class="line">    k = minimum(closedge); //求出T的下一个结点(k)</span><br><span class="line">    printf(closedge[k].adjvex,G.vexs[k]);</span><br><span class="line">    closedge[k].lowcost = 0; // 第k顶点并入U集</span><br><span class="line">    for(j=0; j&lt;G.vexnum; ++j)</span><br><span class="line">        if(G.arcs[k][j].adj &lt; closege[j].lowcost)</span><br><span class="line">            closedge[j] = (G.vexs[k],G.arcs[k][j].adj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><blockquote>
+<p>克鲁斯卡尔算法:<br>    为使生成树上边的权值之和最小，显然，其中每一条边的权值应该尽可能的小，克鲁斯卡尔算法的做法就是：先构造一个只含n个顶点的子图SG，然后从权值最小的边开始，若它的添加不使SG中产生回路，则在SG上加上这条边，如此重复，直至加上n-1条边为止</p>
+</blockquote>
+<p>算法：</p>
 <ul>
-<li>强连通：有向图中顶点v和w之间存在双向路径，则称v和w是强连通</li>
-<li>强连通图：有向图中任意两顶点均强连通</li>
-<li>弱连通：去掉有向图中的方向，均连通，叫弱连通</li>
-<li>强连通分量：有向图的极大强连通子图    </li>
+<li>构造非连通图ST = (V, {}) –[只含顶点不含边];<br>  k = i = 0;<br>  while (k &lt; n-1){<pre><code>++i;
+// 从边集E中选取第i条权值最小的边(u, v);若(u,v)加入ST后不使ST中产生回路，则输出边(u, v); 且k++;</code></pre>  }</li>
 </ul>
-<p><img src="/images/qiangliantong.png" alt="强连通分量"></p>
-<p>应用实例：拯救007</p>
-<h3 id="最小生成树基本概念"><a href="#最小生成树基本概念" class="headerlink" title="最小生成树基本概念"></a>最小生成树基本概念</h3><h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><h3 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h3><h3 id="广度优先遍历算法"><a href="#广度优先遍历算法" class="headerlink" title="广度优先遍历算法"></a>广度优先遍历算法</h3><h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><h3 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h3><h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3>
+<h2 id="由于普利姆算法的时间复杂度为O-n-2-则适用于稠密图，而克鲁斯卡尔算法需对e条边按权值进行排序，其时间复杂度为O-eloge-则适用于稀疏图。"><a href="#由于普利姆算法的时间复杂度为O-n-2-则适用于稠密图，而克鲁斯卡尔算法需对e条边按权值进行排序，其时间复杂度为O-eloge-则适用于稀疏图。" class="headerlink" title="由于普利姆算法的时间复杂度为O(n^2),则适用于稠密图，而克鲁斯卡尔算法需对e条边按权值进行排序，其时间复杂度为O(eloge),则适用于稀疏图。"></a>由于普利姆算法的时间复杂度为O(n^2),则适用于稠密图，而克鲁斯卡尔算法需对e条边按权值进行排序，其时间复杂度为O(eloge),则适用于稀疏图。</h2><blockquote>
+<p>P28 以下内容与大纲无关</p>
+<ul>
+<li>重(双)连通图和关节点<br>问题：若从一个连通图中删去任何一个顶点及其相关联的边，它仍是一个连通图，则该连通图被称为<strong>重(双)连通图</strong>，可参考实际应用背景：网络的搭建<pre><code>若连通图中的某个顶点和其相关联的边被删去之后，该连通图被分割成两个或两个以上的连通分量，则称此顶点为**关节点**</code></pre></li>
+</ul>
+</blockquote>
+<p>没有关节点的连通图为<strong>双连通图</strong></p>
+<ul>
+<li><p>关节点的特征：<br>  假设从某个顶点V0出发对连通图进行深度优先搜索遍历，则可得到一颗深度优先生成树，树上包含图的所有顶点。<br>  若生成树的根结点，有两个或两个以上的分支，则此顶点（生成树的根）必为关节点<br>  对生成树上的任意一个“顶点”，若其某棵子树的根或子树的其他“顶点”没有和其祖先相通的回边，则该“顶点”必为关节点</p>
+</li>
+<li><p>如何求关节点？</p>
+<ul>
+<li><p>1) 看根是不是关结点： 设V0为深度优先遍历的出发点<br>p=G.vertices[0].firstarc;<br>v=p-&gt;adjvex;<br>DFSArticul(G, v); // 从第v顶点出发深度优先搜索<br>if(count &lt; G.vexnum){</p>
+<pre><code>// 从根结点的第一个邻接点出发访问的结点个数小于总的结点树则说明
+// 生成树的跟有至少两棵子树
+printf(0, G.vertices[0].data); // 根是关节点</code></pre><p>}</p>
+</li>
+<li><p>2) 对生成树上的顶点定义一个函数：这个没看懂<br>low(v) = Min{visited[v], low[w], visited[k]}<br>visited[v]：访问序号<br>low[w]: 子树结点的最小访问次序<br>visited[k]: 回边的最小访问次序</p>
+<p>k是与v有回边相通的顶点， k是v的祖先<br>对顶点v，若(在生成树上)存在一个子树根w，且low[w]&gt;=visited[v],在顶点v为关结点</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>对深度优先搜索遍历算法做如下修改：</p>
+<ul>
+<li>visited[v]的值改为遍历过程中的顶底的访问次序count值</li>
+<li>遍历过程中求得：<br>  low[v] = Min{visited[v], low[w], visited[k]}</li>
+<li>从子树遍历返回时：<br>  判别low[w] &gt;=visited[v]: 子树根的最小访问次序 根结点的访问次序</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">**min = visited[v0] = ++count;**</span><br><span class="line">// 设定low[v0]的初始值count记顶点访问次序</span><br><span class="line">for(p=G.vertices[0].firstarc; p; p=p-&gt;nextarc)&#123;</span><br><span class="line">    w = p-&gt;adjvex; // w为v0的邻接顶点</span><br><span class="line">    if(visited[w] == 0)&#123; // w未被访问</span><br><span class="line">        DFSArticul(G, w); // 返回前求得low[w]</span><br><span class="line">        if(low[w] &lt; min) min = low[w];</span><br><span class="line">        if(low[w]&gt;=visited[v0])</span><br><span class="line">            printf(v0, G.vertices[v0].data); // 输出关节点</span><br><span class="line">    &#125;</span><br><span class="line">    else // w是回边上的顶点</span><br><span class="line">        **if(visited[w] &lt; min) min = visited[w];**</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">**low[v0] = min**</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="最短路径问题-P28-33-00"><a href="#最短路径问题-P28-33-00" class="headerlink" title="最短路径问题 P28:33:00"></a>最短路径问题 P28:33:00</h3><ul>
+<li>上面有谈到过最短路径问题</li>
+<li>从源头到其余各点的最短路径<br>算法的基本思想是：依路径长度递增的次序求得各条路径：<br>假设从源点到其余各点之间的最短路径，则在这些路径中，必然存在一条长度最短者</li>
+<li>在这条路径上，必定只含一条权值最小的弧，由此只要在所有从源点出发的弧中查找权值最小者</li>
+<li>长度次短的路径可能有两种情况：<pre><code>它可能是从源点直接到该点的路径
+也可能是从源点a再到a到该点</code></pre></li>
+<li>其余依次类推</li>
+</ul>
+<p>假设Dist[k]表示当前所求得的从源点打顶点k的最短路径，则一般情况下：<br>    Dist[k] = &lt;源点到顶点k的弧上的权值&gt; 或者 &lt;源点到其他顶点的路径长度&gt; + &lt;其他顶点到顶点k弧上的权值&gt;</p>
+<p>求两个顶点之间的最短路径：<br>算法的基本思想是：<br>从vi到vj的所有存在的路径中，选出一条长度最短的路径<br>    若&lt;vi,vj&gt;存在，则存在路径{vi, vj} // 路径中不含其他顶点<br>    若&lt;vi,v1&gt;&lt;v1, vj&gt;存在，则存在路径{vi, v1, vj} // 路径中所含顶点序号不大于1<br>    若{vi，……，v2}，{v2，……，vj} 存在，则存在一条路径{vi,……,v2,……vj} // 路径中所含顶点序号不大于2</p>
+<p>依次类推，则vi至vj的最短路径应是上述这些路径中，路径长度最小者。</p>
+<h3 id="广度优先遍历算法："><a href="#广度优先遍历算法：" class="headerlink" title="广度优先遍历算法："></a>广度优先遍历算法：</h3><h3 id="Dijkstra算法-P29"><a href="#Dijkstra算法-P29" class="headerlink" title="Dijkstra算法 P29"></a>Dijkstra算法 P29</h3><h3 id="Floyd算法-P29"><a href="#Floyd算法-P29" class="headerlink" title="Floyd算法 P29"></a>Floyd算法 P29</h3><h3 id="拓扑排序-P29-17-25"><a href="#拓扑排序-P29-17-25" class="headerlink" title="拓扑排序 P29 17:25"></a>拓扑排序 P29 17:25</h3><blockquote>
+<p>问题：假设以有向图表示一个施工图或程序的数据流图，则图中不允许出现回路<br>如何<strong>检查有向图中是否存在回路</strong>的方法之一，是对有向图进行<strong>拓扑排序</strong></p>
+</blockquote>
+<h5 id="何谓“拓扑排序”？"><a href="#何谓“拓扑排序”？" class="headerlink" title="何谓“拓扑排序”？"></a>何谓“拓扑排序”？</h5><pre><code>对有向图进行如下操作：
+按照有向图给出的次序关系，将图中顶点排成一个线性序列，对于有向图中没有限定次序关系的顶点，则可以人为加上任意的次序关系
+由此得到顶点的线性序列称之为**拓扑有序序列**</code></pre><h5 id="如何进行拓扑排序？"><a href="#如何进行拓扑排序？" class="headerlink" title="如何进行拓扑排序？"></a>如何进行拓扑排序？</h5><ul>
+<li>一、从有向图中选取一个没有前驱的顶点，并输出之</li>
+<li>二、从有向图中删除此顶点以及所有以它为尾的弧</li>
+</ul>
+<p>重复上述两步，直至图空，或者图不空但找不到无前驱的顶点为止<br>没有前驱的顶点 = 入度为零的顶点<br>删除顶点及以它为尾的弧 = 弧头顶点的入度减1</p>
+<h5 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h5><p>取入度为零的顶点v；<br>while(v&lt;&gt;0){<br>    printf(v);<br>    ++m;<br>    w:=FirstAdj(v);<br>    while(w&lt;&gt;0){<br>        inDegree[w]–;<br>        w:=nextAdj(v, w);<br>    }<br>    // 取下一个入度为零的顶点v;<br>}</p>
+<p>if m &lt; n printf(‘图中有回路’)<br>为避免每次都要搜索入度为零的顶点，在算法中设置一个栈，以保存入度为零的顶点<br>CountInDegree(G, indegree); // 对各顶点求入度<br>InitStack(S);<br>for(i=0; i&lt;G.vexnum; ++i)<br>    if(!indegree[i] Push(S, i)); // 入度为零的顶点入栈<br>count = 0; // 对输出顶点计数<br>while(!EmptyStack(S)){<br>    Pop(S,v);<br>    ++count;<br>    printf(v);<br>    for(w=FirstAdj(v); w; w=NextAdj(G,v,w))<br>        –indegree(w);<br>        if(!indegree[w])<br>            Push(S, w);<br>            // 新产生的入度为零的顶点入栈<br>}</p>
+<p>if(count &lt; G.vexnum)<br>    printf(“图中有回路”)</p>
+<p>P29:33:00 拓扑排序的动画演示</p>
+<hr>
+<h3 id="关键路径【大纲没有可以不考虑但是有时间可以了解下】"><a href="#关键路径【大纲没有可以不考虑但是有时间可以了解下】" class="headerlink" title="关键路径【大纲没有可以不考虑但是有时间可以了解下】"></a>关键路径【大纲没有可以不考虑但是有时间可以了解下】</h3><p>问题：假设以有向网表示一个施工流图，弧上的权值表示完成该项子工程所需时间<br>问：哪些子工程项是关键工程？<br>即：将影响整个工程完成期限的子工程项</p>
+<p>整个工程完成的时间为：从有向图的源点到汇点的最长路径<br>“关键活动”指的是：该弧上的权值增加将使有向图中的最长路径的长度增加</p>
+<p>如何求关键活动？<br>“事件（顶点）”的最早发生时间ve(j)<br>ve(j)= 从源点到顶点j的最长路径长度</p>
+<p>“事件（顶点）”的最迟发生时间vl(k)<br>vl(k) = 从顶点k到汇点的最短路径长度</p>
+<p>假设第i条弧为 &lt;j, k&gt;则第i项活动：<br>活动（弧）的最早开始时间ee(i)<br>ee(i) = ve(j)<br>活动(弧)的最迟开始时间el(i)<br>el(i) = vl(k) - dut(&lt;j, k&gt;)</p>
+<p>事件发生时间的计算公式:<br>    ve(源点) = 0;<br>    ve(k) = Max{ve(j) + dut(&lt;j, k&gt;)}</p>
+<pre><code>vl(汇点) = ve(汇点)
+vl(j) = Min{vl(k) - dut(&lt;j, k&gt;)}</code></pre><p>算法的实现要点：<br>显然，求ve的顺序应该是按拓扑有序的次序，<br>而， 求vl的顺序应该是按拓扑逆序的次序<br>因为 拓扑逆序序列即为拓扑有序序列的逆序列<br>因此 应该在拓扑排序的过程中，另设一个“栈”几下拓扑有序序列 出栈就是拓扑逆序序列</p>
+<p>P30 ：0:00 动画演示关键路径算法</p>
+<p>拓扑排序：<br>1、每个点求入度<br>2、把入度为0的点入栈P(拓扑排序入度为0的栈) // 栈p出栈的序列就是拓扑有序序列，出栈入栈Q为拓扑有序序列，栈Q出栈的顺序有拓扑逆序序列，<br>3、出栈结点的所有的邻接点，入度减1<br>4、入度为0的点再入栈P（多个）<br>5、然后出栈，出栈结点邻接点，入度减1 ，迭代，入度为0的入栈，</p>
+<h2 id="6、重复3-4，5-一直到最后"><a href="#6、重复3-4，5-一直到最后" class="headerlink" title="6、重复3,4，5 一直到最后"></a>6、重复3,4，5 一直到最后</h2><p>1、熟悉图的各种存储结构及其构造算法，了解实际问题的求解效率与采用何种存储结构和算法有密切联系<br>2、熟练掌握图的两种搜索路径的遍历：<br>    遍历的逻辑定义、深度优先搜索的两种形式（递归和非递归）和广度优先搜索的算法。在学习中应注意图的遍历算法与树的遍历算法之间的类似和差异<br>3、应用图的遍历算法求解各种简单路径问题<br>4、理解教科书中讨论的各种图的算法</p>
+
       
     </div>
     
@@ -578,7 +750,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +761,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -633,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图的基本概念"><span class="nav-number">1.</span> <span class="nav-text">图的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见术语"><span class="nav-number">1.1.</span> <span class="nav-text">常见术语</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的存储结构：邻接矩阵，邻接表"><span class="nav-number">2.</span> <span class="nav-text">图的存储结构：邻接矩阵，邻接表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接矩阵"><span class="nav-number">2.1.</span> <span class="nav-text">邻接矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接表"><span class="nav-number">2.2.</span> <span class="nav-text">邻接表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历"><span class="nav-number">3.</span> <span class="nav-text">图的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先遍历-Depth-Frist-Search，DFS"><span class="nav-number">3.1.</span> <span class="nav-text">深度优先遍历 Depth Frist Search，DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先遍历-Breadth-First-Search-BFS-一圈一圈的搜"><span class="nav-number">3.2.</span> <span class="nav-text">广度优先遍历 Breadth First Search,BFS 一圈一圈的搜</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小生成树基本概念"><span class="nav-number">4.</span> <span class="nav-text">最小生成树基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prim算法"><span class="nav-number">5.</span> <span class="nav-text">Prim算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kruskal算法"><span class="nav-number">6.</span> <span class="nav-text">Kruskal算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最短路径问题"><span class="nav-number">7.</span> <span class="nav-text">最短路径问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历算法"><span class="nav-number">8.</span> <span class="nav-text">广度优先遍历算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra算法"><span class="nav-number">9.</span> <span class="nav-text">Dijkstra算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floyd算法"><span class="nav-number">10.</span> <span class="nav-text">Floyd算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序"><span class="nav-number">11.</span> <span class="nav-text">拓扑排序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图的基本概念"><span class="nav-number">1.</span> <span class="nav-text">图的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见术语-P24"><span class="nav-number">1.1.</span> <span class="nav-text">常见术语 P24</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的存储结构：邻接矩阵，邻接表"><span class="nav-number">2.</span> <span class="nav-text">图的存储结构：邻接矩阵，邻接表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接矩阵"><span class="nav-number">2.1.</span> <span class="nav-text">邻接矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接表"><span class="nav-number">2.2.</span> <span class="nav-text">邻接表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历-P25-44-11"><span class="nav-number">3.</span> <span class="nav-text">图的遍历 P25:44:11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先遍历-P26-Depth-Frist-Search，DFS"><span class="nav-number">3.1.</span> <span class="nav-text">深度优先遍历 P26 Depth Frist Search，DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先遍历-P26：26-00-Breadth-First-Search-BFS-一圈一圈的搜"><span class="nav-number">3.2.</span> <span class="nav-text">广度优先遍历 P26：26:00 Breadth First Search,BFS 一圈一圈的搜</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历应用举例-P27-大纲没有补考可略过"><span class="nav-number">3.3.</span> <span class="nav-text">遍历应用举例 P27-大纲没有补考可略过</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小生成树基本概念-P27：24-16"><span class="nav-number">4.</span> <span class="nav-text">最小生成树基本概念 P27：24:16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prim算法-P27：30-00-41-49"><span class="nav-number">5.</span> <span class="nav-text">Prim算法 P27：30:00-41:49</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kruskal算法"><span class="nav-number">6.</span> <span class="nav-text">Kruskal算法</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#由于普利姆算法的时间复杂度为O-n-2-则适用于稠密图，而克鲁斯卡尔算法需对e条边按权值进行排序，其时间复杂度为O-eloge-则适用于稀疏图。"><span class="nav-number"></span> <span class="nav-text">由于普利姆算法的时间复杂度为O(n^2),则适用于稠密图，而克鲁斯卡尔算法需对e条边按权值进行排序，其时间复杂度为O(eloge),则适用于稀疏图。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最短路径问题-P28-33-00"><span class="nav-number">1.</span> <span class="nav-text">最短路径问题 P28:33:00</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历算法："><span class="nav-number">2.</span> <span class="nav-text">广度优先遍历算法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra算法-P29"><span class="nav-number">3.</span> <span class="nav-text">Dijkstra算法 P29</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floyd算法-P29"><span class="nav-number">4.</span> <span class="nav-text">Floyd算法 P29</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序-P29-17-25"><span class="nav-number">5.</span> <span class="nav-text">拓扑排序 P29 17:25</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#何谓“拓扑排序”？"><span class="nav-number">5.0.1.</span> <span class="nav-text">何谓“拓扑排序”？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何进行拓扑排序？"><span class="nav-number">5.0.2.</span> <span class="nav-text">如何进行拓扑排序？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#算法"><span class="nav-number">5.0.3.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键路径【大纲没有可以不考虑但是有时间可以了解下】"><span class="nav-number">6.</span> <span class="nav-text">关键路径【大纲没有可以不考虑但是有时间可以了解下】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、重复3-4，5-一直到最后"><span class="nav-number"></span> <span class="nav-text">6、重复3,4，5 一直到最后</span></a></li></div>
             
 
           </div>
@@ -667,7 +839,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.4k</span>
+    <span title="Site words total count">44.6k</span>
   
 </div>
 

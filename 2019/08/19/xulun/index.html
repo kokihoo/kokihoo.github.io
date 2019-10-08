@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/images/tree.png">
 <meta property="og:image" content="http://yoursite.com/images/graph.png">
 <meta property="og:image" content="http://yoursite.com/images/cluster.png">
-<meta property="og:updated_time" content="2019-08-19T10:02:48.178Z">
+<meta property="og:updated_time" content="2019-09-01T07:58:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xulun">
 <meta name="twitter:description" content="数据结构讨论的范畴####数据结构与程序设计密切相关  程序设计：为计算机处理问题编制一组指令集  怎么处理，处理的策略是什么，这是算法要讨论的问题 对处理的信息怎么表示，问题的数据模型是什么算法：处理问题的策略数据结构: 问题的数学模型     例如：数值计算的程序设计问题：   结构静力分析计算——线性代数方程组  全球天气预报——环流模式方程   例一：求一组（n个）整数中的最大值：  算法">
@@ -333,8 +333,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-19T18:02:48+08:00">
-                2019-08-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-01T15:58:22+08:00">
+                2019-09-01
               </time>
             
           </span>
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.9k
+                  4.7k
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  18
                 </span>
               
             </div>
@@ -518,6 +518,30 @@ ADT有两个重要特征：
 <p>语句的执行次数为语句的频度</p>
 <p>例三 冒泡排序</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void bubble_sort(int a[], int n)&#123;</span><br><span class="line">    // 将a中整数序列重新排列成自小至大</span><br><span class="line">    // 有序的整数序列</span><br><span class="line">    for(i=n-1, change = TRUE; i&gt;1&amp;&amp;change; --i)&#123;</span><br><span class="line">        change = FALSE;</span><br><span class="line">        for(j=0; j&lt;i; ++j)</span><br><span class="line">            if(a[j]&gt;a[j+1])&#123;</span><br><span class="line">                a[j] &lt;--&gt; a[j+1];</span><br><span class="line">                change = TRUE</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125; // bubble_sort</span><br></pre></td></tr></table></figure>
+
+<p>基本操作：赋值操作 时间复杂度O(n)</p>
+<h2 id="四、算法的存储空间需求："><a href="#四、算法的存储空间需求：" class="headerlink" title="四、算法的存储空间需求："></a>四、算法的存储空间需求：</h2><pre><code>算法的空间复杂度S(n) = O(g(n))
+表示随着问题规模n的增大，算法运行所需存储量的增长率域g(n)的增长率相同</code></pre><h4 id="算法的存储量包括："><a href="#算法的存储量包括：" class="headerlink" title="算法的存储量包括："></a>算法的存储量包括：</h4><p>1、输入数据所占空间<br>2、程序本身所占空间<br>3、辅助变量所占空间</p>
+<p>若输入数据所占空间只取决于问题本身与算法无关，则只需要分析输入和程序之外的辅助变量所占额外空间<br>若所需额外空间相对于输入数据量来说是常数，则称此算法为原地工作<br>若所需存储亮依赖于特定的输入，则通常按最坏情况考虑</p>
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><p>线性结构是一个数据元素的有序次序集合。</p>
+<p>线性结构的基本特征：<br>1/集合中必存在唯一的一个‘第一元素’<br>2、集合中比存在唯一的一个最后元素<br>3、除最后元素外，均有唯一的后继<br>4、除第一个元素之外，均有唯一的前驱</p>
+<p>线性表的类型和定义<br> 抽象数据类型线性表的定义如下：<br> ADT List{<br>     数据对象：<br>     D={ai|ai(Elemset,i=1,2,……,n, n&gt;=0)}<br>     {<br>         称n为线性表的表长，称n=0时的线性表为空表。<br>     }<br>     数据关系：<br>     R = {&lt;ai-1, ai&gt;|ai-1,ai∈D, i= 2,……n}<br>     {设线性表为(a1,a2,……aj……an，称i为a在线性表中的位序)}<br>     基本操作：<br>     InitList(&amp;L){结构初始化}<br>     操作结果：构造一个空的线性表L<br>     DestoryList(&amp;L){销毁结构}<br>     初始条件：线性表L已存在<br>     操作结果：销毁线性表L<br>     {引用型操作}<br>     ListEmpyt(L)<br>     初始条件：线性表L已存在<br>     操作结果：若L为空表，则返回TRUE，否则FALSE<br>     ListLength(L)<br>     初始条件：线性表L已存在<br>     操作结果：返回L中元素个数<br>     PriorElem(L,cur_e,&amp;pre_e)<br>     初始条件：线性表L已存在<br>     操作结果：若cur_e是L的元素，但不是第一个，则用pre_e返回它的前驱，否则操作失败，pre_e无定义<br>     NextElem(L,cur_e,&amp;next_e)<br>     初始条件：线性表L已存在<br>     操作结果：若cur_e是L的元素，但不是最后一个，则用next_e返回它的后继，否则操作失败，next_e无定义<br>     GetElem(L,i,&amp;e)<br>     初始条件：线性表L已存在 1&lt;= i &lt;=LengthList(L)<br>     操作结果：用e返回L中第i个元素的值<br>     LocateElem(L,e,compare())<br>     初始条件：线性表L已存在，compare()是元素判定函数<br>     操作结果：返回L中第一个与e满足关系compare()的元素的位序，若这样的元素不存在，则返回值为0ßß<br>     ListTraverse(L, visit())<br>     初始条件：线性表L已存在<br>     操作结果：依次对L的每个元素调用函数visit()，一旦visit()失败，则操作失败<br>     {加工型操作}<br>     ClearList(&amp;L)<br>     初始条件：线性表L已存在<br>     操作结果：将L重置为空<br>     PutElem(L, i, &amp;e)<br>     操作结果:L中第i个元素赋值同e的值<br>     ListInsert(&amp;l, i, e)<br>     初始条件：线性表L已存在1&lt;= i &lt;=LengthList(L) + 1<br>     操作结果：在L的第i个元素之前插入新的元素e，L的长度增1<br>     ListDelete(&amp;L, i, &amp;e)<br>     初始条件：线性表L已存在且非空1&lt;= i &lt;=LengthList(L)<br>     操作结果：删除L的第i个元素，并用e返回其值，L的长度减1<br> }</p>
+<p> 例2-1<br> 假设：有两个集合A和B分别用两个线性表LA和LB表示（即：线性表中的数据元素即为集合中的成员）<br> 现要求一个新的集合A = A ∪ B 并集。</p>
+<p> 上述问题可演绎为要求对线性表做如下操作：<br> 扩大线性表LA，将存在于线性表LB中而不存在于线性表LA中的数据元素插入到线性LA中去。</p>
+<p> 1、从线性表LB中依次取得每个数据元素: GetElem(LB，i) -&gt; e<br> 2、依值在线性表LA中进行查访：LocateElem(LA, e, equal())<br> 3、若不存在，则插入之：ListInsert(LA, n+1, e)</p>
+<p> void union (List &amp;LA, List LB){<br>     // 求线性表的长度<br>     LA_len = ListLength(LA);<br>     LB_len = ListLength(LB);<br>     for(i=1; i&lt;= LB_len; i++){<br>         GetElem(LB, i, e);// 去LB中第i个元素赋给e<br>         if(!LocateElem(LA, e, equal()))<br>            ListInsert(LA, ++LA_len, e); // LA中不存在和e相同的数据元素，则插入<br>     }<br> }</p>
+<p> 例2-2<br> 已知一个非纯集合B，试构造一个纯集合A，使A中包含B中所有值各不相同的数据元素</p>
+<p> void purge(List&amp;La, List&amp;Lb){<br>     // 已知线性表Lb中包含非纯集合B中所有元素，试构造线性表La，使La只含Lb中所有值均不相同的元素<br>     InitList(La); // 设置空的线性表La<br>     La_len = ListLength(La);<br>     Lb_len = ListLength(Lb);<br>     // 求线性表的长度<br>     for(i=1; i&lt;=Lb.len; i++){<br>         GetElemt(Lb, i , e);<br>         // 从线性表Lb中取第i个元素<br>         if(!LocateElem(La, e, equal())){<br>             ++La_len;<br>             ListInsert(La,La_len, e);<br>             // 元素e插入线性表La<br>         }<br>     }<br> }</p>
+<p> // 排序之后<br> void purge(List &amp;La, List Lb){<br>     InitList(LA);<br>     La_len = ListLength(La);<br>     Lb_len = ListLength(Lb);<br>     //求线性表的长度<br>     for(i=1; i&lt;Lb_len; i++){<br>         GetElem(Lb, i, e)<br>         //取Lb中第i个数据元素赋给e<br>         if(ListEmpty(LA)||!equal(en, e)){<br>             ListInsert(La, ++La_len, e);<br>             en = e;<br>         }<br>     }// La中不存在和e相同的数据元素，则插入<br> }</p>
+<p> 例 2-3<br> 归并两个‘其数据元素按值非递减有序排列的’线性表LA和LB，求线性表LC也具有同样特性。<br> 1、分别从LA和LB中取得当前元素ai和bj<br> 2、若ai&lt;=bj,则将ai插入到LC中，否则将bj插入到LC中</p>
+<p> void MergeList(List La,List Lb,List&amp;c){<br>     InitList(Lc);<br>     i = j =1; k = 0;<br>     La_len = ListLength(La);<br>     Lb_Len = ListLength(Lb);<br>     while((i&lt;=La_length)&amp;&amp;(j&lt;=Lb_len)){<br>         // La和Lb均非空<br>         GetElem(La, i, ai);<br>         GetElem(Lb, j, bj);<br>         if(ai&lt;=bj){<br>             ListInsert(Lc, ++k, ai);<br>             ++i<br>         } else {<br>             ListInsert(Lc, ++k, bj);<br>             ++j;<br>         }<br>     }<br>     while(i&lt;=La_len){<br>         GetElem(La, i++, ai);<br>         ListInsert(Lc, ++k, ai);<br>     }<br>     while(i&lt;=Lb_len){<br>         GetElem(Lb, j++, bj);<br>         ListInsert(Lc, ++k, bj);<br>     }<br> } // merge list</p>
+<p> 线性表类型的实现-顺序映象<br> 用一组地址连续的存储单元，一次 存放 线性表中的数据元素<br> ——————————————————————————————<br> |a1|a2|a3|……ai-1|ai|ai|……|an|<br> ——————————————————————————————<br> a1线性表的起始地址，称作线性表的基地址<br> 以存储位置相邻表示有序对&lt;ai-1, ai&gt;即：<br> LOC(ai) = LOC(ai-1) + c<br> c: 一个数据元素所占存储量</p>
+<p> 所有数据元素的存储位置均取决于第一个数据元素的存储位置：<br> LOC(ai) = LOC(a1) + (i-1)*c<br> LOC(a1)为基地址</p>
+<p> 顺序映象的C语言描述<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INIT_SIZE 80</span><br><span class="line">// 线性表存储空间 的初始分配量</span><br><span class="line">#define LISTINCREMENT 10</span><br><span class="line">// 线性表存储空间的分配增量</span><br><span class="line">Tydef Struct&#123;</span><br><span class="line">    ElemType *elem; // 存储空间基址</span><br><span class="line">    int Length；//当前长度</span><br><span class="line">    int listsize；// 当前分配的存储容量，以sizeof(ElemType)为单位</span><br><span class="line">&#125;SqList // 俗称顺序表</span><br></pre></td></tr></table></figure></p>
+<p>线性表的初始化操作<br>Status InitList_Sq(SqList&amp;L){<br>    //构造一个空的线性表<br>    L.elem = (ElemType<em>)malloc(LIST_INIT_SIZE</em>sizeof(ElemType));<br>    if(!L.elem) exit(OVERFLOW);<br>    L.length = 0;<br>    L.listsize = LIST_INIT_SIZE<br>    return OK<br>} // InitList Sq</p>
+<p>线性表操作<br>LocateElem(L,e, compare())<br>init LocateElem_Sq(SqList L, ElemType e,Status(<em>compare)(ElemType, ElemType)){<br>    i=1; // i的初始值为第一元素的位序<br>    p=L.elem;// p的初值为第一元素的存储位置<br>    while（i&lt;= L.length &amp;&amp; !(</em>compare)(*p++, e)）<br>        ++i<br>    if(i&lt;=L.length) return i;<br>    else return 0;<br>} // LocateElem_Sq</p>
+<p>ListInsert(&amp;L, i, e)的实现<br>Status ListInsert_Sq(SqList &amp;L,int pos, Elemtype e){<br>    if(pos&lt;1|pos&gt;L.length) return ERROR;// 插入位置不合法<br>}</p>
+
       
     </div>
     
@@ -556,6 +580,10 @@ ADT有两个重要特征：
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/23/Tableau/" rel="prev" title="Tableau">
+                Tableau <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -637,7 +665,7 @@ ADT有两个重要特征：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -648,7 +676,7 @@ ADT有两个重要特征：
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -692,7 +720,7 @@ ADT有两个重要特征：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构讨论的范畴"><span class="nav-number">1.</span> <span class="nav-text">数据结构讨论的范畴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据与数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据与数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象数据类型-Abstract-Data-Type-简称ADT"><span class="nav-number">2.3.</span> <span class="nav-text">抽象数据类型 Abstract Data Type 简称ADT</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法及其量度"><span class="nav-number">3.</span> <span class="nav-text">算法及其量度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">3.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法设计的原则"><span class="nav-number">3.2.</span> <span class="nav-text">算法设计的原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法效率的衡量方法和准则"><span class="nav-number">3.3.</span> <span class="nav-text">算法效率的衡量方法和准则</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构讨论的范畴"><span class="nav-number">1.</span> <span class="nav-text">数据结构讨论的范畴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据与数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据与数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象数据类型-Abstract-Data-Type-简称ADT"><span class="nav-number">2.3.</span> <span class="nav-text">抽象数据类型 Abstract Data Type 简称ADT</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法及其量度"><span class="nav-number">3.</span> <span class="nav-text">算法及其量度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">3.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法设计的原则"><span class="nav-number">3.2.</span> <span class="nav-text">算法设计的原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法效率的衡量方法和准则"><span class="nav-number">3.3.</span> <span class="nav-text">算法效率的衡量方法和准则</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#四、算法的存储空间需求："><span class="nav-number"></span> <span class="nav-text">四、算法的存储空间需求：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法的存储量包括："><span class="nav-number">0.1.</span> <span class="nav-text">算法的存储量包括：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性表"><span class="nav-number"></span> <span class="nav-text">线性表</span></a></li></div>
             
 
           </div>
@@ -726,7 +754,7 @@ ADT有两个重要特征：
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.4k</span>
+    <span title="Site words total count">44.6k</span>
   
 </div>
 
