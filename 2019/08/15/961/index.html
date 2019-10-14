@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KOKI">
 <meta property="og:description" content="第一部分 数据结构与算法The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type. 一、栈(Stack)、队列(Queue)和向量(Vector) 内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈AD">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-14T09:33:48.959Z">
+<meta property="og:updated_time" content="2019-10-14T09:40:07.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NINESIXONE">
 <meta name="twitter:description" content="第一部分 数据结构与算法The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type. 一、栈(Stack)、队列(Queue)和向量(Vector) 内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈AD">
@@ -328,7 +328,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-14T17:33:48+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-14T17:40:07+08:00">
                 2019-10-14
               </time>
             
@@ -520,7 +520,8 @@ Rome        -&gt; null means &quot;ends of list&quot;</code></pre><p>Two special
 Find the position of the largest item Y and swap it with the last item.找到最大项目Y的位置并将与其最后一个项目交换。</code></pre><blockquote>
 <p>Selection Sort 选择排序<br>repeat (numOfElements - 1) times 重复(元素个数 - 1)次<br>    set the first unsorted element as the minum 把第一个没有排序过的元素设置为最小值<br>    for each of the unsorted elements 遍历每个没有排序过的元素<br>        if element &lt; currentMinimum 如果元素 &lt; 现在的最小值<br>            set element as new minimum 将此元素设置成为新的最小值<br>    swap minimum with first unsorted position 将最小值和第一个没有排序过的位置交换</p>
 </blockquote>
-<p>void selectionSort(int a[], int N) {<br>    for (int L=0; L&lt;N-2; ++L) { // O(N)<br>        int X = min_element(a+L, a+N) - a; // O(N)<br>        swap(a[X], a[L]); // O(1), X may be equal to L(no actual swap)<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void selectionSort(int a[], int N) &#123;</span><br><span class="line">    for (int L=0; L&lt;N-2; ++L) &#123; // O(N)</span><br><span class="line">        int X = min_element(a+L, a+N) - a; // O(N)</span><br><span class="line">        swap(a[X], a[L]); // O(1), X may be equal to L(no actual swap)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Total:O(N^2)</p>
 <h5 id="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#快速排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>快速排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="合并排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#合并排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="合并排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>合并排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><p>Merge Sort</p>
 <blockquote>
@@ -532,7 +533,8 @@ Find the position of the largest item Y and swap it with the last item.找到最
 <p>Given two sorted array.A and B,of size N1 and N2, we can efficiently merge them into one large combined sorted array of size N = N1 + N2, in O(N) time. 给定两个大小为N1和N2的排序数组A和B，我们可以在O(N)时间内将它们有效地归并成一个大小为N = N1 + N2的组合排序数组</p>
 <p>This is achieved by simply comparing the front of the two arrays and take the smaller of the two at all times.However, this simple but fast O(N) merge sub-routine will need additional array to do this merging correctly.See the next slide. 这是通过简单地比较两个阵列的前面并始终取两个中较小的一个来实现的，但是这个简单但快速的O(N)合并子例程将需要额外的数组来正确地进行合并。</p>
 <p>10-2 Merge Suborutine C++ Implementation</p>
-<p>void merge(int a[], int low, int mid, int high){<br>    // subarray1 = a[low..mid], subarray2 = a[mid+1, high], both sorted<br>    int N = high - low + 1;<br>    int b[N];// discuss: why do we need a temporary array b<br>    int left = low, right = mid + 1, bIdx = 0;<br>    while (left &lt;= mid &amp;&amp; right)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void merge(int a[], int low, int mid, int high)&#123;</span><br><span class="line">    // subarray1 = a[low..mid], subarray2 = a[mid+1, high], both sorted</span><br><span class="line">    int N = high - low + 1;</span><br><span class="line">    int b[N];// discuss: why do we need a temporary array b </span><br><span class="line">    int left = low, right = mid + 1, bIdx = 0;</span><br><span class="line">    while (left &lt;= mid &amp;&amp; right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>未完待续……今天太累了，我太累了</p>
 <h5 id="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序，算法基本思想，算法代码及基本的时间复杂度分析</h5>
       
