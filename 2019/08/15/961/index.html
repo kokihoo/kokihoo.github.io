@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KOKI">
 <meta property="og:description" content="第一部分 数据结构与算法The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type. 一、栈(Stack)、队列(Queue)和向量(Vector) 内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈AD">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-12T06:47:12.713Z">
+<meta property="og:updated_time" content="2019-10-14T09:33:48.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NINESIXONE">
 <meta name="twitter:description" content="第一部分 数据结构与算法The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type. 一、栈(Stack)、队列(Queue)和向量(Vector) 内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈AD">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-12T14:47:12+08:00">
-                2019-10-12
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-14T17:33:48+08:00">
+                2019-10-14
               </time>
             
           </span>
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  807
+                  4.7k
                 </span>
               
 
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  22
                 </span>
               
             </div>
@@ -406,15 +406,27 @@
       
         <h3 id="第一部分-数据结构与算法"><a href="#第一部分-数据结构与算法" class="headerlink" title="第一部分 数据结构与算法"></a>第一部分 数据结构与算法</h3><p>The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type.</p>
 <h4 id="一、栈-Stack-、队列-Queue-和向量-Vector"><a href="#一、栈-Stack-、队列-Queue-和向量-Vector" class="headerlink" title="一、栈(Stack)、队列(Queue)和向量(Vector)"></a>一、栈(Stack)、队列(Queue)和向量(Vector)</h4><blockquote>
-<p>内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈ADT及其顺序，链接实现；队列的应用；向量基本概念和性质；向量ADT及其数组、链接实现；</p>
+<p>内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈ADT及其顺序，链表实现；栈的应用；栈与递归；队列的基本概念和性质，队列ADT及其顺序、链表实现；队列的应用；向量基本概念和性质；向量ADT及其数组、链接实现；</p>
 </blockquote>
-<h5 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h5><h5 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h5><h5 id="循环-环形-链表-Circular-Linked-List"><a href="#循环-环形-链表-Circular-Linked-List" class="headerlink" title="循环(环形)链表 Circular Linked List"></a>循环(环形)链表 Circular Linked List</h5><h5 id="带哨兵结点的链表"><a href="#带哨兵结点的链表" class="headerlink" title="带哨兵结点的链表"></a>带哨兵结点的链表</h5><h5 id="栈的基本概念和性质栈ADT及其顺序、链表实现"><a href="#栈的基本概念和性质栈ADT及其顺序、链表实现" class="headerlink" title="栈的基本概念和性质栈ADT及其顺序、链表实现"></a>栈的基本概念和性质栈ADT及其顺序、链表实现</h5><p>A stack is a container of objects that are inserted and removed according to last-in-first-out(LIFO) principle. 堆栈是根据后进先出的原则插入和删除对象的容器</p>
+<h5 id="单链表-Linked-Lists"><a href="#单链表-Linked-Lists" class="headerlink" title="单链表 Linked Lists"></a>单链表 Linked Lists</h5><p>Arrays are one way to implement Stacks, queues, etc.<br>Linked Lists are another – extremely flexible and general idea! 链表是另外一个非常灵活又常用的方法</p>
+<p>Linked list = “Node” objects connected in a “chain” by links (object references) // 结点对象通过”链”连接起来</p>
+<p>List Node Objects 链表结点对象<br>class ListNode {<br>    ListNode (Object theElement){ // default constructor<br>        this(theElement, null)<br>    }</p>
+<pre><code>ListNode (Object theElement, ListNode n){ // constructor
+    element = theElement;
+    next = n;
+}
+
+ListNode next; // the next Node in the list
+Object element; // the data</code></pre><p>}</p>
+<pre><code>element    next
+Rome        -&gt; null means &quot;ends of list&quot;</code></pre><p>Two special entry points</p>
+<pre><code>if we maintain these two special entry points, it is easy to delete or insert entires at the &quot;head&quot; and insert entries at the &quot;tail&quot; 维护这两个特殊的入口点，将很容易在&quot;头&quot;结点处删除或插入实体，在&quot;尾&quot;处插入条目。</code></pre><h5 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h5><h5 id="循环-环形-链表-Circular-Linked-List"><a href="#循环-环形-链表-Circular-Linked-List" class="headerlink" title="循环(环形)链表 Circular Linked List"></a>循环(环形)链表 Circular Linked List</h5><h5 id="带哨兵结点的链表"><a href="#带哨兵结点的链表" class="headerlink" title="带哨兵结点的链表"></a>带哨兵结点的链表</h5><h5 id="栈的基本概念和性质栈ADT及其顺序、链表实现"><a href="#栈的基本概念和性质栈ADT及其顺序、链表实现" class="headerlink" title="栈的基本概念和性质栈ADT及其顺序、链表实现"></a>栈的基本概念和性质栈ADT及其顺序、链表实现</h5><p>A stack is a container of objects that are inserted and removed according to last-in-first-out(LIFO) principle. 堆栈是根据后进先出的原则插入和删除对象的容器</p>
 <p>Objects can be inserted at any time, but only the last(the most-recently inserted) object can be removed. 可以随时插入对象，但是只能删除最后一个(最近插入)的对象</p>
 <p>Inserting an item is known as “pushing” onto the stack. 插入一个数据项称为“推入”堆栈<br>“popping” off the stack means removing an item. 从栈中“弹出”意味着删除一个数据项</p>
 <p>The Stack Abstract Data Type</p>
 <p>A stack is an abstract data type(ADT) that supports two main methods:<br>    - push(o): Inserts object o onto top of stack<br>    - pop(): Removes the top object of stack and return it;if the stack is empty, an error occurs.</p>
 <p>The following support methods should also be defined:<br>    - size(): Returns the number of objects in stack<br>    - isEmpty(): Return a boolean indicating if stack is empty<br>    - top(): Return the top object of the stack, without removing it; if the stack is empty,an error occurs.</p>
-<p>We want to implement our stack interface.<br>Lots of possibilities… one simple technique is to use an array (顺序实现)</p>
+<p>We want to implement our stack interface.<br>Lots of possibilities… one simple technique is to use an array (<strong>顺序实现</strong>)</p>
 <p>An Array-Based Stack implementation</p>
 <p>Create a stack using an array by specifying a maximum size N for our stack,e.g., N = 1000. 通过指定一个最大长度N的数组来创建堆栈，例如N=10000<br>The stack consists of an N-element array S and an integar variable t,the index of the element in array S. 堆栈由一个含有N个元素的数组S和一个整型变量t(数组S中的顶部元素的索引)组成</p>
 <p>S |x|x|x|x|x|x|x|x|x|…… |x| | | |<br>   0 1 2 3 4 5 6 7 8     t      N-1</p>
@@ -433,7 +445,96 @@
 </ul>
 <p>“f(n)=O(1)” means “f(n) is a constant, independent of n”.  “f(n) = O(1)”表示”f(n)是一个常数，与n无关”</p>
 <p>Array-Based Stack in Java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayStack implements Stack &#123;</span><br><span class="line">    // implementation of the Stack interface using </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayStack implements Stack &#123;</span><br><span class="line">    // implementation of the Stack interface using an array</span><br><span class="line">    public static final int CAPACITY = 1000; // default capacity of the stack</span><br><span class="line">    private int capacity; // maximum capacity of the stack</span><br><span class="line">    private Object S[]; // S holds the elements of the stack</span><br><span class="line">    private int top = -1; // the top element of the stack</span><br><span class="line"></span><br><span class="line">    public ArrayStack()&#123; // initalize the stack</span><br><span class="line">        this(CAPACITY); // with default capacity</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ArrayStack(int cap) &#123; // Initialize the stack with given capacity</span><br><span class="line">        capacity = cap;</span><br><span class="line">        S = new Object[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Object top() // return the top stack element</span><br><span class="line">        throws StackEmptyException &#123;</span><br><span class="line">            if(isEmpty())&#123;</span><br><span class="line">                throw new StackEmptyException(&apos;Stack is empty.&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            return S[top];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    public Object pop() // pop off the stack element</span><br><span class="line">        throws StackEmptyException &#123;</span><br><span class="line">            if(isEmpty())&#123;</span><br><span class="line">                throw new StackEmptyExcetion(&apos;Stack is Empty.&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            Object elem = S[top];</span><br><span class="line">            S[top--] = null; // deference S[top] and decrement top</span><br><span class="line">            return elem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Linked Stack</p>
+<p>The linked stack implementation is a simplified version of the linked list implementation. 链表堆栈是链表实现的简化版本</p>
+<p>Comparsion of Array-Based and Linked Stacks</p>
+<ul>
+<li>All operations for the array-based and linked stack implementations take constant time. 基于数组和链表堆栈实现的所有操作都需要一定的时间</li>
+<li>The only basis for comparison is the total space required. 比较的唯一依据是所需的总空间</li>
+<li>When multiple stacks are to be implemented, it is possible to take advantage of the one-way growth of the array-based stack. This can be done by using a single array to store two stacks. 当要实现多个堆栈时，可以利用基于数组的堆栈的单向增长。这可以通过使用单个数组来存储两个堆栈来实现。</li>
+</ul>
+<h5 id="栈的应用；Stack-Application"><a href="#栈的应用；Stack-Application" class="headerlink" title="栈的应用；Stack Application"></a>栈的应用；Stack Application</h5><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h5 id="排序的基本概念"><a href="#排序的基本概念" class="headerlink" title="排序的基本概念"></a>排序的基本概念</h5><p>有废话啊，边学边学英语，所以都写上去了，可以简单看看</p>
+<blockquote>
+<p>Sorting is a very classic problem of reordering items(that can be compared,e.g.integers,floating-point numbers,string,etc) of an array(or a list) in a certain order(increasing, non-decreasing, decreasing,non-increasing,lexicographical,etc.) 排序是一个经典的问题，它以一定的顺序对一个数组(或一个列表)中的项进行重新排序(可以进行比较，例如整数，浮点数，字符串等)<br>(增加，非递减，增加，词典等)。</p>
+</blockquote>
+<p>There are many different sorting algorithms,each has its own advantages and limitations. 有许多不同的排序算法，么个都有其自身的有点和局限性</p>
+<p>Sorting is commonly used as the introductory problem in various Computer Science classes to showcase a range of algorithmic ideas. 排序通常被用作各种计算机科学课程中的介绍性问题，以展示一系列算法思想。</p>
+<p>Without loss of generality, we assume that we will sort only integers, not necessarily distinct, in non-decreasing order in this visualization, Try clicking Bubble Sort for a sample animation of sorting the list of 5 jumbled integers(with duplicate) above. 在不是概性的情况下,我们假设在这个可视化中，我们将只按非递减顺序对整数进行排序, 但不一定是明显的，尝试点击Bubble Sort以查看上面排序5个混乱整数(带有重复项)列表的示例动画。</p>
+<p>Click ‘Next’ (on the top right)/press ‘Page down’ to advance this e-Lecture slide,use the drop down list/press ‘Space’ to jump to a specific slide,or Click ‘X’ (on the bottom right)/press ‘ESC’ to go to Exploration mode. 点击下一步，在右上角，按下翻页来推进这个电子讲座幻灯片，使用下拉列表/按’空格’跳转到特定幻灯片，或者点击’x’(底部 右键)/按 ESC进入探索模式。</p>
+<p>Motivation - interesting CS Ideas 动机-有趣的计算机科学想法<br>Sorting problems has a variety of interesting algorithmic solution that embody many Computer Science ideas:<br>排序问题有许多有趣的算法解决方案，体现了很多计算机科学的想法：</p>
+<pre><code>1.Comparison versus non-comparison based strategies, 比较与非比较策略
+2.Iterative versus Recursive implementation, 迭代与递归实现
+3.Divide-and-Conquer paradigm (this or that), 分而治之范式
+4.Best/Worst/Average-case Time Complexity analysis, 最佳/最差/平均时间复杂度分析
+5.Randomized Algorithms, etc. 随机算法等</code></pre><p>Motivation - Application 动机 - 应用<br>when a (integar) array A is sorted,many problems involving A become easy (or easier):<br>当(整数)数组A排序时, 涉及A的许多问题变得简单(或更容易):<br>    1. Searching for a specific value v in array A. 在数组A中搜索特定值v<br>    2. Finding the min/max or the k-th smallest/largest value in (static) array A.查找(静态)数组A中的最小/最大/第k个最小/最大值<br>    3. Testing for uniqueness and deleting duplicates in array A. 测试唯一性并删除数组A中的重复项<br>    4. Counting how many time a specific value v appear in array A 计算特定值v在数组A中出现多少次<br>    5. Set intersection/union between array A and another sorted array B. 设置数组A和另一个排序数组B之间的交集/联合<br>    6. Finding a target pair x ∈ A and y ∈ A such that x+y equals to a target z,ect. 寻找一个目标对 x∈A 和 y∈A, 使得x+y等于目标z等。</p>
+<pre><code>Discussion：In real-life classes, the instructor may elaborate more on these applications. 讨论：在现实生活中，指导员可以详细阐述这些应用</code></pre><p>Actions 动作<br>There are two actions that you can do in this visualization. 你可以在此可视化中执行两项操作。</p>
+<p>2.1 Define Your Own Input 定义你自己的输入</p>
+<p>The first action is about defining your own input, an array/a list that is:<br>第一步是关于定义你自己的输入，一个数组/一个列表是：<br>    1. Totally random 完全随机的<br>    2. Random but sorted (in ascending/decreasing order) 随机排序(按升序/降序排列)<br>    3. Random but nearly sorted (in ascending/descending order), or 随机但几乎排序(按升序/降序排列)或<br>    4. Defined solely by yourself. 完全有你自己定义</p>
+<p>In Exploration mode, you can experiment with various sorting algorithms provided in this visualization to figure out their best and worst case inputs. 在探索模式下，您可以尝试使用此可视化中提供的各种排序算法来找出最佳和最差情况输入。</p>
+<p>2.2 Execute the Selected Sorting Algorithm 执行已选择的排序算法<br>The second action is the most important one: Execute the active sorting algorithm by clicking ‘Sort’ menu and then clicking ‘Go’. 第二个操作是最重要的操作：通过单击”Sort”菜单然后单击”Go”执行主动排序算法</p>
+<p>Remember that you can switch active algorithm by clicking the respective abbreviation on the top side of this visualization page. 请记住，您可以通过单击此可视化页面顶部的相应缩写来切换活动算法</p>
+<p>Some sorting algorithms have certain additional options.You may toggle the options as you wish before clicking ‘Go’.For example, in Bubble Sort(and Merge Sort), there is an option to also compute the inversion index of the input array(this is an advanced topic). 一些排序算法有一些额外的选项，在点击”开始”之前，您可以根据需要切换选项。例如，在冒泡排序(和归并排序)中，还可以选择计算输入数组的一个反向指数(这是一个高级主题).</p>
+<p>3.Visualisation 可视化<br>View the visualisation/animation of the chosen sorting algorithm here. 在此处查看所选排序算法的可视化/动画</p>
+<p>Without loss of generality,we only show integers in this visualization and our objective is to sort them from the initial state into ascendig order state.</p>
+<p>4.Common Sorting Algorithms</p>
+<p>At the top,you will see the list of commonly taught sorting algorithms in Computer Science classes.To activate each algorithm, select the abbreviation of respective algorithm name before clicking “Sorting -&gt; Go” </p>
+<p>To facilitate more diversity,we randomize the active algorithm upon each page load.</p>
+<p>The first six algorithms are comparsion-based sorting algorithms while the last two are not,We will discuss this idea midway through this e-Lecture.前六个算法是基于比较的排序算法，而后两个则不是，我们将在这节电子课程的中途讨论这一思想.</p>
+<p>The middle three algorithms are recursive sorting algorithms while the rest are usually implement iteratively.<br>中间的三种算法是递归排序算法，其余的通常是迭代实现的。</p>
+<p>4.1 Abbreviations 缩写<br>To save screen space,we abbreviate algorithm names into three character each: 为了节省屏幕空间，我们将算法名称缩写成三个字符：</p>
+<pre><code>1.Comparison-based Sorting Alogrithms: 基于比较的排序算法
+    1.BUB - Bubble Sort 冒泡排序
+    2.SEL - Selection Sort 选择排序
+    3.INS - Insertion Sort 插入排序
+    4.MER - Merge Sort(recursive implementation) 归并排序 递归实现
+    5.QUI - Quick Sort(recursive implementation) 快速排序 递归实现
+    6.R-Q- Random Quick Sort(recursive implementation) 随机快速排序 递归实现
+2.Not comparison-based Sorting Algorithms: 不基于比较的排序算法
+    1.COU - Counting Sort 计算排序
+    2.RAD - Radix Sort 基数排序</code></pre><p>We will discuss three comparison-based sorting algorithms in the next few slides: 在接下来的幻灯片，我们将讨论三种基于比较的排序算法</p>
+<pre><code>1.Bubble Sort 冒泡排序
+2.Selection Sort 选择排序
+3.Insertion Sort 插入排序</code></pre><p>They are called comparison-based as they compare pairs of elements of the array and decide whether to swap them or not. 它们被称为基于比较的，因为他们比较数组的元素对并决定是否交换它们.</p>
+<p>These three sorting algorithms are the easiest to implement but also not the most efficient, as they run in O(N^2). 这三种排序算法最容易实现，但不是最有效的，因为它们的算法复杂度是O(N^2).</p>
+<h5 id="插入排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#插入排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="插入排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>插入排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<p>Insertion sort is similar to how most people arrange a hand of poker cards. 插入排序类似于大多人安排扑克牌的方式<br>1st card: 10♠    10♠<br>2nd card：5♠     5♠ 10♠<br>3rd card：K♠     5♠ 10♠ K♠</p>
+</blockquote>
+<ol>
+<li>Start with one card in your hand</li>
+<li>Pick the next card and insert it into its proper sorted order.</li>
+<li>Repeat previous step for all cards.</li>
+</ol>
+<p>Without further ado,let’s try Inserion Sort on the small example array[40,13,20,8].</p>
+<p>mark first element as sorted 将第一个元素标记为已排序<br>for each unsorted element X 遍历每个没有排序过的元素<br>    ‘extract’ the element X 提取元素X<br>    for j=lastSortedIndex down to 0   j 从最后一个被排序的位置开始到0进行遍历<br>        if current element j &gt; X  如果当前排序过的元素j &gt; 提取过的元素<br>            move sorted element to the right by 1 将排序过的元素向右移一格<br>        break loop and insert X here. 否则插入提取的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void insertionSort(int a[], int N)&#123;</span><br><span class="line">    for (int i = 1; i &lt; N; ++i)&#123; // O(N)</span><br><span class="line">        int X = a[i]; // X is the item to be insert</span><br><span class="line">        int j = i - 1;</span><br><span class="line">        for(;j &gt;= 0&amp;&amp;a[j]&gt;X;--j) // can be fast or slow</span><br><span class="line">            a[j+1] = a[j]; // make a place for X</span><br><span class="line">        a[j+1] = X; // index j+1 is the insertion point</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The outer loop executes N-1 items, that’s quite clear.</p>
+<p>But the number of times the inner-loop is executed depend on the input:<br>    1. In best-case scenario,the array is already sorted and(a[j] &gt; X) is always false So no shifting of data is necessary and the inner loop union runs in O(1)<br>    2. In worst-case scenario, the array is reverse sorted and (a[j] &gt; X) is always true Insertion always occur at the front of the array and the inner loop runs in O(N).</p>
+<p>Thus,the best-case time is O(N * 1) = O(N) and the worst-case time is O(N*N) = O(N^2).</p>
+<h5 id="希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#希尔排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>希尔排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="选择排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#选择排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="选择排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>选择排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<p>Selection Sort 选择排序<br>    Given an array of N items and L = 0.Selection Sort will: 给定N个项目和L=0的数组，选择排序将：<br>        1.Find the position X of the smallest item in the range of [L…N-1]，在[L…N-1]范围内找出最小项目X的位置<br>        2.Swap X-th item with the L-th item 用第L项交换第X项<br>        3.Increase the lower-bound L by i and repeat Step 1 until L = N - 2. 将下限L增加1并重复步骤1直到L = N-2<br>    Without further ado, let’s try Selection Sort on the same small example array[29, 10, 14, 37, 13]. 别犹豫，让我们在上面的同一个小例子数组上尝试selection Sort.</p>
+</blockquote>
+<pre><code>Without loss of generality, we can also implement Selection Sort in reverse: 在不失普遍性的情况下，我们也可以实现反向的选择排序
+Find the position of the largest item Y and swap it with the last item.找到最大项目Y的位置并将与其最后一个项目交换。</code></pre><blockquote>
+<p>Selection Sort 选择排序<br>repeat (numOfElements - 1) times 重复(元素个数 - 1)次<br>    set the first unsorted element as the minum 把第一个没有排序过的元素设置为最小值<br>    for each of the unsorted elements 遍历每个没有排序过的元素<br>        if element &lt; currentMinimum 如果元素 &lt; 现在的最小值<br>            set element as new minimum 将此元素设置成为新的最小值<br>    swap minimum with first unsorted position 将最小值和第一个没有排序过的位置交换</p>
+</blockquote>
+<p>void selectionSort(int a[], int N) {<br>    for (int L=0; L&lt;N-2; ++L) { // O(N)<br>        int X = min_element(a+L, a+N) - a; // O(N)<br>        swap(a[X], a[L]); // O(1), X may be equal to L(no actual swap)<br>    }<br>}</p>
+<p>Total:O(N^2)</p>
+<h5 id="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#快速排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>快速排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="合并排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#合并排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="合并排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>合并排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><p>Merge Sort</p>
+<blockquote>
+<p>Given an array of N items, Merge Sort will: 给定一个N个项目的数组，归并排序将：<br>    1.Merge each pair od individual element (which is by default, sorted)into sorted arrays od 2 elements. 将每对单个元素(默认情况下，已排序)归并为2个元素的有序数组<br>    2.Merge each pair of sorted arrays of 2 elements into sorted arrays of 4 elements,Repeat the process…, 将2个元素的每对有序数组归并成4个元素的有序数组,重复这个过程……<br>    3.Final Step:Merge 2 sorted arrays of N/2 elements (for simplicity of this discussion, we assume that N is even) to obtain a fully sorted array of N elements. 最后一步：归并2个N/2元素的排序数组(为了简化讨论，我们假设N是偶数)以获得完全排序的N个元素数组。</p>
+</blockquote>
+<p>This is just the general idea and we need a few more details before we can discuss the true form of Merge Sort. 这只是一般的想法，在我们可以讨论归并排序的真正形式之前，我们需要更多的细节。</p>
+<p>10.1 Important Subroutine,O(N) Merge 重要的子程序，O(N)归并</p>
+<p>We will dissect this Merge Sort algorithm by first discussing its most important subroutine: The O(N) merge.我们首先讨论归并排序算法的最重要的子程序：O(N)归并，然后解析这个归并排序算法</p>
+<p>Given two sorted array.A and B,of size N1 and N2, we can efficiently merge them into one large combined sorted array of size N = N1 + N2, in O(N) time. 给定两个大小为N1和N2的排序数组A和B，我们可以在O(N)时间内将它们有效地归并成一个大小为N = N1 + N2的组合排序数组</p>
+<p>This is achieved by simply comparing the front of the two arrays and take the smaller of the two at all times.However, this simple but fast O(N) merge sub-routine will need additional array to do this merging correctly.See the next slide. 这是通过简单地比较两个阵列的前面并始终取两个中较小的一个来实现的，但是这个简单但快速的O(N)合并子例程将需要额外的数组来正确地进行合并。</p>
+<p>10-2 Merge Suborutine C++ Implementation</p>
+<p>void merge(int a[], int low, int mid, int high){<br>    // subarray1 = a[low..mid], subarray2 = a[mid+1, high], both sorted<br>    int N = high - low + 1;<br>    int b[N];// discuss: why do we need a temporary array b<br>    int left = low, right = mid + 1, bIdx = 0;<br>    while (left &lt;= mid &amp;&amp; right)<br>}</p>
+<p>未完待续……今天太累了，我太累了</p>
+<h5 id="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序，算法基本思想，算法代码及基本的时间复杂度分析</h5>
       
     </div>
     
@@ -612,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分-数据结构与算法"><span class="nav-number">1.</span> <span class="nav-text">第一部分 数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、栈-Stack-、队列-Queue-和向量-Vector"><span class="nav-number">1.1.</span> <span class="nav-text">一、栈(Stack)、队列(Queue)和向量(Vector)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单链表"><span class="nav-number">1.1.1.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双向链表-Doubly-Linked-List"><span class="nav-number">1.1.2.</span> <span class="nav-text">双向链表 Doubly Linked List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环-环形-链表-Circular-Linked-List"><span class="nav-number">1.1.3.</span> <span class="nav-text">循环(环形)链表 Circular Linked List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#带哨兵结点的链表"><span class="nav-number">1.1.4.</span> <span class="nav-text">带哨兵结点的链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#栈的基本概念和性质栈ADT及其顺序、链表实现"><span class="nav-number">1.1.5.</span> <span class="nav-text">栈的基本概念和性质栈ADT及其顺序、链表实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分-数据结构与算法"><span class="nav-number">1.</span> <span class="nav-text">第一部分 数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、栈-Stack-、队列-Queue-和向量-Vector"><span class="nav-number">1.1.</span> <span class="nav-text">一、栈(Stack)、队列(Queue)和向量(Vector)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单链表-Linked-Lists"><span class="nav-number">1.1.1.</span> <span class="nav-text">单链表 Linked Lists</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双向链表-Doubly-Linked-List"><span class="nav-number">1.1.2.</span> <span class="nav-text">双向链表 Doubly Linked List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环-环形-链表-Circular-Linked-List"><span class="nav-number">1.1.3.</span> <span class="nav-text">循环(环形)链表 Circular Linked List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#带哨兵结点的链表"><span class="nav-number">1.1.4.</span> <span class="nav-text">带哨兵结点的链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#栈的基本概念和性质栈ADT及其顺序、链表实现"><span class="nav-number">1.1.5.</span> <span class="nav-text">栈的基本概念和性质栈ADT及其顺序、链表实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#栈的应用；Stack-Application"><span class="nav-number">1.1.6.</span> <span class="nav-text">栈的应用；Stack Application</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序"><span class="nav-number">1.2.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#排序的基本概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">排序的基本概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#插入排序，算法基本思想，算法代码及基本的时间复杂度分析"><span class="nav-number">1.2.2.</span> <span class="nav-text">插入排序，算法基本思想，算法代码及基本的时间复杂度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"><span class="nav-number">1.2.3.</span> <span class="nav-text">希尔排序，算法基本思想，算法代码及基本的时间复杂度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择排序，算法基本思想，算法代码及基本的时间复杂度分析"><span class="nav-number">1.2.4.</span> <span class="nav-text">选择排序，算法基本思想，算法代码及基本的时间复杂度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快速排序，算法基本思想，算法代码及基本的时间复杂度分析"><span class="nav-number">1.2.5.</span> <span class="nav-text">快速排序，算法基本思想，算法代码及基本的时间复杂度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#合并排序，算法基本思想，算法代码及基本的时间复杂度分析"><span class="nav-number">1.2.6.</span> <span class="nav-text">合并排序，算法基本思想，算法代码及基本的时间复杂度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基数排序，算法基本思想，算法代码及基本的时间复杂度分析"><span class="nav-number">1.2.7.</span> <span class="nav-text">基数排序，算法基本思想，算法代码及基本的时间复杂度分析</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -646,7 +747,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.9k</span>
+    <span title="Site words total count">29.8k</span>
   
 </div>
 
