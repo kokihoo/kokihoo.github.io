@@ -1369,8 +1369,8 @@ re.M /re.MULTILINE | 多行匹配标记
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-15T18:09:35+08:00">
-                2019-10-15
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-17T17:57:09+08:00">
+                2019-10-17
               </time>
             
           </span>
@@ -1408,7 +1408,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.8k
+                  10.7k
                 </span>
               
 
@@ -1424,7 +1424,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  33
+                  49
                 </span>
               
             </div>
@@ -1566,13 +1566,142 @@ Find the position of the largest item Y and swap it with the last item.找到最
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void selectionSort(int a[], int N) &#123;</span><br><span class="line">    for (int L=0; L&lt;N-2; ++L) &#123; // O(N)</span><br><span class="line">        int X = min_element(a+L, a+N) - a; // O(N)</span><br><span class="line">        swap(a[X], a[L]); // O(1), X may be equal to L(no actual swap)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Total:O(N^2)</p>
-<h5 id="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#快速排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>快速排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<h5 id="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#快速排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="快速排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>快速排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><p>这个排序好难，我看了三份资料最后一份资料看懂了</p>
+<p>第一份资料：这个没太看懂</p>
+<blockquote>
 <p>Quick Sort<br>    Quick Sort is another Divide and Conquer sorting alogrithm (the other one discussed in this visualization page is Merge Sort).快速排序是另一个分而治之的排序算法(另一个在这个可视化的页面中讨论的是归并排序)</p>
 </blockquote>
 <p>We will see that this deterministic,non randomized version of Quick Sort can have bad time complexity of O(N^2) on adversary input before continuing with the randomized and usable version later.我们将看到，这种确定性的，非随机化的快速排序的版本可能在对手输入中具有O(N^2)的很差的时间复杂度，之后再继续随机化的可用版本。</p>
-<p>Divid step: Choose an item p(know as the pivot) 划分步骤: 选择一个项p(为枢轴点)<br>Then partition the items of a[i..j] into three parts: a[i..m-1],a[m],amd a[m+1..j] 然后将a[i..j]的项目分为三个部分:a[i..m-1], a[m], a[m+1..j]<br>a[i..m-1](possibly empty) contains items that are greater than or equal to P.<br>a[m] is the pivot p,i.e. index m is the correct position for p in the sorted order of array a.<br>a[m+1..j](possibly empty) contains items that are greater than or equal to p.<br>Then,recursively sort the two parts.</p>
-<p>Conquer step: Don’t be surprised…We do nothing:O!</p>
-<p>If you compare this with Merge Sort,you will see that Quick Sort D&amp;C steps are totally opposite with Merge Sort.</p>
+<p>Divid step: Choose an item p(know as the pivot) 划分步骤: 选择一个项p(为枢轴点)<br>Then partition the items of a[i..j] into three parts: a[i..m-1],a[m],amd a[m+1..j] 然后将a[i..j]的项目分为三个部分:a[i..m-1], a[m], a[m+1..j]<br>a[i..m-1](possibly empty) contains items that are greater than or equal to P. a<a href="可能为空">i..m-1</a>包含小于p的项目<br>a[m] is the pivot p,i.e. index m is the correct position for p in the sorted order of array a. a[m]是枢轴点p,例如：指数m是已排序数组a的排序顺序中p的正确位置。<br>a[m+1..j](possibly empty) contains items that are greater than or equal to p. a<a href="可能为空">m+1..j</a>包含大于或等于p的项目。然后，递归地对这两部分进行排序。<br>Then,recursively sort the two parts. 然后递归地这两部分进行排序</p>
+<p>Conquer step: Don’t be surprised…We do nothing:O! 解决步骤：不要惊讶……我们什么都不做！</p>
+<p>If you compare this with Merge Sort,you will see that Quick Sort D&amp;C steps are totally opposite with Merge Sort. 如果您对将其与归并排序进行比较，您会发现快速排序的D&amp;C步骤与归并排序完全相反。</p>
+<p>第二份资料，指针交换排序我看不懂了就</p>
+<p>快速排序是从冒泡排序演变而来的算法，但是比冒泡排序要高效的对，所以叫做快速排序<br>快速排序之所以快速，是因为它使用了分治法。同冒泡排序一样，快速排序也属于交换排序，通过元素之间的比较和交换位置来达到排序的目的<br>不同的是，冒泡排序在每一轮只把一个元素冒泡到数列的一端，而快速排序在每一轮挑选一个基准元素，并让其他比它大的元素移动到数列一遍，比它小的元素移动到数列的另一边，从而把数列拆解成了两个部分。这种思路就叫做分治法。</p>
+<p>在分治法的思想下，原数列在每一轮被拆分成两部分，每一部分在下一轮又分别被拆分成两部分，直到不可拆分为止。</p>
+<p>这样一共需要多少轮？平均情况下需要logn轮，因此快速排序算法的平均时间复杂度是O(nlogn)<br>基准元素的选择，以及元素的移动都是快速排序的核心。</p>
+<p>如何选择基准元素？</p>
+<p>基准元素的选择</p>
+<blockquote>
+<p>基准元素，英文pivot，用于在分治过程中以此为中心，把其他元素移动到基准元素的左右两边，那么基准元素如何选择呢？</p>
+<ul>
+<li>最简单的方式是选择数列的第一个元素<br>  这种选择在大多数情况下是没有问题的。但是假如有一个原本逆序的数列，期望排列成顺序数列，那么会出现什么情况呢？<pre><code>          8 7 6 5 4 3 2 1 
+第一轮：**8** 7 6 5 4 3 2 1
+|——&gt;    1 7 6 5 4 3 2 **8**</code></pre></li>
+</ul>
+</blockquote>
+<pre><code>第二轮： **1** 7 6 5 4 3 2
+|——&gt;    **1** 7 6 5 4 3 2
+
+第三轮： **7** 6 5 4 3 2
+|——&gt;     2 6 5 4 3 **7**
+……
+
+整个数列并没有被分成一半一半，每一轮仅仅确定了基准元素的位置。这种情况下数列第一个元素要么是最小值，要么是最大值，根本无法发挥分治法的优势。在这种极端情况下，快速排序需要进行N轮，时间复杂度退化成了O(N^2)
+
+我们该如何避免这种情况发生呢？其实很简单，我们可以不选择数列的第一个元素，而是随机选择一个元素作为基准元素。
+
+8 7 6 5 **4** 3 2 1
+
+这样一来，即使在数列完全逆序的情况下，也可以有效地数列分成两部分。
+
+当然，及时是随机选择基准元素，每一次也有极小的几率选到数列的最大值或最小值，同样会影响到分治的效果。
+
+所以，快速排序的平均时间复杂度O(nlogn),最坏情况下的时间复杂度是O(n^2).</code></pre><p>元素的移动</p>
+<pre><code>选定了基准元素以后，我们要做的就是把其他元素当中小于基准元素的都移动到基准元素的一边，大于基准元素的都移动到基准元素的另一边。
+具体如何实现？有两种方法：
+1、挖坑法
+2、指针交换法
+
+“挖坑法”
+给定的原始数列如下，要求从小到大排序:
+    4 7 6 5 3 2 8 1
+首先，我们选定基准元素Pivot，并记住这个位置index，这个位置相当于一个“坑”。并且设置两个指针left和right，指向数列的最左和最右两个元素:
+         index
+Pivot=4    4    7    6    5    3    2    8    1
+         left                                right
+         接下来，从right指针开始，把指针所指向的元素和基准元素做比较。如果比pivot大，则right指针向左移动；如果比pivot小，则把right所指向的元素填入坑中。
+
+         在当前数列中，1 &lt; 4 ,所以把1填入基准元素所在位置，也就是坑的位置。这时候，元素1本来的位置变成了新的坑，同时left向右移动一位。
+
+                                            index
+Pivot=4    1    7    6    5    3    2    8    1
+              left                          right
+         此时，left左边的区域代表着小于基准元素的区域。
+
+         接下来，我们切换了left指针进行比较。如果left指向的元素小于pivot，则left指针向右移动，如果元素大于pivot，则把left指向的元素填入坑中。
+
+         在当前数列中，7&gt;4, 所以把7填入index的位置，这时候7原本的位置称为了新的坑，同事right向左移动一位。
+              index                           
+Pivot=4    1    7   6    5    3    2    8    7
+              left                     right   
+         此时，right右边橙色的区域代表着大于基准元素的区域
+
+         接着按照刚才的思路排序
+         8 &gt; 4 ，元素位置不变，right左移
+              index                           
+Pivot=4    1    7   6    5    3    2    8    7
+              left                right 
+         2 &lt; 4 , 用2来填坑，left右移，切换到left  
+                                 index      
+Pivot=4    1    2   6    5    3    2    8    7
+                   left           right 
+        6 &gt; 4 ，用6来填坑，right左移，切换到right
+                  index                   
+Pivot=4    1    2   6    5    3    6    8    7
+                   left     right       
+        3 &lt; 4，用3来填坑，left右移，切换到left
+                            index      
+Pivot=4    1    2   3    5    3    6    8    7
+                        left right       
+        5 &gt; 4，用5来填坑，right右移，这时候left和right重合在同一个位置
+                        index        
+Pivot=4    1    2   3    5    5    6    8    7
+                        right 
+                        left      
+
+        这时候，把之前的pivot元素，也就是4放到index的位置，此时数列左边的元素都小于4，数列右边的元素都大于4，这一轮交换终告结束。
+
+        递归，其实这个还没完，最后的6  8 7 是不对的，
+
+        除了挖坑法以外，要实现元素的移动也可以利用指针交换法</code></pre><p>指针交换法</p>
+<pre><code>给定原始数列如下，要求从小到大排序：
+4 7 6 5 3 2 8 1
+
+开局和挖坑法相似，我们首先选定基准元素Pivot，并且设置两个指针left和right，指向数列的最左和最右两个元素：
+
+    Pivot = 4    4   7   6   5   3    2    8    1
+               left                           right
+接下来是第一次循环，从right指针开始，把指针所指向的元素和基准元素做比较。如果大于等于pivot，则指针向左移动，如果小于pivot，则right指针停止移动，切换到了left指针</code></pre><p>第三份资料：浙大的老师 哇终于，看这份资料我理解了，快速动画图示说明理解，看<a href="http://www.feemic.cn/mooc/icourse163/1002654021?type=hot#myTab" target="_blank" rel="noopener">http://www.feemic.cn/mooc/icourse163/1002654021?type=hot#myTab</a> 10.1.3 子集划分</p>
+<p>算法概述：</p>
+<pre><code>分而治之：伪码描述
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void Quicksort(ElementType A[], int N)&#123;</span><br><span class="line">    if (N &lt; 2) return; // 递归跳出的条件 只有一个元素，递归就不用继续了</span><br><span class="line">    pivot = 从A[]中选一个主元; </span><br><span class="line">    将S= &#123;A[] \ pivot&#125; 分成2个独立子集:</span><br><span class="line">        A1 = &#123; a ∈ S | a&lt;= pivot&#125; 和</span><br><span class="line">        A2 = &#123; a ∈ S | a&gt;= pivot&#125;;</span><br><span class="line">    A[] = Quicksort(A1,N1) ∪ &#123;pivot&#125; ∪ Quicksort(A2,N2); // 递归</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+// ?主元怎么选
+// ?子集怎么分
+// 什么是快速排序算法的最好情况？
+    每次正好中分 -&gt; T(N) = O(NlogN)</code></pre><p>选主元</p>
+<ul>
+<li><p>令pivot = A[0]?</p>
+<pre><code>1 2 3 4 5 6 …… N-1 N
+  2 3 4 5 6 …… N-1 N
+    3 4 5 6 …… N-1 N</code></pre><p>  T(N) = O(N) + T(N-1)</p>
+<pre><code>= O(N) + O(N-1) + T(N-2)
+= O(N) + O(N-1) + …… + O(1)
+= O(N^2)</code></pre></li>
+<li><p>随机取pivot?rand()函数很废时间</p>
+</li>
+<li><p>取头、中、尾的中位数<br>  例如 8、12、3的中位数就是8<br>  测试一下pivot不同的取法对运行速度有多大影响</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ElementType Median3(ElementType A[], int Left, int Right)&#123; // 取三数中位数</span><br><span class="line">    int Center = (Left + Right) / 2;</span><br><span class="line">    if(A[Left] &gt; A[Center])</span><br><span class="line">        Swap(&amp;A[Left], &amp;A[Center]);</span><br><span class="line">    if(A[Left] &gt; A[Right])</span><br><span class="line">        Swap(&amp;A[Left], &amp;A[Right]);</span><br><span class="line">    if(A[Center] &gt; A[Right])</span><br><span class="line">        Swap(&amp;A[Center], &amp;A[Right]);</span><br><span class="line"></span><br><span class="line">// A[Left] &lt;= A[Center] &lt;= A[Right]</span><br><span class="line">Swap(&amp;A[Center], &amp;A[Right - 1]) ;// 将pivot藏到右边</span><br><span class="line">// 只需要考虑A[Left+1]……A[Right-2]</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>子集划分</p>
+<pre><code>8   1   4   9   0   3   5   2   7   6
+
+如果相等交换 O(NlogN)
+不交换的时间复杂度O(N^2)</code></pre><p>根据时间复杂度来分析，还是遇到相等元素还是交换吧</p>
+<p>小规模数据的处理<br>    快速排序的问题：<br>        - 用递归……【会占用额外的系统堆栈的空间】<br>        - 对小规模的数据(例如N不到100)可能还不如插入顺序快<br>    解决方案：<br>        - 当递归的数据规模充分小，则停止递归，直接调用简单排序(例如插入排序)<br>        - 大规模数据用递归<br>        - 在程序中定义一个Cutoff的阈值，比较不同的Cutoff对效率的影响</p>
+<p>算法实现<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// 快速排序</span><br><span class="line">ElementType Median3(ElementType A[], int Left, int Right)&#123;</span><br><span class="line">    int Center = (Left + Right) /2;</span><br><span class="line">    if(A[ left ] &gt; A[ Center ]) Swap(&amp;A[ Left ], &amp;A[ Center ]);</span><br><span class="line">    if(A[ left ] &gt; A[ Right ]) Swap(&amp;A[ Left ], &amp;A[ Right ]);</span><br><span class="line">    if(A[ Center ] &gt; A[ Right ]) Swap(&amp;A[ Center ], &amp;A[ Right ]);</span><br><span class="line">    // 此时A[ Left ] &lt; A[ Center ] &lt; A[ Right ]</span><br><span class="line">    Swap(&amp;A[ Center ], &amp;A[ Right-1 ]); // 将基准pivot藏到右边</span><br><span class="line">    // 只需要考虑A[Left + 1]...A[Right -2]</span><br><span class="line">    return A[Right - 1]; // 返回基准Pivot</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Qsort(ElementType A[], int Left, int Right)&#123;</span><br><span class="line">    // 核心递归函数</span><br><span class="line">    int Pivot, Cutoff, Low, High;</span><br><span class="line">    if( Cutoff &lt;= Right - Left)&#123; // 阈值，如果序列元素充分多，做快速排序</span><br><span class="line">        Pivot = Median3(A, Left, Right); // 选主元 选基准</span><br><span class="line">        Low = Left; High = Right - 1; // 划分子集</span><br><span class="line">        while (1)&#123; // 将序列中比基准小的移动到基准的左边，大的移到右边</span><br><span class="line">            while (A[ ++Low ] &lt; Pivot) &#123; &#125;</span><br><span class="line">            while (A[ --Right ] &gt; Pivot) &#123; &#125;</span><br><span class="line">            if(Low &lt; High) Swap(&amp;A[Low], &amp;A[High]);</span><br><span class="line">            else break;</span><br><span class="line">        &#125;</span><br><span class="line">        // 然后把pivot放到正确的位置,将基准换到正确的位置</span><br><span class="line">        Swap(&amp;A[Low], &amp;A[Right-1]); // 把藏到Right-1 上的主元换到A[i]上去</span><br><span class="line">        // 递归排序自集 主元在i的位置上</span><br><span class="line">        Qsort(A, Left, Low-1); // 递归解决左半子集</span><br><span class="line">        Qsort(A, Low+1, Right); // 递归解决右半子集</span><br><span class="line">    &#125; else &#123; // 否则做插入排序 数据太少用简单排序</span><br><span class="line">        Insertion_Sort(A+Lfet, Right-left+1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用一个壳套住 </span><br><span class="line">void QuickSort(ElementType A[], int N)</span><br><span class="line">&#123; // 统一接口</span><br><span class="line">    Qsort(A, 0, N-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h5 id="合并排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#合并排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="合并排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>合并排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><p>Merge Sort</p>
 <blockquote>
 <p>Given an array of N items, Merge Sort will: 给定一个N个项目的数组，归并排序将：<br>    1.Merge each pair od individual element (which is by default, sorted)into sorted arrays od 2 elements. 将每对单个元素(默认情况下，已排序)归并为2个元素的有序数组<br>    2.Merge each pair of sorted arrays of 2 elements into sorted arrays of 4 elements,Repeat the process…, 将2个元素的每对有序数组归并成4个元素的有序数组,重复这个过程……<br>    3.Final Step:Merge 2 sorted arrays of N/2 elements (for simplicity of this discussion, we assume that N is even) to obtain a fully sorted array of N elements. 最后一步：归并2个N/2元素的排序数组(为了简化讨论，我们假设N是偶数)以获得完全排序的N个元素数组。</p>
@@ -1610,7 +1739,52 @@ Find the position of the largest item Y and swap it with the last item.找到最
 <p>Merge Sort is therefore very suitable to sort extremely large number of inputs as O(NlogN) grows much slower than the O(N^2) sorting algorithms<br>that we have discussed earlier.因此，归并排序非常适合排序非常大量的输入，因为O(NlogN)比前面讨论的O(N^2)排序算法增长的慢的多。</p>
 <p>Merge Sort is also a stable sort algorithm.Discussion: Why? 归并排序也是一个稳定的排序算法，讨论：为什么</p>
 <p>There are however,several not-so-good parts of Merge Sort.First, it is actually not easy to implement from scratch (but we don’t have to).Second,it requires additional O(N) storage during merging operation,thus not really memory efficient and not in-place.Btw, if you are interested to see what have been done to address these (classic) Merge Sort not-so-good parts, you can read this. 然而，归并排序有几个不太好的部分。首先，从零开始实施起来并不容易(但我们不必这么做)。其次它在归并操作期间需要额外的O(N)的存储，因此不是真正的存储效率，顺便说一句，如果你有兴趣看看为了解决这些经典归并排序不那么好的部分做了什么，可以阅读一下<a href="https://en.wikipedia.org/wiki/Merge_sort#Variants" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Merge_sort#Variants</a></p>
-<h5 id="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序，算法基本思想，算法代码及基本的时间复杂度分析</h5>
+<h5 id="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<p>基数排序，非比较排序，是桶排序的一种，多关键字排序。可查看基数排序的动画演示：<a href="https://visualgo.net/zh/sorting" target="_blank" rel="noopener">https://visualgo.net/zh/sorting</a><br>Radix Sort<br>    Assumption: If the items to be sorted are integers with large range but of few digits,we can combine Counting Sort idea with Radix Sort to achieve the linear time complexity.假设：如果要排序的项目是大范围但小数位的整数，我们可以将计数排序Counting Sort思想与Radix Sort结合起来，以实现线性时间复杂度</p>
+</blockquote>
+<pre><code>In Radix Sort, we treat each item to be sorted as a string of w digits(we pad integars that have less than w digits with leading zeros if necessary).在基数排序中，我们将每个项目排序为一个w数字串(如果需要，我们填充小于w数字的前几个零的整数).
+
+For the least significant(rightmost) digit to the most significant digit(leftmost), we pass through the N items and put them according to the active digit into 10 Queues(one for each digit[0..9]),which is like a modified Counting Sort as this one preserves stability. Then we re-concentrate the groups again for subaequent iteration.对于最低有效位(最右边)到最高有效位(最左边)，我们通过N个项目并将它们按照活动数字放到10个队列中(每个数字[0..9]),就好像一个修改的计数排序，因为这保留了稳定性。然后我们再次重新连接组，以便进行后续迭代。
+
+Try Radix Sort on the example array above for clearer explantation. 请尝试上面示例数组Radix Sort来了解更清晰的解释。
+
+Notice that we only perform O(w*(N+k)) iterations. In the example,w=4 and k=10. 请注意，我们只执行了O(w*(N+k))次迭代。在这个例子中，w=4， k10
+
+create 10 buckets (queues) for each digit (0 to 9) 分别给每个位数(0到9)创建10个桶
+for each digit placing 遍历每个数位
+    for each element in list 遍历数列中的每个元素
+        move element into respective bucket 将元素移至相应的桶中
+    for each bucket, starting from smallest digit 在每个桶中从最小的数位开始
+        while bucket is non-empty 当桶不是空的
+            restore elemnt to list 将元素恢复至数列中
+
+
+
+例子引入：
+    假设我们有N=10个整数，每个整数的值在0到999之间(于是有M=1000个不同的值)。还有可能在线性时间内排序么？
+
+    输入序列： 64，8， 216， 512， 27， 729， 0， 1， 343， 125
+    用&quot;次位优先&quot;(Least Significant Digit) 这里的次位就是个位
+
+    基数 10 ，我们就先建立10个桶
+
+    Bucket  0   1   2    3    4    5    6     7    8    9
+    Pass 1  0   1  512  343   64  125  216   27    8    729   个位次序排序
+    Pass 2  0  512 125        343      64                     十位次序排序
+            1  216  27
+            8      729
+
+    Pass 3  0  125  216  343       512       729              百位次序排序
+            1
+            8
+        27
+        64
+
+    整个次位优先的算法时间复杂度是多少？T = O(P(N+B))
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">// 基数排序-次位优先</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span><br><span class="line">#define MaxDigit 4</span><br><span class="line">#define Radix 10</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line"></span><br><span class="line">int GetDigit (int X, int D)</span><br><span class="line">&#123;</span><br><span class="line">    /* 默认次位D=1, 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line"></span><br><span class="line">    for( i=1; i&lt;=D; i++)&#123;</span><br><span class="line">        d = X % Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LSDRadixSort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    /* 基数排序 - 次位优先 */</span><br><span class="line">    int D, Di, i;</span><br><span class="line">    Bucket B;</span><br><span class="line">    PtrToNode, tmp, p, List = Null;</span><br><span class="line"></span><br><span class="line">    for (i=0; i&lt;Radix; i++) /* 初始化每个桶为空链表 */</span><br><span class="line">        B[i].head = B[i].tail = NULL;</span><br><span class="line">    for (i=0; i&lt;N; i++)&#123; /* 将原始序列逆序存入初始链表List */</span><br><span class="line">        tmp = (PtrToNode)malloc(sizeof(struct Node));</span><br><span class="line">        tmp-&gt; key = A[i];</span><br><span class="line">        tmp-&gt; next = List;</span><br><span class="line">        List = tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 下面开始排序 */</span><br><span class="line">    for(D=1; D&lt;=MaxDigit; D++)&#123; /*对数据的每一位循环处理*/</span><br><span class="line">        /* 下面是分配过程 */</span><br><span class="line">        p = List;</span><br><span class="line">        while(p) &#123;</span><br><span class="line">            Di = GetDigit(p-&gt;key, D); /* 获得当前元素的位数字*/</span><br><span class="line">            /* 从List中摘除*/</span><br><span class="line">            tmp = p; p = p-&gt;next;</span><br><span class="line">            /* 插入B[Di]号桶尾*/</span><br><span class="line">            tmp-&gt;next = NULL;</span><br><span class="line">            if(B[Di].head == NULL)</span><br><span class="line">                B[Di].head = B[Di].tail = tmp;</span><br><span class="line">            else &#123;</span><br><span class="line">                B[Di].tail-&gt;next = tmp;</span><br><span class="line">                B[Di].tail = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /* 下面是收集的过程*/</span><br><span class="line">        List = NULL;</span><br><span class="line">        for(Di=Radix-1; Di&gt;=0; Di--) &#123; /* 将每个桶的元素顺序收集入List*/</span><br><span class="line">            if(B[Di].head) &#123; /* 如果桶不为空 */</span><br><span class="line">                /* 整桶插入List表头 */</span><br><span class="line">                B[Di].tail-&gt;next = List;</span><br><span class="line">                List = B[Di].head;</span><br><span class="line">                B[Di].head = B[Di].tail = BULL; /* 清空桶 */</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 将List倒入A[]并释放空间*/</span><br><span class="line">    for(i=0; i&lt;N; i++)&#123;</span><br><span class="line">        tmp = List;</span><br><span class="line">        List = List -&gt; next;</span><br><span class="line">        A[i] = tmp-&gt;key;</span><br><span class="line">        free(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 主位优先 */</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字， 基数全是同样的Radix */</span><br><span class="line"></span><br><span class="line">#define MaxDigit 4；</span><br><span class="line">#define Radix 10;</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br></pre></td></tr></table></figure></code></pre>
           
         
       
@@ -2592,7 +2766,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31.9k</span>
+    <span title="Site words total count">35.8k</span>
   
 </div>
 
