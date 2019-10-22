@@ -282,6 +282,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KOKI HOO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/bekjae.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOKI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/22/算法/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-22T10:35:38+08:00">
+                2019-10-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-22T10:39:11+08:00">
+                2019-10-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/10/22/算法/" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  895
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h3><h4 id="线性表的定义与操作-顺序表"><a href="#线性表的定义与操作-顺序表" class="headerlink" title="线性表的定义与操作-顺序表"></a>线性表的定义与操作-顺序表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">typedef int Position;</span><br><span class="line">typedef struct LNode *List;</span><br><span class="line">struct LNode &#123;</span><br><span class="line">    ElementType Data[MAXSIZE];</span><br><span class="line">    Position Last;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/* 初始化 */</span><br><span class="line">List MakeEmpty()</span><br><span class="line">&#123;</span><br><span class="line">    List L;</span><br><span class="line"></span><br><span class="line">    L = (List)malloc(sizeof(struct LNode));</span><br><span class="line">    L-&gt;Last = -1;</span><br><span class="line"></span><br><span class="line">    return L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 查找 */</span><br><span class="line">#define ERROR -1</span><br><span class="line"></span><br><span class="line">Position Find( List L, ElementType X )</span><br><span class="line">&#123;</span><br><span class="line">    Position i = 0;</span><br><span class="line"></span><br><span class="line">    while( i &lt;= L-&gt;Last &amp;&amp; L-&gt;Data[i]!= X )</span><br><span class="line">        i++;</span><br><span class="line">    if ( i &gt; L-&gt;Last )  return ERROR; /* 如果没找到，返回错误信息 */</span><br><span class="line">    else  return i;  /* 找到后返回的是存储位置 */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 插入 */</span><br><span class="line">/*注意:在插入位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是存储下标位置（从0开始），两者差1*/</span><br><span class="line">bool Insert( List L, ElementType X, Position P ) </span><br><span class="line">&#123; /* 在L的指定位置P前插入一个新元素X */</span><br><span class="line">    Position i;</span><br><span class="line"></span><br><span class="line">    if ( L-&gt;Last == MAXSIZE-1) &#123;</span><br><span class="line">        /* 表空间已满，不能插入 */</span><br><span class="line">        printf(&quot;表满&quot;); </span><br><span class="line">        return false; </span><br><span class="line">    &#125;  </span><br><span class="line">    if ( P&lt;0 || P&gt;L-&gt;Last+1 ) &#123; /* 检查插入位置的合法性 */</span><br><span class="line">        printf(&quot;位置不合法&quot;);</span><br><span class="line">        return false; </span><br><span class="line">    &#125; </span><br><span class="line">    for( i=L-&gt;Last; i&gt;=P; i-- )</span><br><span class="line">        L-&gt;Data[i+1] = L-&gt;Data[i]; /* 将位置P及以后的元素顺序向后移动 */</span><br><span class="line">    L-&gt;Data[P] = X;  /* 新元素插入 */</span><br><span class="line">    L-&gt;Last++;       /* Last仍指向最后元素 */</span><br><span class="line">    return true; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">/* 删除 */</span><br><span class="line">/*注意:在删除位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是存储下标位置（从0开始），两者差1*/</span><br><span class="line">bool Delete( List L, Position P )</span><br><span class="line">&#123; /* 从L中删除指定位置P的元素 */</span><br><span class="line">    Position i;</span><br><span class="line"></span><br><span class="line">    if( P&lt;0 || P&gt;L-&gt;Last ) &#123; /* 检查空表及删除位置的合法性 */</span><br><span class="line">        printf(&quot;位置%d不存在元素&quot;, P ); </span><br><span class="line">        return false; </span><br><span class="line">    &#125;</span><br><span class="line">    for( i=P+1; i&lt;=L-&gt;Last; i++ )</span><br><span class="line">        L-&gt;Data[i-1] = L-&gt;Data[i]; /* 将位置P+1及以后的元素顺序向前移动 */</span><br><span class="line">    L-&gt;Last--; /* Last仍指向最后元素 */</span><br><span class="line">    return true;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="线性表的定义与操作-链式表"><a href="#线性表的定义与操作-链式表" class="headerlink" title="线性表的定义与操作-链式表"></a>线性表的定义与操作-链式表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">typedef struct LNode *PtrToLNode;</span><br><span class="line">struct LNode &#123;</span><br><span class="line">    ElementType Data;</span><br><span class="line">    PtrToLNode Next;</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToLNode Position;</span><br><span class="line">typedef PtrToLNode List;</span><br><span class="line"></span><br><span class="line">/* 查找 */</span><br><span class="line">#define ERROR NULL</span><br><span class="line"></span><br><span class="line">Position Find( List L, ElementType X )</span><br><span class="line">&#123;</span><br><span class="line">    Position p = L; /* p指向L的第1个结点 */</span><br><span class="line"></span><br><span class="line">    while ( p &amp;&amp; p-&gt;Data!=X )</span><br><span class="line">        p = p-&gt;Next;</span><br><span class="line"></span><br><span class="line">    /* 下列语句可以用 return p; 替换 */</span><br><span class="line">    if ( p )</span><br><span class="line">        return p;</span><br><span class="line">    else</span><br><span class="line">        return ERROR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 带头结点的插入 */</span><br><span class="line">/*注意:在插入位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是链表结点指针，在P之前插入新结点 */</span><br><span class="line">bool Insert( List L, ElementType X, Position P )</span><br><span class="line">&#123; /* 这里默认L有头结点 */</span><br><span class="line">    Position tmp, pre;</span><br><span class="line"></span><br><span class="line">    /* 查找P的前一个结点 */        </span><br><span class="line">    for ( pre=L; pre&amp;&amp;pre-&gt;Next!=P; pre=pre-&gt;Next ) ;            </span><br><span class="line">    if ( pre==NULL ) &#123; /* P所指的结点不在L中 */</span><br><span class="line">        printf(&quot;插入位置参数错误\n&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123; /* 找到了P的前一个结点pre */</span><br><span class="line">        /* 在P前插入新结点 */</span><br><span class="line">        tmp = (Position)malloc(sizeof(struct LNode)); /* 申请、填装结点 */</span><br><span class="line">        tmp-&gt;Data = X; </span><br><span class="line">        tmp-&gt;Next = P;</span><br><span class="line">        pre-&gt;Next = tmp;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 带头结点的删除 */</span><br><span class="line">/*注意:在删除位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是拟删除结点指针 */</span><br><span class="line">bool Delete( List L, Position P )</span><br><span class="line">&#123; /* 这里默认L有头结点 */</span><br><span class="line">    Position tmp, pre;</span><br><span class="line"></span><br><span class="line">    /* 查找P的前一个结点 */        </span><br><span class="line">    for ( pre=L; pre&amp;&amp;pre-&gt;Next!=P; pre=pre-&gt;Next ) ;            </span><br><span class="line">    if ( pre==NULL || P==NULL) &#123; /* P所指的结点不在L中 */</span><br><span class="line">        printf(&quot;删除位置参数错误\n&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123; /* 找到了P的前一个结点pre */</span><br><span class="line">        /* 将P位置的结点删除 */</span><br><span class="line">        pre-&gt;Next = P-&gt;Next;</span><br><span class="line">        free(P);</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/Untitled-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1369,8 +1544,8 @@ re.M /re.MULTILINE | 多行匹配标记
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-17T17:57:09+08:00">
-                2019-10-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-22T17:47:55+08:00">
+                2019-10-22
               </time>
             
           </span>
@@ -1408,7 +1583,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  10.7k
+                  15.3k
                 </span>
               
 
@@ -1424,7 +1599,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  49
+                  66
                 </span>
               
             </div>
@@ -1463,42 +1638,254 @@ ListNode next; // the next Node in the list
 Object element; // the data</code></pre><p>}</p>
 <pre><code>element    next
 Rome        -&gt; null means &quot;ends of list&quot;</code></pre><p>Two special entry points</p>
-<pre><code>if we maintain these two special entry points, it is easy to delete or insert entires at the &quot;head&quot; and insert entries at the &quot;tail&quot; 维护这两个特殊的入口点，将很容易在&quot;头&quot;结点处删除或插入实体，在&quot;尾&quot;处插入条目。</code></pre><h5 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h5><h5 id="循环-环形-链表-Circular-Linked-List"><a href="#循环-环形-链表-Circular-Linked-List" class="headerlink" title="循环(环形)链表 Circular Linked List"></a>循环(环形)链表 Circular Linked List</h5><h5 id="带哨兵结点的链表"><a href="#带哨兵结点的链表" class="headerlink" title="带哨兵结点的链表"></a>带哨兵结点的链表</h5><h5 id="栈的基本概念和性质栈ADT及其顺序、链表实现"><a href="#栈的基本概念和性质栈ADT及其顺序、链表实现" class="headerlink" title="栈的基本概念和性质栈ADT及其顺序、链表实现"></a>栈的基本概念和性质栈ADT及其顺序、链表实现</h5><p>A stack is a container of objects that are inserted and removed according to last-in-first-out(LIFO) principle. 堆栈是根据后进先出的原则插入和删除对象的容器</p>
-<p>Objects can be inserted at any time, but only the last(the most-recently inserted) object can be removed. 可以随时插入对象，但是只能删除最后一个(最近插入)的对象</p>
-<p>Inserting an item is known as “pushing” onto the stack. 插入一个数据项称为“推入”堆栈<br>“popping” off the stack means removing an item. 从栈中“弹出”意味着删除一个数据项</p>
-<p>The Stack Abstract Data Type</p>
-<p>A stack is an abstract data type(ADT) that supports two main methods:<br>    - push(o): Inserts object o onto top of stack<br>    - pop(): Removes the top object of stack and return it;if the stack is empty, an error occurs.</p>
-<p>The following support methods should also be defined:<br>    - size(): Returns the number of objects in stack<br>    - isEmpty(): Return a boolean indicating if stack is empty<br>    - top(): Return the top object of the stack, without removing it; if the stack is empty,an error occurs.</p>
-<p>We want to implement our stack interface.<br>Lots of possibilities… one simple technique is to use an array (<strong>顺序实现</strong>)</p>
-<p>An Array-Based Stack implementation</p>
-<p>Create a stack using an array by specifying a maximum size N for our stack,e.g., N = 1000. 通过指定一个最大长度N的数组来创建堆栈，例如N=10000<br>The stack consists of an N-element array S and an integar variable t,the index of the element in array S. 堆栈由一个含有N个元素的数组S和一个整型变量t(数组S中的顶部元素的索引)组成</p>
-<p>S |x|x|x|x|x|x|x|x|x|…… |x| | | |<br>   0 1 2 3 4 5 6 7 8     t      N-1</p>
-<p>Note：Array indices start at 0, so we initialize t to 0<br>Pseudo-code is folling as blow:</p>
-<p>Algorithm size():<br>    return t + 1</p>
-<p>Algorithm isEmpty():<br>    return (t &lt; 0)</p>
-<p>Algorithm top():<br>    if isEmpty() then<br>        throw a StackEmptyException<br>    return S[t]</p>
-<p>Algorithm push(o):<br>    if size() = N then<br>        throw a StackFullException<br>    t &lt;- t + 1<br>    S[t]&lt;-o</p>
-<p>the Stack interface doesn’t know/care about this situation,becomes stacks “in the abstrack” have inifite capacity. However, our simple array implementation does not handle this requirement, so we need to introduce an extra exception even through it isn’t mentioned in stack.</p>
-<p>Algorithm pop():<br>    if isEmpty() then<br>        throw a StackEmptyException<br>    e&lt;-S[t]<br>    S[t]&lt;-null<br>    t&lt;-t-1<br>    return e</p>
-<p>“S[t]&lt;-null “<br>Enable garbage collection (re-use of S[t]’s memory, if not referenced elsewhere in program execution)</p>
-<ul>
-<li>Both the push and pop methods runs in O(1)time.</li>
-<li>The array implementation is simple and efficient. 用来数组来实现是简单高效的</li>
-<li>There is a predefined upper bound, N, on the size of the stack, which may be too small for a given application, or cause a waste of memory. 堆栈的大小有个预定义的上限N，对于给定的应用程序来说可能太小，否则浪费内存</li>
-</ul>
-<p>“f(n)=O(1)” means “f(n) is a constant, independent of n”.  “f(n) = O(1)”表示”f(n)是一个常数，与n无关”</p>
-<p>Array-Based Stack in Java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayStack implements Stack &#123;</span><br><span class="line">    // implementation of the Stack interface using an array</span><br><span class="line">    public static final int CAPACITY = 1000; // default capacity of the stack</span><br><span class="line">    private int capacity; // maximum capacity of the stack</span><br><span class="line">    private Object S[]; // S holds the elements of the stack</span><br><span class="line">    private int top = -1; // the top element of the stack</span><br><span class="line"></span><br><span class="line">    public ArrayStack()&#123; // initalize the stack</span><br><span class="line">        this(CAPACITY); // with default capacity</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ArrayStack(int cap) &#123; // Initialize the stack with given capacity</span><br><span class="line">        capacity = cap;</span><br><span class="line">        S = new Object[capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Object top() // return the top stack element</span><br><span class="line">        throws StackEmptyException &#123;</span><br><span class="line">            if(isEmpty())&#123;</span><br><span class="line">                throw new StackEmptyException(&apos;Stack is empty.&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            return S[top];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    public Object pop() // pop off the stack element</span><br><span class="line">        throws StackEmptyException &#123;</span><br><span class="line">            if(isEmpty())&#123;</span><br><span class="line">                throw new StackEmptyExcetion(&apos;Stack is Empty.&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            Object elem = S[top];</span><br><span class="line">            S[top--] = null; // deference S[top] and decrement top</span><br><span class="line">            return elem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>if we maintain these two special entry points, it is easy to delete or insert entires at the &quot;head&quot; and insert entries at the &quot;tail&quot; 维护这两个特殊的入口点，将很容易在&quot;头&quot;结点处删除或插入实体，在&quot;尾&quot;处插入条目。</code></pre><h5 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h5><h5 id="循环-环形-链表-Circular-Linked-List"><a href="#循环-环形-链表-Circular-Linked-List" class="headerlink" title="循环(环形)链表 Circular Linked List"></a>循环(环形)链表 Circular Linked List</h5><h5 id="带哨兵结点的链表"><a href="#带哨兵结点的链表" class="headerlink" title="带哨兵结点的链表"></a>带哨兵结点的链表</h5><h5 id="栈的基本概念和性质-栈ADT及其顺序、链表实现"><a href="#栈的基本概念和性质-栈ADT及其顺序、链表实现" class="headerlink" title="栈的基本概念和性质,栈ADT及其顺序、链表实现"></a>栈的基本概念和性质,栈ADT及其顺序、链表实现</h5><h6 id="栈的基本概念和性质"><a href="#栈的基本概念和性质" class="headerlink" title="栈的基本概念和性质"></a>栈的基本概念和性质</h6><blockquote>
+<p>堆栈: 具有一定操作约束的线性表，只在一端(栈顶，top)做插入，删除<br>    插入数据：入栈（Push）<br>    删除数据：出栈（Pop）<br>    后入先出：Last In First Out（LIFO）</p>
+</blockquote>
+<h6 id="栈ADT"><a href="#栈ADT" class="headerlink" title="栈ADT"></a>栈ADT</h6><pre><code>类型名称：Stack 栈
+数据对象集：一个有0个或多个元素的有穷线性表
+操作集：长度为MaxSize的堆栈S∈Stack，堆栈元素item∈ElementType
+1、Stack CreateStack(int MaxSize): 生成空堆栈，其最大长度为MaxSize
+2、int IsFull(Stack S, ElementType item): 判断堆栈S是否已满
+3、void Push(Stack S, ElementType item): 将元素item压入堆栈
+4、int IsEmpty(Stack S): 判断堆栈S是否为空；
+5、ElementType Pop(Stack S): 删除并返回栈顶元素</code></pre><h6 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h6><blockquote>
+<p>  栈的顺序存储结构通常是由一个<strong>一维数组</strong>和一个记录<strong>栈顶</strong>元素位置的变量组成</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">typedef int Position</span><br><span class="line">struct SNode &#123;</span><br><span class="line">    ElementType *Data; // 存储元素的数组</span><br><span class="line">    Position Top; // 栈顶指针</span><br><span class="line">    int MaxSize; // 堆栈的最大容量</span><br><span class="line">&#125;</span><br><span class="line">typedef struct SNode *Stack;</span><br><span class="line"></span><br><span class="line">// 生成空堆栈</span><br><span class="line">Stack CreateStack(int MaxSize) &#123;</span><br><span class="line">    Stack S = (Stack)malloc(sizeof(struct SNode));</span><br><span class="line">    S-&gt;Data = (ElementType *)malloc(MaxSize * sizeof(ElementType));</span><br><span class="line">    S-&gt;Top = -1;</span><br><span class="line">    S-&gt; MaxSize = MaxSize;</span><br><span class="line">    return S</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 判断堆栈S是否已满</span><br><span class="line">bool IsFull(Stack S)&#123;</span><br><span class="line">    return (S-&gt;Top == S-&gt;MaxSize - 1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 入栈</span><br><span class="line">bool Push(Stack S, ElmentType X)&#123;</span><br><span class="line">    if (IsFull(S))&#123;</span><br><span class="line">        printf(&apos;堆栈已满&apos;);</span><br><span class="line">        return False;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        S-&gt;Data[++(S-&gt;Top)] = X;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 判断堆栈为空</span><br><span class="line">bool IsEmpty(Stack S)&#123;</span><br><span class="line">    return (S-&gt;Top == -1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 出栈</span><br><span class="line">ElementType Pop(Stack S)&#123;</span><br><span class="line">    if(IsEmpty(S))&#123;</span><br><span class="line">        printf(&apos;堆栈空&apos;);</span><br><span class="line">        return ERROR; // ERROR是ElementType的特殊值，标志错误</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return S-&gt;Data((S-&gt;Top)--);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Linked Stack</p>
-<p>The linked stack implementation is a simplified version of the linked list implementation. 链表堆栈是链表实现的简化版本</p>
-<p>Comparsion of Array-Based and Linked Stacks</p>
-<ul>
-<li>All operations for the array-based and linked stack implementations take constant time. 基于数组和链表堆栈实现的所有操作都需要一定的时间</li>
-<li>The only basis for comparison is the total space required. 比较的唯一依据是所需的总空间</li>
-<li>When multiple stacks are to be implemented, it is possible to take advantage of the one-way growth of the array-based stack. This can be done by using a single array to store two stacks. 当要实现多个堆栈时，可以利用基于数组的堆栈的单向增长。这可以通过使用单个数组来存储两个堆栈来实现。</li>
-</ul>
-<h5 id="栈的应用；Stack-Application"><a href="#栈的应用；Stack-Application" class="headerlink" title="栈的应用；Stack Application"></a>栈的应用；Stack Application</h5><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h5 id="排序的基本概念"><a href="#排序的基本概念" class="headerlink" title="排序的基本概念"></a>排序的基本概念</h5><p>有废话啊，边学边学英语，所以都写上去了，可以简单看看</p>
+<h6 id="栈的链式存储实现"><a href="#栈的链式存储实现" class="headerlink" title="栈的链式存储实现"></a>栈的链式存储实现</h6><blockquote>
+<p>栈的链式存储结构实际上就是一个单链表，叫做链栈。插入和删除操作只能在链栈的栈顶进行。栈顶指针Top应该在链表的哪一头？</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">typedef struct  SNode *PtrToSNode;</span><br><span class="line">struct SNode &#123;</span><br><span class="line">    ElementType Data;</span><br><span class="line">    PtrToSNode Next;</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToSNode Stack;</span><br><span class="line"></span><br><span class="line">// 1、堆栈初始化</span><br><span class="line">// 2、判断堆栈S是否为空</span><br><span class="line"></span><br><span class="line">Stack CreateStack()&#123;</span><br><span class="line">    // 构建一个堆栈的头结点，返回指针</span><br><span class="line">    Stack S;</span><br><span class="line">    S = (Stack) malloc(sizeof(struct SNode));</span><br><span class="line">    S-&gt;Next = NULL;</span><br><span class="line">    retrun S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool IsEmpty(Stack S)&#123;</span><br><span class="line">    // 判断堆栈S是否为空，若为空函数则返回true，否则返回false</span><br><span class="line">    return (S-&gt;Next == NULL);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool Push(Stack S, ElemenType X)&#123;</span><br><span class="line">    // 将元素item压入堆栈S</span><br><span class="line">    PtrToSNode TmpCell;</span><br><span class="line">    &lt;!-- TmpCell = (struct SNode *)malloc(sizeof(struct SNode)); --&gt;</span><br><span class="line">    TmpCell = (PtrToSNode)malloc(sizeof(struct SNode));</span><br><span class="line">    TmpCell-&gt; Data = X;</span><br><span class="line">    TmpCell-&gt; Next = S-&gt;next;</span><br><span class="line">    S-&gt;Next = TmpCell;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElementType Pop(Stack S)&#123;</span><br><span class="line">    // 删除并返回堆栈S的栈顶元素</span><br><span class="line">    &lt;!-- struct SNode *FirstCell; --&gt;</span><br><span class="line">    PtrToSNode FirstCell;</span><br><span class="line">    ElmentType TopElem;</span><br><span class="line">    if(IsEmpty(S))&#123;</span><br><span class="line">        printf(&apos;堆栈空&apos;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        FirstCell = S-&gt;Next;</span><br><span class="line">        TopElem = FirstCell-&gt;Element;</span><br><span class="line">        S-&gt;Next = FirstCell-&gt;Next;</span><br><span class="line">        free(FirstCell);</span><br><span class="line">        return TopElem</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="栈的应用；Stack-Application"><a href="#栈的应用；Stack-Application" class="headerlink" title="栈的应用；Stack Application"></a>栈的应用；Stack Application</h5><h5 id="栈与递归"><a href="#栈与递归" class="headerlink" title="栈与递归"></a>栈与递归</h5><h5 id="队列的基本概念和性质-队列ADT及其顺序、链表实现"><a href="#队列的基本概念和性质-队列ADT及其顺序、链表实现" class="headerlink" title="队列的基本概念和性质,队列ADT及其顺序、链表实现"></a>队列的基本概念和性质,队列ADT及其顺序、链表实现</h5><h6 id="队列的基本概念和性质"><a href="#队列的基本概念和性质" class="headerlink" title="队列的基本概念和性质"></a>队列的基本概念和性质</h6><blockquote>
+<p>队列Queue: 具有一定操作约束的线性表<br>    插入和删除操作：只能在一端插入，而在另一端删除</p>
+</blockquote>
+<pre><code>数据插入：入队列(AddQ)
+数据删除：出队列(DeleteQ)
+先来先服务
+先进先出： FIFO</code></pre><h6 id="队列ADT"><a href="#队列ADT" class="headerlink" title="队列ADT"></a>队列ADT</h6><blockquote>
+</blockquote>
+<pre><code>类型名称： 队列(Queue)
+数据对象集：一个有0个或多个元素的有穷线性表
+操作集：长度为MaxSize的队列Q∈Queue,队列元素item ∈ EelmentType
+1、Queue CreateQueue(int MaxSize)：生成长度为MaxSize的空队列
+2、int IsFull(Queue Q, int MaxSize): 判断队列Q是否已满
+3、void AddQ(Queuq Q, ElementType item): 将数据元素item插入队列Q中
+4、int IsEmptyQ(Queue Q): 判断队列Q是否为空
+5、ElementType DeleteQ(Queue Q): 将对头数据元素从队列中删除并返回</code></pre><h6 id="队列顺序、链表实现"><a href="#队列顺序、链表实现" class="headerlink" title="队列顺序、链表实现"></a>队列顺序、链表实现</h6><blockquote>
+<p>队列的顺序存储结构通常由一个一维数组和一个记录队列头元素位置的变量front以及一个记录队列尾元素的变量rear组成</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">typedef int Position</span><br><span class="line">struct QNode &#123;</span><br><span class="line">    ElementType *Data; // 存储元素的数组</span><br><span class="line">    Position Front,Rear; // 队列的头，尾指针</span><br><span class="line">    int MaxSize;</span><br><span class="line">&#125;</span><br><span class="line">typedef struct QNode *Queue;</span><br><span class="line"></span><br><span class="line">Queue CreateQueue(int MaxSize)&#123;</span><br><span class="line">    Queue Q = (Queue) malloc (sizeof(struct QNode));</span><br><span class="line">    Q-&gt;Data = (ElementType *) malloc (MaxSize * sizeof(ElementType));</span><br><span class="line">    Q-&gt;Front = Q-&gt;Rear = 0;</span><br><span class="line">    Q-&gt;MaxSize = MaxSize;</span><br><span class="line">    return Q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool IsFull(Queue Q)&#123;</span><br><span class="line">    return ((Q-&gt;Rear+1)%Q-&gt;MaxSize == Q-&gt;Front);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool AddQ(Queue Q, ElementType X)&#123;</span><br><span class="line">    if(IsFull()) &#123;</span><br><span class="line">        printf(&quot;队列满&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        Q-&gt;Rear = (Q-&gt;Rear + 1)%Q -&gt; MaxSize;</span><br><span class="line">        Q-&gt;Data[Q-&gt;Rear] = X;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool IsEmpty(Queue Q)&#123;</span><br><span class="line">    return (Q-&gt;Front == Q-&gt;Rear);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElementType DeleteQ(Queue Q)&#123;</span><br><span class="line">    if(IsEmpty(Q))&#123;</span><br><span class="line">        printf(&apos;队列空&apos;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        tmp = Q-&gt;Data(Q-&gt;Front)</span><br><span class="line">        Q-&gt;Front = (Q-&gt;Front +1 )%Q-&gt;MaxSiz;</span><br><span class="line">        &lt;!-- return Q-&gt;Data(Q-&gt;Front) // 这里不对 --&gt;</span><br><span class="line">        return tmp</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>队列的链式存储结构也可以用一个单链表实现，插入和删除操作分别再链表的两头进行。队列指针front和rear应该分别指向链表的哪一头？</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node&#123;</span><br><span class="line">    // 队列中的结点</span><br><span class="line">    ElementType Data;</span><br><span class="line">    PtrToNode Next;</span><br><span class="line">&#125;;</span><br><span class="line">typedef PtrToNode Position;</span><br><span class="line"></span><br><span class="line">struct QNode &#123;</span><br><span class="line">    Position Front, Rear;// 队列的头，尾指针</span><br><span class="line">    int MaxSize; // 队列最大容量</span><br><span class="line">&#125;</span><br><span class="line">typedef struct QNode *Queue;</span><br><span class="line"></span><br><span class="line">bool IsEmpty(Queue Q)&#123;</span><br><span class="line">    return (Q-&gt;Front == NULL);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElementType DeleteQ(Queue Q)&#123;</span><br><span class="line">    Position FrontCell;</span><br><span class="line">    ElementType FrontElem;</span><br><span class="line"></span><br><span class="line">    if(IsEmpty(Q))&#123;</span><br><span class="line">        printf(&quot;队列为空&quot;);</span><br><span class="line">        return ERROR;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        FrontCell = Q-&gt;Front;</span><br><span class="line">        if(Q-&gt;Front == Q-&gt;Rear) // 若队列只有一个元素</span><br><span class="line">            Q-&gt;Front = Q-&gt;Rear = NULL; // 删除后队列置为空</span><br><span class="line">        else</span><br><span class="line">            Q-&gt;Front = Q-&gt;Front-&gt;Next;</span><br><span class="line">        FrontElem = FrontCell-&gt;Data;</span><br><span class="line">        free(FrontCell); // 释放被删除结点的空间</span><br><span class="line">        return FrontElem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="队列的应用"><a href="#队列的应用" class="headerlink" title="队列的应用"></a>队列的应用</h6><h5 id="向量的基本概念和性质-向量ADT及其数组、链表实现"><a href="#向量的基本概念和性质-向量ADT及其数组、链表实现" class="headerlink" title="向量的基本概念和性质,向量ADT及其数组、链表实现"></a>向量的基本概念和性质,向量ADT及其数组、链表实现</h5><h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><h5 id="树的基本概念和术语"><a href="#树的基本概念和术语" class="headerlink" title="树的基本概念和术语"></a>树的基本概念和术语</h5><blockquote>
+<p>树(Tree): n(n&gt;=0)个结点构成的有限集合。n=0时，称为空树，对于任一颗非空树(n&gt;0),它具备以下性质：</p>
+</blockquote>
+<pre><code>树中有一个称为“根Root”的特殊结点，用r表示
+其余结点可分为m(m&gt;0)个互不相交的有限集T1，T2...Tm, 其中每个集合本身又是一颗树，称为原来的子树
+
+子树是不相交的
+除了根结点外，每个结点有且仅有一个父结点
+一颗N个结点的树有N-1条边
+
+**树的一些基本术语**
+1、结点的度Degree：结点的子树个数
+2、树的度：树的所有结点中最大的度数
+3、叶结点Leaf：度为0的结点
+4、父结点Parent：有子树的结点是其子树根结点的父结点
+5、子结点（Child）：若A结点是B结点的父结点，则称B结点是A结点的子结点，子结点也称孩子结点
+6、兄弟节点Sibling：具有同一父结点的各节点彼此是兄弟节点
+7、路径与路径长度：从结点n1到nk的路径为一个结点序列n1，n2……nk，ni是ni+1的父结点，路径所包含边的个数为路径的长度
+8、祖先结点Ancestor：沿树根到某一结点路径上所有结点都是这个结点的祖先结点
+9、子孙结点Descendant：某一结点的子树中的所有结点是这个节点的子孙
+10、结点的层次Level：规定跟结点在1层，其他任一结点的层数是其父结点的层数加1
+11、树的深度Depth：树中所有结点中的最大层次是这棵树的深度</code></pre><h5 id="树的前序、中序、后序、层次遍历"><a href="#树的前序、中序、后序、层次遍历" class="headerlink" title="树的前序、中序、后序、层次遍历"></a>树的前序、中序、后序、层次遍历</h5><pre><code>(1) 先序遍历
+    遍历过程为：
+        1、访问根结点
+        2、先序遍历左子树
+        3、先序遍历右子树
+    ![先序遍历](/images/先序遍历.png)
+    A(BDFE)(CGHI)
+    先序遍历=&gt; A B D F E C G H I
+
+    void PreOrderTraversal(BinTree BT){
+        if(BT){
+            printf(&apos;%d&apos;, BT-&gt;Data);
+            PreOrderTraversal(BT-&gt;Left);
+            PreOrderTraversal(BT-&gt;Right);
+        }
+    }
+
+    第一次碰到的时候弹出:
+    void PreOrderTraversal(BinTree BT){
+        BinTree T BT;
+        Stack S = CreatStack(MaxSize) ;// 创建并初始化堆栈S
+        while( T || !IsEmpty(S)){
+            while(t){ // 一直向左并将沿途结点压入堆栈
+                Push(S, T);
+                T = Pop(S); // 结点弹出堆栈
+                printf(&quot;%5d&quot;, T-&gt;Data);
+                T = T-&gt;Left;
+
+                if(!IsEmpty(S)){
+                    T = T-&gt;Right; // 转向右子树
+                }
+
+            }
+        }
+    }
+
+
+(2) 中序遍历
+    遍历过程为：
+        1、中序遍历其左子树;
+        2、访问根结点
+        3、中序遍历其右子树
+    ![中序遍历](/images/中序遍历.png)
+    (DBEF) A (GHCI)
+    中序遍历=&gt; DBEFAGHCI
+
+    void InOrderTraversal(BinTree BT){
+        if(BT){
+            InOrderTraversal(BT-&gt;Left);
+            printf(&apos;%d&apos;, BT-&gt;Data);
+            InOrderTraversal(BT-&gt;Right);
+        }
+    }
+
+    中序遍历非递归遍历算法：
+        非递归算法实现的基本思路：使用堆栈
+        - 遇到一个结点，就把它压栈，并去遍历它的左子树；
+        - 当左子树遍历结束后，从栈顶弹出这个结点并访问它
+        - 然后按其右指针再去中序遍历该结点的右子树
+    第二次碰到的时候弹出
+
+    void InOrderTraversal(BinTree BT) {
+        BinTree T = BT;
+        Stack S = CreatStack(MaxSize); // 创建并初始化堆栈S
+        while( T || !IsEmpty(S)) { // 树不空或者堆栈不空
+            while(T) {
+                Push(S, T);
+                T = T -&gt; Left;
+            }
+            if(!IsEmpty(S)){
+                T = Pop(S); // 结点弹出堆栈
+                printf(&quot;%5d&quot;, T-&gt;Data); // 访问打印结点
+                T = T-&gt;Right; // 转向右子树
+            }
+        }
+    }
+
+
+(3) 后序遍历
+    遍历过程为：
+        1、后序遍历左子树
+        2、后序遍历右子树
+        3、访问根结点
+    ![后序遍历](/images/后序遍历.png)
+    (DEFB)(HGIC)A
+    后序遍历=&gt; D E F B H G I C A
+    void PostOrderTraversal(BinTree BT){
+        if(BT){
+            PostOrderTraversal(BT-&gt;Left);
+            PostOrderTraversal(BT-&gt;Right);
+            printf(&quot;%d&quot;, BT-&gt;Data);
+        }
+    }
+
+
+(4) 层序遍历
+    二叉树遍历的核心问题：二维结构的线性化
+        - 从结点访问其左右儿子结点
+        - 访问左儿子后，右儿子结点怎么办？
+            需要一个存储结构保存暂不访问的结点
+            存储结构：堆栈、队列
+    队列实现： 遍历从根结点开始，首先将根结点入队，然后开始执行循环，结点出队，访问该结点，其左右儿子入队。
+    ![层序遍历](/images/层序遍历.png)
+
+     A B C D F G I E H
+     层序遍历： A B C D F G I E H
+
+    层序基本过程： 先跟结点入队，然后：
+    1、从队列中取出一个元素；
+    2、访问该元素所指结点
+    3、若该元素所指结点的左右孩子结点非空，则将其左右孩子的指针顺粗入队
+
+    void LevelOrderTraversal(BinTree BT){
+        Queue Q;
+        BinTree T;
+        if(!BT) return; // 若是空树返回
+        Q = CreateQueue(MaxSize); // 创建并初始化队列Q
+        AddQ(Q, BT);
+        while(!IsEmptyQ(Q)){
+            T = DeleteQ(Q);
+            printf(&apos;%d\n&apos;, T-&gt;Data); // 访问取出队列的结点
+            if(T-&gt;left) AddQ(Q, T-&gt;Left);
+            if(T-&gt;right) AddQ(Q, T -&gt; Right);
+        }
+    }</code></pre><h5 id="二叉树及其性质"><a href="#二叉树及其性质" class="headerlink" title="二叉树及其性质"></a>二叉树及其性质</h5><h5 id="普通树与二叉树的转换"><a href="#普通树与二叉树的转换" class="headerlink" title="普通树与二叉树的转换"></a>普通树与二叉树的转换</h5><h5 id="树的存储结构，标准形式"><a href="#树的存储结构，标准形式" class="headerlink" title="树的存储结构，标准形式"></a>树的存储结构，标准形式</h5><h5 id="完全树（complete-tree）的数组形式存储"><a href="#完全树（complete-tree）的数组形式存储" class="headerlink" title="完全树（complete tree）的数组形式存储"></a>完全树（complete tree）的数组形式存储</h5><h5 id="树的应用"><a href="#树的应用" class="headerlink" title="树的应用"></a>树的应用</h5><blockquote>
+<pre><code>一、遍历二叉树的应用：输出二叉树中的叶子结点
+在二叉树的遍历算法中增加检测结点的&quot;左右子树是否都为空&quot;
+void PreOrderPrintLeaves(BinTree BT){
+    if(BT){
+        if(!BT-&gt;Left &amp;&amp; !BT-&gt;Right)
+            printf(&quot;%d&quot;, BT-&gt;Data);
+        PreOrderPrintLeaves(BT-&gt;Left);
+        PreOrderPrintLeaves(BT-&gt;Right);
+    }
+}</code></pre></blockquote>
+<pre><code>二、求二叉树的高度]
+            O
+
+左子树(Hl)      右子树(HR)
+Height = max(HL, HR) + 1;
+
+// 这个算法好像是有问题 如果是伪码的话好像也差点意思
+int PostOrderGetHeight(BinTree BT){
+    int HL, HR, MaxH;
+    if(BT) {
+        HL = PostOrderGetHeight(BT-&gt;Left); // 求左子树的深度
+        HR = PostOrderGetHeight(BT-&gt;Right); // 求右子树的深度
+        MaxH = （HL &gt; HR) ? HL : HR; // 取左右子树较大的深度
+        return (MaxH + 1); // 返回树的深度
+    }
+    else return 0; // 空树深度为0
+}
+
+三、二元运算表达式及其遍历
+                 +
+
+            +                         *
+      a          *                  +        g
+               b    c            *    f
+                             d      e
+
+
+
+    三种遍历可以得到三种不同的访问结果：
+    先序遍历得到前缀表达式： + + a * b c * + * d e f g
+    中序遍历得到中缀表达式：a + b * c + d * e + f * g
+    后序遍历得到后缀表达式：a b c * + d e * f + g * +
+
+四、由两种遍历序列确定二叉树
+    问：已知三种遍历中的任意两种遍历序列能否唯一确定一颗二叉树呢？
+    答案：必须要有中序遍历
+
+    先序和中序遍历序列来确定一颗二叉树
+    分析：
+    - 根据先序遍历序列第一个结点确定根结点
+    - 根据根结点在中序遍历序列中分割出左右两个子序列
+    - 对左子树和右子树分别递归使用相同的方法继续分解
+
+    先序序列：根结点 左子树 右子树
+    中序序列：左子树 根结点 右子树
+
+    类似的，后序和中序遍历序列也可以确定一颗二叉树</code></pre><h5 id="Huffman树的定义与应用"><a href="#Huffman树的定义与应用" class="headerlink" title="Huffman树的定义与应用"></a>Huffman树的定义与应用</h5><h5 id="队列的应用-1"><a href="#队列的应用-1" class="headerlink" title="队列的应用"></a>队列的应用</h5><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h5 id="排序的基本概念"><a href="#排序的基本概念" class="headerlink" title="排序的基本概念"></a>排序的基本概念</h5><p>有废话啊，边学边学英语，所以都写上去了，可以简单看看</p>
 <blockquote>
 <p>Sorting is a very classic problem of reordering items(that can be compared,e.g.integers,floating-point numbers,string,etc) of an array(or a list) in a certain order(increasing, non-decreasing, decreasing,non-increasing,lexicographical,etc.) 排序是一个经典的问题，它以一定的顺序对一个数组(或一个列表)中的项进行重新排序(可以进行比较，例如整数，浮点数，字符串等)<br>(增加，非递减，增加，词典等)。</p>
 </blockquote>
@@ -1542,7 +1929,7 @@ Rome        -&gt; null means &quot;ends of list&quot;</code></pre><p>Two special
 3.Insertion Sort 插入排序</code></pre><p>They are called comparison-based as they compare pairs of elements of the array and decide whether to swap them or not. 它们被称为基于比较的，因为他们比较数组的元素对并决定是否交换它们.</p>
 <p>These three sorting algorithms are the easiest to implement but also not the most efficient, as they run in O(N^2). 这三种排序算法最容易实现，但不是最有效的，因为它们的算法复杂度是O(N^2).</p>
 <h5 id="插入排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#插入排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="插入排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>插入排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
-<p>Insertion sort is similar to how most people arrange a hand of poker cards. 插入排序类似于大多人安排扑克牌的方式<br>1st card: 10♠    10♠<br>2nd card：5♠     5♠ 10♠<br>3rd card：K♠     5♠ 10♠ K♠</p>
+<p>插入排序顾名思义，就是在排序过程中，把数组的每个元素按照大小关系，插入到前面有序区的对应位置。<br> Insertion sort is similar to how most people arrange a hand of poker cards. 插入排序类似于大多人安排扑克牌的方式<br>1st card: 10♠    10♠<br>2nd card：5♠     5♠ 10♠<br>3rd card：K♠     5♠ 10♠ K♠</p>
 </blockquote>
 <ol>
 <li>Start with one card in your hand</li>
@@ -1556,7 +1943,15 @@ Rome        -&gt; null means &quot;ends of list&quot;</code></pre><p>Two special
 <p>The outer loop executes N-1 items, that’s quite clear.</p>
 <p>But the number of times the inner-loop is executed depend on the input:<br>    1. In best-case scenario,the array is already sorted and(a[j] &gt; X) is always false So no shifting of data is necessary and the inner loop union runs in O(1)<br>    2. In worst-case scenario, the array is reverse sorted and (a[j] &gt; X) is always true Insertion always occur at the front of the array and the inner loop runs in O(N).</p>
 <p>Thus,the best-case time is O(N * 1) = O(N) and the worst-case time is O(N*N) = O(N^2).</p>
-<h5 id="希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#希尔排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>希尔排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="选择排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#选择排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="选择排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>选择排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<h5 id="希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#希尔排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="希尔排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>希尔排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<p>Donald Shell<br>  怎样可以对插入排序算法做出优化呢？</p>
+<ul>
+<li>在大多数元素已经有序的情况下，插入排序的工作量较小（因为不用频繁的进行比较和交换）</li>
+<li>在元素数量较少的情况下，插入排序的工作量较小</li>
+</ul>
+</blockquote>
+<pre><code>我们怎么能让大部分元素有序，或者让元素数量减少呢？
+不妨对原始数组进行一些预处理，使得原始数组的大部分元素变得有序，分组排序，以此对数组进行一定的粗略调整</code></pre><h5 id="选择排序，算法基本思想，算法代码及基本的时间复杂度分析"><a href="#选择排序，算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="选择排序，算法基本思想，算法代码及基本的时间复杂度分析"></a>选择排序，算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
 <p>Selection Sort 选择排序<br>    Given an array of N items and L = 0.Selection Sort will: 给定N个项目和L=0的数组，选择排序将：<br>        1.Find the position X of the smallest item in the range of [L…N-1]，在[L…N-1]范围内找出最小项目X的位置<br>        2.Swap X-th item with the L-th item 用第L项交换第X项<br>        3.Increase the lower-bound L by i and repeat Step 1 until L = N - 2. 将下限L增加1并重复步骤1直到L = N-2<br>    Without further ado, let’s try Selection Sort on the same small example array[29, 10, 14, 37, 13]. 别犹豫，让我们在上面的同一个小例子数组上尝试selection Sort.</p>
 </blockquote>
 <pre><code>Without loss of generality, we can also implement Selection Sort in reverse: 在不失普遍性的情况下，我们也可以实现反向的选择排序
@@ -1784,7 +2179,39 @@ for each digit placing 遍历每个数位
 
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">// 基数排序-次位优先</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span><br><span class="line">#define MaxDigit 4</span><br><span class="line">#define Radix 10</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line"></span><br><span class="line">int GetDigit (int X, int D)</span><br><span class="line">&#123;</span><br><span class="line">    /* 默认次位D=1, 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line"></span><br><span class="line">    for( i=1; i&lt;=D; i++)&#123;</span><br><span class="line">        d = X % Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LSDRadixSort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    /* 基数排序 - 次位优先 */</span><br><span class="line">    int D, Di, i;</span><br><span class="line">    Bucket B;</span><br><span class="line">    PtrToNode, tmp, p, List = Null;</span><br><span class="line"></span><br><span class="line">    for (i=0; i&lt;Radix; i++) /* 初始化每个桶为空链表 */</span><br><span class="line">        B[i].head = B[i].tail = NULL;</span><br><span class="line">    for (i=0; i&lt;N; i++)&#123; /* 将原始序列逆序存入初始链表List */</span><br><span class="line">        tmp = (PtrToNode)malloc(sizeof(struct Node));</span><br><span class="line">        tmp-&gt; key = A[i];</span><br><span class="line">        tmp-&gt; next = List;</span><br><span class="line">        List = tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 下面开始排序 */</span><br><span class="line">    for(D=1; D&lt;=MaxDigit; D++)&#123; /*对数据的每一位循环处理*/</span><br><span class="line">        /* 下面是分配过程 */</span><br><span class="line">        p = List;</span><br><span class="line">        while(p) &#123;</span><br><span class="line">            Di = GetDigit(p-&gt;key, D); /* 获得当前元素的位数字*/</span><br><span class="line">            /* 从List中摘除*/</span><br><span class="line">            tmp = p; p = p-&gt;next;</span><br><span class="line">            /* 插入B[Di]号桶尾*/</span><br><span class="line">            tmp-&gt;next = NULL;</span><br><span class="line">            if(B[Di].head == NULL)</span><br><span class="line">                B[Di].head = B[Di].tail = tmp;</span><br><span class="line">            else &#123;</span><br><span class="line">                B[Di].tail-&gt;next = tmp;</span><br><span class="line">                B[Di].tail = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /* 下面是收集的过程*/</span><br><span class="line">        List = NULL;</span><br><span class="line">        for(Di=Radix-1; Di&gt;=0; Di--) &#123; /* 将每个桶的元素顺序收集入List*/</span><br><span class="line">            if(B[Di].head) &#123; /* 如果桶不为空 */</span><br><span class="line">                /* 整桶插入List表头 */</span><br><span class="line">                B[Di].tail-&gt;next = List;</span><br><span class="line">                List = B[Di].head;</span><br><span class="line">                B[Di].head = B[Di].tail = BULL; /* 清空桶 */</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 将List倒入A[]并释放空间*/</span><br><span class="line">    for(i=0; i&lt;N; i++)&#123;</span><br><span class="line">        tmp = List;</span><br><span class="line">        List = List -&gt; next;</span><br><span class="line">        A[i] = tmp-&gt;key;</span><br><span class="line">        free(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 主位优先 */</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字， 基数全是同样的Radix */</span><br><span class="line"></span><br><span class="line">#define MaxDigit 4；</span><br><span class="line">#define Radix 10;</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br></pre></td></tr></table></figure></code></pre>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 主位优先 */</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字， 基数全是同样的Radix */</span><br><span class="line"></span><br><span class="line">#define MaxDigit 4；</span><br><span class="line">#define Radix 10;</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line"></span><br><span class="line">int GetDigit (int X,int D)&#123;</span><br><span class="line">    /* 默认次位D=1， 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line"></span><br><span class="line">    for(i=1; i&lt;=D; i++)&#123;</span><br><span class="line">        d = X % Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MSD(ElementType A[], int L, int R, int D)&#123;</span><br><span class="line">    /* 核心递归函数：对A[L]...A[R]的第D位数进行排序 */</span><br><span class="line">    int Di, i, j;</span><br><span class="line">    Bucket B;</span><br><span class="line">    PtrToNode tmp, p, List = NULL;</span><br><span class="line">    if(D==0) return; /* 递归终止条件 */</span><br><span class="line"></span><br><span class="line">    for()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h3 id="第二部分-软件工程"><a href="#第二部分-软件工程" class="headerlink" title="第二部分 软件工程"></a>第二部分 软件工程</h3><h4 id="一、软件过程"><a href="#一、软件过程" class="headerlink" title="一、软件过程"></a>一、软件过程</h4><h5 id="软件过程的概念；"><a href="#软件过程的概念；" class="headerlink" title="软件过程的概念；"></a>软件过程的概念；</h5><blockquote>
+<p>  软件工程过程是为了获得高质量软件所需要完成的一系列任务的框架，它规定了完成各项任务的工作步骤。<br>    在完成开发任务时必须要进行一些开发活动，并且使用适当的资源（人员、时间、计算机硬件、软件工具等），在过程结束时将输入（如软件需求）转化为输出（如软件产品），因此ISO9000把过程定义为“把输入传化为输出的一组彼此相关的资源和活动”。过程定义了运用方法的顺序、应该交付的文档资料、为保证软件质量和协调变化所需要采取的管理措施，以及标志软件开发各个阶段任务完成的里程碑。为获得高质量的软件产品，软件过程必须科学、合理。</p>
+</blockquote>
+<pre><code>讲述在软件生命周期的过程中应该完成的基本任务，并介绍各种常用的过程模型。</code></pre><h5 id="经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）"><a href="#经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）" class="headerlink" title="经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）"></a>经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）</h5><h6 id="瀑布模型-waterfull-model"><a href="#瀑布模型-waterfull-model" class="headerlink" title="瀑布模型 waterfull model"></a>瀑布模型 waterfull model</h6><blockquote>
+<p>瀑布模型一直是唯一被广泛采用的生命周期模型。现在它仍是软件工程中应用最广泛的过程模型。<br>    收集需求<br>        |<br>        分析<br>            |<br>            设计<br>                |<br>                编码<br>                    |<br>                    测试<br>                        |<br>                        维护<br>    按照传统的瀑布模型来开发软件，有如下几个特点：<br>    1、阶段间具有顺序性和依赖性<br>    这个特点有两重含义：<br>        - 必须等前一阶段的工作完成之后，才能开始后一阶段的工作<br>        - 前一阶段的输出文档就是后一阶段的输入文档。<br>            因此只有前一个阶段的输出文档正确，后一阶段的工作才能获得正确的结果 。<br>            但是，万一在生命周期某一阶段发现了问题，很可能需要追溯到在它之前的一些阶段，必要时还要修改已经完成的文档。<br>            然而，在生命周期后期改正早期阶段造成的问题，需要付出更高的代价，<br>    2、推迟实现的观点<br>        实践表明，对于规模较大的软件项目来说，往往编码开始开始的越早最终完成开发工作所需要的时间反而越长。这是因为，前面阶段的工作没做或做得不扎实，过早地考虑进行程序实现，往往导致大量返工，有时甚至发生无法弥补的问题，带来灾难性后果。</p>
+</blockquote>
+<pre><code>    瀑布模型在编码之前设置了系统分析和系统设计的各个阶段，分析与设计阶段的基本任务规定，在这两个阶段主要考虑目标系统的逻辑模型，不涉及软件的物理实现。
+
+    清楚地区分逻辑设计与物理设计，尽可能推迟程序的物理实现，是按照瀑布模型开发软件的一条重要的指导思想。
+3、质量保证的观点
+    为了保证所开发软件的质量，在瀑布模型的每个阶段都要坚持两个重要做法，
+    - 每个阶段都必须完成规定的文档，没有交出合格的文档就是没有完成该阶段的任务。完成准确合格文档不仅是软件开发时期各类人员之间相互通信的媒介，也是运行时期对软件进行 维护的重要依据
+    - 每个阶段结束 都要对所完成的 文档进行评审，以便尽早发现问题，改正错误。事实上，越是早期阶段犯下的错误，暴露出来的时间就越晚，排除故障改正 错误所需付出的代价也越高。因此，及时审查，是保证 软件质量，降低软件成本的重要措施。
+
+    传统的瀑布模型过于理想化，事实上人在工作过程中不可能不犯错误。在设计阶段可能发现规格说明文档中的错误，而设计上的缺陷或错误可能在实现过程中显现出来，在综合测试阶段将发现需求分析/设计或编码阶段的许多错误。因此，实际的瀑布模型时带“反馈环”的。
+
+    当在后面阶段发现前面阶段的错误时，需要沿图中左侧的反馈线返回前面的阶段，修正前面阶段的产品之后再回来继续完成后面阶段的任务</code></pre><h6 id="增量模型"><a href="#增量模型" class="headerlink" title="增量模型"></a>增量模型</h6><blockquote>
+<p>增量模型也称为渐增模型，使用增量模型开发软件时，把软件产品作为一系列增量构件来设计、编码、集成和测试。<br>    每个构件由多个相互作用的模块构成，并且能够完成特定的功能。<br>        使用增量模型时：<br>            第1个增量构件往往实现软件的基本需求，提供最核心的功能。<br>            （如在使用增量模型开发字处理软件时，第一个增量构件可能提供基本的文件管理、编辑、和文档生成功能）<br>            第2个增量构件提供更完善的编辑和文档生成功能时<br>            第3个增量构件实现拼写和语法检查功能<br>            第4个增量构件完成高级的页面排版功能。<br>        把软件产品分解成增量构件时，应该使构件的规模适中，规模过大或过小都不好。<br>        分解时唯一必须遵守的约束条件是：当把新构件集成到现有软件中时，所形成的产品必须是可测试的。<br>            分析-》设计-》编码 -》测试</p>
+</blockquote>
+<pre><code>增量模型分批地逐步向用户提交产品，每次提交一个满足用户需求子集的可运行的产品。整个产品被分解成许多个增量构件，开发人员一个构件接一个构件地向用户提交产品。每次用户都得到一个满足部分需求的可运行的产品，直到最后一次得到满足全部需求的完整产品。
+
+优点：
+- 能在较短时间内向用户提交完成一些有用的工作的产品
+- 逐步增加产品功能可以使用户有较充裕的时间学习和适应新产品，从而减少一个全新的软件可能给客户组织带来的冲击
+
+使用增量模型的困难时，在把每个新的增量构件集成到现有的软件体系结构中时，必须不破坏原来已经开发出的产品。
+此外，必须把软件的体系设计得便于按这种方式进行扩充，向现有产品中加入新构件过程必须简单、方便。
+也就是说，软件体系结构必须时开放的。
+从长远观点看，具有开发结构的软件拥有真正的优势，这种软件的可维护性明显好于封闭结构的软件。
+尽管采用增量模型比采用瀑布模型和快速原型模型需要更精心的设计，但在设计阶段多付出的劳动将在维护阶段获得回报。
+
+事实上，使用增量模型时开发软件和扩充软件功能（完善性维护）并没有本质区别，都是向现有产品加入新构件的过程。
+从某种意义上说，增量模型本身时自相矛盾的。它一方面要求开发人员把软件看作一个整体，另一方面又要求开发人员把软件看作构件序列，每个构件本质上都独立与另一个构件。除非开发人员有足够的技术 能力协调好这一明显的矛盾，否则用增量模型开发出的产品可能并不令人满意。</code></pre><h6 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h6><h6 id="统一过程模型"><a href="#统一过程模型" class="headerlink" title="统一过程模型"></a>统一过程模型</h6><h5 id="过程评估与CMM-CMMI的基本概念"><a href="#过程评估与CMM-CMMI的基本概念" class="headerlink" title="过程评估与CMM/CMMI的基本概念"></a>过程评估与CMM/CMMI的基本概念</h5><h5 id="敏捷宣言与敏捷过程的特点"><a href="#敏捷宣言与敏捷过程的特点" class="headerlink" title="敏捷宣言与敏捷过程的特点"></a>敏捷宣言与敏捷过程的特点</h5>
           
         
       
@@ -2693,7 +3120,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2766,7 +3193,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.8k</span>
+    <span title="Site words total count">41.2k</span>
   
 </div>
 
