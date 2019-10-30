@@ -1544,8 +1544,8 @@ re.M /re.MULTILINE | 多行匹配标记
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-25T18:09:18+08:00">
-                2019-10-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-30T17:16:03+08:00">
+                2019-10-30
               </time>
             
           </span>
@@ -1583,7 +1583,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  18k
+                  18.4k
                 </span>
               
 
@@ -1599,7 +1599,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  76
+                  78
                 </span>
               
             </div>
@@ -2066,9 +2066,41 @@ nl: 11010</code></pre><h4 id="三、查找-search"><a href="#三、查找-search
 <p>内容：排序基本概念；插入排序，希尔排序，选择排序，快速排序，合并排序，基数排序等排序算法基本思想，算法代码及基本的时间复杂度分析</p>
 </blockquote>
 <h4 id="五、图"><a href="#五、图" class="headerlink" title="五、图"></a>五、图</h4><blockquote>
-<p>内容：图的基本概念；图的存储结构，邻接矩阵，邻接表；图的遍历，广度优先遍历和深度优先遍历；最小生成树基本概念，Prim算法，Kruskal算法；最短路径问题，广度优先遍历算法，Dijkstra算法，Floyd算法；拓扑排序</p>
+<p>内容：<br>        图的基本概念<br>        图的存储结构<br>            - 邻接矩阵<br>            - 邻接表<br>        图的遍历<br>            - 广度优先遍历<br>            - 深度优先遍历；<br>        最小生成树基本概念<br>            - Prim算法<br>            - Kruskal算法<br>        最短路径问题<br>            - 广度优先遍历算法<br>            - Dijkstra算法<br>            - Floyd算法；<br>        拓扑排序</p>
 </blockquote>
-<h5 id="最小生成树-Minimum-Spanning-Tree"><a href="#最小生成树-Minimum-Spanning-Tree" class="headerlink" title="最小生成树 (Minimum Spanning Tree)"></a>最小生成树 (Minimum Spanning Tree)</h5><blockquote>
+<h5 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h5><p><img src="/images/%E5%9B%BE%E7%9A%84%E5%BC%95%E4%BE%8B.png" alt="图的引例"></p>
+<blockquote>
+<p>从陈家村到张家村，怎么走最快呢？怎么修公路使的村村通的花费最少呢？<br><img src="/images/%E5%9C%B0%E9%93%81%E7%BA%BF%E8%B7%AF.png" alt="地铁线路"></p>
+</blockquote>
+<pre><code>什么是“图”(Graph)
+    - 表示“多对多”的关系
+    - 包含
+        - 一组顶点：通常用V(Vertex)表示顶点集合
+        - 一组边：通常用E(Edge)表示边的集合
+            - 边是顶点对：(v,w) ∈ E，其中v,w ∈ V    v —— w
+            - 有向边&lt;v,w&gt;表示从v指向w的边(单行边)    v ——&gt; w
+            - 不考虑重边和自回路   ![重边和自回路](/images/重边和自回路.png)
+
+抽象数据类型定义 ADT
+- 类型名称： 图 (Graph)
+- 数据对象集：G(V,E)由一个非空的有限顶点集合V和一个有限边集合E组成
+- 操作集：对于任意图G ∈ Graph，以及v ∈ V，e ∈ E
+    - Graph Create(): 建立并返回空图
+    - Graph InsertVertex(Graph G, Vertex v): 将v插入G
+    - Graph InsertEdge(Graph G, Edge e): 将e插入G
+    - void DFS(Graph G, Vertex v): 从顶点v出发深度优先遍历图G
+    - void BFS(Graph G, Vertex v): 从顶点v出发广度优先遍历图G
+    - void ShortestPath(Graph G, Vertex v, int Dist[]): 计算图G中顶点v到任意其他顶点的最短距离
+    - void MST(Graph G): 计算图G的最小生成树
+    ……
+![无向图有向图](/images/无向图有向图.png)</code></pre><h5 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h5><blockquote>
+<p>怎么在程序中表示一个图</p>
+</blockquote>
+<h6 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h6><blockquote>
+<p>邻接矩阵G[N][N]——N个顶点从0到N-1编号<br>    G[i][j] = {  1   若&lt;vi, vj&gt;是G中的边<br>                 0   否则               }<br><img src="/images/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png" alt="邻接矩阵"></p>
+</blockquote>
+<pre><code>邻接矩阵
+    - 问题：对于无向图的存储，怎样可以省一半空间?</code></pre><h6 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h6><h5 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h5><h6 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h6><h6 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h6><h5 id="最小生成树-Minimum-Spanning-Tree"><a href="#最小生成树-Minimum-Spanning-Tree" class="headerlink" title="最小生成树 (Minimum Spanning Tree)"></a>最小生成树 (Minimum Spanning Tree)</h5><blockquote>
 <p>最小生成树存在 &lt;==&gt; 图连通<br>    - 是一颗树<br>      无回路<br>      |V|个顶点一定有|V|-1条边<br>    - 是生成树<br>      包含全部顶点<br>      |V|-1条边都在图里<br>    - 边的权重和最小</p>
 </blockquote>
 <pre><code>(向生成树中任加一条边都一定构成回路)</code></pre><h6 id="贪心算法-考纲里没有可以了解一下"><a href="#贪心算法-考纲里没有可以了解一下" class="headerlink" title="贪心算法 (考纲里没有可以了解一下)"></a>贪心算法 (考纲里没有可以了解一下)</h6><blockquote>
@@ -3422,7 +3454,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">44k</span>
+    <span title="Site words total count">44.4k</span>
   
 </div>
 
