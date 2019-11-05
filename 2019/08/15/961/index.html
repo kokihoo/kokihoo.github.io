@@ -94,8 +94,10 @@
 <meta property="og:image" content="http://yoursite.com/images/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png">
 <meta property="og:image" content="http://yoursite.com/images/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E6%97%A0%E5%90%91%E5%9B%BE.png">
 <meta property="og:image" content="http://yoursite.com/images/%E9%82%BB%E6%8E%A5%E8%A1%A8.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%97%A0%E6%9D%83%E5%9B%BE%E7%9A%84%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%9C%89%E6%9D%83%E5%9B%BE%E5%8D%95%E6%BA%90%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png">
 <meta property="og:image" content="http://yoursite.com/images/Merge_Sort.png">
-<meta property="og:updated_time" content="2019-11-04T10:02:26.437Z">
+<meta property="og:updated_time" content="2019-11-05T09:44:57.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NINESIXONE">
 <meta name="twitter:description" content="第一部分 数据结构与算法The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type. 一、栈(Stack)、队列(Queue)和向量(Vector) 内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈AD">
@@ -337,8 +339,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-04T18:02:26+08:00">
-                2019-11-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-05T17:44:57+08:00">
+                2019-11-05
               </time>
             
           </span>
@@ -376,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  21k
+                  22k
                 </span>
               
 
@@ -392,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  89
+                  93
                 </span>
               
             </div>
@@ -987,12 +989,75 @@ nl: 11010</code></pre><h4 id="三、查找-search"><a href="#三、查找-search
     - (有向)有权图
 
 多源最短路径问题：求任意两顶点间的最短路径</code></pre><h6 id="BFS-广度优先遍历算法"><a href="#BFS-广度优先遍历算法" class="headerlink" title="BFS 广度优先遍历算法"></a>BFS 广度优先遍历算法</h6><blockquote>
-<p>无权图的单源最短路径算法<br>    按照递增(非递减)的顺序找出各个顶点的最短路<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void BFS(Vertex )</span><br></pre></td></tr></table></figure></p>
+<p>  [无权图的单源最短路径算法]<br>    详细的看视频讲解理解算法：(<a href="http://jdvodrvfb210d.vod.126.net/mooc-video/nos/mp4/2016/08/22/1004848002_652eec25c98b4cfe833863aa38a720e7_hd.mp4?ak=99ed7479ee303d1b1361b0ee5a4abcee0b5d8d309c21117103b4f89c70f969d3ea1f14bab52959e1c73ef3ae2f753c140d5fd180c9d920a388c7f0113a203cf6dc73ca898c2e909ad081fb3bc930be9adae3070f62128a029f5d4c798f8df62e8d527559dfc298f46da8ad5f53c2548f0797ab0443b0ce0c1b07fa8415bc5e265f33a26f5b1c3ca6c5fb7b88ad4b8b179b7ad6f2c848f1a32a51c2df2fed3c1e9e78811ec85e3d19ea763a2749a2e3af" target="_blank" rel="noopener">http://jdvodrvfb210d.vod.126.net/mooc-video/nos/mp4/2016/08/22/1004848002_652eec25c98b4cfe833863aa38a720e7_hd.mp4?ak=99ed7479ee303d1b1361b0ee5a4abcee0b5d8d309c21117103b4f89c70f969d3ea1f14bab52959e1c73ef3ae2f753c140d5fd180c9d920a388c7f0113a203cf6dc73ca898c2e909ad081fb3bc930be9adae3070f62128a029f5d4c798f8df62e8d527559dfc298f46da8ad5f53c2548f0797ab0443b0ce0c1b07fa8415bc5e265f33a26f5b1c3ca6c5fb7b88ad4b8b179b7ad6f2c848f1a32a51c2df2fed3c1e9e78811ec85e3d19ea763a2749a2e3af</a>)</p>
 </blockquote>
-<h6 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h6><blockquote>
-<p>有权图的单源最短路径算法</p>
+<pre><code>按照递增(非递减)的顺序找出各个顶点的最短路
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void BFS(Vertex S)&#123;</span><br><span class="line">    visited[S] = true;//不需要</span><br><span class="line">    Enqueue(S, Q);</span><br><span class="line">    while(!IsEmpty(Q))&#123;</span><br><span class="line">        V = Dequeue(Q);</span><br><span class="line">        for(V的每个邻接点W)</span><br><span class="line">            if(!visited[W]) &#123;// 不需要</span><br><span class="line">                visited[W] = true; // 不需要</span><br><span class="line">                Enqueue(W, Q)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+dist[W] = S到W的最短距离
+dist[S] = 0
+path[W] = S到W的路上经过的某顶点
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void Unweighted(Vertex S)&#123;</span><br><span class="line">    Enqueue(S, Q);</span><br><span class="line">    while(!IsEmpty(Q))&#123;</span><br><span class="line">        V = Dequeue(Q);</span><br><span class="line">        for(V的每个邻接点W)</span><br><span class="line">            if(dist[W] == -1)&#123;</span><br><span class="line">                dist[W] = dist[V] + 1;</span><br><span class="line">                path[W] = V;</span><br><span class="line">                Enqueue(W, Q)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p><img src="/images/%E6%97%A0%E6%9D%83%E5%9B%BE%E7%9A%84%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png" alt="无权图的单源最短路径算法"></p>
+<pre><code>准备工作
+
+
+初始化dist path两个数组， -1， 队列Q空
+取V3作为源点 dist第三个元素初始化为0
+源点入队Q，然后进入while循环，检查队列是否为空
+队列中有V3
+不为空，V3出列，
+对V3的两个邻接点V1 V6 进行遍历
+是否为-1（判断是不是没有被访问过），是的，dist距离+1，然后将v3记录在路径上
+然后将V1压进队列中，
+然后遍历V6 ，没有访问过，v3距离+1 ，然后将v3记录在路径上，
+将V6压入队列中
+while一次循环结束
+队列中有V1 V6 接着进行循环
+然后V1出队列，遍历V1的两个邻接点V2 V4，
+dist[2] = 2
+path[2] = 1
+V2 入队， 队列元素为V6 V2
+然后遍历另外一个临界点V4
+dist[4] = 2
+path[4] = 1
+V4，入队，先队列元素为V6 V2 V4
+又进入下一次while循环，队列不为空
+V6出队，V6没有邻接点，直接跳出for循环，进入下一次while循环
+V2出队，V2邻接点V4 V5， 进入for循环 V4不等于-1 已经访问过了无视，然后遍历V5，没有访问过
+dist[5] = 3
+path[5] = 2
+V5入队，然后进入下一次while循环检查队列，县队列 V4 V5
+V4出队，遍历V4邻接点V4 V5 V6 V7，（V4， V5， V6已被访问过直接跳过）
+dist[7] = 3
+path[7] = 4
+完成后V7入队，现队列 V5 V7
+再进入whilw循环
+V5 出队， 一个临界点V7 已被访问过，什么都不做，进入下一次while循环，现队列中V7
+在进入while循环
+V7出队，V7邻接点V6，已被访问过，什么都不做，在回到while循环，此时队列为空，循环结束
+
+dist[2] = 2: V2的最短路径为2
+path[2] = 1： 且这条最短路径是为V1到达V2的
+
+下标   1   2   3   4   5    6   7
+dist   1   2   0   2   3    1   3
+path   3   1  -1   1   2    3   4
+
+
+查找最短路径，依次顺着path路径入栈，再出栈,然后就找到最短路径</code></pre><h6 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h6><blockquote>
+<p>  有权图的单源最短路径算法<br>    有权图最短路和无权图最短路，最大的区别是有权图最短路径不一定是经过顶点数最少的路径</p>
 </blockquote>
-<h6 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h6><blockquote>
+<pre><code>- 按照递增的顺序找出各个顶点的最短路 
+- Dijkstra算法
+    - 令S = {源点S + 已经确定了最短路径的顶点vi}
+    - 对任一未收录的顶点v，定义dist[v]为s到v的最短路径长度，但该路径仅经过S中的顶点。即路径{s-&gt;(vi ∈ S)-&gt;v}的最小长度
+    - 若路径是按照递增(非递减)的顺序生成的，则
+        - 真正的最短路必须只经过S中的顶点
+        - 每次从未收录的顶点中选一个dist最小的收录(贪心算法思想)
+        - 增加一个v进入S，可能影响另一个w的dist值
+            dist[w] = min{dist[w], dist[v]+&lt;v, w&gt;d的权重}</code></pre><p><img src="/images/%E6%9C%89%E6%9D%83%E5%9B%BE%E5%8D%95%E6%BA%90%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png" alt="有权图单源路径算法"><br>    V1源点 V6终点，从V1到V6的最短路径是哪条？<br>    不考虑，负值圈negative-costcycle</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void Dijkstra(Vertex s)&#123;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        V = 未收录顶点中dist最小者</span><br><span class="line">        if(这样的v不存在)</span><br><span class="line">            break; // 跳出循环</span><br><span class="line"></span><br><span class="line">        collected[V] = true;</span><br><span class="line">        for( V的每个邻接点W)</span><br><span class="line">            if(collected[W] == false) // 还没有被收录</span><br><span class="line">                if(dist[V]+E&lt;v, w&gt; &lt; dist[W])&#123;</span><br><span class="line">                    dist[W] = dist[V] + E&lt;v, w&gt;</span><br><span class="line">                    path[W] = V</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 不能解决有负边的情况</span><br></pre></td></tr></table></figure></code></pre><h6 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h6><blockquote>
 <p>多源最短路径算法</p>
 </blockquote>
 <h5 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h5><ul>
@@ -1541,7 +1606,7 @@ for each digit placing 遍历每个数位
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">47k</span>
+    <span title="Site words total count">48k</span>
   
 </div>
 
