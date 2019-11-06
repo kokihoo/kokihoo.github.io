@@ -779,8 +779,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-23T10:59:41+08:00">
-                2019-08-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-06T14:21:46+08:00">
+                2019-11-06
               </time>
             
           </span>
@@ -840,7 +840,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  61
                 </span>
               
 
@@ -879,7 +879,7 @@
       
         
           
-            <p>#### </p>
+            <h5 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h5><p>维度与度量<br>    维度是类别字段，切片数值的依据，维度通常是离散的<br>    度量是指标，是希望分析的数字，度量是连续的，连续字段在列表中创建轴</p>
 
           
         
@@ -1544,8 +1544,8 @@ re.M /re.MULTILINE | 多行匹配标记
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-05T17:44:57+08:00">
-                2019-11-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-06T16:11:29+08:00">
+                2019-11-06
               </time>
             
           </span>
@@ -1583,7 +1583,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  22k
+                  24.3k
                 </span>
               
 
@@ -1599,7 +1599,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  93
+                  104
                 </span>
               
             </div>
@@ -2252,7 +2252,9 @@ dist   1   2   0   2   3    1   3
 path   3   1  -1   1   2    3   4
 
 
-查找最短路径，依次顺着path路径入栈，再出栈,然后就找到最短路径</code></pre><h6 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h6><blockquote>
+查找最短路径，依次顺着path路径入栈，再出栈,然后就找到最短路径
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 邻接表存储 - 无权图的单源最短路径算法</span><br><span class="line">// dist[] path[] 全部初始化为1</span><br><span class="line">    void Unweighted(LGraph Graph, int dist[], int path[], Vertex S)&#123;</span><br><span class="line">        Queue Q;</span><br><span class="line">        Vertex V;</span><br><span class="line">        PtrToAdjVNode W;</span><br><span class="line"></span><br><span class="line">        Q = CreateQueue(Graph-&gt; Nv); //创建空队列，MaxSize为外部定义的常数</span><br><span class="line">        dist[S] = 0; // 初始化源点</span><br><span class="line">        AddQ(Q, S);</span><br><span class="line"></span><br><span class="line">        while(!IsEmpty(Q))&#123;</span><br><span class="line">            V = DeleteQ(Q);</span><br><span class="line">            for(W=Graph-&gt;G[V].FirstEdge; W; W=W-&gt;Next) // 对V的每个邻接点W-&gt;AdjV</span><br><span class="line">                if(dist[W-&gt;AdjV == -1]) // 若w-&gt;AdjV未被访问过</span><br><span class="line">                    dist[W-&gt;AdjV] = dist[V] + 1; // W-&gt;AdjV到S的距离更新</span><br><span class="line">                    path[W-&gt;AdjV] = V; // 将V记录在S到w-&gt;AdjV的路径上</span><br><span class="line">                    Add(Q, W-&gt;AdjV);</span><br><span class="line">        &#125; // whilw结束</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></code></pre><h6 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h6><blockquote>
 <p>  有权图的单源最短路径算法<br>    有权图最短路和无权图最短路，最大的区别是有权图最短路径不一定是经过顶点数最少的路径</p>
 </blockquote>
 <pre><code>- 按照递增的顺序找出各个顶点的最短路 
@@ -2264,10 +2266,108 @@ path   3   1  -1   1   2    3   4
         - 每次从未收录的顶点中选一个dist最小的收录(贪心算法思想)
         - 增加一个v进入S，可能影响另一个w的dist值
             dist[w] = min{dist[w], dist[v]+&lt;v, w&gt;d的权重}</code></pre><p><img src="/images/%E6%9C%89%E6%9D%83%E5%9B%BE%E5%8D%95%E6%BA%90%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png" alt="有权图单源路径算法"><br>    V1源点 V6终点，从V1到V6的最短路径是哪条？<br>    不考虑，负值圈negative-costcycle</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void Dijkstra(Vertex s)&#123;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        V = 未收录顶点中dist最小者</span><br><span class="line">        if(这样的v不存在)</span><br><span class="line">            break; // 跳出循环</span><br><span class="line"></span><br><span class="line">        collected[V] = true;</span><br><span class="line">        for( V的每个邻接点W)</span><br><span class="line">            if(collected[W] == false) // 还没有被收录</span><br><span class="line">                if(dist[V]+E&lt;v, w&gt; &lt; dist[W])&#123;</span><br><span class="line">                    dist[W] = dist[V] + E&lt;v, w&gt;</span><br><span class="line">                    path[W] = V</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 不能解决有负边的情况</span><br></pre></td></tr></table></figure></code></pre><h6 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h6><blockquote>
-<p>多源最短路径算法</p>
+<pre><code>首先初始化dist path两个数组
+下标   1    2    3    4    5    6    7
+dist   ∞    ∞   ∞     ∞    ∞    ∞   ∞
+path   -1   -1  -1    -1   -1   -1   -1
+选择V1作为源点，源点到自己的距离dist[1] = 0 相邻结点V2 V4的距离就被更新为权重，路径桑的顶点更新为1
+下标   1    2    3    4    5    6    7
+dist   0    2    ∞    1    ∞    ∞   ∞
+path   -1   1    -1   1   -1   -1   -1
+
+初始化完毕进入Dijkstra函数处理
+找到未收录顶点dist最小数，V = V4 = 1， 标志为被访问过
+遍历V4的每个邻接点W， V3 V5 V6 V7
+V3遍历，判断没有被访问过，dist[v] = dist[V4] = 1 + E&lt;v,w&gt;=E&lt;v4, v3&gt;的权重=2 显然是小于dist[w] = dist[v3]=∞
+所以dist[w] = dist[v3]更新为 dist[V] + E&lt;v,w&gt; = 1 + 2 = 3;
+path[V3] = V4
+下标   1    2    3    4    5    6    7
+dist   0    2    3     1    ∞    ∞   ∞
+path   -1   1    4     1   -1   -1   -1
+
+至此完成V4一个邻接点的处理，进入下一个邻接点V5 进行处理
+V5遍历，没有被访问过，同V3，dist[V]+E&lt;v, w&gt; &lt; dist[W] =&gt; dist[V4] + E&lt;V4, V5&gt; = 1 + 2 &lt; ∞
+dist[V5] = 3
+path[V5] = v4
+下标   1    2    3    4    5    6    7
+dist   0    2    3     1   3    ∞   ∞
+path   -1   1    4     1   4   -1   -1
+处理 V6 没有被访问过，同V3，dist[V]+E&lt;v, w&gt; &lt; dist[W] =&gt; dist[V4] + E&lt;V4, V6&gt; = 1 + 8 &lt; ∞
+dist[V6] = 9
+path[V6] = v4
+下标   1    2    3    4    5    6    7
+dist   0    2    3     1   3    9   ∞
+path   -1   1    4     1   4    4   -1
+处理 V7 没有被访问过，同V3，dist[V]+E&lt;v, w&gt; &lt; dist[W] =&gt; dist[V4] + E&lt;V4, V7&gt; = 1 + 4 &lt; ∞
+dist[V7] = 5
+path[V7] = v4
+下标   1    2    3    4    5    6    7
+dist   0    2    3     1   3    9    5
+path   -1   1    4     1   4    4    4
+至此处理完V4
+接着进入下一轮循环，在没被收录顶点dist中找最小的 显然是顶点V2 = 2
+然后对顶点V2的邻接点w， V4， V5进行遍历
+V4已被访问过， 跳过
+遍历V5，现在的dist[V] = dist[V2] = 2 ;E&lt;V2, V5&gt; = 10  
+dist[V] + E&lt;V2, V5&gt; &gt; dist[w] = dist[V5] = 3
+保持V5原路径不变
+接着进入下一轮循环，找到未收录顶点dist最小数，V = V3/V5 = 3，选择V3 标志为被访问过
+然后对V3的邻接点遍历访问 V1 V6
+V1已被访问过跳过
+V6，dist[V] = dist[V3] = 3 ;E&lt;V3, V6&gt; = 5  
+dist[3] + E&lt;V3, V6&gt; = 8  &lt; dist[w] = dist[V6] = 9, 更新路径
+dist[V6] = 8
+path[V6] = v3
+下标   1    2    3    4    5    6    7
+dist   0    2    3     1   3    8    5
+path   -1   1    4     1   4    3    4
+对V3处理完毕后，接着找未收录顶点dist最小数 V5 =3，标志被访问过，
+对V5的邻接点遍历处理 ，只有一个邻接点V7， V7现在的最短距离是5 从V4过来的
+遍历V7，现在的dist[V] = dist[V5] = 3 ;E&lt;V5, V7&gt; = 6  
+dist[V] + E&lt;V5, V7&gt;=9 &gt; dist[w] = dist[V7] = 5
+保持V7原路径不变
+对V5处理完毕后，接着找未收录顶点dist最小数 V7 = 5，标志被访问过，
+V7唯一的邻接点V6， V6现在最短距离是8
+dist[V7] = 5, V&lt;V7, V6&gt; = 1 
+(dist[V7] = 5 )+ (V&lt;V7, V6&gt; = 1 ) = 6 &lt; dist[W]=dist[V6] = 8更新路径
+dist[V6] = 6
+path[V6] = V7
+下标   1    2    3    4    5    6    7
+dist   0    2    3     1   3    6    5
+path   -1   1    4     1   4    7    4
+继续找下一个未被收录顶点dist最小数 V6 访问V6
+V6无邻接点，V6循环结束
+在接着找未被收录顶点dist最小数，这样的顶点已经不存在了，至此跳出while循环，结束算法
+
+算法完成后，V1到V6的最短路径是哪一条呢？
+从path[V6]开始找到V7，然后path[V7]找到path[V4]，然后在path[V4]找到path[V1],然后找path[V1] = -1 &lt; 0.所以V1是源点
+得到路径 V1-&gt;V4-&gt;V7-&gt;V6
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void Dijkstra(Vertex s)&#123;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        V = 未收录顶点中dist最小者</span><br><span class="line">        if(这样的v不存在)</span><br><span class="line">            break; // 跳出循环</span><br><span class="line"></span><br><span class="line">        collected[V] = true;</span><br><span class="line">        for( V的每个邻接点W)</span><br><span class="line">            if(collected[W] == false) // 还没有被收录</span><br><span class="line">                if(dist[V]+E&lt;v, w&gt; &lt; dist[W])&#123;</span><br><span class="line">                    dist[W] = dist[V] + E&lt;v, w&gt;</span><br><span class="line">                    path[W] = V</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 不能解决有负边的情况</span><br></pre></td></tr></table></figure>
+
+// 时间复杂度：这个程序的算法复杂度很大程度上取决于怎么做V = 未收录顶点中dist最小者
+- 方法1：直接扫描所有未收录顶点-O(|V|)
+    T = O(|V|^2 + |E|) 对稠密图效果好
+- 方法2: 将dist存在最小堆中- O(log|V|)
+    更新dist[w]的值 - O(log|V|)
+    T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) 对于稀疏图效果好
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">// 邻接矩阵存储 - 有权图的单源最短路径算法</span><br><span class="line">Vertex FindMinDist(MGraph Graph, int dist[], int collected[])&#123;</span><br><span class="line">    // 返回未被收录顶点中dist最少这</span><br><span class="line">    Vertex MinV, V;</span><br><span class="line">    int MinDist = INFINITY;</span><br><span class="line"></span><br><span class="line">    for(V=0; V&lt;Graph-&gt;Nv;V++)&#123;</span><br><span class="line">        if(collected[V] == false &amp;&amp; dist[V]&lt;MinDist)&#123;</span><br><span class="line">            // 若V未被收录，且dist[V]更小</span><br><span class="line">            MinDist = dist[V]; //更新最小距离</span><br><span class="line">            MinV = V; // 更新对应顶点</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(MinDist &lt; INFINITY) // 若找到最小dist</span><br><span class="line">        return MinV; // 返回对应的顶点下标</span><br><span class="line">    else return ERROR; // 若这样的顶点不存在，返回错误标记</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bool Dijkstra(MGraph Graph, int dist[], int path[], Vertex S)&#123;</span><br><span class="line">    int collected[MaxVertexNum];</span><br><span class="line">    Vertex V, W;</span><br><span class="line"></span><br><span class="line">    // 初始化：此处默认邻接矩阵中不存在的边用INFINITY表示</span><br><span class="line">    for(V=0; V&lt;Graph-&gt;Nv; V++)&#123;</span><br><span class="line">        dist[V] = Graph-&gt;G[S][V];</span><br><span class="line">        if(dist[V]&lt;INFINITY)</span><br><span class="line">            path[V] = S;</span><br><span class="line">        else</span><br><span class="line">            path[V] = -1;</span><br><span class="line">        collected[S] = false;</span><br><span class="line">    &#125;</span><br><span class="line">    // 先将起点收入集合</span><br><span class="line">    dist[S] = 0;</span><br><span class="line">    collected[S] = true;</span><br><span class="line"></span><br><span class="line">    while(1) &#123;</span><br><span class="line">        // V = 未被收录顶点中dist最小者</span><br><span class="line">        V = FindMinDist(Graph, dist, collected);</span><br><span class="line">        if(V== ERROR) // 若这样的V不存在</span><br><span class="line">            break; // 算法结束</span><br><span class="line">        </span><br><span class="line">        collected[V] = true; // 收录V</span><br><span class="line">        for(W=0; W&lt;Graph-&gt;Nv; W++)&#123; // 对图中的每个顶点W</span><br><span class="line">            // 若W是V的邻接点并且未被收录</span><br><span class="line">            if(collected[W]=false &amp;&amp; Graph-&gt;G[V][W] &lt; INFINITY) &#123;</span><br><span class="line">                if(Graph -&gt; G[V][W] &lt; 0) //  若有负边</span><br><span class="line">                    return false; // 不能正确解决，返回错误标记</span><br><span class="line">                // 若收录V使得dist[W]变小</span><br><span class="line">                if(dist[V] + Graph-&gt;[V][W] &lt; dist[W])&#123;</span><br><span class="line">                    dist[W] = dist[V] + Graph -&gt; G[V][W]; // 更新dist[W]</span><br><span class="line">                    path[W] = V; // 更新S到W的路径</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; // while结束</span><br><span class="line">    return true; // 算法执行完毕，返回正确标记</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h6 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h6><blockquote>
+<p>  多源最短路径算法<br>    方法1：直接将单源最短路算法调用|V|遍，  T = O(|V|^3 + |E|*|V|) 对于稀疏图效果好<br>    方法2：Floyd算法 T= O(|V|^3)  对于稠密图效果好</p>
 </blockquote>
-<h5 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h5><ul>
+<pre><code>Floyd算法
+    - 用邻接矩阵，二维数组，来记录 D^k[i][j] = 路径{i-&gt; {l&lt;= k}-&gt; j} 的最小长度
+    - D^0, D^1,……,D^|V|-1[i][j]即给出了i到j的真正最短距离
+    - 最初的D^-1是什么？ 初始的矩阵应该怎么定义？ 自己定义为邻接矩阵，对角元全部为0，i，j有边初始化为权重， i，j之间没有边，定义为∞
+    - 如何完成递推？当D^k-1已经完成，递推到D^k时：
+        或者k∉最短路径{i-&gt; {l&lt;= k}-&gt;j}, 即收录不会影响最短路径，D^k = D^k-1
+        或者新加进去的k， k∈最短路径{i-&gt; {l&lt;= k}-&gt;j}，k一定在最短路径上, 则该路径必定由两段最短路劲组成：D^k[i][j] = D^k-1[i][k] + D^k-1[k][j]
+其实这个讲解完了依旧还是晕，没听懂，没搞明白，但是代码还是要写一下
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vois Floyd() &#123;</span><br><span class="line">    for( i=0; i&lt;N; i++)</span><br><span class="line">        for(j=0; j&lt;N; j++)&#123;</span><br><span class="line">            D[i][j] = G[i][j]; // 初始化为邻接矩阵</span><br><span class="line">            path[i][j] = -1; // 用另外一个数组记录路径，初始化为-1，表示i j之间没有路径</span><br><span class="line">        &#125;</span><br><span class="line">    for(k=0; k&lt;N; k++) // 上标从0开始</span><br><span class="line">        for(i=0; i&lt;N; i++)</span><br><span class="line">            for(j=0; j&lt;N; j++)</span><br><span class="line">                if(D[i][k] + D[k][j]&lt; D[i][j])&#123;</span><br><span class="line">                    D[i][j] = D[i][k] + D[k][j];</span><br><span class="line">                    path[i][j] = k;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 打印从i到j的最短路径， 递归打印i到k的路径， 打印k的值， 递归打印从k到j的路径</span><br></pre></td></tr></table></figure>
+
+T = O(|V|^3)
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 邻接矩阵存储 - 多源最短路径算法</span><br><span class="line">bool Floyd(MGraph Graph, WeightType D[][MaxVertexNum], Vertex path[][MaxVertexNum])&#123;</span><br><span class="line">    Vertex i, j, k; </span><br><span class="line"></span><br><span class="line">    // 初始化</span><br><span class="line">    for(i=0; i&lt;Graph-&gt;Nv; i++)</span><br><span class="line">        for(j=0; j&lt;Graph-&gt;Nv; j++)</span><br><span class="line">            D[i][j] = Graph-&gt;G[i][j];</span><br><span class="line">            path[i][j] = -1;</span><br><span class="line"></span><br><span class="line">    for(k=0; k&lt;Graph-&gt;Nv; k++)</span><br><span class="line">        for(i=0; i&lt;Graph-&gt;Nv; i++)</span><br><span class="line">            for(j=0; j&lt;Graph-&gt;Nv; j++)</span><br><span class="line">                if(D[i][k] + D[k][j] &lt; D[i][j])&#123;</span><br><span class="line">                    D[i][j] = D[i][k] + D[k][j];</span><br><span class="line">                    if(i == j &amp;&amp; D[i][j]&lt;0) // 若发现负值圈</span><br><span class="line">                        return false; // 不能正确解决，返回错误标记</span><br><span class="line">                    path[i][j] = k;</span><br><span class="line">                &#125;</span><br><span class="line">    </span><br><span class="line">    return true; // 算法执行完毕，返回正确标记</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h5 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h5><ul>
 <li>AOV：Acitivity On Vertex 网络</li>
 <li>DAG：Directed Acyclic Graph 有向无环图</li>
 <li>拓扑序：如果图中从v到w有一条有向路径，则v一定排在w之前。满足此条件的顶点序列称为一个拓扑序</li>
@@ -3582,7 +3682,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48k</span>
+    <span title="Site words total count">50.3k</span>
   
 </div>
 
