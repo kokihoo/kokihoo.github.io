@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://yoursite.com/images/%E6%97%A0%E6%9D%83%E5%9B%BE%E7%9A%84%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png">
 <meta property="og:image" content="http://yoursite.com/images/%E6%9C%89%E6%9D%83%E5%9B%BE%E5%8D%95%E6%BA%90%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png">
 <meta property="og:image" content="http://yoursite.com/images/Merge_Sort.png">
-<meta property="og:updated_time" content="2019-11-13T09:33:26.364Z">
+<meta property="og:updated_time" content="2019-11-13T13:41:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NINESIXONE">
 <meta name="twitter:description" content="第一部分 数据结构与算法The ADT defines the logical form of the data type.The data structure implements  the physical form of the data type. 一、栈(Stack)、队列(Queue)和向量(Vector) 内容：单链表，双向链表，环形链表，带哨兵节点的链表；栈的基本概念和性质，栈AD">
@@ -341,7 +341,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-13T17:33:26+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-13T21:41:18+08:00">
                 2019-11-13
               </time>
             
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  26.1k
+                  26.4k
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  112
+                  113
                 </span>
               
             </div>
@@ -855,7 +855,7 @@ s: 11011
 t: 1100
 sp: 01
 nl: 11010</code></pre><h4 id="三、查找-search"><a href="#三、查找-search" class="headerlink" title="三、查找(search)"></a>三、查找(search)</h4><blockquote>
-<p>内容： 查找的基本概念；对线性关系结构的查找；顺序查找；二分查找；Hash查找法；常见的Hash函数（直接定址法，随机数法），hash冲突的概念，解决冲突的方法(开散列方法/拉链法，闭散列方法/开址定址法)，二次聚集现象；BST树定义，性质，ADT及其实现，BST树查找，插入，删除算法；平衡树(AVL)的定义，性质，ADT及其实现，平衡树查找，插入算法，平衡因子的概念；优先队列与堆，堆的定义，堆的生成，调整算法；范围查询；</p>
+<p>内容：<br>    查找的基本概念；<br>    对线性关系结构的查找；<br>    顺序查找；<br>    二分查找；<br>    Hash查找法；<br>    常见的Hash函数（直接定址法，随机数法）<br>    hash冲突的概念<br>    解决冲突的方法(开散列方法/拉链法，闭散列方法/开址定址法)<br>    二次聚集现象；<br>    BST树定义，性质，ADT及其实现，BST树查找，插入，删除算法；平<br>    衡树(AVL)的定义，性质，ADT及其实现，平衡树查找，插入算法，平衡因子的概念；<br>    优先队列与堆，堆的定义，堆的生成，调整算法；<br>    范围查询；</p>
 </blockquote>
 <h4 id="四、排序"><a href="#四、排序" class="headerlink" title="四、排序"></a>四、排序</h4><blockquote>
 <p>内容：排序基本概念；插入排序，希尔排序，选择排序，快速排序，合并排序，基数排序等排序算法基本思想，算法代码及基本的时间复杂度分析</p>
@@ -1171,11 +1171,23 @@ V6无邻接点，V6循环结束
 T = O(|V|^3)
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 邻接矩阵存储 - 多源最短路径算法</span><br><span class="line">bool Floyd(MGraph Graph, WeightType D[][MaxVertexNum], Vertex path[][MaxVertexNum])&#123;</span><br><span class="line">    Vertex i, j, k; </span><br><span class="line"></span><br><span class="line">    // 初始化</span><br><span class="line">    for(i=0; i&lt;Graph-&gt;Nv; i++)</span><br><span class="line">        for(j=0; j&lt;Graph-&gt;Nv; j++)</span><br><span class="line">            D[i][j] = Graph-&gt;G[i][j];</span><br><span class="line">            path[i][j] = -1;</span><br><span class="line"></span><br><span class="line">    for(k=0; k&lt;Graph-&gt;Nv; k++)</span><br><span class="line">        for(i=0; i&lt;Graph-&gt;Nv; i++)</span><br><span class="line">            for(j=0; j&lt;Graph-&gt;Nv; j++)</span><br><span class="line">                if(D[i][k] + D[k][j] &lt; D[i][j])&#123;</span><br><span class="line">                    D[i][j] = D[i][k] + D[k][j];</span><br><span class="line">                    if(i == j &amp;&amp; D[i][j]&lt;0) // 若发现负值圈</span><br><span class="line">                        return false; // 不能正确解决，返回错误标记</span><br><span class="line">                    path[i][j] = k;</span><br><span class="line">                &#125;</span><br><span class="line">    </span><br><span class="line">    return true; // 算法执行完毕，返回正确标记</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h5 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h5><ul>
-<li>AOV：Acitivity On Vertex 网络</li>
-<li>DAG：Directed Acyclic Graph 有向无环图</li>
-<li>拓扑序：如果图中从v到w有一条有向路径，则v一定排在w之前。满足此条件的顶点序列称为一个拓扑序</li>
-<li>获得一个拓扑序的过程就是拓扑排序</li>
-<li>AOV如果有合理的拓扑序，则必定是有向无环图Directed Acyclic Graph, DAG</li>
+<li><p>AOV：Acitivity On Vertex 网络 例：计算机专业排课</p>
+</li>
+<li><p>DAG：Directed Acyclic Graph 有向无环图</p>
+</li>
+<li><p>拓扑序：如果图中从v到w有一条有向路径，则v一定排在w之前。满足此条件的顶点序列称为一个拓扑序</p>
+</li>
+<li><p>获得一个拓扑序的过程就是拓扑排序</p>
+</li>
+<li><p>AOV如果有合理的拓扑序，则必定是有向无环图Directed Acyclic Graph, DAG</p>
+<p>  每次输出没有前驱的结点，入度为零，没有边指向它，从图中删除该点</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void TopSort()</span><br><span class="line">&#123;</span><br><span class="line">    for(cnt=0; cnt&lt;|V|;cont++)&#123;</span><br><span class="line">        V = 未输出的入度为0的顶点;// 时间复杂度取决于这一步怎么找</span><br><span class="line">        // 如果外循环还未结束，这样的V就已经不存在了，意味着图中还剩下好几个顶点没有被输出，但是每一个顶点入度都不是0，说明图中必定是有回路的</span><br><span class="line">        if(这样的V不存在)&#123;</span><br><span class="line">            ERROR(&quot;图中有回路&quot;);</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        输出v，或者记录v的输出序号</span><br><span class="line">        for(v的每个临界接点W)</span><br><span class="line">            Indegree[w]--; // 遍历每个邻接点，入度减1，即为删除该点</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  随时将入度变为0的顶点放到一个容器里</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//改一下算法</span><br><span class="line">void TopSort()</span><br><span class="line">&#123;</span><br><span class="line">    for(图中每个顶点v)</span><br><span class="line">        if(Indegree[v]==0)</span><br><span class="line">            Enqueue(V, Q);</span><br><span class="line">    while(!IsEmpty(Q))&#123;</span><br><span class="line">        V = Dequeue(Q);</span><br><span class="line">        //输出V，或者记录V的输出序号；</span><br><span class="line">        cnt++</span><br><span class="line">        for(V的每个邻接点W)</span><br><span class="line">            if(--Indegree[W]== 0)</span><br><span class="line">                Enqueue(W, Q);</span><br><span class="line">    &#125;</span><br><span class="line">    if(cnt != |V|)</span><br><span class="line">        Error(&quot;图中有回路&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  这个算法也可以用来检测有向图是否是DAG 有向无环图</p>
+</li>
 </ul>
 <h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h5 id="排序的基本概念"><a href="#排序的基本概念" class="headerlink" title="排序的基本概念"></a>排序的基本概念</h5><p>有废话啊，边学边学英语，所以都写上去了，可以简单看看</p>
 <blockquote>
@@ -1627,7 +1639,7 @@ for each digit placing 遍历每个数位
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1716,7 +1728,7 @@ for each digit placing 遍历每个数位
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52.1k</span>
+    <span title="Site words total count">61.4k</span>
   
 </div>
 
