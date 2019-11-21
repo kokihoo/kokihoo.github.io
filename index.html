@@ -1094,8 +1094,8 @@ re.M /re.MULTILINE | 多行匹配标记
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-20T17:54:17+08:00">
-                2019-11-20
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-21T17:55:05+08:00">
+                2019-11-21
               </time>
             
           </span>
@@ -1133,7 +1133,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  25.4k
+                  27.7k
                 </span>
               
 
@@ -1149,7 +1149,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  106
+                  115
                 </span>
               
             </div>
@@ -1893,41 +1893,122 @@ BinTree Delete(ElementType X, BinTree BST)</code></pre><h6 id="BST树查找、�
 <h5 id="排序基本概念"><a href="#排序基本概念" class="headerlink" title="排序基本概念"></a>排序基本概念</h5><blockquote>
 <p>  排序算法的效率很重要，大多数情况下，为简单起见，讨论从小到大的整数排序，N是正整数，只讨论基于比较的排序(&gt; = &lt; 有定义)，只讨论内部排序，假设内存空间足够大，排序可一次完成，稳定性：任意两个相等的数据，排序前后的相对位置不发生改变<br>    没有一种排序是任何情况下都表现最好的。</p>
 </blockquote>
-<h5 id="【补充】冒泡排序——不要求"><a href="#【补充】冒泡排序——不要求" class="headerlink" title="【补充】冒泡排序——不要求"></a>【补充】冒泡排序——不要求</h5><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void Bubble_Sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    for(P=N-1; P&gt;=0; P--)&#123;</span><br><span class="line">        flag = 0;</span><br><span class="line">        for(i=0; i&lt;P; i++)&#123; // 一趟冒泡</span><br><span class="line">            if(A[i] &gt; A[i+1])&#123;</span><br><span class="line">                Swap(A[i], A[i+1]);</span><br><span class="line">                flag = 1; // 标识发生了交换</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(flag == 0) break; // 全程无交换</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="冒泡排序——不要求"><a href="#冒泡排序——不要求" class="headerlink" title="冒泡排序——不要求"></a>冒泡排序——不要求</h5><pre><code>Bubble Sort,是一种最基础的交换排序
+把相邻的元素两两比较，根据大小交换元素位子
+
+原始的冒泡排序是稳定排序，由于冒泡排序每一轮要遍历所有元素，循环的次数和元素数组相当，所以时间复杂度为O(N^2)
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void Bubble_Sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    for(P=N-1; P&gt;=0; P--)&#123;</span><br><span class="line">        flag = 0;</span><br><span class="line">        for(i=0; i&lt;P; i++)&#123; // 一趟冒泡</span><br><span class="line">            if(A[i] &gt; A[i+1])&#123;</span><br><span class="line">                Swap(A[i], A[i+1]);</span><br><span class="line">                flag = 1; // 标识发生了交换</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(flag == 0) break; // 全程无交换</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 // 简单 稳定 两两交换
 最好情况：顺序T = O(N)  
 最坏情况：逆序T = O(N^2)</code></pre><h5 id="插入排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#插入排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="插入排序算法基本思想，算法代码及基本的时间复杂度分析"></a>插入排序算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
 <p>  扑克牌抓牌</p>
 </blockquote>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 从后往前比</span><br><span class="line">void Insertion_Sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    int P, i;</span><br><span class="line">    ElementType Tmp;</span><br><span class="line"></span><br><span class="line">    for(P=1; P&lt;N; P++)&#123;</span><br><span class="line">        Tmp = A[P]; // 摸下一张牌,取出末排序序列中的第一个元素</span><br><span class="line">        for(i=P; i&gt;0 &amp;&amp; A[i-1]&gt;Tmp; i--)</span><br><span class="line">            A[i] = A[i-1]; // 移出空位 依次与已排序序列中元素比较并右移</span><br><span class="line">        A[i] = Tmp; // 新牌落位 放进合适的位置</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>就想玩牌一样，插入排序算法也是类似的思想：维护一个有序区，把元素一个一个插入到有序区的适当位置，直到所有元素有序位置，当我们把每一个新元素插入到有序区时，并不需要立马进行元素的两两交换，可以将待插入元素暂存起来，将有序区元素从左向右复制移动位置，找到带插入位置后，将元素插入。
+
+mark first element as sorted 将第一个元素标记为已排序
+for each unsorted element X 遍历每个没有排序过的元素
+    &apos;extract&apos; the element X 提取元素X
+    for j=lastSortedIndex down to 0   j 从最后一个被排序的位置开始到0进行遍历
+        if current element j &gt; X  如果当前排序过的元素j &gt; 提取过的元素
+            move sorted element to the right by 1 将排序过的元素向右移一格
+        break loop and insert X here. 否则插入提取的元素
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 从后往前比</span><br><span class="line">void Insertion_Sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    int P, i;</span><br><span class="line">    ElementType Tmp;</span><br><span class="line"></span><br><span class="line">    for(P=1; P&lt;N; P++)&#123;</span><br><span class="line">        Tmp = A[P]; // 摸下一张牌,取出末排序序列中的第一个元素</span><br><span class="line">        for(i=P; i&gt;0 &amp;&amp; A[i-1]&gt;Tmp; i--)</span><br><span class="line">            A[i] = A[i-1]; // 移出空位 依次与已排序序列中元素比较并右移</span><br><span class="line">        A[i] = Tmp; // 新牌落位 放进合适的位置</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 // 稳定
 最好情况：顺序T = O(N)
 最坏情况：逆序T = O(N^2)</code></pre><h5 id="希尔排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#希尔排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="希尔排序算法基本思想，算法代码及基本的时间复杂度分析"></a>希尔排序算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
 <p>  by Donald Shell<br><img src="/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.png" alt="希尔排序"></p>
 </blockquote>
-<pre><code>原始希尔排序 Dm = [N/2], Dk = [Dk+1/2]
+<pre><code>怎样可以对插入排序算法做出优化呢？
+- 在大多数元素已经有序的情况下，插入排序的工作量较小(因为不用频繁的进行比较和交换)
+- 在元素数量较小的情况下，插入排序的工作量较小
+
+我们怎么能让大部分元素有序，或者让元素数量减少呢？
+不妨对原始数组进行一些预处理，使得原始数组的大部分元素变得有序，分组排序，以此对数组进行一定的粗略调整
+
+分组跨度，被称为希尔排序的增量，增量的选择可以有很多种。
+
+利用分组粗调的方式减少了直接插入排序的工作量，是的算法的时间复杂度低于O(N^2)
+
+原始希尔排序 Dm = [N/2], Dk = [Dk+1/2]
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Shell_sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    for(D=N/2; D&gt;0; D/=2)&#123; // 希尔增量系列</span><br><span class="line">        for(P=D; P&lt;N; P++)&#123; // 插入排序</span><br><span class="line">            Tmp = A[P];</span><br><span class="line">            for(i=P; i&gt;=D &amp;&amp; A[i-D]&gt;Tmp; i-=D)</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            A[i] = Tmp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 最快情况： T = cita(N^2)
 
 注意：增量元素不互质，则小增量可能根本不起作用
 更多增量序列
-- Hibbard增量序列
+- Hibbard增量序列 1, 3, 7, 15……
     Dk = 2^k - 1 相邻元素互质
     最坏情况：T = cita(N^3/2)
-- Sedgewick增量序列
-    {1， 5， 9， 41， 109}
-        —— 9*4^i-9*2^i+1 或4^i-3*2^i + 1
+- Sedgewick增量序列 {1， 5， 9， 41， 109}
+    —— 9*4^i-9*2^i+1 或4^i-3*2^i + 1
+    最坏时间复杂度：cita(N^(4/3))
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void ShellSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 希尔排序 - 用Sedgewick增量序列 */</span><br><span class="line">    int Si, D, P, i;</span><br><span class="line">    ElementType Tmp;</span><br><span class="line">    /* 这里只列出一小部分增量 */</span><br><span class="line">    int Sedgewick[] = &#123;929, 505, 209, 109, 41, 19, 5, 1, 0&#125;;</span><br><span class="line">    </span><br><span class="line">    for ( Si=0; Sedgewick[Si]&gt;=N; Si++ ) </span><br><span class="line">        ; /* 初始的增量Sedgewick[Si]不能超过待排序列长度 */</span><br><span class="line"></span><br><span class="line">    for ( D=Sedgewick[Si]; D&gt;0; D=Sedgewick[++Si] )</span><br><span class="line">        for ( P=D; P&lt;N; P++ ) &#123; /* 插入排序*/</span><br><span class="line">            Tmp = A[P];</span><br><span class="line">            for ( i=P; i&gt;=D &amp;&amp; A[i-D]&gt;Tmp; i-=D )</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            A[i] = Tmp;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h5 id="选择排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#选择排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="选择排序算法基本思想，算法代码及基本的时间复杂度分析"></a>选择排序算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void ShellSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 希尔排序 - 用Sedgewick增量序列 */</span><br><span class="line">    int Si, D, P, i;</span><br><span class="line">    ElementType Tmp;</span><br><span class="line">    /* 这里只列出一小部分增量 */</span><br><span class="line">    int Sedgewick[] = &#123;929, 505, 209, 109, 41, 19, 5, 1, 0&#125;;</span><br><span class="line">    </span><br><span class="line">    for ( Si=0; Sedgewick[Si]&gt;=N; Si++ ) </span><br><span class="line">        ; /* 初始的增量Sedgewick[Si]不能超过待排序列长度 */</span><br><span class="line"></span><br><span class="line">    for ( D=Sedgewick[Si]; D&gt;0; D=Sedgewick[++Si] )</span><br><span class="line">        for ( P=D; P&lt;N; P++ ) &#123; /* 插入排序*/</span><br><span class="line">            Tmp = A[P];</span><br><span class="line">            for ( i=P; i&gt;=D &amp;&amp; A[i-D]&gt;Tmp; i-=D )</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            A[i] = Tmp;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+希尔排序是不稳定排序，值相同的元素可能被调换位置</code></pre><h5 id="选择排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#选择排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="选择排序算法基本思想，算法代码及基本的时间复杂度分析"></a>选择排序算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
 </blockquote>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void Selection_Sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    for(i=0; i&lt;N; i++)&#123;</span><br><span class="line">        MinPosition = ScanForMin(A, i, N-1); // 从A[i]到A[N-1]中找最小元，并将其位置赋给MinPosition</span><br><span class="line">        Swap(A[i], A[MinPostion]); // 将末排序部分的最小元换到有序部分的最后位置</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>冒泡排序，就是把每一个元素和下一个元素进行比较和交换，使得较大的元素像气泡一样向右侧移动这样一来，每一轮操作都可以把最大元素移动到最右侧，经过多轮操作，无序的数列称为了升序数列，冒泡排序有一个很大的弊端，就是元素交换次数太多了。频繁的数组元素交换意味着更多的内存读写操作，严重影响了代码运行效率
+
+每一轮选出最小者直接交换到左侧的思路，就是选择排序的思路，这种排序的最大优势就是省去了多余的元素交换。
+
+选择排序存在一个明显问题，就是不稳定性也就是说，当数列包含多个值相等的元素时，选择排序有可能打乱它们的原有顺序。
+
+repeat (numOfElements - 1) times 重复(元素个数 - 1)次
+set the first unsorted element as the minum 把第一个没有排序过的元素设置为最小值
+for each of the unsorted elements 遍历每个没有排序过的元素
+    if element &lt; currentMinimum 如果元素 &lt; 现在的最小值
+        set element as new minimum 将此元素设置成为新的最小值
+swap minimum with first unsorted position 将最小值和第一个没有排序过的位置交换
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void Selection_Sort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    for(i=0; i&lt;N; i++)&#123;</span><br><span class="line">        MinPosition = ScanForMin(A, i, N-1); // 从A[i]到A[N-1]中找最小元，并将其位置赋给MinPosition</span><br><span class="line">        Swap(A[i], A[MinPostion]); // 将末排序部分的最小元换到有序部分的最后位置</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 无论如何： T = cita(N^2)  如何快速找到最小元？ 这个地方用到了堆排序
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">void Swap( ElementType *a, ElementType *b )</span><br><span class="line">&#123;</span><br><span class="line">    ElementType t = *a; *a = *b; *b = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void PercDown( ElementType A[], int p, int N )</span><br><span class="line">&#123;   /* 改编代码4.24的PercDown( MaxHeap H, int p )    */</span><br><span class="line">    /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"></span><br><span class="line">    X = A[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; (Parent*2+1)&lt;N; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2 + 1;</span><br><span class="line">        if( (Child!=N-1) &amp;&amp; (A[Child]&lt;A[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= A[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            A[Parent] = A[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    A[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void HeapSort( ElementType A[], int N ) </span><br><span class="line">&#123; /* 堆排序 */</span><br><span class="line">    int i;</span><br><span class="line">    </span><br><span class="line">    for ( i=N/2-1; i&gt;=0; i-- )/* 建立最大堆 */</span><br><span class="line">        PercDown( A, i, N );</span><br><span class="line">    </span><br><span class="line">    for ( i=N-1; i&gt;0; i-- ) &#123;</span><br><span class="line">        /* 删除最大堆顶 */</span><br><span class="line">        Swap( &amp;A[0], &amp;A[i] ); /* 见代码7.1 */</span><br><span class="line">        PercDown( A, 0, i );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h5 id="快速排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#快速排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="快速排序算法基本思想，算法代码及基本的时间复杂度分析"></a>快速排序算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="合并排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#合并排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="合并排序算法基本思想，算法代码及基本的时间复杂度分析"></a>合并排序算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="基数排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序算法基本思想，算法代码及基本的时间复杂度分析</h5><h4 id="五、图"><a href="#五、图" class="headerlink" title="五、图"></a>五、图</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">void Swap( ElementType *a, ElementType *b )</span><br><span class="line">&#123;</span><br><span class="line">    ElementType t = *a; *a = *b; *b = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void PercDown( ElementType A[], int p, int N )</span><br><span class="line">&#123;   /* 改编代码4.24的PercDown( MaxHeap H, int p )    */</span><br><span class="line">    /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */</span><br><span class="line">    int Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"></span><br><span class="line">    X = A[p]; /* 取出根结点存放的值 */</span><br><span class="line">    for( Parent=p; (Parent*2+1)&lt;N; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * 2 + 1;</span><br><span class="line">        if( (Child!=N-1) &amp;&amp; (A[Child]&lt;A[Child+1]) )</span><br><span class="line">            Child++;  /* Child指向左右子结点的较大者 */</span><br><span class="line">        if( X &gt;= A[Child] ) break; /* 找到了合适位置 */</span><br><span class="line">        else  /* 下滤X */</span><br><span class="line">            A[Parent] = A[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    A[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void HeapSort( ElementType A[], int N ) </span><br><span class="line">&#123; /* 堆排序 */</span><br><span class="line">    int i;</span><br><span class="line">    </span><br><span class="line">    for ( i=N/2-1; i&gt;=0; i-- )/* 建立最大堆 */</span><br><span class="line">        PercDown( A, i, N );</span><br><span class="line">    </span><br><span class="line">    for ( i=N-1; i&gt;0; i-- ) &#123;</span><br><span class="line">        /* 删除最大堆顶 */</span><br><span class="line">        Swap( &amp;A[0], &amp;A[i] ); /* 见代码7.1 */</span><br><span class="line">        PercDown( A, 0, i );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h5 id="快速排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#快速排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="快速排序算法基本思想，算法代码及基本的时间复杂度分析"></a>快速排序算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<pre><code>快速排序是从冒泡排序演变过来的算法，但是比冒泡排序要高效的多，所以叫做快速排序。快速排序之所以快速，是因为它使用了分治法。同冒泡排序一样，快速排序也属于交换排序，通过元素之间的比较和交换位置来达到排序的目的。不同的是，冒泡排序在每一轮只把一个元素冒泡到数列的一端，而快速排序在每一轮挑选一个基准元素，并让其他比它大元素移动到数列的另一边，从而把数列拆解成了两个部分。这种思想就叫做分治法。在分治法的思想下原数列在每一轮被拆解分成两部分，每一部分在下一轮又分别被拆分成两部分，直到不可再分为止。</code></pre></blockquote>
+<pre><code>**分而治之**</code></pre><p><img src="/images/%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B.png" alt="分而治之"></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void Quicksort(ElementType A[], int N)</span><br><span class="line">&#123;</span><br><span class="line">    if(N &lt; 2) return; // 如果只有一个元素，直接return</span><br><span class="line">    pivot = 从A[]中选一个元 // ？怎么选主元</span><br><span class="line">    将S = &#123; A[] \ pivot &#125; 分成2个独立子集：// ？怎么分子集</span><br><span class="line">        A1 = &#123; a∈S | a&lt;= pivot &#125; 和</span><br><span class="line">        A2 = &#123; a∈S | a&lt;= pivot &#125;;</span><br><span class="line"></span><br><span class="line">    A[] = Quicksort(A1, N1) ∪ &#123;pivot&#125; ∪ Quicksort(A2, N2);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+什么是快速排序算法的最好的情况？
+每次正好中分 =&gt; T(N) = O(NlogN)
+
+平均情况下需要logn轮，因此快速排序算法的平均时间复杂度是O(nlogn)
+
+那么基准元素是如何选出呢？又如何把其他元素移动到基准元素的两端呢？
+基准元素的选择，以及元素的移动，都是快速排序的核心问题。
+
+**选主元**
+-  最简单的方式是选择数列的第一个元素 令pivot = A[0]
+        这种选择在绝大多数情况下是没问题的，但是假如有一个原本逆序或顺序的数列，期望排序成顺序序列，整个数列并没有被分成一半一半，每一轮仅仅确定了基准元素的位置，这种情况下数列第一个要么是最小值，要么是最大值，根本无法发挥分治法的优势，在这种极端情况下，快速排序需要进行N轮，时间复杂度化成了O(N^2)</code></pre><p><img src="/images/%E9%80%89%E4%B8%BB%E5%85%83.png" alt="选主元"></p>
+<pre><code>-  可以不选择数列第一个元素，而是随机选择一个元素作为基准元素 rand()函数不便宜
+        这样一来，即使在数列完全逆序的情况下，也可以有效地将数列分成两部分，当然即使是随机选择基准元素，每次也有极小的几率选到数列的最大值或最小值，同样会影响分治的效果。
+-   取头、中、尾的中位数
+        例如 8、12、3的中位数就是8
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ElementType Median3(ElementType A[], int Left, int Right)</span><br><span class="line">&#123;</span><br><span class="line">    int Center = (Left + Right) / 2;</span><br><span class="line">    if(A[Left] &gt; A[Center])</span><br><span class="line">        Swap(&amp;A[Left], &amp;A[Center]);</span><br><span class="line">    if(A[Left] &gt; A[Right])</span><br><span class="line">        Swap(&amp;A[Left], &amp;A[Right]);</span><br><span class="line">    if(A[Center] &gt; A[Right])</span><br><span class="line">        Swap(&amp;A[Center], &amp;A[Right]);</span><br><span class="line">    // A[Left] &lt;= A[Center] &lt;= A[Right]</span><br><span class="line">    Swap(&amp;A[Center], &amp;A[Right - 1]); // 将pivot藏到右边</span><br><span class="line">    // 只需要考虑A[Left + 1]  …… A[Right - 2]</span><br><span class="line"></span><br><span class="line">    return A[Right - 1] ;// 返回pivot</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+**子集划分**</code></pre><p><img src="/images/%E5%AD%90%E9%9B%86%E5%88%92%E5%88%86.png" alt="子集划分"></p>
+<pre><code>如果有元素正好等pivot怎么办？ 停下来交换
+
+快速排序的问题：
+    用递归
+    对于小规模的数据(例如N不到100)可能还不如插入排序快
+
+
+解决方案
+    - 当递归的数据规模充分小，则停止递归，直接调用简单排序（例如插入排序）
+    - 在程序中定义一个Cutoff的阈值
+
+
+一次排序就会把主元放到正确的位置上，以后也不会移动，这也是快速排序快的原因
+
+算法实现
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// 快速排序</span><br><span class="line">ElementType Median3(ElementType A[], int Left, int Right)&#123;</span><br><span class="line">    int Center = (Left + Right) /2;</span><br><span class="line">    if(A[ left ] &gt; A[ Center ]) Swap(&amp;A[ Left ], &amp;A[ Center ]);</span><br><span class="line">    if(A[ left ] &gt; A[ Right ]) Swap(&amp;A[ Left ], &amp;A[ Right ]);</span><br><span class="line">    if(A[ Center ] &gt; A[ Right ]) Swap(&amp;A[ Center ], &amp;A[ Right ]);</span><br><span class="line">    // 此时A[ Left ] &lt; A[ Center ] &lt; A[ Right ]</span><br><span class="line">    Swap(&amp;A[ Center ], &amp;A[ Right-1 ]); // 将基准pivot藏到右边</span><br><span class="line">    // 只需要考虑A[Left + 1]...A[Right -2]</span><br><span class="line">    return A[Right - 1]; // 返回基准Pivot</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Qsort(ElementType A[], int Left, int Right)&#123;</span><br><span class="line">    // 核心递归函数</span><br><span class="line">    int Pivot, Cutoff, Low, High;</span><br><span class="line">    if( Cutoff &lt;= Right - Left)&#123; // 阈值，如果序列元素充分多，做快速排序</span><br><span class="line">        Pivot = Median3(A, Left, Right); // 选主元 选基准</span><br><span class="line">        Low = Left; High = Right - 1; // 划分子集</span><br><span class="line">        while (1)&#123; // 将序列中比基准小的移动到基准的左边，大的移到右边</span><br><span class="line">            while (A[ ++Low ] &lt; Pivot) &#123; &#125;</span><br><span class="line">            while (A[ --Right ] &gt; Pivot) &#123; &#125;</span><br><span class="line">            if(Low &lt; High) Swap(&amp;A[Low], &amp;A[High]);</span><br><span class="line">            else break;</span><br><span class="line">        &#125;</span><br><span class="line">        // 然后把pivot放到正确的位置,将基准换到正确的位置</span><br><span class="line">        Swap(&amp;A[Low], &amp;A[Right-1]); // 把藏到Right-1 上的主元换到A[i]上去</span><br><span class="line">        // 递归排序自集 主元在i的位置上</span><br><span class="line">        Qsort(A, Left, Low-1); // 递归解决左半子集</span><br><span class="line">        Qsort(A, Low+1, Right); // 递归解决右半子集</span><br><span class="line">    &#125; else &#123; // 否则做插入排序 数据太少用简单排序</span><br><span class="line">        Insertion_Sort(A+Lfet, Right-left+1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用一个壳套住 </span><br><span class="line">void QuickSort(ElementType A[], int N)</span><br><span class="line">&#123; // 统一接口</span><br><span class="line">    Qsort(A, 0, N-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><h5 id="合并排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#合并排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="合并排序算法基本思想，算法代码及基本的时间复杂度分析"></a>合并排序算法基本思想，算法代码及基本的时间复杂度分析</h5><h5 id="基数排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序算法基本思想，算法代码及基本的时间复杂度分析</h5><h4 id="五、图"><a href="#五、图" class="headerlink" title="五、图"></a>五、图</h4><blockquote>
 <p>  内容：<br>        图的基本概念<br>        图的存储结构<br>            - 邻接矩阵<br>            - 邻接表<br>        图的遍历<br>            - 广度优先遍历<br>            - 深度优先遍历；<br>        最小生成树基本概念<br>            - Prim算法<br>            - Kruskal算法<br>        最短路径问题<br>            - 广度优先遍历算法<br>            - Dijkstra算法<br>            - Floyd算法；<br>        拓扑排序</p>
 </blockquote>
 <h5 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h5><p><img src="/images/%E5%9B%BE%E7%9A%84%E5%BC%95%E4%BE%8B.png" alt="图的引例"><br>    从陈家村到张家村，怎么走最快呢？ 图最经典的最短路径问题<br>    怎么修公路使的村村通的花费最少呢？ 图最经典的最小生成树问题<br>    边可以理解为一种关系<br><img src="/images/%E5%9C%B0%E9%93%81%E7%BA%BF%E8%B7%AF.png" alt="地铁线路"></p>
@@ -3266,7 +3347,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.2k</span>
+    <span title="Site words total count">52.5k</span>
   
 </div>
 
