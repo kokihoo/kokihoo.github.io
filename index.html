@@ -1094,8 +1094,8 @@ re.M /re.MULTILINE | 多行匹配标记
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-22T18:36:11+08:00">
-                2019-11-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-25T16:48:48+08:00">
+                2019-11-25
               </time>
             
           </span>
@@ -1133,7 +1133,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  29k
+                  32.3k
                 </span>
               
 
@@ -1149,7 +1149,7 @@ re.M /re.MULTILINE | 多行匹配标记
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  121
+                  134
                 </span>
               
             </div>
@@ -2039,7 +2039,57 @@ T(N) = O(NlogN)
 
 
 Merge Sort是稳定的
-主要用于外排，不用于内排</code></pre><h5 id="基数排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序算法基本思想，算法代码及基本的时间复杂度分析</h5><h4 id="五、图"><a href="#五、图" class="headerlink" title="五、图"></a>五、图</h4><blockquote>
+主要用于外排，不用于内排</code></pre><h5 id="基数排序算法基本思想，算法代码及基本的时间复杂度分析"><a href="#基数排序算法基本思想，算法代码及基本的时间复杂度分析" class="headerlink" title="基数排序算法基本思想，算法代码及基本的时间复杂度分析"></a>基数排序算法基本思想，算法代码及基本的时间复杂度分析</h5><blockquote>
+<p>  仅仅基于比较进行的排序下界O(NlogN)<br>    在介绍基数排序之间先介绍一下桶排序</p>
+</blockquote>
+<pre><code>【例】假设我们有N个学生，他们的成绩是0到100之间的整数(于是有M=101个不同的成绩值)。如何在线性时间内将学生按成绩排序？
+设立101个桶
+        0  1  2  ……        100
+count  
+101个空链表对应101个桶
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void Bucket_Sort(ElementType A[], int N)&#123;</span><br><span class="line">    count[] 舒适化; // 舒适化101个桶</span><br><span class="line">    while (读入1个学生成绩grade)</span><br><span class="line">        将该生插入count[grade]链表;</span><br><span class="line">    // 输出</span><br><span class="line">    for(i=0; i&lt;M; i++)&#123; // 扫描每一个桶</span><br><span class="line">        if(count[i])</span><br><span class="line">            输出整个count[i]链表;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+T(N, M) = O(M+N)
+如果M&gt;&gt;N,该怎么办？
+
+【例】假设我们有N=10个整数，每个整数的值在0到999之间(于是有M=1000个不同的值)。还有可能在线性时间内排序吗？
+这个时候就要用到基数排序了，为什么叫基数，基数就是进制的基数，我们在说2进制的数的时候基数就是2，8进制的时候基数就等于8，10进制基数就等于10。充分利用基数建桶
+
+输入序列： 64 8 216 512 27 729 0 1 343 125
+用“次位优先”(Least Significant Digit) LSD算法 看 216这个数， 个位6位最次位， 百位数2为最主位， 次位优先，先从比较次位个位开始
+
+Bucket  0    1     2    3    4    5    6    7    8    9
+// 第一趟排序，考虑个位数把它们放到相应的桶里去
+Pass1   0    1   512  343   64   125  216  27    8   729
+// 第二趟排序，考虑十位数把它们放到相应的桶里去
+Pass2   0   512   125       343        64
+        1   216    27
+        8         729
+// 第三趟排序，考虑上一次的结果，用链表串起来，然后考虑百位数放到相应的桶里去
+Pass3   0   125   216  343       512       729
+        1
+        8
+       27                              
+       64
+// 扫描每一个桶，然后把结果串到一个链表里
+=》 0 1 8 27 64 125 216 343 512 729 整个数列就是有序的了</code></pre><p><img src="/images/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F.png" alt="基数排序"></p>
+<pre><code>整个次位优先算法的时间复杂度是多少呢？
+T = O(P(N+B)):
+P: 排序趟数 logB
+N：待排序个数
+B：桶的个数
+桶的个数跟N的个数相比大概是一个什么数量级；当桶的个数非常小的情况下，差不多是线性复杂度
+
+【多关键字排序】 一副扑克牌是按2种关键字排序的
+花色 面值 (花色为主关键字、面值为次关键字排序)</code></pre><p><img src="/images/%E5%9F%BA%E6%95%B0%E5%85%B3%E9%94%AE%E5%AD%97%E6%8E%92%E5%BA%8F.png" alt="基数关键字排序"></p>
+<pre><code>=&gt; 用“主位优先”(Most Significant Digit) 排序：为花色建4个桶</code></pre><p><img src="/images/%E5%9F%BA%E6%95%B0%E5%85%B3%E9%94%AE%E5%AD%97%E6%8E%92%E5%BA%8F01.png" alt="基数关键字排序01"></p>
+<pre><code>=&gt; 用“次位优先”(Least Significant Digit) 排序：为面值建13个桶</code></pre><p><img src="/images/%E5%9F%BA%E6%95%B0%E5%85%B3%E9%94%AE%E5%AD%97%E6%8E%92%E5%BA%8F02.png" alt="基数关键字排序02"><br>    将结果合并，然后再为花色建4个桶</p>
+<pre><code>问题：LSD任何时候都比MSD快吗？
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 次位优先 */</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span><br><span class="line">#define MaxDigit 4</span><br><span class="line">#define Radix 10</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;;</span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line"></span><br><span class="line">int GetDigit ( int X, int D )</span><br><span class="line">&#123; /* 默认次位D=1, 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line">    </span><br><span class="line">    for (i=1; i&lt;=D; i++) &#123;</span><br><span class="line">        d = X % Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LSDRadixSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 基数排序 - 次位优先 */</span><br><span class="line">    int D, Di, i;</span><br><span class="line">    Bucket B;</span><br><span class="line">    PtrToNode tmp, p, List = NULL; </span><br><span class="line">    </span><br><span class="line">    for (i=0; i&lt;Radix; i++) /* 初始化每个桶为空链表 */</span><br><span class="line">        B[i].head = B[i].tail = NULL;</span><br><span class="line">    for (i=0; i&lt;N; i++) &#123; /* 将原始序列逆序存入初始链表List */</span><br><span class="line">        tmp = (PtrToNode)malloc(sizeof(struct Node));</span><br><span class="line">        tmp-&gt;key = A[i];</span><br><span class="line">        tmp-&gt;next = List;</span><br><span class="line">        List = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    /* 下面开始排序 */ </span><br><span class="line">    for (D=1; D&lt;=MaxDigit; D++) &#123; /* 对数据的每一位循环处理 */</span><br><span class="line">        /* 下面是分配的过程 */</span><br><span class="line">        p = List;</span><br><span class="line">        while (p) &#123;</span><br><span class="line">            Di = GetDigit(p-&gt;key, D); /* 获得当前元素的当前位数字 */</span><br><span class="line">            /* 从List中摘除 */</span><br><span class="line">            tmp = p; p = p-&gt;next;</span><br><span class="line">            /* 插入B[Di]号桶尾 */</span><br><span class="line">            tmp-&gt;next = NULL;</span><br><span class="line">            if (B[Di].head == NULL)</span><br><span class="line">                B[Di].head = B[Di].tail = tmp;</span><br><span class="line">            else &#123;</span><br><span class="line">                B[Di].tail-&gt;next = tmp;</span><br><span class="line">                B[Di].tail = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        /* 下面是收集的过程 */</span><br><span class="line">        List = NULL; </span><br><span class="line">        for (Di=Radix-1; Di&gt;=0; Di--) &#123; /* 将每个桶的元素顺序收集入List */</span><br><span class="line">            if (B[Di].head) &#123; /* 如果桶不为空 */</span><br><span class="line">                /* 整桶插入List表头 */</span><br><span class="line">                B[Di].tail-&gt;next = List;</span><br><span class="line">                List = B[Di].head;</span><br><span class="line">                B[Di].head = B[Di].tail = NULL; /* 清空桶 */</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /* 将List倒入A[]并释放空间 */</span><br><span class="line">    for (i=0; i&lt;N; i++) &#123;</span><br><span class="line">        tmp = List;</span><br><span class="line">        List = List-&gt;next;</span><br><span class="line">        A[i] = tmp-&gt;key;</span><br><span class="line">        free(tmp);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">/* 基数排序 - 主位优先 */</span><br><span class="line"></span><br><span class="line">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span><br><span class="line"></span><br><span class="line">#define MaxDigit 4</span><br><span class="line">#define Radix 10</span><br><span class="line"></span><br><span class="line">/* 桶元素结点 */</span><br><span class="line">typedef struct Node *PtrToNode;</span><br><span class="line">struct Node&#123;</span><br><span class="line">    int key;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/* 桶头结点 */</span><br><span class="line">struct HeadNode &#123;</span><br><span class="line">    PtrToNode head, tail;</span><br><span class="line">&#125;;</span><br><span class="line">typedef struct HeadNode Bucket[Radix];</span><br><span class="line"></span><br><span class="line">int GetDigit ( int X, int D )</span><br><span class="line">&#123; /* 默认次位D=1, 主位D&lt;=MaxDigit */</span><br><span class="line">    int d, i;</span><br><span class="line">    </span><br><span class="line">    for (i=1; i&lt;=D; i++) &#123;</span><br><span class="line">        d = X%Radix;</span><br><span class="line">        X /= Radix;</span><br><span class="line">    &#125;</span><br><span class="line">    return d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MSD( ElementType A[], int L, int R, int D )</span><br><span class="line">&#123; /* 核心递归函数: 对A[L]...A[R]的第D位数进行排序 */</span><br><span class="line">    int Di, i, j;</span><br><span class="line">    Bucket B;</span><br><span class="line">    PtrToNode tmp, p, List = NULL; </span><br><span class="line">    if (D==0) return; /* 递归终止条件 */</span><br><span class="line">    </span><br><span class="line">    for (i=0; i&lt;Radix; i++) /* 初始化每个桶为空链表 */</span><br><span class="line">        B[i].head = B[i].tail = NULL;</span><br><span class="line">    for (i=L; i&lt;=R; i++) &#123; /* 将原始序列逆序存入初始链表List */</span><br><span class="line">        tmp = (PtrToNode)malloc(sizeof(struct Node));</span><br><span class="line">        tmp-&gt;key = A[i];</span><br><span class="line">        tmp-&gt;next = List;</span><br><span class="line">        List = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    /* 下面是分配的过程 */</span><br><span class="line">    p = List;</span><br><span class="line">    while (p) &#123;</span><br><span class="line">        Di = GetDigit(p-&gt;key, D); /* 获得当前元素的当前位数字 */</span><br><span class="line">        /* 从List中摘除 */</span><br><span class="line">        tmp = p; p = p-&gt;next;</span><br><span class="line">        /* 插入B[Di]号桶 */</span><br><span class="line">        if (B[Di].head == NULL) B[Di].tail = tmp;</span><br><span class="line">        tmp-&gt;next = B[Di].head;</span><br><span class="line">        B[Di].head = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    /* 下面是收集的过程 */</span><br><span class="line">    i = j = L; /* i, j记录当前要处理的A[]的左右端下标 */</span><br><span class="line">    for (Di=0; Di&lt;Radix; Di++) &#123; /* 对于每个桶 */</span><br><span class="line">        if (B[Di].head) &#123; /* 将非空的桶整桶倒入A[], 递归排序 */</span><br><span class="line">            p = B[Di].head;</span><br><span class="line">            while (p) &#123;</span><br><span class="line">                tmp = p;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">                A[j++] = tmp-&gt;key;</span><br><span class="line">                free(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            /* 递归对该桶数据排序, 位数减1 */</span><br><span class="line">            MSD(A, i, j-1, D-1);</span><br><span class="line">            i = j; /* 为下一个桶对应的A[]左端 */</span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MSDRadixSort( ElementType A[], int N )</span><br><span class="line">&#123; /* 统一接口 */</span><br><span class="line">    MSD(A, 0, N-1, MaxDigit); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83.png" alt="排序算法比较"></p>
+<h4 id="五、图"><a href="#五、图" class="headerlink" title="五、图"></a>五、图</h4><blockquote>
 <p>  内容：<br>        图的基本概念<br>        图的存储结构<br>            - 邻接矩阵<br>            - 邻接表<br>        图的遍历<br>            - 广度优先遍历<br>            - 深度优先遍历；<br>        最小生成树基本概念<br>            - Prim算法<br>            - Kruskal算法<br>        最短路径问题<br>            - 广度优先遍历算法<br>            - Dijkstra算法<br>            - Floyd算法；<br>        拓扑排序</p>
 </blockquote>
 <h5 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h5><p><img src="/images/%E5%9B%BE%E7%9A%84%E5%BC%95%E4%BE%8B.png" alt="图的引例"><br>    从陈家村到张家村，怎么走最快呢？ 图最经典的最短路径问题<br>    怎么修公路使的村村通的花费最少呢？ 图最经典的最小生成树问题<br>    边可以理解为一种关系<br><img src="/images/%E5%9C%B0%E9%93%81%E7%BA%BF%E8%B7%AF.png" alt="地铁线路"></p>
@@ -2398,7 +2448,47 @@ T = O(|V|^3)
 尽管采用增量模型比采用瀑布模型和快速原型模型需要更精心的设计，但在设计阶段多付出的劳动将在维护阶段获得回报。
 
 事实上，使用增量模型时开发软件和扩充软件功能（完善性维护）并没有本质区别，都是向现有产品加入新构件的过程。
-从某种意义上说，增量模型本身时自相矛盾的。它一方面要求开发人员把软件看作一个整体，另一方面又要求开发人员把软件看作构件序列，每个构件本质上都独立与另一个构件。除非开发人员有足够的技术 能力协调好这一明显的矛盾，否则用增量模型开发出的产品可能并不令人满意。</code></pre><h6 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h6><h6 id="统一过程模型"><a href="#统一过程模型" class="headerlink" title="统一过程模型"></a>统一过程模型</h6><h5 id="过程评估与CMM-CMMI的基本概念"><a href="#过程评估与CMM-CMMI的基本概念" class="headerlink" title="过程评估与CMM/CMMI的基本概念"></a>过程评估与CMM/CMMI的基本概念</h5><h5 id="敏捷宣言与敏捷过程的特点"><a href="#敏捷宣言与敏捷过程的特点" class="headerlink" title="敏捷宣言与敏捷过程的特点"></a>敏捷宣言与敏捷过程的特点</h5>
+从某种意义上说，增量模型本身时自相矛盾的。它一方面要求开发人员把软件看作一个整体，另一方面又要求开发人员把软件看作构件序列，每个构件本质上都独立与另一个构件。除非开发人员有足够的技术 能力协调好这一明显的矛盾，否则用增量模型开发出的产品可能并不令人满意。</code></pre><h6 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h6><h6 id="统一过程模型"><a href="#统一过程模型" class="headerlink" title="统一过程模型"></a>统一过程模型</h6><h5 id="过程评估与CMM-CMMI的基本概念"><a href="#过程评估与CMM-CMMI的基本概念" class="headerlink" title="过程评估与CMM/CMMI的基本概念"></a>过程评估与CMM/CMMI的基本概念</h5><h6 id="过程评估"><a href="#过程评估" class="headerlink" title="过程评估"></a>过程评估</h6><blockquote>
+<p>  软件过程评估所关注的是软件组织自身内部软件过程的改进问题，目的在于发现缺陷，提出改进的方向。</p>
+</blockquote>
+<h6 id="CMM"><a href="#CMM" class="headerlink" title="CMM"></a>CMM</h6><blockquote>
+<pre><code>CMM能力成熟度模型（Capbility maturity model for Software,CMM）,CMM时国际工人的对软件公司进行成熟度等级认证的重要标准，并不是一个软件生命周期模型，而是改进软件过程的一种策略，它与实际使用的过程模型无关。</code></pre></blockquote>
+<pre><code>软件能力成熟度模型是一种对软件组织在定义、实施、度量、控制和改善其软件过程的实践中各个发展阶段的描述。CMM的核心是把软件开发视为一个过程，并根据这一原则对软件开发和维护进行过程监控和研究，以使其更加科学化、标准化、使企业能够更好的实现商业目标。
+
+能力成熟度模型的基本思想是，因为问题是由管理软件过程的方法不当引起的，所以新软件技术的运用并不会自动提高生产率和软件质量。能力成熟度模型有助于软件开发组织建立一个有规律的、成熟的软件过程。改进后的过程将开发出质量更好的软件，使更多的软件项目免受时间和费用超出之苦。
+
+CMM的用途主要有两个：
+- 软件开发组织用它来改进开发和维护软件的过程
+- 政府或商业企业用它来评价一个特定的软件公司签订软件项目合同的风险</code></pre><h6 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h6><blockquote>
+<pre><code>CMMI（Capability Maturity Model Integration For Software，软件能力成熟度模型集成）将各种能力成熟度模型，即：Software CMM，Systems Eng-CMM、People CMM和Acquisition CMM，整合到同一架构中去，由此建立起包括软件工程、系统工程和软件采购等在内的模型的集成，以解决除软件开发以外的软件系统工程和软件采购工作中的迫切需求。
+CMMI的基本思想
+1、解决软件项目过程改进难度增大的问题
+2、实现软件工程的并行与多学科组合
+3、实现过程改进的最佳效益</code></pre></blockquote>
+<h5 id="敏捷宣言与敏捷过程的特点"><a href="#敏捷宣言与敏捷过程的特点" class="headerlink" title="敏捷宣言与敏捷过程的特点"></a>敏捷宣言与敏捷过程的特点</h5><h6 id="敏捷宣言的特点"><a href="#敏捷宣言的特点" class="headerlink" title="敏捷宣言的特点"></a>敏捷宣言的特点</h6><h6 id="敏捷过程的特点"><a href="#敏捷过程的特点" class="headerlink" title="敏捷过程的特点"></a>敏捷过程的特点</h6><h4 id="二、软件需求"><a href="#二、软件需求" class="headerlink" title="二、软件需求"></a>二、软件需求</h4><h5 id="软件需求的概念"><a href="#软件需求的概念" class="headerlink" title="软件需求的概念"></a>软件需求的概念</h5><blockquote>
+<p>  软件需求<br>    1、用户解决问题或达到目的所需条件或权能Capability<br>    2、系统或系统部件要满足合同、标准、规范、或其他正式规定文档所需具有的条件或权能<br>    3、一种反映上面1、2、所述条件或权能的文档说明。它包括功能性需求及非功能性需求，非功能性需求对设计和实现提出类限制，比如性能要求、质量标准、或者设计限制</p>
+</blockquote>
+<pre><code>软件需求包括三个不同的层次- 业务需求、用户需求和功能需求，也包括非功能需求
+
+业务需求 Business requirement：反映了组织机构或客户对系统、产品高层次的目标要求，它们在项目试图和范围文档中予以说明
+用户需求 User requirement：文档描述用户使用产品必须要完成的任务，这在使用实例（use case）文档或方案脚本（scenario）说明中予以说明
+功能需求 Function requirement：定义了开发人员必须实现的软件功能，使得用户能完成他们的任务，从而满足类业务需求。所谓特性feature是指逻辑上相关的功能需求的集合，给用户提供处理能力并满足业务需求。
+非功能需求：作为不充，软件需求规格说明还应包括非功能需求，它描述类系统展现给用户的行为和执行的操作等。它包括产品必须遵从的标准、规范和合约；外部界面的具体细节；性能要求；设计或实现的约束条件及质量属性。所谓约束是指开发人员在软件产品设计和构造上的限制。质量属性是通过多种角度对产品的特点进行描述，从而反映产品功能。多角度描述产品对用户和开发人员都极为重要。值得注意的一点的是，需求并未包括设计细节、实现细节、项目计划信息或测试信息。需求于这些没有关系，它关注的是充分说明你究竟想开发什么。e</code></pre><h5 id="需求工程的基本过程"><a href="#需求工程的基本过程" class="headerlink" title="需求工程的基本过程"></a>需求工程的基本过程</h5><blockquote>
+<p>  需求获取、需求分析于协商、系统建模、需求规约、需求验证、需求管理</p>
+</blockquote>
+<h5 id="分层数据流模型"><a href="#分层数据流模型" class="headerlink" title="分层数据流模型"></a>分层数据流模型</h5><h5 id="用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）"><a href="#用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）" class="headerlink" title="用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）"></a>用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）</h5><h6 id="用例图-use-case-diagram"><a href="#用例图-use-case-diagram" class="headerlink" title="用例图 use-case diagram"></a>用例图 use-case diagram</h6><blockquote>
+<p>  用例是对系统提供的功能（即系统的具体方法）的描述。用例图从用户的角度描述系统功能，并指出各个功能的操作者。用例图定义了系统的功能需求。<br>    在UML中，组成用例图的主要元素是系统、用例、行为者以及用例之间的关系</p>
+</blockquote>
+<h6 id="活动图-activity-diagram"><a href="#活动图-activity-diagram" class="headerlink" title="活动图 activity diagram"></a>活动图 activity diagram</h6><blockquote>
+<p>  活动图描述为满足用例要求而进行的动作以及动作间的关系，活动图是状态图的一个变种，它是另一种描述交互的方法</p>
+</blockquote>
+<h6 id="泳道图-activity-diagram"><a href="#泳道图-activity-diagram" class="headerlink" title="泳道图 activity diagram"></a>泳道图 activity diagram</h6><h6 id="顺序图-sequence-diagram"><a href="#顺序图-sequence-diagram" class="headerlink" title="顺序图 sequence diagram"></a>顺序图 sequence diagram</h6><blockquote>
+<p>  顺序图显示若干个对象间的动态协作关系，它强调对象之间发送消息的先后次序，描述对象之间的交互过程。</p>
+</blockquote>
+<h5 id="数据模型建模及其UML表达（类图）"><a href="#数据模型建模及其UML表达（类图）" class="headerlink" title="数据模型建模及其UML表达（类图）"></a>数据模型建模及其UML表达（类图）</h5><blockquote>
+<p>  calss diagram<br>    类图不仅定义系统中的类，表示类与类之间的关系（如关联、依赖、泛化、细化等关系），也表示类的内部结构（类的属性和操作）。类图描述的是一种静态关系，在系统的整个生命周期内都是有效的</p>
+</blockquote>
+<h5 id="行为模型建模及其UML表达（状态机图）"><a href="#行为模型建模及其UML表达（状态机图）" class="headerlink" title="行为模型建模及其UML表达（状态机图）"></a>行为模型建模及其UML表达（状态机图）</h5><h4 id="三、软件设计与构造"><a href="#三、软件设计与构造" class="headerlink" title="三、软件设计与构造"></a>三、软件设计与构造</h4><h5 id="软件体系结构及体系结构风格的概念"><a href="#软件体系结构及体系结构风格的概念" class="headerlink" title="软件体系结构及体系结构风格的概念"></a>软件体系结构及体系结构风格的概念</h5><h5 id="设计模式的概念"><a href="#设计模式的概念" class="headerlink" title="设计模式的概念"></a>设计模式的概念</h5><h5 id="模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）"><a href="#模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）" class="headerlink" title="模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）"></a>模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）</h5><h5 id="软件重构的概念"><a href="#软件重构的概念" class="headerlink" title="软件重构的概念"></a>软件重构的概念</h5><h5 id="软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）"><a href="#软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）" class="headerlink" title="软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）"></a>软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）</h5><h5 id="接口的概念"><a href="#接口的概念" class="headerlink" title="接口的概念"></a>接口的概念</h5><h5 id="面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）"><a href="#面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）" class="headerlink" title="面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）"></a>面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）</h5><h5 id="内聚与耦合的概念、常见的内聚和耦合类型"><a href="#内聚与耦合的概念、常见的内聚和耦合类型" class="headerlink" title="内聚与耦合的概念、常见的内聚和耦合类型"></a>内聚与耦合的概念、常见的内聚和耦合类型</h5><h4 id="四、软件测试"><a href="#四、软件测试" class="headerlink" title="四、软件测试"></a>四、软件测试</h4><h5 id="软件测试及测试用例的概念"><a href="#软件测试及测试用例的概念" class="headerlink" title="软件测试及测试用例的概念"></a>软件测试及测试用例的概念</h5><h5 id="单元测试、集成测试、确认测试、系统测试、回归测试的概念"><a href="#单元测试、集成测试、确认测试、系统测试、回归测试的概念" class="headerlink" title="单元测试、集成测试、确认测试、系统测试、回归测试的概念"></a>单元测试、集成测试、确认测试、系统测试、回归测试的概念</h5><h5 id="调试的概念、调试与测试的关系"><a href="#调试的概念、调试与测试的关系" class="headerlink" title="调试的概念、调试与测试的关系"></a>调试的概念、调试与测试的关系</h5><h5 id="测试覆盖度的概念"><a href="#测试覆盖度的概念" class="headerlink" title="测试覆盖度的概念"></a>测试覆盖度的概念</h5><h5 id="白盒测试、黑盒测试的概念"><a href="#白盒测试、黑盒测试的概念" class="headerlink" title="白盒测试、黑盒测试的概念"></a>白盒测试、黑盒测试的概念</h5><h5 id="代码圈复杂度的计算方法"><a href="#代码圈复杂度的计算方法" class="headerlink" title="代码圈复杂度的计算方法"></a>代码圈复杂度的计算方法</h5><h5 id="白盒测试测试中的基本路径测试方法"><a href="#白盒测试测试中的基本路径测试方法" class="headerlink" title="白盒测试测试中的基本路径测试方法"></a>白盒测试测试中的基本路径测试方法</h5><h5 id="黑盒测试中的等价类划分方法"><a href="#黑盒测试中的等价类划分方法" class="headerlink" title="黑盒测试中的等价类划分方法"></a>黑盒测试中的等价类划分方法</h5>
           
         
       
@@ -3378,7 +3468,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">53.8k</span>
+    <span title="Site words total count">57.1k</span>
   
 </div>
 
