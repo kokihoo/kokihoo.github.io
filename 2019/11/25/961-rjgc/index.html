@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第二部分 软件工程一、软件过程软件过程的概念；   软件工程过程是为了获得高质量软件所需要完成的一系列任务的框架，它规定了完成各项任务的工作步骤。    在完成开发任务时必须要进行一些开发活动，并且使用适当的资源（人员、时间、计算机硬件、软件工具等），在过程结束时将输入（如软件需求）转化为输出（如软件产品），因此ISO9000把过程定义为“把输入传化为输出的一组彼此相关的资源和活动”。过程定义了运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KOKI">
+<meta property="og:url" content="http://yoursite.com/2019/11/25/961-rjgc/index.html">
+<meta property="og:site_name" content="KOKI">
+<meta property="og:description" content="第二部分 软件工程一、软件过程软件过程的概念；   软件工程过程是为了获得高质量软件所需要完成的一系列任务的框架，它规定了完成各项任务的工作步骤。    在完成开发任务时必须要进行一些开发活动，并且使用适当的资源（人员、时间、计算机硬件、软件工具等），在过程结束时将输入（如软件需求）转化为输出（如软件产品），因此ISO9000把过程定义为“把输入传化为输出的一组彼此相关的资源和活动”。过程定义了运">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-25T10:17:57.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KOKI">
+<meta name="twitter:description" content="第二部分 软件工程一、软件过程软件过程的概念；   软件工程过程是为了获得高质量软件所需要完成的一系列任务的框架，它规定了完成各项任务的工作步骤。    在完成开发任务时必须要进行一些开发活动，并且使用适当的资源（人员、时间、计算机硬件、软件工具等），在过程结束时将输入（如软件需求）转化为输出（如软件产品），因此ISO9000把过程定义为“把输入传化为输出的一组彼此相关的资源和活动”。过程定义了运">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/25/961-rjgc/">
+
+
+
+
+
+  <title> | KOKI</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5ecac7771fad0fda5191a255b9e3f5c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KOKI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/961-rjgc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KOKI HOO">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/bekjae.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOKI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-25T18:17:54+08:00">
+                2019-11-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-25T18:17:57+08:00">
+                2019-11-25
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/11/25/961-rjgc/" class="leancloud_visitors" data-flag-title>
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="第二部分-软件工程"><a href="#第二部分-软件工程" class="headerlink" title="第二部分 软件工程"></a>第二部分 软件工程</h3><h4 id="一、软件过程"><a href="#一、软件过程" class="headerlink" title="一、软件过程"></a>一、软件过程</h4><h5 id="软件过程的概念；"><a href="#软件过程的概念；" class="headerlink" title="软件过程的概念；"></a>软件过程的概念；</h5><blockquote>
+<p>  软件工程过程是为了获得高质量软件所需要完成的一系列任务的框架，它规定了完成各项任务的工作步骤。<br>    在完成开发任务时必须要进行一些开发活动，并且使用适当的资源（人员、时间、计算机硬件、软件工具等），在过程结束时将输入（如软件需求）转化为输出（如软件产品），因此ISO9000把过程定义为“把输入传化为输出的一组彼此相关的资源和活动”。过程定义了运用方法的顺序、应该交付的文档资料、为保证软件质量和协调变化所需要采取的管理措施，以及标志软件开发各个阶段任务完成的里程碑。为获得高质量的软件产品，软件过程必须科学、合理。</p>
+</blockquote>
+<pre><code>讲述在软件生命周期的过程中应该完成的基本任务，并介绍各种常用的过程模型。</code></pre><h5 id="经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）"><a href="#经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）" class="headerlink" title="经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）"></a>经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）</h5><h6 id="瀑布模型-waterfull-model"><a href="#瀑布模型-waterfull-model" class="headerlink" title="瀑布模型 waterfull model"></a>瀑布模型 waterfull model</h6><blockquote>
+<p>瀑布模型一直是唯一被广泛采用的生命周期模型。现在它仍是软件工程中应用最广泛的过程模型。<br>    收集需求<br>        |<br>        分析<br>            |<br>            设计<br>                |<br>                编码<br>                    |<br>                    测试<br>                        |<br>                        维护<br>    按照传统的瀑布模型来开发软件，有如下几个特点：<br>    1、阶段间具有顺序性和依赖性<br>    这个特点有两重含义：<br>        - 必须等前一阶段的工作完成之后，才能开始后一阶段的工作<br>        - 前一阶段的输出文档就是后一阶段的输入文档。<br>            因此只有前一个阶段的输出文档正确，后一阶段的工作才能获得正确的结果 。<br>            但是，万一在生命周期某一阶段发现了问题，很可能需要追溯到在它之前的一些阶段，必要时还要修改已经完成的文档。<br>            然而，在生命周期后期改正早期阶段造成的问题，需要付出更高的代价，<br>    2、推迟实现的观点<br>        实践表明，对于规模较大的软件项目来说，往往编码开始开始的越早最终完成开发工作所需要的时间反而越长。这是因为，前面阶段的工作没做或做得不扎实，过早地考虑进行程序实现，往往导致大量返工，有时甚至发生无法弥补的问题，带来灾难性后果。<br>        瀑布模型在编码之前设置了系统分析和系统设计的各个阶段，分析与设计阶段的基本任务规定，在这两个阶段主要考虑目标系统的逻辑模型，不涉及软件的物理实现。</p>
+</blockquote>
+<pre><code>    清楚地区分逻辑设计与物理设计，尽可能推迟程序的物理实现，是按照瀑布模型开发软件的一条重要的指导思想。
+3、质量保证的观点
+    为了保证所开发软件的质量，在瀑布模型的每个阶段都要坚持两个重要做法，
+    - 每个阶段都必须完成规定的文档，没有交出合格的文档就是没有完成该阶段的任务。完成准确合格文档不仅是软件开发时期各类人员之间相互通信的媒介，也是运行时期对软件进行 维护的重要依据
+    - 每个阶段结束 都要对所完成的 文档进行评审，以便尽早发现问题，改正错误。事实上，越是早期阶段犯下的错误，暴露出来的时间就越晚，排除故障改正 错误所需付出的代价也越高。因此，及时审查，是保证 软件质量，降低软件成本的重要措施。
+
+    传统的瀑布模型过于理想化，事实上人在工作过程中不可能不犯错误。在设计阶段可能发现规格说明文档中的错误，而设计上的缺陷或错误可能在实现过程中显现出来，在综合测试阶段将发现需求分析/设计或编码阶段的许多错误。因此，实际的瀑布模型时带“反馈环”的。
+
+    当在后面阶段发现前面阶段的错误时，需要沿图中左侧的反馈线返回前面的阶段，修正前面阶段的产品之后再回来继续完成后面阶段的任务</code></pre><h6 id="增量模型"><a href="#增量模型" class="headerlink" title="增量模型"></a>增量模型</h6><blockquote>
+<p>增量模型也称为渐增模型，使用增量模型开发软件时，把软件产品作为一系列增量构件来设计、编码、集成和测试。<br>    每个构件由多个相互作用的模块构成，并且能够完成特定的功能。<br>        使用增量模型时：<br>            第1个增量构件往往实现软件的基本需求，提供最核心的功能。<br>            （如在使用增量模型开发字处理软件时，第一个增量构件可能提供基本的文件管理、编辑、和文档生成功能）<br>            第2个增量构件提供更完善的编辑和文档生成功能时<br>            第3个增量构件实现拼写和语法检查功能<br>            第4个增量构件完成高级的页面排版功能。<br>        把软件产品分解成增量构件时，应该使构件的规模适中，规模过大或过小都不好。<br>        分解时唯一必须遵守的约束条件是：当把新构件集成到现有软件中时，所形成的产品必须是可测试的。<br>            分析-》设计-》编码 -》测试</p>
+</blockquote>
+<pre><code>增量模型分批地逐步向用户提交产品，每次提交一个满足用户需求子集的可运行的产品。整个产品被分解成许多个增量构件，开发人员一个构件接一个构件地向用户提交产品。每次用户都得到一个满足部分需求的可运行的产品，直到最后一次得到满足全部需求的完整产品。
+
+优点：
+- 能在较短时间内向用户提交完成一些有用的工作的产品
+- 逐步增加产品功能可以使用户有较充裕的时间学习和适应新产品，从而减少一个全新的软件可能给客户组织带来的冲击
+
+使用增量模型的困难时，在把每个新的增量构件集成到现有的软件体系结构中时，必须不破坏原来已经开发出的产品。
+此外，必须把软件的体系设计得便于按这种方式进行扩充，向现有产品中加入新构件过程必须简单、方便。
+也就是说，软件体系结构必须时开放的。
+从长远观点看，具有开发结构的软件拥有真正的优势，这种软件的可维护性明显好于封闭结构的软件。
+尽管采用增量模型比采用瀑布模型和快速原型模型需要更精心的设计，但在设计阶段多付出的劳动将在维护阶段获得回报。
+
+事实上，使用增量模型时开发软件和扩充软件功能（完善性维护）并没有本质区别，都是向现有产品加入新构件的过程。
+从某种意义上说，增量模型本身时自相矛盾的。它一方面要求开发人员把软件看作一个整体，另一方面又要求开发人员把软件看作构件序列，每个构件本质上都独立与另一个构件。除非开发人员有足够的技术 能力协调好这一明显的矛盾，否则用增量模型开发出的产品可能并不令人满意。</code></pre><h6 id="演化模型"><a href="#演化模型" class="headerlink" title="演化模型"></a>演化模型</h6><h6 id="统一过程模型"><a href="#统一过程模型" class="headerlink" title="统一过程模型"></a>统一过程模型</h6><h5 id="过程评估与CMM-CMMI的基本概念"><a href="#过程评估与CMM-CMMI的基本概念" class="headerlink" title="过程评估与CMM/CMMI的基本概念"></a>过程评估与CMM/CMMI的基本概念</h5><h6 id="过程评估"><a href="#过程评估" class="headerlink" title="过程评估"></a>过程评估</h6><blockquote>
+<p>  软件过程评估所关注的是软件组织自身内部软件过程的改进问题，目的在于发现缺陷，提出改进的方向。</p>
+</blockquote>
+<h6 id="CMM"><a href="#CMM" class="headerlink" title="CMM"></a>CMM</h6><blockquote>
+<pre><code>CMM能力成熟度模型（Capbility maturity model for Software,CMM）,CMM时国际工人的对软件公司进行成熟度等级认证的重要标准，并不是一个软件生命周期模型，而是改进软件过程的一种策略，它与实际使用的过程模型无关。</code></pre></blockquote>
+<pre><code>软件能力成熟度模型是一种对软件组织在定义、实施、度量、控制和改善其软件过程的实践中各个发展阶段的描述。CMM的核心是把软件开发视为一个过程，并根据这一原则对软件开发和维护进行过程监控和研究，以使其更加科学化、标准化、使企业能够更好的实现商业目标。
+
+能力成熟度模型的基本思想是，因为问题是由管理软件过程的方法不当引起的，所以新软件技术的运用并不会自动提高生产率和软件质量。能力成熟度模型有助于软件开发组织建立一个有规律的、成熟的软件过程。改进后的过程将开发出质量更好的软件，使更多的软件项目免受时间和费用超出之苦。
+
+CMM的用途主要有两个：
+- 软件开发组织用它来改进开发和维护软件的过程
+- 政府或商业企业用它来评价一个特定的软件公司签订软件项目合同的风险</code></pre><h6 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h6><blockquote>
+<pre><code>CMMI（Capability Maturity Model Integration For Software，软件能力成熟度模型集成）将各种能力成熟度模型，即：Software CMM，Systems Eng-CMM、People CMM和Acquisition CMM，整合到同一架构中去，由此建立起包括软件工程、系统工程和软件采购等在内的模型的集成，以解决除软件开发以外的软件系统工程和软件采购工作中的迫切需求。
+CMMI的基本思想
+1、解决软件项目过程改进难度增大的问题
+2、实现软件工程的并行与多学科组合
+3、实现过程改进的最佳效益</code></pre></blockquote>
+<h5 id="敏捷宣言与敏捷过程的特点"><a href="#敏捷宣言与敏捷过程的特点" class="headerlink" title="敏捷宣言与敏捷过程的特点"></a>敏捷宣言与敏捷过程的特点</h5><h6 id="敏捷宣言的特点"><a href="#敏捷宣言的特点" class="headerlink" title="敏捷宣言的特点"></a>敏捷宣言的特点</h6><h6 id="敏捷过程的特点"><a href="#敏捷过程的特点" class="headerlink" title="敏捷过程的特点"></a>敏捷过程的特点</h6><h4 id="二、软件需求"><a href="#二、软件需求" class="headerlink" title="二、软件需求"></a>二、软件需求</h4><h5 id="软件需求的概念"><a href="#软件需求的概念" class="headerlink" title="软件需求的概念"></a>软件需求的概念</h5><blockquote>
+<p>  软件需求<br>    1、用户解决问题或达到目的所需条件或权能Capability<br>    2、系统或系统部件要满足合同、标准、规范、或其他正式规定文档所需具有的条件或权能<br>    3、一种反映上面1、2、所述条件或权能的文档说明。它包括功能性需求及非功能性需求，非功能性需求对设计和实现提出类限制，比如性能要求、质量标准、或者设计限制</p>
+</blockquote>
+<pre><code>软件需求包括三个不同的层次- 业务需求、用户需求和功能需求，也包括非功能需求
+
+业务需求 Business requirement：反映了组织机构或客户对系统、产品高层次的目标要求，它们在项目试图和范围文档中予以说明
+用户需求 User requirement：文档描述用户使用产品必须要完成的任务，这在使用实例（use case）文档或方案脚本（scenario）说明中予以说明
+功能需求 Function requirement：定义了开发人员必须实现的软件功能，使得用户能完成他们的任务，从而满足类业务需求。所谓特性feature是指逻辑上相关的功能需求的集合，给用户提供处理能力并满足业务需求。
+非功能需求：作为不充，软件需求规格说明还应包括非功能需求，它描述类系统展现给用户的行为和执行的操作等。它包括产品必须遵从的标准、规范和合约；外部界面的具体细节；性能要求；设计或实现的约束条件及质量属性。所谓约束是指开发人员在软件产品设计和构造上的限制。质量属性是通过多种角度对产品的特点进行描述，从而反映产品功能。多角度描述产品对用户和开发人员都极为重要。值得注意的一点的是，需求并未包括设计细节、实现细节、项目计划信息或测试信息。需求于这些没有关系，它关注的是充分说明你究竟想开发什么。e</code></pre><h5 id="需求工程的基本过程"><a href="#需求工程的基本过程" class="headerlink" title="需求工程的基本过程"></a>需求工程的基本过程</h5><blockquote>
+<p>  需求获取、需求分析于协商、系统建模、需求规约、需求验证、需求管理</p>
+</blockquote>
+<h5 id="分层数据流模型"><a href="#分层数据流模型" class="headerlink" title="分层数据流模型"></a>分层数据流模型</h5><h5 id="用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）"><a href="#用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）" class="headerlink" title="用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）"></a>用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）</h5><h6 id="用例图-use-case-diagram"><a href="#用例图-use-case-diagram" class="headerlink" title="用例图 use-case diagram"></a>用例图 use-case diagram</h6><blockquote>
+<p>  用例是对系统提供的功能（即系统的具体方法）的描述。用例图从用户的角度描述系统功能，并指出各个功能的操作者。用例图定义了系统的功能需求。<br>    在UML中，组成用例图的主要元素是系统、用例、行为者以及用例之间的关系</p>
+</blockquote>
+<h6 id="活动图-activity-diagram"><a href="#活动图-activity-diagram" class="headerlink" title="活动图 activity diagram"></a>活动图 activity diagram</h6><blockquote>
+<p>  活动图描述为满足用例要求而进行的动作以及动作间的关系，活动图是状态图的一个变种，它是另一种描述交互的方法</p>
+</blockquote>
+<h6 id="泳道图-activity-diagram"><a href="#泳道图-activity-diagram" class="headerlink" title="泳道图 activity diagram"></a>泳道图 activity diagram</h6><h6 id="顺序图-sequence-diagram"><a href="#顺序图-sequence-diagram" class="headerlink" title="顺序图 sequence diagram"></a>顺序图 sequence diagram</h6><blockquote>
+<p>  顺序图显示若干个对象间的动态协作关系，它强调对象之间发送消息的先后次序，描述对象之间的交互过程。</p>
+</blockquote>
+<h5 id="数据模型建模及其UML表达（类图）"><a href="#数据模型建模及其UML表达（类图）" class="headerlink" title="数据模型建模及其UML表达（类图）"></a>数据模型建模及其UML表达（类图）</h5><blockquote>
+<p>  calss diagram<br>    类图不仅定义系统中的类，表示类与类之间的关系（如关联、依赖、泛化、细化等关系），也表示类的内部结构（类的属性和操作）。类图描述的是一种静态关系，在系统的整个生命周期内都是有效的</p>
+</blockquote>
+<h5 id="行为模型建模及其UML表达（状态机图）"><a href="#行为模型建模及其UML表达（状态机图）" class="headerlink" title="行为模型建模及其UML表达（状态机图）"></a>行为模型建模及其UML表达（状态机图）</h5><h4 id="三、软件设计与构造"><a href="#三、软件设计与构造" class="headerlink" title="三、软件设计与构造"></a>三、软件设计与构造</h4><h5 id="软件体系结构及体系结构风格的概念"><a href="#软件体系结构及体系结构风格的概念" class="headerlink" title="软件体系结构及体系结构风格的概念"></a>软件体系结构及体系结构风格的概念</h5><h5 id="设计模式的概念"><a href="#设计模式的概念" class="headerlink" title="设计模式的概念"></a>设计模式的概念</h5><h5 id="模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）"><a href="#模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）" class="headerlink" title="模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）"></a>模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）</h5><h5 id="软件重构的概念"><a href="#软件重构的概念" class="headerlink" title="软件重构的概念"></a>软件重构的概念</h5><h5 id="软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）"><a href="#软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）" class="headerlink" title="软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）"></a>软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）</h5><h5 id="接口的概念"><a href="#接口的概念" class="headerlink" title="接口的概念"></a>接口的概念</h5><h5 id="面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）"><a href="#面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）" class="headerlink" title="面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）"></a>面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）</h5><h5 id="内聚与耦合的概念、常见的内聚和耦合类型"><a href="#内聚与耦合的概念、常见的内聚和耦合类型" class="headerlink" title="内聚与耦合的概念、常见的内聚和耦合类型"></a>内聚与耦合的概念、常见的内聚和耦合类型</h5><h4 id="四、软件测试"><a href="#四、软件测试" class="headerlink" title="四、软件测试"></a>四、软件测试</h4><h5 id="软件测试及测试用例的概念"><a href="#软件测试及测试用例的概念" class="headerlink" title="软件测试及测试用例的概念"></a>软件测试及测试用例的概念</h5><h5 id="单元测试、集成测试、确认测试、系统测试、回归测试的概念"><a href="#单元测试、集成测试、确认测试、系统测试、回归测试的概念" class="headerlink" title="单元测试、集成测试、确认测试、系统测试、回归测试的概念"></a>单元测试、集成测试、确认测试、系统测试、回归测试的概念</h5><h5 id="调试的概念、调试与测试的关系"><a href="#调试的概念、调试与测试的关系" class="headerlink" title="调试的概念、调试与测试的关系"></a>调试的概念、调试与测试的关系</h5><h5 id="测试覆盖度的概念"><a href="#测试覆盖度的概念" class="headerlink" title="测试覆盖度的概念"></a>测试覆盖度的概念</h5><h5 id="白盒测试、黑盒测试的概念"><a href="#白盒测试、黑盒测试的概念" class="headerlink" title="白盒测试、黑盒测试的概念"></a>白盒测试、黑盒测试的概念</h5><h5 id="代码圈复杂度的计算方法"><a href="#代码圈复杂度的计算方法" class="headerlink" title="代码圈复杂度的计算方法"></a>代码圈复杂度的计算方法</h5><h5 id="白盒测试测试中的基本路径测试方法"><a href="#白盒测试测试中的基本路径测试方法" class="headerlink" title="白盒测试测试中的基本路径测试方法"></a>白盒测试测试中的基本路径测试方法</h5><h5 id="黑盒测试中的等价类划分方法"><a href="#黑盒测试中的等价类划分方法" class="headerlink" title="黑盒测试中的等价类划分方法"></a>黑盒测试中的等价类划分方法</h5>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/23/Tableau/" rel="next" title="Tableau">
+                <i class="fa fa-chevron-left"></i> Tableau
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/bekjae.jpg" alt="KOKI HOO">
+            
+              <p class="site-author-name" itemprop="name">KOKI HOO</p>
+              <p class="site-description motion-element" itemprop="description">PEACE&LOVE</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分-软件工程"><span class="nav-number">1.</span> <span class="nav-text">第二部分 软件工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、软件过程"><span class="nav-number">1.1.</span> <span class="nav-text">一、软件过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#软件过程的概念；"><span class="nav-number">1.1.1.</span> <span class="nav-text">软件过程的概念；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）"><span class="nav-number">1.1.2.</span> <span class="nav-text">经典软件过程模型的特点（瀑布模型、增量模型、演化模型、统一过程模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#瀑布模型-waterfull-model"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">瀑布模型 waterfull model</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#增量模型"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">增量模型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#演化模型"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">演化模型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#统一过程模型"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">统一过程模型</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过程评估与CMM-CMMI的基本概念"><span class="nav-number">1.1.3.</span> <span class="nav-text">过程评估与CMM/CMMI的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#过程评估"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">过程评估</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CMM"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">CMM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CMMI"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">CMMI</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#敏捷宣言与敏捷过程的特点"><span class="nav-number">1.1.4.</span> <span class="nav-text">敏捷宣言与敏捷过程的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#敏捷宣言的特点"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">敏捷宣言的特点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#敏捷过程的特点"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">敏捷过程的特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、软件需求"><span class="nav-number">1.2.</span> <span class="nav-text">二、软件需求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#软件需求的概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">软件需求的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#需求工程的基本过程"><span class="nav-number">1.2.2.</span> <span class="nav-text">需求工程的基本过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分层数据流模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">分层数据流模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）"><span class="nav-number">1.2.4.</span> <span class="nav-text">用例和场景建模及其UML表达（用例图、活动图、泳道图、顺序图）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#用例图-use-case-diagram"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">用例图 use-case diagram</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#活动图-activity-diagram"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">活动图 activity diagram</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#泳道图-activity-diagram"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">泳道图 activity diagram</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#顺序图-sequence-diagram"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">顺序图 sequence diagram</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据模型建模及其UML表达（类图）"><span class="nav-number">1.2.5.</span> <span class="nav-text">数据模型建模及其UML表达（类图）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行为模型建模及其UML表达（状态机图）"><span class="nav-number">1.2.6.</span> <span class="nav-text">行为模型建模及其UML表达（状态机图）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、软件设计与构造"><span class="nav-number">1.3.</span> <span class="nav-text">三、软件设计与构造</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#软件体系结构及体系结构风格的概念"><span class="nav-number">1.3.1.</span> <span class="nav-text">软件体系结构及体系结构风格的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设计模式的概念"><span class="nav-number">1.3.2.</span> <span class="nav-text">设计模式的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）"><span class="nav-number">1.3.3.</span> <span class="nav-text">模块化设计的基本思想及概念（抽象、分解、模块化、封装、信息隐藏、功能独立）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件重构的概念"><span class="nav-number">1.3.4.</span> <span class="nav-text">软件重构的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）"><span class="nav-number">1.3.5.</span> <span class="nav-text">软件体系结构的UML建模（包图、类图、构件图、顺序图、部署图）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口的概念"><span class="nav-number">1.3.6.</span> <span class="nav-text">接口的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）"><span class="nav-number">1.3.7.</span> <span class="nav-text">面向对象设计原则（开闭原则、Liskov替换原则、依赖转置原则、接口隔离原则）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内聚与耦合的概念、常见的内聚和耦合类型"><span class="nav-number">1.3.8.</span> <span class="nav-text">内聚与耦合的概念、常见的内聚和耦合类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、软件测试"><span class="nav-number">1.4.</span> <span class="nav-text">四、软件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#软件测试及测试用例的概念"><span class="nav-number">1.4.1.</span> <span class="nav-text">软件测试及测试用例的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单元测试、集成测试、确认测试、系统测试、回归测试的概念"><span class="nav-number">1.4.2.</span> <span class="nav-text">单元测试、集成测试、确认测试、系统测试、回归测试的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调试的概念、调试与测试的关系"><span class="nav-number">1.4.3.</span> <span class="nav-text">调试的概念、调试与测试的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#测试覆盖度的概念"><span class="nav-number">1.4.4.</span> <span class="nav-text">测试覆盖度的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#白盒测试、黑盒测试的概念"><span class="nav-number">1.4.5.</span> <span class="nav-text">白盒测试、黑盒测试的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码圈复杂度的计算方法"><span class="nav-number">1.4.6.</span> <span class="nav-text">代码圈复杂度的计算方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#白盒测试测试中的基本路径测试方法"><span class="nav-number">1.4.7.</span> <span class="nav-text">白盒测试测试中的基本路径测试方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#黑盒测试中的等价类划分方法"><span class="nav-number">1.4.8.</span> <span class="nav-text">黑盒测试中的等价类划分方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KOKI HOO</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">59.4k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jD3hLxRDgCSdorrir1RFkW3R-gzGzoHsz", "9AOQX6uUKthSSONK5UO95RGd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
