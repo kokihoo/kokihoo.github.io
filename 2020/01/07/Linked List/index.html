@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="DB,">
+  <meta name="keywords" content="数据结构,">
 
 
 
@@ -79,18 +79,35 @@
 
 
 
-<meta name="description" content="项目里有用到memcached ，想对比Redis看一下，这里的区别，以及这两个服务的应用场景是什么。  Redis Redis是一个开源使用ANSIC语言编写，遵循BSD协议，支持网络，可基于内存亦可持久化的日志型，Key-Value数据库，并提供多种语言的API它通常被称为数据结构服务器，因为值（value）可以是字符串（String），哈希（Map），列表（list），集合（sets）和有">
-<meta name="keywords" content="DB">
+<meta name="description" content="IntroductionWe are going to introduce another data structure - Linked List. Similar to the array, the linked list is also a linear data structure . Here is an example: AS you can see, each element in">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis memcached">
-<meta property="og:url" content="http://yoursite.com/2019/08/12/redis_memcached/index.html">
+<meta property="og:title" content="链表">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/Linked List/index.html">
 <meta property="og:site_name" content="KOKI">
-<meta property="og:description" content="项目里有用到memcached ，想对比Redis看一下，这里的区别，以及这两个服务的应用场景是什么。  Redis Redis是一个开源使用ANSIC语言编写，遵循BSD协议，支持网络，可基于内存亦可持久化的日志型，Key-Value数据库，并提供多种语言的API它通常被称为数据结构服务器，因为值（value）可以是字符串（String），哈希（Map），列表（list），集合（sets）和有">
+<meta property="og:description" content="IntroductionWe are going to introduce another data structure - Linked List. Similar to the array, the linked list is also a linear data structure . Here is an example: AS you can see, each element in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-12T06:46:31.390Z">
+<meta property="og:image" content="http://yoursite.com/images/linkedlist.png">
+<meta property="og:image" content="http://yoursite.com/images/doublyLinkedList.png">
+<meta property="og:image" content="http://yoursite.com/images/singlyLinkedList.png">
+<meta property="og:image" content="http://yoursite.com/images/addNodeSinglyList.png">
+<meta property="og:image" content="http://yoursite.com/images/addSinglyList2.png">
+<meta property="og:image" content="http://yoursite.com/images/addSinglyLinkList.png">
+<meta property="og:image" content="http://yoursite.com/images/singlyexample.png">
+<meta property="og:image" content="http://yoursite.com/images/addSinglyLinkListAfter.png">
+<meta property="og:image" content="http://yoursite.com/images/addHeadSinglyLinkedList.png">
+<meta property="og:image" content="http://yoursite.com/images/addHeadSinglyLinkedList2.png">
+<meta property="og:image" content="http://yoursite.com/images/deleteSinglyLinkedList.png">
+<meta property="og:image" content="http://yoursite.com/images/deleteSinglyLinkedList2.png">
+<meta property="og:image" content="http://yoursite.com/images/deleteSinglyListExample.png">
+<meta property="og:image" content="http://yoursite.com/images/deleteSinglyLinkListExample2.png">
+<meta property="og:image" content="http://yoursite.com/images/deleteFirstLinkedList.png">
+<meta property="og:image" content="http://yoursite.com/images/deleteHeadFirstLinkedList2.png">
+<meta property="og:updated_time" content="2020-01-09T02:44:40.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis memcached">
-<meta name="twitter:description" content="项目里有用到memcached ，想对比Redis看一下，这里的区别，以及这两个服务的应用场景是什么。  Redis Redis是一个开源使用ANSIC语言编写，遵循BSD协议，支持网络，可基于内存亦可持久化的日志型，Key-Value数据库，并提供多种语言的API它通常被称为数据结构服务器，因为值（value）可以是字符串（String），哈希（Map），列表（list），集合（sets）和有">
+<meta name="twitter:title" content="链表">
+<meta name="twitter:description" content="IntroductionWe are going to introduce another data structure - Linked List. Similar to the array, the linked list is also a linear data structure . Here is an example: AS you can see, each element in">
+<meta name="twitter:image" content="http://yoursite.com/images/linkedlist.png">
 
 
 
@@ -120,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/12/redis_memcached/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/07/Linked List/">
 
 
 
 
 
-  <title>redis memcached | KOKI</title>
+  <title>链表 | KOKI</title>
   
 
 
@@ -283,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/redis_memcached/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/Linked List/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KOKI HOO">
@@ -300,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">redis memcached</h1>
+          <h1 class="post-title" itemprop="name headline">链表</h1>
         
 
         <div class="post-meta">
@@ -312,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T11:21:11+08:00">
-                2019-08-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-07T17:11:20+08:00">
+                2020-01-07
               </time>
             
 
@@ -328,13 +345,35 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T14:46:31+08:00">
-                2019-08-12
+              <time title="更新于" itemprop="dateModified" datetime="2020-01-09T10:44:40+08:00">
+                2020-01-09
               </time>
             
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -342,7 +381,7 @@
 
           
           
-             <span id="/2019/08/12/redis_memcached/" class="leancloud_visitors" data-flag-title="redis memcached">
+             <span id="/2020/01/07/Linked List/" class="leancloud_visitors" data-flag-title="链表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -367,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  603
+                  1.3k
                 </span>
               
 
@@ -383,7 +422,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  7
                 </span>
               
             </div>
@@ -404,25 +443,58 @@
       
 
       
-        <blockquote>
-<p>项目里有用到memcached ，想对比Redis看一下，这里的区别，以及这两个服务的应用场景是什么。</p>
-</blockquote>
-<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><blockquote>
-<p>Redis是一个开源使用ANSIC语言编写，遵循BSD协议，支持网络，可基于内存亦可持久化的日志型，Key-Value数据库，并提供多种语言的API<br>它通常被称为数据结构服务器，因为值（value）可以是字符串（String），哈希（Map），列表（list），集合（sets）和有序集合（stored sets）等类型。</p>
-</blockquote>
-<p>Redis是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
-<p>Redis与其他key-value缓存产品有一下三个特点：</p>
-<ul>
-<li>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，<strong>重启的时候可以再次加载进行使用</strong>。</li>
-<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供了list，set，zset，hash等数据结构的存储。</li>
-<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
-</ul>
-<p>Redis 优势：<br>性能极高- Redis能读的速度是110000次/s，写的速度是81000次/s.<br>丰富的数据类型 - Redis支持二进制案例的，Strings，lists，Hashes，Sets及Ordered Sets数据类型操作。<br>原子 - Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行。<br>丰富的特性 - Redis还支持publish/subscribe，通知，key过期等等特性。</p>
-<p>Redis与其他Key-value存储有什么不同</p>
-<pre><code>Redis有这更为复杂的数据结构，并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径，Redis的数据类型都是基于基本数据结构的同时对程序员透明，无需进行额外的抽象。
+        <h6 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h6><p>We are going to introduce another data structure - Linked List.</p>
+<p>Similar to the array, the linked list is also a linear data structure . Here is an example:<br><img src="/images/linkedlist.png" alt="链表"></p>
+<p>AS you can see, each element in the linked list is actually a separate object while all the objects are linked together by the reference field in each element.</p>
+<p>There are two types of linked list: singly linked list and doubly linked list. The example above is a singly linked list and here is an example of doubly linked<br><img src="/images/doublyLinkedList.png" alt="双链表"></p>
+<p>We will introduce more in later chapters, you wil:<br>    - Understand the structure of singly linked list and doubly linked list<br>    - Implement traversal, insertion, deletion in a singly or doubly linked list<br>    - Analyze the complexity of different operations in a singly or doubly linked list<br>    - Use two-pointer technique (fast-pointers-slow-pointer technique) in the linked list<br>    - Slove classic problems such as reverse a linked list<br>    - Analyze the complexity of the algorithms you designed<br>    - Accumulate experience in designing and debugging</p>
+<h6 id="Singly-Linked-List"><a href="#Singly-Linked-List" class="headerlink" title="Singly Linked List"></a>Singly Linked List</h6><p>As we mentioned in the overview, linked list is a linear data structure which link all the sepearated elements together by the reference field. There are two commonly-used linked list: singly-linked list and doubly-linked list.</p>
+<p>In this chapter, we will start with the singly-linked list and help you:<br>    - Understand the structure of the singly-linked list;<br>    - Perform traversal, insertion and deletion in a singly-linked list<br>    - Analyze the time complexity of different operations in the singly-linked list</p>
+<p>####### Introduction - Singly Linked List<br>Each node in a singly-linked list contains not only the value but also a reference field to link to the next node.<br>By this way, the singly-linked list organizes all the nodes in a sequence.</p>
+<p>Here is an example of a singly-linked list:<br><img src="/images/singlyLinkedList.png" alt="单链表"><br>The blue arrows show how nodes in a singly linked list are combined together</p>
+<p>Node Structure<br>here is the typical definition of a node in a singly-linked list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// C++</span><br><span class="line">// Definition for singly-linked list</span><br><span class="line">struct SinglyListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    SinglyListNode *next;</span><br><span class="line">    SinglyListNode(int x): val(x), next(NULL) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据集进行高速读写时需要权衡内存，应为数据量不能大于硬件内存，在内存数据库方面的另一个优点是，相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单，这样Redis可以做很多内部复杂性很强的事情。同时，在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问。</code></pre><h3 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h3><blockquote>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Java</span><br><span class="line">// Definition for singly-linked list</span><br><span class="line">public class SinglyListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    SinglyListNode next;</span><br><span class="line">    SinglyListNode(int x) &#123; val = x&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In most cases, we will use the head node(the first node) to represent the whole list.</p>
+<p>Operation</p>
+<p>Unlike the array, we are not able to access a random element in a singly-linked list in constant time If we want to get the ith element, we have to traverse from the head node one by one. It takes us O(N) time on average to visit an element by index, where N is the length of the linked list.</p>
+<p>For instance, in the example above , the head node is node 23. The only way to visit the 3rd node is to use the “next” field of the head node to get to the 2nd node(node 6); Then with the “next” field of node 6, we are able to visit the 3rd node,</p>
+<p>You might wonder why the linked list is useful though it has such a bad performance (compared to the array) in accessing data by index. We will inroduce the insert and delete operations in next two articles and you will realize the benefit of the linked list</p>
+<p>After that, we provide an exceise for you to design your own singly linked list.</p>
+<p>######## Add Operation - Singly Linked List<br>If we want to add a new value after a given node prev, we should:</p>
+<ol>
+<li>Initialize a new node cur with the given value;<br><img src="/images/addNodeSinglyList.png" alt="单链表添加操作1"></li>
+<li>Linke the “next” field of cur to prev’s next node next;<br><img src="/images/addSinglyList2.png" alt="单链表添加操作2"></li>
+<li>Link the “next” filed in prev to cur<br><img src="/images/addSinglyLinkList.png" alt="单链表添加操作3"></li>
+</ol>
+<p>Unlike an array, we don’t need to move all elements past the instead element Therefore, you can insert a new node into a linked list in O(1) time complexity, which is very efficent.</p>
+<p>######### Example<br><img src="/images/singlyexample.png" alt="例子"><br>Let’s insert a new value 9 after the second node 6.</p>
+<p>We will first initialize a new node with value 9.Then link node 9 to node 15. Finally, link node 6 to node 9.</p>
+<p>After insertion, our linked list will look like this:</p>
+<p><img src="/images/addSinglyLinkListAfter.png" alt="例子"></p>
+<p>######### Add a Node at the beginning<br>As we know, we use the head node head to represent the whole list<br>So it is essential to update head when adding a new node at the beginning of the list.<br>    1. Initialize a new node cur<br>    2. Link the new node to our original head node head<br>    3. Assign cur to head</p>
+<p>For example, let’s add a new node 9 at the beginnig of the list.<br>    1.  We initialize a new node 9 and link node 9 to current head node 23<br><img src="/images/addHeadSinglyLinkedList.png" alt="添加头部结点1"><br>    2.  Assign node 9 to be our new head.<br><img src="/images/addHeadSinglyLinkedList2.png" alt="添加头部结点2"></p>
+<p>What about adding a new node at the end of the list? Can we still use similar strategy?</p>
+<p>######## Delete Operation - Singly Linked List<br>If we want to delete an exsiting node cur from the singly linked list, we can do it in two steps:<br>        1.Find cur’s previous node prev and its next node next;<br><img src="/images/deleteSinglyLinkedList.png" alt="删除单链表结点"><br>        2.Link prev to cur’s next node next.<br><img src="/images/deleteSinglyLinkedList2.png" alt="删除单链表结点2"></p>
+<p>In our first step, we need to find out prev and next. It is easy to find out next using th reference filed or cur. However, we have to traverse the linked list from the head node to find out prev which will take O(N) time on average, where N is the length of the linked list. So the time complexity of deleting a node will be O(N).</p>
+<p>The space complexity is O(1) because we only need constant space to store our pointers.</p>
+<p>######### An Example<br><img src="/images/deleteSinglyListExample.png" alt="删除单链表结点示例"><br>Let’s try to delete node 6 from the singly linked list above.</p>
+<ol>
+<li>Traverse the linked list from the head until we find the previous node prev which is node 23</li>
+<li>Link prev(node 23) with next (node 15)</li>
+</ol>
+<p><img src="/images/deleteSinglyLinkListExample2.png" alt="删除单链表结点示例2"><br>Node 6 is not in our singly linked list now.</p>
+<p>######### Delete the First Node<br>If we want to delete the first node, the strategy will be a little different.</p>
+<p>As we mentioned before, we use the head node head to represent a linked list. Our head is the black node 23 in the example below.<br><img src="/images/deleteFirstLinkedList.png" alt="删除首个结点"></p>
+<p>If we want to delete the first node, we can simply assin the next node to head. That is to say, our head will be node 6 after deletion</p>
+<p><img src="/images/deleteHeadFirstLinkedList2.png" alt="删除首个结点2"></p>
+<p>The linked list begins at the head node, so node 23 is no longer in our linked list.</p>
+<p>What about deleting the last node? Can we still use similar strategy?</p>
+<p>######### Design Linked List</p>
+<p>Design your implementation of the linked list, you can choose to use the singly linkd list or the doubly linked list. A node in a singly linked list should have two attributes: [val] and [next]. val is the value of the current node, and next is a pointer/reference to the next node. If you want to use the doubly linked list, you will need one more attribute [prev] to indicate the previous node in the linked list. Assume all nodes in the linked list are 0-indexed.</p>
+<p>Implement these functions in your linked list class:<br>    - get(index): Get the value of the index-th node in the linked list. If the index  is invalid, return -1.<br>    - addAtHead(val): Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.<br>    - addAtTail(val): Append a node of value val to the last element of linked list</p>
 
       
     </div>
@@ -440,7 +512,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
       
         <div class="post-tags">
           
-            <a href="/tags/DB/" rel="tag"># DB</a>
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -453,15 +525,15 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/11/25/961-rjgc/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/12/docker/" rel="prev" title="docker">
-                docker <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +670,7 @@ Redis运行在内存中，但是可以持久化到磁盘，所以对不同数据
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memcached"><span class="nav-number">2.</span> <span class="nav-text">memcached</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Singly-Linked-List"><span class="nav-number">2.</span> <span class="nav-text">Singly Linked List</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍在数组中，我们可以通过索引访问随机元素，但是，在某些情况下，我们可能想要限制处理顺序。  有两种不同的处理顺序，先入先出和后入先出，以及两个相应数据结构：队列和栈  以下将详细介绍每个数据结构的定义、实现以及内置函数，然后将更多地关注两种这两种数据结构的实际应用。  1、了解FIFO和LIFO处理顺序的原理 2、实现这两个数据结构 3、熟悉内置的队列和栈结构 4、解决基本的队列相关问题，尤其是">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="队列和栈">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/QueueAndStack/index.html">
+<meta property="og:site_name" content="KOKI">
+<meta property="og:description" content="介绍在数组中，我们可以通过索引访问随机元素，但是，在某些情况下，我们可能想要限制处理顺序。  有两种不同的处理顺序，先入先出和后入先出，以及两个相应数据结构：队列和栈  以下将详细介绍每个数据结构的定义、实现以及内置函数，然后将更多地关注两种这两种数据结构的实际应用。  1、了解FIFO和LIFO处理顺序的原理 2、实现这两个数据结构 3、熟悉内置的队列和栈结构 4、解决基本的队列相关问题，尤其是">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/%E9%98%9F%E5%88%97.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%85%A5%E9%98%9F%E5%89%8D.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%85%A5%E9%98%9F%E5%90%8E.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%87%BA%E9%98%9F%E5%89%8D.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%87%BA%E9%98%9F%E5%90%8E.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%85%A5%E9%98%9F%E7%BC%BA%E7%82%B9.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%87%BA%E9%98%9F%E7%BC%BA%E7%82%B9.png">
+<meta property="og:updated_time" content="2020-01-07T09:08:23.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="队列和栈">
+<meta name="twitter:description" content="介绍在数组中，我们可以通过索引访问随机元素，但是，在某些情况下，我们可能想要限制处理顺序。  有两种不同的处理顺序，先入先出和后入先出，以及两个相应数据结构：队列和栈  以下将详细介绍每个数据结构的定义、实现以及内置函数，然后将更多地关注两种这两种数据结构的实际应用。  1、了解FIFO和LIFO处理顺序的原理 2、实现这两个数据结构 3、熟悉内置的队列和栈结构 4、解决基本的队列相关问题，尤其是">
+<meta name="twitter:image" content="http://yoursite.com/images/%E9%98%9F%E5%88%97.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/23/QueueAndStack/">
+
+
+
+
+
+  <title>队列和栈 | KOKI</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5ecac7771fad0fda5191a255b9e3f5c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KOKI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/QueueAndStack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KOKI HOO">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/bekjae.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOKI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">队列和栈</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T10:57:58+08:00">
+                2019-08-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-01-07T17:08:23+08:00">
+                2020-01-07
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/23/QueueAndStack/" class="leancloud_visitors" data-flag-title="队列和栈">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  32
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h5><pre><code>在数组中，我们可以通过索引访问随机元素，但是，在某些情况下，我们可能想要限制处理顺序。
+
+有两种不同的处理顺序，先入先出和后入先出，以及两个相应数据结构：队列和栈
+
+以下将详细介绍每个数据结构的定义、实现以及内置函数，然后将更多地关注两种这两种数据结构的实际应用。
+
+1、了解FIFO和LIFO处理顺序的原理
+2、实现这两个数据结构
+3、熟悉内置的队列和栈结构
+4、解决基本的队列相关问题，尤其是BFS
+5、理解当使用DFS和其他递归算法来解决问题时，系统栈是如何帮助实现的</code></pre><h6 id="Queue-First-in-first-out-Data-Structure"><a href="#Queue-First-in-first-out-Data-Structure" class="headerlink" title="Queue - First-in-first-out Data Structure"></a>Queue - First-in-first-out Data Structure</h6><pre><code>先入先出的数据结构
+在FIFO数据结构中，将首先处理添加队列中的第一个元素。</code></pre><p><img src="/images/%E9%98%9F%E5%88%97.png" alt="队列"><br>    如上图所示，队列是典型的FIFO数据结。插入insert操作也称作入队enqueue，新元素始终被添加在队列的末尾。删除delete操作也被称作dequeue。只能移除第一个元素</p>
+<p>[示例] —— 队列<br>1、入队：Enqueue<br><img src="/images/%E5%85%A5%E9%98%9F%E5%89%8D.png" alt="入队前"> =&gt; <img src="/images/%E5%85%A5%E9%98%9F%E5%90%8E.png" alt="入队后">     </p>
+<p>2、出队：Dequeue<br><img src="/images/%E5%87%BA%E9%98%9F%E5%89%8D.png" alt="出队前"> =&gt; <img src="/images/%E5%87%BA%E9%98%9F%E5%90%8E.png" alt="出队后">     </p>
+<p>####### Queue-implement</p>
+<pre><code>为了实现队列，我们可以使用动态数组和指向队列的头部的索引。
+如上所述：队列应支持两种操作: 入队和出队。入队会向队列追加一个新的元素，而出队会删除第一个元素。所以我们需要一个索引来指出起点。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">// c++</span><br><span class="line">#include &lt;isostream&gt;</span><br><span class="line">class MyQueue &#123;</span><br><span class="line">    prviate:</span><br><span class="line">        // store elements</span><br><span class="line">        vector&lt;int&gt; data;</span><br><span class="line">        // a pointer to indicate the start position</span><br><span class="line">        int p_start;</span><br><span class="line"></span><br><span class="line">    public:</span><br><span class="line">        MyQueue() &#123;p_start = 0;&#125;</span><br><span class="line">        // Insert an element into the queue. Return true if the operation is successful</span><br><span class="line">        bool enQueue(int x)&#123;</span><br><span class="line">            data.push_back(x);</span><br><span class="line">        &#125;</span><br><span class="line">        // Delete an element from the queue. Return true if the operation is successful</span><br><span class="line">        bool deQueue()&#123;</span><br><span class="line">            if(isEmpty())&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            p_start++;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        // Get the front item from the queue</span><br><span class="line">        int Front() &#123;</span><br><span class="line">            return data[p_start];</span><br><span class="line">        &#125;</span><br><span class="line">        // checks whether the queue is empty or not</span><br><span class="line">        bool isEmpty()&#123;</span><br><span class="line">            return p_start &gt;= data.size();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    Myqueue q;</span><br><span class="line">    q.enQueue(5);</span><br><span class="line">    q.deQueue(3);</span><br><span class="line">    if(!q.isEmpty())&#123;</span><br><span class="line">        cout &lt;&lt; q.Front() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    q.deQueue();</span><br><span class="line">    if(!q.isEmpty())&#123;</span><br><span class="line">        cout &lt;&lt; q.Front() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    q.deQueue();</span><br><span class="line">    if (!q.isEmpty()) &#123;</span><br><span class="line">        cout &lt;&lt; q.Front() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// java</span><br><span class="line">// “static void main” must be defined in a public class.</span><br><span class="line">class MyQueue &#123;</span><br><span class="line">    // store elements</span><br><span class="line">    private List&lt;Integer&gt; data;</span><br><span class="line">    // a pointer to indicate the start position</span><br><span class="line">    private int p_start;</span><br><span class="line">    public MyQueue() &#123;</span><br><span class="line">        data = new ArrayList&lt;Integer&gt;();</span><br><span class="line">        p_start = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    // Insert an element into the queue. Return true if the operation is successful</span><br><span class="line">    public boolean enQueue(int x) &#123;</span><br><span class="line">        data.add(x);</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    // Delete an element from the queue. Return ture if the operation is successful</span><br><span class="line">    public boolean deQueue() &#123;</span><br><span class="line">        if(isEmpty() == true)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // Get the front item from the queue</span><br><span class="line">    public int Front() &#123;</span><br><span class="line">        return data.get(p_start);</span><br><span class="line">    &#125;</span><br><span class="line">    // Checks whether the queue is empty or not</span><br><span class="line">    public boolean isEmpty() &#123;</span><br><span class="line">        return p_start &gt;= data.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        MyQueue q = new MyQueue();</span><br><span class="line">        q.enQueue(5);</span><br><span class="line">        q.enQueue(3);</span><br><span class="line">        if(q.isEmpty() == false) &#123;</span><br><span class="line">            System.out.println(q.Front());</span><br><span class="line">        &#125;</span><br><span class="line">        q.deQueue();</span><br><span class="line">        if(q.isEmpty() == false) &#123;</span><br><span class="line">            System.out.println(q.Front());</span><br><span class="line">        &#125;</span><br><span class="line">        q.deQueue();</span><br><span class="line">        if(q.isEmpty() == false) &#123;</span><br><span class="line">            System.out.println(q.Front());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+缺点：上面的实现很简单，但在某些情况下效率很低。随着起始指针的移动，会浪费越来越多的空间。当我们有空间限制时，这将是难以接受的。</code></pre><p><img src="/images/%E5%85%A5%E9%98%9F%E7%BC%BA%E7%82%B9.png" alt="入队缺点"></p>
+<pre><code>让我们考虑一种情况，即我们只能分配一个最大长度为5的数组，当我们只添加少于5个元素时，我们的解决方案很有效。例如，如果我们只调用入队函数四次后还想要将元素10入队，那么我们可以成功。
+
+但是我们不能接受更多的入队请求，这是合理的，因为现在队列已经满了，但是如果我们将一个元素出队呢？</code></pre><p><img src="/images/%E5%87%BA%E9%98%9F%E7%BC%BA%E7%82%B9.png" alt="出队缺点"></p>
+<pre><code>实际上，在这种情况下，我们应该能够再接受一个元素</code></pre><p>####### Circular Queue<br>    Previously, we have provided a straightforward but inefficient implementation of queue.<br>    此前我们提供了一种简单但低效的队列实现。<br>    A more efficient way is to use a circular queue. Specifically, we may use a fixed-size array and two pointers to indicate the starting position and the ending position. And the goal is to reuse the wasted storage we mentioned previously.<br>    更有效的方式是使用循环队列，具体来说，我们可以使用固定大小的数组和两个指针来指示起始位置和结束位置，目的是重用我们之前提到的被浪费的存储<br>    Let’s take a look at an example to see how a circular queue works. You should pay attention to the strategy we use to enqueue and dequeue an element.<br>    让我们来看个示例查看循环队列的工作原理。你应该注意我们入队和出队元素时使用的策略。</p>
+<pre><code>Review the animation carefully to figure out the strategy we use to check if a queue is empty or full .
+仔细检查动画，找出我们用来检查队列是空还是满的策略
+For the next exercise, we will let you try to implement the circular queue by yourself and provide a solution later.
+下一个练习，我们将让你自己尝试实现循环队列，之后会提供给你一个解决方案。</code></pre><p>####### Design Circular Queue<br>    Design your implementation of circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO(First In First Out) principle and the last position is connected back to the first position to make a circle. It is also called “Ring Buffer”<br>    设计你的循环队列的实现。循环队列是一种线性数据结构，其操作表现基于FIFO（先进先出）原则并且队尾被连接在队首之后形成一个循环。它也被称为“环形缓冲器”</p>
+<pre><code>One of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.
+循环队列的一个好处是我们可以利用跟这个队列之前用过的空间，在一个普通队列里，一旦一个队列满了，我们就不能插入下一个元素，即使在队列的前面仍有空间，但是使用循环队列，我们能使用这些空间去存储新的值
+
+Your implementation should support following operations:
+-   MycircularQueue(k)：Construtor, set the size of the queue to be k. 构造器，设置队列长度为k
+-   Front: Get the front item from the queue, If the queue is empty, retur -1. 从队首获取元素。如果队列为空，返回-1
+-   Rear: Get the last item from the queue. If the queue is empty, return -1. 获取队尾元素，如果队列为空，返回-1
+-   enQueue(value): Insert an element into the circular queue. Return true if the operation is successful. 向循环队列插入一个元素，如果成功插入则返回真
+-   deQueue(): Delete an elements from the circular queue. Return true if the operation is successful. 从循环队列中删除一个元素。如果成功删除则返回真
+-   isEmpty(): Checks whether the circular queue is empty or not. 检查循环队列是否为空
+-   isFull(): Checks whether the circular queue is full or not. 检查循环队列是否已满
+
+Example:
+    MyCircularQueue circularQueue = new MycircularQueue(3); // set the size to be 3
+    circularQueue.enQueue(1); // return true
+    circularQueue.enQueue(2); // return true
+    circularQueue.enQueue(3); // return ture
+    circularQueue.enQueue(4); // return false, the queue is full
+    circularQueue.Rear(); // return 3
+    circularQueue.isFull(); // return true
+    circularQueue.deQueue(); // return true
+    circularQueue.enQueue(4); // return true
+    circularQueue.Rear(); // return 4</code></pre><p>####### Circular Queue - Implementation</p>
+<pre><code>In a circular queue, we use an array and two pointers, head and tail. head indicates the start position of the queue while tail indicates the ending position of the queue
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">// C++</span><br><span class="line">class MyCircularQueue &#123;</span><br><span class="line">    private:</span><br><span class="line">        vector&lt;int&gt; data:</span><br><span class="line">        int head;</span><br><span class="line">        int tail;</span><br><span class="line">        int size;</span><br><span class="line"></span><br><span class="line">    public:</span><br><span class="line">        // initialize your data structure here. Set the size of the queue to be k</span><br><span class="line">        MyCircularQueue(int k)&#123;</span><br><span class="line">            data.resize(k);</span><br><span class="line">            head = -1;</span><br><span class="line">            tail = -1;</span><br><span class="line">            size = k;</span><br><span class="line">        &#125;</span><br><span class="line">        // Insert an element into the circular queue. Return true if the operation is successful</span><br><span class="line">        bool enQueue(int value) &#123;</span><br><span class="line">            if(isFull()) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            if(isEmpty()) &#123;</span><br><span class="line">                head = 0;</span><br><span class="line">            &#125;</span><br><span class="line">            tail = (tail + 1)%size;</span><br><span class="line">            data[tail] = value;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        // Delete an element from the circular queue. Return true if the operation is successful</span><br><span class="line">        bool deQueue() &#123;</span><br><span class="line">            if(isEmpty()) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            if(head == tail) &#123;</span><br><span class="line">                head = -1;</span><br><span class="line">                tail = -1;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            head = (head + 1) % size;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        // Get the front item from the queue</span><br><span class="line">        int Front() &#123;</span><br><span class="line">            if(isEmpty())&#123;</span><br><span class="line">                return -1;</span><br><span class="line">            &#125;</span><br><span class="line">            return data[head];</span><br><span class="line">        &#125;</span><br><span class="line">        // Get the last item from the queue</span><br><span class="line">        int Rear() &#123;</span><br><span class="line">            if(isEmpty()) &#123;</span><br><span class="line">                return -1</span><br><span class="line">            &#125;</span><br><span class="line">            return data[tail]</span><br><span class="line">        &#125;</span><br><span class="line">        // Checks whether the circular queue is empty or not</span><br><span class="line">        bool isEmpty() &#123;</span><br><span class="line">            return head == -1;</span><br><span class="line">        &#125;</span><br><span class="line">        // Checks whether the circular queue is full or not</span><br><span class="line">        bool isFull() &#123;</span><br><span class="line">            return ((tail + 1) % size) == head;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &lt;!-- MyCircularQueue object will be instantiated and called as such:</span><br><span class="line">        MyCircularQueue obj = new MyCircularQueue(k);</span><br><span class="line">        bool param_1 = obj.enQueue(value);</span><br><span class="line">        bool param_2 = obj.deQueue()</span><br><span class="line">        int param_3 = obj.Front();</span><br><span class="line">        int param_4 = obj.Rear();</span><br><span class="line">        bool param_5 = obj.isEmpty();</span><br><span class="line">        bool param_6 = obj.isFull();  --&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+//java
+class MyCircularQueue{
+    private int[] data;
+    private int head;
+    private int tail;
+    private int size;
+
+    // Initialize your data structure here, Set size of the queue to be k
+    public MyCircularQueue(int k) {
+        data = new int[k];
+        head = -1;
+        tail = -1;
+        size = k;
+    }
+
+    // Insert an element into the circular queue. Return true if the operation is successful
+    public boolean enQueue(int value) {
+        if(isFull() == true) {
+            return false;
+        }
+        if(isEmpty() == true) {
+            head = 0
+        }
+        tail = (tail + 1) % size;
+        data[tail] = value;
+        return true;
+    }
+    // Detele an element from the circular queue. Return true if the operation is successful
+    public boolean deQueue() {
+        if(isEmpty() == true) {
+            return false;
+        }
+        if(head == tail) {
+            head = -1;
+            tail = -1;
+            return true;
+        }
+    }
+    // Get the front item from the queue
+    public int Front() {
+        if(isEmpty() ==  true) {
+            return -1;
+        }
+        return data[head];
+    }
+    // Get the last item from the queue
+    public int Rear() {
+        if(isEmpty() == true) {
+            return -1;
+        }
+        return data[tail];
+    }
+    // check whether the circular queue is full or not
+    public boolean isFull() {
+        return ((tail + 1) % size ) == head; 
+    }
+}
+
+// MyCircularQueue object will be isntianted and called as such
+// MyCircularQueue obj = new MycircularQueue(k);
+// boolean param_1 = obj.enQueue(value);
+// boolean param_2 = obj.deQueue();
+// int param_3 = obj.Front();
+// int param_4 = obj.Rear();
+// boolean param_5 = obj.isEmpty();
+// boolean param_6 = obj.isFull();
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####### Queue - Usage</span><br><span class="line">Most popular languages provide built-in Queue library so you don&apos;t have to reinvent the wheel.</span><br><span class="line"></span><br><span class="line">As mentioned before, the queue has two important operations, enqueue and dequeue. Besides, we should be able to get the first element in a queue since the first element should be processed first.</span><br><span class="line"></span><br><span class="line">Below are some examples of using the built-in Queue library and its common operations:</span><br></pre></td></tr></table></figure>
+
+// C++
+#include &lt;iostream&gt;
+
+int main() {
+    // 1. Initialize a queue.
+    queue&lt;int&gt; q:
+    // 2. Push new element.
+    q.push(5);
+    q.push(13);
+    q.push(8);
+    q.push(6);
+    // 3. Check if queue is empty
+    if(q.empty()){
+        cout &lt;&lt; &quot;Queue is empty!&quot;&lt;&lt; endl;
+        return 0;
+    }
+    // 4. Pop an element
+    q.pop();
+    // 5. Get the first element
+    cout &lt;&lt;&quot;The first element is:&quot;&lt;&lt; q.front() &lt;&lt; endl;
+    // 6. Get the last element
+    cout &lt;&lt; &quot;The last element is:&quot; &lt;&lt; q.back() &lt;&lt;  endl;
+    // 7. Get the size of the queue
+    cout &lt;&lt; &quot;The size is: &quot;&lt;&lt;q.size() &lt;&lt; endl;
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+// Java
+public class Main{
+    public static void main(String[], args){
+        // 1. Intiallize a queue
+        Queue&lt;Integer&gt; q = new LinkedList();
+        // 2. Get the first element - return null if queue is empty
+        System.out.println(&quot;The first element is:&quot; + q.peek());
+        // 3. Push new element
+        q.offer(5);
+        q.offer(13);
+        q.offer(8);
+        q.offer(6);
+        // 4. Pop an element
+        q.poll()
+        // 5. Get the first element
+        System.out.println(&quot;The first element is: &quot; + q.peek());
+        // 7. Get the size of the queue
+        System.out.println(&quot;The size is: &quot; + q.size());
+
+    }
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">    We provide exercise after this article to help you familiarize with these operations. And remember when you want to process the elements in order, using a queue might be a good choice.</span><br><span class="line">    当你想要按顺序处理元素时，使用队列可能是一个很好的选择</span><br><span class="line"></span><br><span class="line">    Moving Average from Data Stream</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">####### Queue and BFS</span><br><span class="line"></span><br><span class="line">One common application of Breadth-first Search(BFD) is to find the shortest path from the root node to the target node. In this article, we provide an example to explain how queue is applied in a BFS algorithm step by step.</span><br><span class="line"></span><br><span class="line">An Example</span><br><span class="line">Here we provide an example to show how BFS is used to find the shortest path between the root node A and the target node G</span><br><span class="line"></span><br><span class="line">[BFS动画演示](https://leetcode.com/explore/learn/card/queue-stack/231/practical-application-queue/1376/)</span><br><span class="line"></span><br><span class="line">Insights</span><br><span class="line">After watching the animation above, let&apos;s answer the following questions:</span><br><span class="line"></span><br><span class="line">1、What is the processing order of the nodes?</span><br><span class="line"></span><br><span class="line">In the first round, we process the root node. In the second round, we process the nodes next to the root node; in third round, we process the nodes which are two steps from the root node; so on and so forth.</span><br><span class="line"></span><br><span class="line">Similar to tree&apos;s level-order traversl, the nodes closer to the root node will be traversed earlier.</span><br><span class="line"></span><br><span class="line">If a node x is added to the queue in the kth round, the length of the shortest path between the root node and x is exactly k, That is to say, you are already in the shortest path the first time you find the target node.</span><br><span class="line"></span><br><span class="line">2、What is the enqueue and dequeue order of the queue?</span><br><span class="line">As shown in the animation above, we first enqueue the root node. Then in each round ,we process the nodes which are already in the queue one by one and add all their neighbors to the queue. It is worth nothing that the newly-added nodes will not be traversed immediately but will be processed in the next round.</span><br><span class="line"></span><br><span class="line">The processing order of the nodes is the exact same order as how they were added to the queue, which is First-in-First-out (FIFO). That&apos;s why we use a queue in BFS.</span><br><span class="line"></span><br><span class="line">####### BFS- template</span><br><span class="line"></span><br><span class="line">    Previously, we have already introduced two ain scenarios of using BFS: do traversal or find the shortest path. Typically, it happends in a tree or a graph. As we mentioned in the chapter description,BFS can also be used in more abstract scenarios.</span><br><span class="line"></span><br><span class="line">    In this article, we will provide you with a tempalte. Then , we provide some exercise after this article for practices.</span><br><span class="line"></span><br><span class="line">    It will be important to determined the nodes and the edges before doing BFS in a specfic question.Typically, the node will be an actual node or a status while the edge will be an actual edge or a possible transition.</span><br><span class="line"></span><br><span class="line">    tempate I</span><br><span class="line">    Here we provide a pseudocode for you as a template</span><br></pre></td></tr></table></figure>
+
+/**
+* Return the length of the shortest path between root and target node.
+*/
+int BFS(Node root, Node target) {
+    Queue&lt;Node&gt; queue;  // store all nodes which are waiting to be processed
+    int step = 0;       // number of steps neeeded from root to current node
+    // initialize
+    add root to queue;
+    // BFS
+    while (queue is not empty) {
+        step = step + 1;
+        // iterate the nodes which are already in the queue
+        int size = queue.size();
+        for (int i = 0; i &lt; size; ++i) {
+            Node cur = the first node in queue;
+            return step if cur is target;
+            for (Node next : the neighbors of cur) {
+                add next to queue;
+            }
+            remove the first node from queue;
+        }
+    }
+    return -1;          // there is no path from root to target
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    1、 As shown in the code, in each round, the nodes in the queue are the nodes which are waiting to be processed.</span><br><span class="line">    2、 After each outer while loop, we are one step farther from the root node. The variable step indicates the distance from the root node and the current node we are visiting.</span><br><span class="line"></span><br><span class="line">    Tempate II </span><br><span class="line">    Sometimes, it is important to make sure that we never visit a node twice. Otherwise, we might get stuck in an infinite loop e.g. in graph with cycle. If so , we can add a hash set to the code above to solve this problem. Here is the pseudocode after modification.</span><br><span class="line"></span><br><span class="line">    // Return the length of the shortest path between root and target node.</span><br><span class="line">    int BFS(Node root, Node target)&#123;</span><br><span class="line">        Queue&lt;Node&gt; queue; // store all nodes which are waiting to be processed</span><br><span class="line">        Set&lt;Node&gt; visited; // store all the nodes that we&apos;ve visited</span><br><span class="line">        int step = 0; // number of steps needed from root to current node</span><br><span class="line">        // initialize</span><br><span class="line">        add root to queue;</span><br><span class="line">        add root to visited;</span><br><span class="line">        // BFS</span><br><span class="line">        while (queue is not empty) &#123;</span><br><span class="line">            step = step + 1;</span><br><span class="line">            // iterate the nodes which are already in the queue</span><br><span class="line">            int size = queue.size();</span><br><span class="line"></span><br><span class="line">            for(int i=0; i&lt;size; i++)&#123;</span><br><span class="line">                Node cur = the first node in queuel</span><br><span class="line">                return step if cur is target;</span><br><span class="line">                for (Node next: the neighbours of cur) &#123;</span><br><span class="line">                    if(next is no in visited) &#123;</span><br><span class="line">                        add next to queue;</span><br><span class="line">                        add next to visited;</span><br><span class="line">                    &#125;</span><br><span class="line">                    remove the first node from queue;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        return -1; // there is no path from root to target</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    There are some cases where one does not need keep the visited hash set:</span><br><span class="line">        1. You are absolutely sure there is no cycle, form example, in tree traversal;</span><br><span class="line">        2. You do want to add the node to the queue multiple times.</span><br><span class="line"></span><br><span class="line">    Walls and Gates</span><br><span class="line">    Number of Islands</span><br><span class="line">    Open the Lock</span><br><span class="line">    Perfect Squares</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###### Stack - Last-in-first-out Data Structure</span><br><span class="line"></span><br><span class="line">![栈](/images/栈.png)</span><br><span class="line"></span><br><span class="line">    In a LIFO data structure, the newest element added to the queue will be processed first.</span><br><span class="line">    Different from the queue, the stack is a LIFO data structure. Typically, the insert operation is called push in a stack. Similar to the queue, a new element is always added at the end of the stack. However, the delete operation, pop will always remove the last element which is opposite from the queue.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">####### Example - Stack</span><br><span class="line"></span><br><span class="line">    1.Push: you can click Push button blow to see how a new element 6 is added to the stack</span><br><span class="line">    2.Pop: you can click Pop button below to see which element will be removed when you pop an element from the stack.</span><br><span class="line"></span><br><span class="line">![push前](/images/push前.png)  -&gt;  ![push后](/images/push后.png) </span><br><span class="line">![pop前](/images/pop前.png)  -&gt;  ![pop后](/images/pop后.png) </span><br><span class="line"></span><br><span class="line">####### Implementation - Stack</span><br><span class="line"></span><br><span class="line">The implementation of a Stack is eaiser than a queue. A dynamic array is sufficient to implement a stack structure. Here we provide a simple implementation for your reference:</span><br></pre></td></tr></table></figure></code></pre><p>// C++<br>class MyStack {<br>    private:<br>        vector<int> data; // store elements<br>    public:<br>        // Insert an element into the stack<br>        void push(int x){<br>            data.push_back(x);<br>        }</int></p>
+<pre><code>//  Checks whether the stack is empty or not
+bool isEmpty() {
+    return data.empty();
+}
+
+// get the top item from the queue
+int top() {
+    return data.back();
+}
+
+// Delete an element from the stack, Return true if the operation is successful
+bool pop() {
+    if (isEmpty()){
+        return false;
+    }
+    data.pop_back();
+    return true;
+}</code></pre><p>};</p>
+<p>int main() {<br>    MyStack s;<br>    s.push(1);<br>    s.push(2);<br>    s.push(3);<br>    for(int i=0; i&lt;4; ++i) {<br>        if(!s.isEmpty()){<br>            cout &lt;&lt; s.top() &lt;&lt; endl;<br>        }<br>        cout &lt;&lt; (s.pop() ? “true” : “false”) &lt;&lt; endl;<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>// Java</p>
+<p>// static void main must be defined in a public class<br>class MyStack{<br>    private List<integer> data;  // store elments<br>    public MyStack() {<br>        data = new ArrayList&lt;&gt;();<br>    }</integer></p>
+<pre><code>// Insert an element into the stack
+public void push(int x) {
+    data.add(x);
+}
+
+// Checks whether the stack is empty or not
+public boolean isEmpty(){
+    return data.isEmpty();
+}
+
+// Get the top item from the stack
+public int top(){
+    return data.get(data.size() - 1);
+}
+
+// Delete an element from the stack. Return true if the operation is successful.
+public boolean pop(){
+    if(isEmpty()){
+        return false;
+    }
+    data.remove(data.size() - 1);
+    return true;
+}</code></pre><p>}</p>
+<p>public class Main{<br>    public static void main(String[] args) {<br>        MyStack s = new MyStack();<br>        s.push(1);<br>        s.push(2);<br>        s.push(3);<br>        for(int i = 0; i&lt;4; ++i) {<br>            if(!s.isEmpty()){<br>                System.out.printIn(s.top());<br>            }<br>            System.out.println(s.pop());<br>        }<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">####### Stack - Usage</span><br><span class="line">Most popular languages provide built-in stack libaray so you don&apos;t have ro reinvent the wheel. Besides initialization, we need to know how to use the two most important </span><br><span class="line">operations, pop and push. Also, you should be able to get the top element  from the stack . Below are some code examples for your reference:</span><br></pre></td></tr></table></figure>
+
+<p>// C++<br>int main() {<br>    // 1. Initialize a stack<br>    stack<int> s;<br>    // 2. Push new element<br>    s.push(5);<br>    s.push(13);<br>    s.push(8);<br>    s.push(6);</int></p>
+<pre><code>// 3. Check if stack is empty
+if(s.empty()){
+    cout &lt;&lt; &quot;Stack is empty!&quot; &lt;&lt; endl;
+    return 0;
+}
+// 4. Pop an element
+s.pop();
+// 5. Get the top element
+cout &lt;&lt; &quot;The top element is: &quot; &lt;&lt; s.top() &lt;&lt; endl;
+// 6. Get the size of the stack.
+cout &lt;&lt; &quot;The size is: &quot; &lt;&lt; s.size() &lt;&lt; endl;</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>// Java<br>// “static void main” must be defined in a public class<br>public class Main {<br>    public static void main(String[] args) {<br>        // 1. Initialize a stack<br>        Stack<integer> s = new Stack&lt;&gt;();<br>        // 2. Push new element<br>        s.push(5)<br>        s.push(13);<br>        s.push(8);<br>        s.push(6);<br>        // 3. Check if the stack is empty<br>        if(s.empty() == true) {<br>            System.out.println(“Stack is empty!”);<br>            return;<br>        }<br>        // 4. Pop an elements<br>        s.pop();<br>        // 5. Get the top element<br>        System.out.println(“The top element is: “ + s.peek());<br>        // 6. Get the size of the stack<br>        System.out.println(“The size is: “ + s.size());<br>    }<br>}</integer></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">From now on, we are able to use the built-in stack library to solve problems more conveniently. Let&apos;s start with an interesting problem(Min Stack) to help you review the useful operations. Then we will</span><br><span class="line">take a look at some classic Stack problems. When you want to process the last element first, the stack will be the most appropriate data structure</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">######## Min Stack</span><br><span class="line">Design a stack that support push, pop, top, and retrieving the minimum element in constant time.</span><br><span class="line">    - push(x) -- Push element x onto stack</span><br><span class="line">    - pop(x) -- Removes the element on top of the stack</span><br><span class="line">    - top() -- Get the top element</span><br><span class="line">    - getMin() -- Retrieve the minimum element in the stack</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin();   --&gt; Returns -3</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top(); --&gt; Returns 0</span><br><span class="line">minStack.getMin(); --&gt; Returns -2</span><br><span class="line"></span><br><span class="line">######## Valid Parentheses</span><br><span class="line">Given a string containing just the characters &apos;(&apos;, &apos;)&apos;,&apos;&#123;&apos;, &apos;&#125;&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.</span><br><span class="line"></span><br><span class="line">An input string is valid if:</span><br><span class="line">    1. Open brackets must be closed by the same type of brackets</span><br><span class="line">    2. Open brackets must be closed in the correct order.</span><br><span class="line"></span><br><span class="line">######## Daily Temperatures</span><br><span class="line">Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put 0 instead.</span><br><span class="line"></span><br><span class="line">For example, given the list or temperature T = [73, 74, 74, 71, 69, 72, 76, 73], your output should be [1, 1, 4, 2, 1, 1, 0, 0]</span><br><span class="line">Note: The length of temperatures will be in the range[1, 30000]. Each temperature will be an integer in the range [30, 100]</span><br><span class="line"></span><br><span class="line">######## Evaluate Reverse Polish Notation</span><br><span class="line">Evaluate the value of an arthmetic expression in Reverse Polish Notation</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line">    - Division between two integers should truncate toward zero</span><br><span class="line">    - The given RPN expression is always valid. That means the expression would always evaluate to result and there won&apos;t be any divide by zero operation.</span><br><span class="line"></span><br><span class="line">####### Stack and DFS</span><br><span class="line">Prerequisite: Tree Traversal</span><br><span class="line"></span><br><span class="line">Smilar to BFS, Depth-First Search(DFS) can also be used to find the path from the root node to the target node. In this article, we provide an example to explain how DFS works and how a stack helps with DFS step by step.</span><br><span class="line"></span><br><span class="line">######## An Example</span><br><span class="line">Let&apos;s take a look at an example. We want to find a path from the root node A to the target node G by DFS</span><br><span class="line">[DFS](https://leetcode.com/explore/learn/card/queue-stack/232/practical-application-stack/1377/)</span><br><span class="line"></span><br><span class="line">Insights</span><br><span class="line">After watching the animation above, let&apos;s answer the following qestions:</span><br><span class="line">1. What is the processing order of the nodes?</span><br><span class="line">In the example above, we start from the root node A. First, we choose the path to the node B and trace-back til we reach the node E where we have no way to do deeper. Then we backtrack to A and choose the second path to the node C.From C, we try the first path to E but E has been visited. So we go back to C and ty another path to F. Finally, we find G.</span><br><span class="line"></span><br><span class="line">Overall, we only trace-back and try another path after we reach the deepest node.</span><br><span class="line"></span><br><span class="line">As a result, the first path you found in DFS is not always the shortest path. For instance, in the example above, we successfully found a path A-&gt;C-&gt;F-&gt;G and stop the DFS. But this is not the shortest path from A to G</span><br><span class="line"></span><br><span class="line">2. What is the push and pop order of teh stack?</span><br><span class="line"></span><br><span class="line">As shown in the animation above, we first push the root node to the stack; then we try the first neighbor B and push node B to the stack; so on and so forth. when we reach the deepest node E, we need to track back. And when we trace back, we will pop the deepest node from tha stack which is actually the last one pushed to the stack.</span><br><span class="line"></span><br><span class="line">The processing order of the nodes is the exact opposite order as how they were added to the stack, which is Last-in-First-out(LIFO). That&apos;s why we use a stack in DFS.</span><br><span class="line"></span><br><span class="line">######## DFS- Template I</span><br><span class="line">As we mentioned in the chapter&apos;s description, in most cases, we can also use DFS when using BFS . But there is an important difference: the traveral order.</span><br><span class="line"></span><br><span class="line">Different from BFS, the nodes you visit earlier might not be the nodes which are closer to the root node. As result, the first path you found in DFS might not be the shortest path.</span><br><span class="line"></span><br><span class="line">In this article, we will provie you a recursion template of DFS and show you how the stack helps with this process. And then we provide some exercise after this article for you to practice.</span><br><span class="line"></span><br><span class="line">Tempalte - Recursion</span><br><span class="line">There are two ways to implement DFS. The first one is to do recursion which you might already be familiar with. Here we provide a template as reference:</span><br></pre></td></tr></table></figure>
+
+<p>// java<br>// return true if there is a path from cur to target<br>boolean DFS(Node cur, Node target, Set<node> visited){<br>    return true if cur is target;<br>    for (next:each neighbor of cur){<br>        if(next is not in visited){<br>            add next to visitde;<br>            return true if DFS(next, target, visited) == true;<br>        }<br>    }<br>    return false;<br>}</node></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">It seems like we don&apos;t have to use any stacks when we implement DFS recursively. But actually, we are using the implict stack provided by the system, also know as the Call Stack.</span><br><span class="line">当我们递归地实现DFS时，似乎不需要使用任何栈，但实际上，我们使用的是系统栈，也称为为调用栈</span><br><span class="line"></span><br><span class="line">An example</span><br><span class="line">Let&apos;s take a look at an example. We want to find a path between node 0 and node 3 in the graph below. We also show you the stack&apos;s status during each call.</span><br><span class="line"></span><br><span class="line">![stack](/images/stackcall.png)</span><br><span class="line"></span><br><span class="line">In each stack element, there is an integer cur, an integer target, a reference to array visited and a reference to array edges, which are exactly the parameters we have in the DFS function.</span><br><span class="line">We only show cur in the stack above.</span><br><span class="line"></span><br><span class="line">Each element costs constant space. And the size of the stack is exactly the depth of DFS, So in the worst case, it costs O(h) to maintain the system stack, where h is the maximum depth of DFS. </span><br><span class="line">You should never forget to take the system stack into consideration when calculating the space complexity.</span><br><span class="line"></span><br><span class="line">In the template above, we stop when we find the first path.</span><br><span class="line">What if you want to find the shortest path?</span><br><span class="line">Hint: Add one more parameter to indicate the shortest path you have already found. </span><br><span class="line"></span><br><span class="line">######### Number of Islands</span><br><span class="line">######### Clone Graph</span><br><span class="line">######### Target Sum</span><br><span class="line"></span><br><span class="line">######## DFS- Template II</span><br><span class="line">The advantage of the recursion solution is that it is easier to implement. However, there is a huge disadvantage: if the depth of recursion is to high, you will suffer from stack overflow. In that case, you might want to use BFS instead or implement DFS using an explicit stack.</span><br><span class="line"></span><br><span class="line">Here are provide a template using an explicit stack</span><br></pre></td></tr></table></figure>
+
+<p>// Java<br>// Return true if there is a path from cur to target<br>boolean DFS(int root, int target) {<br>    Set<node> visited;<br>    Stack<node> stack;<br>    add root to stack;<br>    while (s is not empty) {<br>        Node cur = the top element in stack;<br>        remove the cur from the stack;<br>        return true if cur is target;<br>        for(Node next: the neighbours of cur) {<br>            if( next is not in visited) {<br>                add next to visited;<br>                add next to stack;<br>            }<br>        }<br>    }<br>    return false;<br>}<br>```</node></node></p>
+<p>The logic is exactly the same with the recursion solution, But we use while loop and stack to simulate the sytem call stack during recursion. Running through several examples manuallt will definitely help you understand it better.<br>使用while循环和栈来模拟递归期间的系统调用栈</p>
+<p>######### Binary Tree Inorder Traversal</p>
+<p>######## Conclusion<br>In previous chapters, we have introduced two data structure: Queue and Stack</p>
+<ol>
+<li>Queue<br>Queue is a FIFO data structure: the first element will be processed first. There are two important operations:enqueue and dequeue. We can use a dynamic array with two pointers to implement a queue.</li>
+</ol>
+<p>We can use queue to implement Breath-first Search(BFS)</p>
+<p>There are also some important extension of the queue. For example<br>    - Dequeue<br>    - Priority Queue<br>We will inroduce these structures in later cards.</p>
+<ol start="2">
+<li>Stack </li>
+</ol>
+<p>Stack is a LIFO data structure: the last element will be processed first. There are two important operations: push and pop. The implementation of stack is quite simple. A dynamic array will be enough to implement a stack.</p>
+<p>We use stack when LIFO principle is satisfied. Depth-first Search(DFS) is an important applicaitons of stack.</p>
+<ol start="3">
+<li>Summary<br>To summarize, you should be able to understand and compare the following concepts:<ul>
+<li>FIFO and LIFO</li>
+<li>Queue and Stack</li>
+<li>BFS and DFS</li>
+</ul>
+</li>
+</ol>
+<p>The best way to be comfortable with this topic is to pratice. We provide some more exercise for you in this chapter.</p>
+<p>######### implement Queue using Stacks</p>
+<p>######### implement Stack using Queues</p>
+<p>######### Decode String</p>
+<p>######### Flood Fill</p>
+<p>######### 01 Matrix </p>
+<p>######### Keys and Rooms</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/16/python/" rel="next" title="python">
+                <i class="fa fa-chevron-left"></i> python
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/23/Tableau/" rel="prev" title="Tableau">
+                Tableau <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/bekjae.jpg" alt="KOKI HOO">
+            
+              <p class="site-author-name" itemprop="name">KOKI HOO</p>
+              <p class="site-description motion-element" itemprop="description">PEACE&LOVE</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Queue-First-in-first-out-Data-Structure"><span class="nav-number">1.1.</span> <span class="nav-text">Queue - First-in-first-out Data Structure</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KOKI HOO</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">66.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jD3hLxRDgCSdorrir1RFkW3R-gzGzoHsz", "9AOQX6uUKthSSONK5UO95RGd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
