@@ -103,7 +103,10 @@
 <meta property="og:image" content="http://yoursite.com/images/deleteSinglyLinkListExample2.png">
 <meta property="og:image" content="http://yoursite.com/images/deleteFirstLinkedList.png">
 <meta property="og:image" content="http://yoursite.com/images/deleteHeadFirstLinkedList2.png">
-<meta property="og:updated_time" content="2020-01-09T02:44:40.237Z">
+<meta property="og:image" content="http://yoursite.com/images/cycleLinkedList1.png">
+<meta property="og:image" content="http://yoursite.com/images/cycleLinkedList02.png">
+<meta property="og:image" content="http://yoursite.com/images/cycleLinkedList03.png">
+<meta property="og:updated_time" content="2020-01-09T06:51:06.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链表">
 <meta name="twitter:description" content="IntroductionWe are going to introduce another data structure - Linked List. Similar to the array, the linked list is also a linear data structure . Here is an example: AS you can see, each element in">
@@ -345,7 +348,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-01-09T10:44:40+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-01-09T14:51:06+08:00">
                 2020-01-09
               </time>
             
@@ -406,7 +409,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.8k
                 </span>
               
 
@@ -422,7 +425,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  11
                 </span>
               
             </div>
@@ -494,7 +497,25 @@
 <p>What about deleting the last node? Can we still use similar strategy?</p>
 <p>######### Design Linked List</p>
 <p>Design your implementation of the linked list, you can choose to use the singly linkd list or the doubly linked list. A node in a singly linked list should have two attributes: [val] and [next]. val is the value of the current node, and next is a pointer/reference to the next node. If you want to use the doubly linked list, you will need one more attribute [prev] to indicate the previous node in the linked list. Assume all nodes in the linked list are 0-indexed.</p>
-<p>Implement these functions in your linked list class:<br>    - get(index): Get the value of the index-th node in the linked list. If the index  is invalid, return -1.<br>    - addAtHead(val): Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.<br>    - addAtTail(val): Append a node of value val to the last element of linked list</p>
+<p>Implement these functions in your linked list class:<br>    - get(index): Get the value of the index-th node in the linked list. If the index  is invalid, return -1.<br>    - addAtHead(val): Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.<br>    - addAtTail(val): Append a node of value val to the last element of linked list.<br>    - addAtIndex(index, val): Add a node of value val before the index-th node in the linked list. if index equals to the length of linked list, the node will be appearenced to the end of linked list. If index is greater than the length, the node will not be inserted.<br>    - deleteAtIndex(index): Delete the index-th node in the linked list , if the index is valid.</p>
+<p>######### Two-Pointer in Linked List<br>let’s start with a classic problem:</p>
+<pre><code>Given a linked list, determine if it has a cycle in it.</code></pre><p>You might have come up with the solution using the hash table. But there is a more efficient solution using the two-pointer technique. Try to think it over by yourself befeore reading the remaining content.</p>
+<p>Imagine there are two runners with different speed. If they are running on a straight path, the fast runner will first arrive at the destination. However, if they are runnig on a circular track, the fast runner will catch up with the slow runner if they keep running.</p>
+<p>That’s exactly what we will come across using teo pointers with speed in a linked list</p>
+<ol>
+<li>If there is no cycle, the fast pointer will stop at the end of the linked list.</li>
+<li>If there is a cycle, the fast pointer will eventuallt meet with the slow poniter.</li>
+</ol>
+<p>So the only remaining problems is:</p>
+<pre><code>What should be the proper speed for the two pointers?</code></pre><p>It is a safe choice to movw the slow pointer one step at a time whileing moving the fast pointer two steps at a time/ For each iteration, the fast pointer will move one extra step. If the length of the cycle is M, after M iterations, the fast pointer will definitely move one more cycle  and catch up with the slow pointer.</p>
+<pre><code>What about other choices? Do they work? Would they be more efficent?</code></pre><p>######### Linked List Cycle<br>Given a linked list, determine if it has a cycle in it </p>
+<p>To represent a cycle in the given linked list, we use an integer pos which presents the position (0-indexed) in the linked list where tail connects to . If pos is -1, then there is no cycle in the linked list.</p>
+<p>Example 1:<br>Input: head = [3,2,0,-4], pos = 1<br>Output: true<br>Explanation: There is a cycle in the linked list , where tail connects to the second node.<br><img src="/images/cycleLinkedList1.png" alt="Linked list Cycle 01"></p>
+<p>Example 2:<br>Input: head = [1,2], pos = 0<br>Output: true<br>Explanation: There is a cycle in the linkd list, where tail connects to the first node.<br><img src="/images/cycleLinkedList02.png" alt="Linked list Cycle 02"></p>
+<p>Example 3:<br>Input: head = [1], pos = -1<br>Output: false<br>Explanation: There is no cycle in the Linked list.<br><img src="/images/cycleLinkedList03.png" alt="Linked list Cycle 03"></p>
+<p>######### Linked List Cycle II<br>Given a linked list, return the node where the cycle egins, if there is no cycle, return null.</p>
+<p>To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to . If pos is -1, then there is no cycle in the linked list.</p>
+<p>Note: Do not modify the linked list.</p>
 
       
     </div>
@@ -704,7 +725,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">66.5k</span>
+    <span title="Site words total count">67k</span>
   
 </div>
 
