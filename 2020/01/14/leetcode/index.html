@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[20]Valid PartenthesesGiven a string containing just the characters &amp;apos;(&amp;apos;, &amp;apos;)&amp;apos;, &amp;apos;{&amp;apos;, &amp;apos;}&amp;apos;, &amp;apos;[&amp;apos;, &amp;apos;]&amp;apos;, determined if the input string is valid An">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嘻唰唰嘻唰唰">
+<meta property="og:url" content="http://yoursite.com/2020/01/14/leetcode/index.html">
+<meta property="og:site_name" content="KOKI">
+<meta property="og:description" content="[20]Valid PartenthesesGiven a string containing just the characters &amp;apos;(&amp;apos;, &amp;apos;)&amp;apos;, &amp;apos;{&amp;apos;, &amp;apos;}&amp;apos;, &amp;apos;[&amp;apos;, &amp;apos;]&amp;apos;, determined if the input string is valid An">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/DiagonalTraverse.png">
+<meta property="og:updated_time" content="2020-03-18T10:18:37.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="嘻唰唰嘻唰唰">
+<meta name="twitter:description" content="[20]Valid PartenthesesGiven a string containing just the characters &amp;apos;(&amp;apos;, &amp;apos;)&amp;apos;, &amp;apos;{&amp;apos;, &amp;apos;}&amp;apos;, &amp;apos;[&amp;apos;, &amp;apos;]&amp;apos;, determined if the input string is valid An">
+<meta name="twitter:image" content="http://yoursite.com/images/DiagonalTraverse.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/14/leetcode/">
+
+
+
+
+
+  <title>嘻唰唰嘻唰唰 | KOKI</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5ecac7771fad0fda5191a255b9e3f5c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KOKI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KOKI HOO">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/bekjae.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOKI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">嘻唰唰嘻唰唰</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T14:15:20+08:00">
+                2020-01-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-18T18:18:37+08:00">
+                2020-03-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/01/14/leetcode/" class="leancloud_visitors" data-flag-title="嘻唰唰嘻唰唰">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="20-Valid-Partentheses"><a href="#20-Valid-Partentheses" class="headerlink" title="[20]Valid Partentheses"></a>[20]Valid Partentheses</h5><pre><code>Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos;, &apos;]&apos;, determined if the input string is valid
+An input string is valid if：
+    1. Open brackets must be closed by the same type of brackets.
+    2. Open brackets must be closed in the correct order
+
+Note than an empty string is also considered valid.
+
+Example 1:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+Example 2:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+Example 3:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+
+Example 4:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+
+Example 5:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+解题思路：
+使用栈，遍历输入字符串
+如果当前字符为左半边括号时，将其压入栈中
+如果遇到右边括号是，分类讨论：
+1) 如栈不为空且，取出栈顶元素为对应的左半边括号，继续循环
+2) 若此时栈为空，则直接返回false
+3) 若不为对应的左半边，反之返回false
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        map = &#123;</span><br><span class="line">            <span class="string">"&#123;"</span> : <span class="string">"&#125;"</span>,</span><br><span class="line">            <span class="string">"["</span> : <span class="string">"]"</span>,</span><br><span class="line">            <span class="string">"("</span> : <span class="string">")"</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">in</span> map:</span><br><span class="line">            stack.append(x)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> len(stack) != <span class="number">0</span>:</span><br><span class="line">                top_element = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> x != top_element:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span>:</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> len(stack) == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment">* @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> valid = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">const</span> stack = [];</span><br><span class="line">    <span class="keyword">const</span> mapper = &#123;</span><br><span class="line">        <span class="string">'&#123;'</span>: <span class="string">'&#125;'</span>,</span><br><span class="line">        <span class="string">'['</span>: <span class="string">']'</span>,</span><br><span class="line">        <span class="string">'('</span>: <span class="string">')'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> s) &#123;</span><br><span class="line">        <span class="keyword">const</span> v = s[i];</span><br><span class="line">        <span class="keyword">if</span> ([<span class="string">'('</span>, <span class="string">'&#123;'</span>, <span class="string">'['</span>].indexOf(v) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">            stack.push(v);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> peak = stack.pop();</span><br><span class="line">            <span class="keyword">if</span>(v != mapper[peak])&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(stack.length &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> valid</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+note: 
+1.栈的基本特点和操作：
+2.如果用的是js，js没有现成的栈，可以用数组来模拟：
+    入栈： push  出栈： pop
+    也可用来模拟队列：
+    入队： puhh  出队：shift
+    python：
+    入栈：append  出栈：shift</code></pre><h5 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="[26]Remove Duplicates from Sorted Array"></a>[26]Remove Duplicates from Sorted Array</h5><pre><code>Given a sorted array nums, remove the duplicates in-place such that each element appear only once ande return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+Example 1:
+Given nums = [1,1,2],
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
+It doesn&apos;t matter what you leave beyond the returned length.
+Example 2:
+Given nums = [0,0,1,1,1,2,2,3,3,4],
+Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.
+It doesn&apos;t matter what values are set beyond the returned length.
+
+Clarification:
+Confused why the returned value is an integer but your answer is an array?
+
+Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.
+
+Internaly you can think of this:
+// nums is passed in by reference.(i.e., without making a copy)
+int len = removeDuplicated(nums);
+
+//any modification to nums in your function would be known by the caller
+//using the length returned by your function, it prints the first len elements.
+for(int i = 0; i &lt; len; i++){
+    print(nums[i])
+}
+解题思路：
+使用快慢指针来记录遍历的坐标
+    - 开始时这两个指针都指向第一个数字
+    - 如果两个指针指的数字相同，则快指针向前走一步
+    - 如果不同，则两个指针都向前一步,将快指针对应的值交换给慢指针向前一步的位置
+    - 当快指针走完整个数组后，慢指针当前的坐标加1就是数组中不同数字的个数
+
+**双指针，O(1)的空间复杂度，这种题的思路一般都是采用双指针
+**如果数据是无序的，就可以不用这种方式了，从这里也可以看出排序在算法中的基础性和重要性
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment">* @return &#123;number&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> size = nums.length;</span><br><span class="line">    <span class="keyword">let</span> slowP = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> fastP = <span class="number">0</span>; fastP &lt; size; fastP++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[fastP] !== nums[slowP])&#123;</span><br><span class="line">            slowP++;</span><br><span class="line">            nums[slowP] = nums[fastP]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slowP + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>；</span></span><br><span class="line"><span class="class">    <span class="title">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums:List[int] -&gt; int)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> nums:</span><br><span class="line">            slow = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> fast <span class="keyword">in</span> range(<span class="number">1</span>, len[nums]):</span><br><span class="line">                <span class="keyword">if</span> nums[fast] !== nums[slow]:</span><br><span class="line">                    slow +=<span class="number">1</span></span><br><span class="line">                    nums[slow] = nums[fast]</span><br><span class="line">            <span class="keyword">return</span> slow + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>：</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></code></pre><h5 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="[53]Maximum Subarray"></a>[53]Maximum Subarray</h5><pre><code>Given an integer array nums, find the contiguous subarray(containing at least one number) which has the largest sum and return its sum.
+
+Example:
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+
+Follow up:
+
+If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+解题思路：
+这道题求解连续最大子序列和，以下从时间复杂度角度分析不同的解题思路
+
+************ 这题太难了搞不会</code></pre><h5 id="Binary-Tree-Traversal"><a href="#Binary-Tree-Traversal" class="headerlink" title="Binary Tree Traversal"></a>Binary Tree Traversal</h5><pre><code>二叉树（基本的数据结构） + 遍历算法（基础的算法）
+前中后属于DFS：深度遍历   DFS都可以使用栈来简化操作，并且树本身就是一种递归的数据结构，因此**递归**和**栈**对于DFS是两个关键点
+层次遍历属于BFS： 广度遍历  关键点在于：如何记录每一层是否遍历完成，我们可以用一个标志位来表示当前层遍历的结束
+
+前序遍历的顺序是  根-左-右
+解题思路：
+    1、先将根结点入栈
+    2、出栈一个元素，将右结点和左结点依次入栈
+    3、重复2的步骤
+note：典型的递归数据结构，典型的用栈来简化操作的算法
+
+从宏观上表现为：自顶向下依次访问左侧链，然后自底向上依次访问右侧链，从这个角度出发去写的话，算法就不一样了，从上向下我们可以直接递归访问即可，从下向上我们只需要借助栈也可以轻易做到。
+这种思路解题有点像我总结过的一个解题思路backtrack-回溯法。这种思路可以统一三种遍历的思路。
+
+中序遍历的顺序是  左-根-右，根结点不是最先输出的
+    1、根结点入栈
+    2、判断有没有左结点，如果有，则入栈，直到叶子节点
+    此时栈中保存的就是所有的左结点和跟结点
+    3、出栈，判断有没有右结点，有则入栈，继续执行2
+
+值得注意的是，中序遍历一个二叉查找树(BST)的结果是一个有序数组，利用这个性质有些题目可以得到简化，</code></pre><h5 id="94-Binary-Tree-Inorder-Traversal"><a href="#94-Binary-Tree-Inorder-Traversal" class="headerlink" title="[94] Binary Tree Inorder Traversal"></a>[94] Binary Tree Inorder Traversal</h5><pre><code>Given a binary tree, return the inorder traversal of its nodes&apos; values.
+
+Example:
+Input: [1, null, 2, 3]
+1
+ \
+  2
+ /
+ 3
+ output: [1, 3, 2]
+
+ Follow up: Recursive solution is trivial, could you do it iteratively?</code></pre><h5 id="144-Binary-Tree-Preorder-Traversal"><a href="#144-Binary-Tree-Preorder-Traversal" class="headerlink" title="[144] Binary Tree Preorder Traversal"></a>[144] Binary Tree Preorder Traversal</h5><pre><code>Given a binery tree, rerturn the preorder traversal of its node&apos;s values.
+
+Example:
+Input: [1, null, 2, 3]
+1
+ \
+  2
+ /
+ 3
+output: [1,2,3]
+Follow up: Recursive solution is trival, could you do it iteratively? 
+
+解题思路：
+前序遍历是根左右的顺序，注意是根开始，那么就很简单，直接先将根节点入栈，然后看看有没有右结点，有则入栈，在看有没有左结点，有则入栈，然后出栈出每一个元素，重复即可
+
+关键点解析：
+- 二叉树的基本操作(遍历)
+- 如果非递归的话利用栈来简化操作
+- 如果数据规模不大，建议使用递归
+- 递归的问题需要注意两点：一个是终止条件，一个是如何缩小
+    1、终止条件，自然是当前这个元素是null。链表也是一样
+    2、由于二叉树本身就是一个递归结构，每次处理一个子树其实就是缩小了规模，难点在于如何合并结果，这里的合并结果其实就是mid.concat(left).concat(roght), mid是一个具体的节点，left和right递归求出即可
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iterative</span></span><br><span class="line"><span class="keyword">var</span> preorderTraversal = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root) <span class="keyword">return</span> [];</span><br><span class="line">    <span class="keyword">const</span> ret = [];</span><br><span class="line">    <span class="keyword">const</span> stack = [root];</span><br><span class="line">    <span class="keyword">let</span> t = stack.pop();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(t)&#123;</span><br><span class="line">        ret.push(t.val);</span><br><span class="line">        <span class="keyword">if</span>(t.right)&#123;</span><br><span class="line">            stack.push(t.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t.left)&#123;</span><br><span class="line">            stack.push(t.left);</span><br><span class="line">        &#125;</span><br><span class="line">        t = stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Recursive</span></span><br><span class="line"><span class="comment">// Definition for a binary tree node.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TreeNode</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.val = val;</span><br><span class="line">    <span class="keyword">this</span>.left = <span class="keyword">this</span>.right = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*@param &#123;TreeNode&#125; root</span></span><br><span class="line"><span class="comment">*@return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> preorderTraversal = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Recursive solution</span></span><br><span class="line">    <span class="keyword">if</span> (!root) <span class="keyword">return</span> []</span><br><span class="line">    <span class="keyword">return</span> [root.val].concat(preorderTravesal(root.left)).concat(preorderTraversal(root.right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Recursive</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">preorderTraversal</span><span class="params">(self, root)</span>:</span>    </span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        : type root: TreeNode</span></span><br><span class="line"><span class="string">        ：rtypr: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">return</span> [root.val] + self.preorderTraversl(root.left) + self.preorderTraversal(root.right)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Iterative</span></span><br><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">preorderTraversal</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        stack = [root]</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            cur = stack.pop()</span><br><span class="line">            res.append(cur.val)</span><br><span class="line">            <span class="keyword">if</span> cur.right:</span><br><span class="line">                stack.append(cur.right)</span><br><span class="line">            <span class="keyword">if</span> cur.left:</span><br><span class="line">                stack.append(cur.left)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></code></pre><h5 id="Diagonal-Traverse"><a href="#Diagonal-Traverse" class="headerlink" title="Diagonal Traverse"></a>Diagonal Traverse</h5><p>Given a matrix of M * N elements(M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.</p>
+<h6 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h6><p>Input:<br>[<br>    [1, 2, 3],<br>    [4, 5, 6],<br>    [7, 8, 9]<br>]</p>
+<p>Output: [1,2,4,7,5,3,6,8,9]</p>
+<h6 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation:"></a>Explanation:</h6><p><img src="/images/DiagonalTraverse.png" alt="DiagonalTraverse"></p>
+<h6 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h6><p>Analysis：<br>Analyze the characteristic of the travese order, it shows that, The direction of the diagonal is related to the parity of the index amount( The index value of the row + the index value of the column), And then add the boundary case, The traversal route is roughly out.</p>
+<p>Specific can be divided into the following serveral cases.</p>
+<ol>
+<li>index is even:<ul>
+<li>item in the first column, run right</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="Contains-Duplicates"><a href="#Contains-Duplicates" class="headerlink" title="Contains Duplicates"></a>Contains Duplicates</h4><p>Given an array of integers, find if the array contains any duplicates</p>
+<p>Example 1:<br>Input: [1,2,3,1]<br>Output: true</p>
+<p>Example 2:<br>Input: [1,2,3,4]<br>Output: false</p>
+<p>Example 3:<br>Input: [1,1,1,3,3,4,3,2,4,2]<br>Output: true</p>
+<h5 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h5><p>This article is for beginners. It introduces the following ideas: Loop Invariant, Linear Search, Sorting and Hash Table.</p>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><h5 id="Approach-1-Naive-Linear-Search-Time-limited-Exceeded"><a href="#Approach-1-Naive-Linear-Search-Time-limited-Exceeded" class="headerlink" title="Approach #1(Naive Linear Search)[Time limited Exceeded]"></a>Approach #1(Naive Linear Search)[Time limited Exceeded]</h5><h6 id="Intuition"><a href="#Intuition" class="headerlink" title="Intuition"></a>Intuition</h6><p>For an array of n integers, there are C(n, 2) = n(n+1) /2 pairs of integers. Thus, we may check all n(n+1)/2 pairs and see if there is any pair with dupicates.</p>
+<h6 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h6><p>To apply this idea, we employ the linear search algorithm which is the simplest search algorithm. Linear search is a method of finding if a particular value is in a list by checking each of its elements, one at a time and in sequence until the desired one is found.</p>
+<p>For our problem, we loop through all n integers. For the ith integer nums[i], we search in the previous i-1 integers for the duplicate of nums[i]. If we find one, we return true, if not, we continue. Return false at the end of the program.</p>
+<p>To prove the correctness of the algorithm, we define the loop invariant. A loop invariant is a property that holds before(and after) each iteration.Knowing its invariant(s) is essential for understanding the effect of a loop. Here is the loop invariant.</p>
+<pre><code>Before the next search, there are no duplicate integers in the search integers.</code></pre><p>The loop invariant holds true before the loop because there is no searched integer. Each time through the loop we look for any any possible dupicate of the current element. If we found a dupicate, the function exits by returning true, if not ,the invaraint still  holds true.</p>
+<p>Therefore, if the loop finishes, the invariant tells us that there is no duplicate in all n integers.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[j] == nums[i]) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Time Limit Exceeded</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="Complexity-Analysis"><a href="#Complexity-Analysis" class="headerlink" title="Complexity Analysis"></a>Complexity Analysis</h6><ul>
+<li>Time complexity: O(n^2), In the worst case, there are n(n+1)/2 pairs of integers to check. therefore, the time complexity is O(n^2).</li>
+<li>Space complexity: O(1). We only used constant extra space.</li>
+</ul>
+<h6 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h6><p>This approach will get Time Limit Exceeded on LeetCode. Usually, If an algorithm is O(n^2), it can handle n up to around 10^4. It gets Times Limit Exceeded when n&gt;= 10^5.</p>
+<h5 id="Approach-2-Sorting-Accepted"><a href="#Approach-2-Sorting-Accepted" class="headerlink" title="Approach #2(Sorting)[Accepted]"></a>Approach #2(Sorting)[Accepted]</h5><h6 id="Intuition-1"><a href="#Intuition-1" class="headerlink" title="Intuition"></a>Intuition</h6><p>If there are any duplicate integers, they will be consecutive after sorting.</p>
+<h6 id="Alogrithm"><a href="#Alogrithm" class="headerlink" title="Alogrithm"></a>Alogrithm</h6><p>This apporach employs sorting algrithm. Since comparsion sorting algorithm like heapsort is known to provide O(nlogn) worst-case performance, sorting is often a good preprocessing step.(所以排序是一个很好的预处理步骤) After sorting, we can sweep the sorted array to find if there are any two consecutive duplicate elements.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    Array.sort(nums);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] == nums[i+<span class="number">1</span>]) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="Complexity-Analysis-1"><a href="#Complexity-Analysis-1" class="headerlink" title="Complexity Analysis"></a>Complexity Analysis</h6><ul>
+<li>Time complexity: O(nlogn).Sorting is O(nlogn) and the sweeping is O(n). The entire algorithm is dominated by the sorting step, which is O(nlogn).</li>
+<li>Space complexity: O(1), Space depends on the sorting implementation which, usually, costs O(1) auxiliary space if heapsort is used.</li>
+</ul>
+<h6 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h6><p>The implementation here modifies the original array by sorting it. In general, it is not a good practice to modify the input unless it is clear to the caller that the input will be modified. One way make a copy of nums and operate on the copy instead.</p>
+<h5 id="Approach-3-Hash-table-Accepted"><a href="#Approach-3-Hash-table-Accepted" class="headerlink" title="Approach #3(Hash table)[Accepted]"></a>Approach #3(Hash table)[Accepted]</h5><h6 id="Intution"><a href="#Intution" class="headerlink" title="Intution"></a>Intution</h6><p>Utilize a dynamic data structure that supports fast search and insert operations.</p>
+<h6 id="Alogrithm-1"><a href="#Alogrithm-1" class="headerlink" title="Alogrithm"></a>Alogrithm</h6><p>From Approach#1 we know that search operation is O(n) is an unsorted array and we did so repeatedly. Utilizing a data structure with faster search time will speed up the entire alorithm.</p>
+<p>There are many data structures commonly used as dynamic sets such as Binary Search Tree and Hash Table. The operations we need to support here are search() and insert(). For a self-balncing Binary Search Tree(TreeSet or TreeMap in Java), search() and insert() are both O(nlogn) time.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/07/Linked List/" rel="next" title="链表">
+                <i class="fa fa-chevron-left"></i> 链表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/14/ArrayAndString/" rel="prev" title="Array and String">
+                Array and String <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/bekjae.jpg" alt="KOKI HOO">
+            
+              <p class="site-author-name" itemprop="name">KOKI HOO</p>
+              <p class="site-description motion-element" itemprop="description">PEACE&LOVE</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#20-Valid-Partentheses"><span class="nav-number">1.</span> <span class="nav-text">[20]Valid Partentheses</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">2.</span> <span class="nav-text">[26]Remove Duplicates from Sorted Array</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">3.</span> <span class="nav-text">[53]Maximum Subarray</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Binary-Tree-Traversal"><span class="nav-number">4.</span> <span class="nav-text">Binary Tree Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#94-Binary-Tree-Inorder-Traversal"><span class="nav-number">5.</span> <span class="nav-text">[94] Binary Tree Inorder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#144-Binary-Tree-Preorder-Traversal"><span class="nav-number">6.</span> <span class="nav-text">[144] Binary Tree Preorder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Diagonal-Traverse"><span class="nav-number">7.</span> <span class="nav-text">Diagonal Traverse</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Example"><span class="nav-number">7.1.</span> <span class="nav-text">Example:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Explanation"><span class="nav-number">7.2.</span> <span class="nav-text">Explanation:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Solution"><span class="nav-number">7.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#Contains-Duplicates"><span class="nav-number"></span> <span class="nav-text">Contains Duplicates</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Summary"><span class="nav-number">1.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1"><span class="nav-number"></span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-1-Naive-Linear-Search-Time-limited-Exceeded"><span class="nav-number">1.</span> <span class="nav-text">Approach #1(Naive Linear Search)[Time limited Exceeded]</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Intuition"><span class="nav-number">1.1.</span> <span class="nav-text">Intuition</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Complexity-Analysis"><span class="nav-number">1.3.</span> <span class="nav-text">Complexity Analysis</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Note"><span class="nav-number">1.4.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-2-Sorting-Accepted"><span class="nav-number">2.</span> <span class="nav-text">Approach #2(Sorting)[Accepted]</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Intuition-1"><span class="nav-number">2.1.</span> <span class="nav-text">Intuition</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Alogrithm"><span class="nav-number">2.2.</span> <span class="nav-text">Alogrithm</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Complexity-Analysis-1"><span class="nav-number">2.3.</span> <span class="nav-text">Complexity Analysis</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Note-1"><span class="nav-number">2.4.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-3-Hash-table-Accepted"><span class="nav-number">3.</span> <span class="nav-text">Approach #3(Hash table)[Accepted]</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Intution"><span class="nav-number">3.1.</span> <span class="nav-text">Intution</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Alogrithm-1"><span class="nav-number">3.2.</span> <span class="nav-text">Alogrithm</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KOKI HOO</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">75.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jD3hLxRDgCSdorrir1RFkW3R-gzGzoHsz", "9AOQX6uUKthSSONK5UO95RGd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
