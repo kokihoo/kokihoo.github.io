@@ -15,8 +15,8 @@ export default defineConfig({
       {
         text: 'DS',
         items: [
-          { text: '线性表', items: [
-            { text: "【顺序表】01", link: '/linear-list/sqlist-01'}
+          { text: '线性表', collapsed: false, items: [
+            { text: "顺序表-01题", link: '/linear-list/sqlist-01'}
           ] },
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
