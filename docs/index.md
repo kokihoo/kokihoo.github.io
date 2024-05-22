@@ -8,15 +8,16 @@ hero:
   tagline: Great project notes
   actions:
     - theme: brand
-      text: 线性表
-      link: /linear-list/sqlist-01
+      text: 线性表 
+      link: /ds/linear-list/sqlist/sqlist-01
     - theme: alt
-      text: API Examples
+      text: ……
       link: /api-examples
 
 features:
   - title: 线性表
-    details: 顺序表(静态存储)——算法设计与应用; 链表(链式存储)——算法设计与应用
+    details: 顺序表(静态存储)——算法设计与应用;
+             链表(链式存储)——算法设计与应用
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
