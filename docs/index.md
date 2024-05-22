@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "H.Blog"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "A CS Learning Site"
+  tagline: Great project notes
   actions:
     - theme: brand
       text: Markdown Examples
