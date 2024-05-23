@@ -23,7 +23,7 @@ const getFilesInDirectory = (directory) => {
             // path: filePath,
             // stats,
             text: stats.isFile() ?
-             `${menucnmap[path.basename(filePath, '.md').replace(/[^a-zA-Z]/g, '')]}-${path.basename(filePath, '.md').replace(/[^0-9]/g, '')}题` 
+             `题目${path.basename(filePath, '.md').replace(/[^0-9]/g, '')}` 
              : `${menucnmap[filePath.split(path.sep).pop()]}`,
             link: stats.isFile() ? filePath.split(path.sep).join('/').replace('docs', '') : undefined,
             items: stats.isFile() ? undefined : (await getFilesInDirectory(filePath)),
