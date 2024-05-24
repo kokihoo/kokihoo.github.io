@@ -75,6 +75,7 @@ export default async() => {
     },
     markdown: {
       lineNumbers: true,
+      math: true,
       // container: {
       //   tipLabel: '提示',
       //   warningLabel: '警告',
