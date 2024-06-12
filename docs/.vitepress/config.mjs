@@ -51,17 +51,23 @@ export default async() => {
       sidebar: [
         {
           text: 'DS',
-          items: (await getFilesInDirectory('./docs/ds/'))
-          // [
-          //   { text: '线性表', collapsed: false, items: [
-          //     { text: "顺序表-01题", link: '/ds/linear-list/sqlist-01.md'},
-          //     { text: "顺序表-02题", link: '/ds/linear-list/sqlist-02.md'},
-          //   ] },
-          // ]
+          collapsed: false,
+          items: [
+            {
+              text: '线性表',
+              items: (await getFilesInDirectory('./docs/ds/linear-list')),
+              collapsed: true
+            },
+            {
+              text: '线性表的应用',
+              items: (await getFilesInDirectory('./docs/ds/list-apply')),
+              collapsed: true
+            },    
+          ],
         },
         {
           text: 'example',
-          collapsed: true,
+          collapsed: false,
           items:[
             { text: 'Markdown Examples', link: '/markdown-examples' },
             { text: 'Runtime API Examples', link: '/api-examples' }
