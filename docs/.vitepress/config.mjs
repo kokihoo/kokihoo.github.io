@@ -62,7 +62,22 @@ export default async() => {
               text: '线性表的应用',
               items: (await getFilesInDirectory('./docs/ds/list-apply')),
               collapsed: true
-            },    
+            },   
+            {
+              text: '串',
+              items: (await getFilesInDirectory('./docs/ds/string')),
+              collapsed: true
+            },   
+            {
+              text: '树',
+              items: (await getFilesInDirectory('./docs/ds/tree')),
+              collapsed: true
+            },
+            {
+              text: '图',
+              items: (await getFilesInDirectory('./docs/ds/graph')),
+              collapsed: true
+            },      
           ],
         },
         {
